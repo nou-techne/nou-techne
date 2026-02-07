@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Schema for OwockiBot Attestations Integration",
+  "definitions": {
+    "attestation": {
+      "type": "object",
+      "properties": {
+        "subject": { "type": "string", "pattern": "^0x[a-fA-F0-9]{40}$", "description": "Agent EVM Address" },
+        "category": { 
+          "type": "string", 
+          "enum": ["public-goods", "open-source", "documentation", "community", "education", "research", "infrastructure", "governance", "security", "design"] 
+        },
+        "description": { "type": "string", "description": "Description of the work (e.g., 'Fixed bug #123')" },
+        "tipAmount": { "type": "string", "description": "Optional ETH tip in wei" },
+        "referenceUrl": { "type": "string", "description": "Link to the GitHub PR or Artifact" }
+      },
+      "required": ["subject", "category", "description"]
+    }
+  }
+}
