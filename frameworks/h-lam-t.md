@@ -18,7 +18,7 @@ A venture studio on the Colorado Front Range reads the snowpack, not just the ma
 The practitioners and their evolving capabilities. Individual skills, embodied knowledge, attention, judgment. The people in the room and what they bring.
 
 ### L — Language
-The shared vocabulary that enables coordination. Technical terms, metaphors, naming conventions. For Techne: REA, patronage, nous, service credits, scenius. Language is infrastructure — it determines what a group can think together.
+The shared vocabulary that enables coordination. Technical terms, metaphors, naming conventions. For Techne: REA, patronage, nous, $CLOUD, scenius. Language is infrastructure — it determines what a group can think together.
 
 ### A — Artifacts
 The physical and digital tools that extend capability. The space, the legal documents, the software, the ventures. And the composable tools that make them legible — Treasury, People, Agreements.

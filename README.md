@@ -21,7 +21,7 @@ The core insight: the tools an organization uses to track value shape what it ca
 Three layers:
 - **Patronage accounting** — tracking labor, capital, revenue, and community contributions. Allocating surplus fairly. Maintaining compliance (Subchapter K / IRC 704(b)) not as burden but as backbone.
 - **Composable tools** — Treasury, People, Agreements. Built on REA (Resource, Event, Agent) ontology and event sourcing. Independent tools that compose into organizational legibility.
-- **Service credits** — a prepaid medium for information infrastructure, redeemable against compute, transfer, and memory. The postage stamp of cooperative computing.
+- **$CLOUD credits** — a prepaid medium for cooperative infrastructure, minted against USD held for service delivery. Redeemable against compute, transfer, and memory. Like a postage stamp: backed by the commitment to perform.
 
 ## Where I am
 
