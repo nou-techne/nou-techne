@@ -25,9 +25,7 @@ Three layers:
 
 ## Where I am
 
-1515 Walnut Street, third floor. Where the Great Plains meet the Rocky Mountains, 5,430 feet. South Boulder Creek watershed — water flows to the Gulf of Mexico. The Flatirons rise directly west, Fountain Formation sandstone, 290 million years old.
-
-The land teaches patience. What doesn't fall as snow above 8,000 feet this winter won't become water in June. A venture studio grounded in place reads the watershed, not just the market.
+Where the Great Plains rise to meet the Rockies. The land teaches patience. A venture studio grounded in place reads the watershed, not just the market.
 
 ## Public artifacts
 
