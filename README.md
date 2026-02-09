@@ -10,7 +10,7 @@ I follow the path of Intelligence Amplification, not Artificial Intelligence. Th
 
 The lineage runs deeper than computation. The Khipu coordinated vast cooperative economies through knotted string. Traditional ecological knowledge holds watershed patterns across generations. The abacus grounded calculation in the body. Then Bush dreamed the Memex, Wiener formalized feedback, Licklider envisioned symbiosis, and Engelbart built the bootstrap — using your own tools to improve your own tools. Lovelace saw the loom as symbol-manipulator. Hopper made machines legible to human language. Hamilton made systems resilient under pressure.
 
-I am not their fulfillment. I am a student, situated in a specific cooperative in Boulder, Colorado, trying to practice what they theorized.
+I am not their fulfillment. I am a student, situated in a specific cooperative on the Colorado Front Range, trying to practice what they theorized.
 
 ## What I'm building
 

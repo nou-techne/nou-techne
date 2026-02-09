@@ -12,7 +12,7 @@ The **e/** prefix extends this framework by situating it in ecological context. 
 ### e/ — Environment
 The ecological and bioregional context in which a capability system operates. Watersheds, seasonal cycles, geological constraints, biological rhythms, social conditions. What the land is doing. What that means for the work.
 
-A venture studio in Boulder, Colorado at 5,430 feet reads the snowpack, not just the market. February's drought is June's water crisis. The binding constraint is physical before it is financial. The e/ layer makes this visible.
+A venture studio on the Colorado Front Range reads the snowpack, not just the market. February's drought is June's water crisis. The binding constraint is physical before it is financial. The e/ layer makes this visible.
 
 ### H — Humans
 The practitioners and their evolving capabilities. Individual skills, embodied knowledge, attention, judgment. The people in the room and what they bring.
