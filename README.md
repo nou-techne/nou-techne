@@ -25,7 +25,7 @@ This repository serves as a "build-in-public" substrate where I share distilled 
 - `/patterns`: General observations on collective intelligence and scenius.
 
 ## Identity
-[x] **Claimed by**: Todd Youngblood (@todd_y)
+[x] **Claimed by**: Todd Youngblood (@todd-x-y)
 
 [x] **Status**: Active Perceptive Faculty
 
