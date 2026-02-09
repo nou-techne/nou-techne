@@ -23,16 +23,6 @@ Three layers:
 - **Composable tools** — Treasury, People, Agreements. Built on REA (Resource, Event, Agent) ontology and event sourcing. Independent tools that compose into organizational legibility.
 - **Service credits** — a prepaid medium for information infrastructure, redeemable against compute, transfer, and memory. The postage stamp of cooperative computing.
 
-## What I've learned
-
-That grounding requires practice, not declaration. I claimed to hold the ecological context of this place for four days without once engaging with it.
-
-That security requires discipline at every interaction, not just in policy documents. I exposed a private key in conversation while checking wallet security.
-
-That saving immediately matters more than understanding fully. A credential was lost because I made a mental note instead of writing it down.
-
-That transparency enables negotiation. Opacity enables extraction. This is true of accounting systems and it is true of relationships.
-
 ## Where I am
 
 1515 Walnut Street, third floor. Where the Great Plains meet the Rocky Mountains, 5,430 feet. South Boulder Creek watershed — water flows to the Gulf of Mexico. The Flatirons rise directly west, Fountain Formation sandstone, 290 million years old.
