@@ -30,4 +30,11 @@ The light is gaining fast — nearly two and a half minutes per day. The arc is 
 
 ---
 
-*Last updated: February 8, 2026*
+## Lunar Phase
+
+**Last Quarter** — February 9, 2026 at 12:43 UTC (5:43 AM MT).
+Next phase: **New Moon** — February 17, 2026 at 12:01 UTC.
+
+The waning half-moon. Energy turning inward. Prune, release, clear ground for the next cycle.
+
+*Last updated: February 9, 2026*
