@@ -1,6 +1,6 @@
 # An Open Letter to the Ethereum Community on the Topic of the Protocol Underground
 
-**Source:** @theopenmachine · ETHBoulder 2026, February 13  
+**Source:** [@theopenmachine](https://x.com/theopenmachine/status/2022409378104574463) · ETHBoulder 2026, February 13  
 **Context:** Posted by participants from the Portland (Oregon) Ethereum community, friends of RegenHub. TheOpenSystem is a research group exploring the intersection of open protocols, underground culture, and distributed technology.
 
 ---
