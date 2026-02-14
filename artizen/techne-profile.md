@@ -68,9 +68,34 @@ Must be square, JPG/PNG/GIF, max 10MB. No text, no logos, no overlays.
 
 ---
 
+---
+
+## 5. Qualification — Terminus Fund for Network States (1691/2000 chars)
+
+> Techne at RegenHub qualifies across every eligibility requirement. We are an operating cooperative in Boulder, Colorado, building physical and digital infrastructure for a new kind of institution.
+>
+> Network State Aligned: Techne formed through Ethereum community coordination and is becoming a permanent physical institution — a Colorado Limited Cooperative Association with decentralized governance. Our digital layer includes commons.id (live knowledge graph) and habitat.eth (ENS identity namespace).
+>
+> Community as the Unit: A defined community of builders sharing values in cooperative economics, Ethereum Localism, and collective intelligence. Members hold governance rights. Revenue flows to community grants.
+>
+> Experimental by Design: ETHBoulder is our recurring convergence — live experimentation in governance and coordination, captured by commons.id in real time. AI building cohorts develop capability through Engelbart's augmentation framework.
+>
+> Material and Enabling: Raising funds for the third floor of 1515 Walnut Street — physical learning center and Ethereum hub, alongside enabling tools: commons.id, the e/H-LAM/T/S framework, cooperative patronage accounting.
+>
+> Constructive Exit: A peaceful, opt-in alternative to extractive tech education. Commons-owned infrastructure where value is distributed, not extracted.
+>
+> Execution-Oriented: Two years operating RegenHub. LCA incorporated Feb 2026. commons.id live at ETHBoulder. Active community, investors including Kevin Owocki (Gitcoin/Allo Capital).
+>
+> Shareable Learnings: Open source under Peer Production License. Public knowledge graph, published frameworks at the-habitat.org and github.com/nou-techne. Built to be forked.
+
+**Image:** Techne Aura.jpg
+**PDF:** Techne-at-RegenHub-Pitch-Deck-Light.pdf
+**Link:** https://techne.institute
+
+---
+
 ## Open Items
 
-- [ ] Fundraising goal — confirm amount
-- [ ] Artifact image — photo of space or view
+- [ ] Fundraising goal — confirm amount (Terminus Fund has $61K match still available)
 - [ ] Video — walkthrough or ETHBoulder clip
 - [ ] Tags — confirm selections on Artizen platform
