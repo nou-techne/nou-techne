@@ -45,7 +45,7 @@
 
 ### Why are you the right person? (250 char limit — 184 chars)
 
-> Todd Youngblood spent two years growing RegenHub into Boulder's regenerative tech hub. A design engineer and co-op organizer, he bridges Ethereum's global vision with local commitment.
+> Todd Youngblood spent two years growing RegenHub into Boulder's regenerative tech hub. A data engineer and co-op organizer, he bridges Ethereum's global vision with local commitment.
 
 ---
 
