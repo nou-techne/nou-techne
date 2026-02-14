@@ -9,10 +9,8 @@
 **Title** (75 char limit)
 > Techne at RegenHub
 
-**Logline** (120 char limit, ~96 target)
-> A cooperative technology learning center and Ethereum community hub on Boulder's Walnut Street, built by the people who use it.
-
-(99 chars)
+**Logline** (120 char limit — 105 chars)
+> A cooperative tech learning center and Ethereum community hub in Boulder, built by the people who use it.
 
 **Tags** (suggested)
 - Ethereum Localism
@@ -27,51 +25,27 @@
 *(To be added — YouTube or Vimeo link)*
 
 **Fundraising Goal**
-*Suggestion: $50,000 — aligns with the Artizen match opportunity. Todd to confirm based on acquisition needs.*
+*Todd to confirm — suggestion: $50,000 to align with Artizen match*
 
 ---
 
 ## 2. Questions
 
-### What are you making? (250 char limit, ~200 target)
+### What are you making? (250 char limit — 192 chars)
 
-> We're building a technology learning center and Ethereum community hub on the third floor of a building in downtown Boulder. A place where people learn to build things together — software, cooperatives, local economies — with shared tools, desks, and mentors who show up every week.
+> A technology learning center and Ethereum hub in downtown Boulder. People learn to build together here — software, cooperatives, local economies — with shared desks, tools, and weekly mentors.
 
-(281 chars — needs trim. Revised:)
+### How will your project impact the world? (250 char limit — 181 chars)
 
-> We're building a technology learning center and Ethereum community hub in downtown Boulder. A place where people learn to build together — software, cooperatives, local economies — with shared desks, tools, and mentors who show up every week.
+> Boulder has talent but no commons-owned space for builders. Techne makes Ethereum infrastructure, civic tech, and cooperative economics skills you can practice, not just read about.
 
-(241 chars) ✓
+### What progress have you made? (250 char limit — 188 chars)
 
-### How will your project impact the world? (250 char limit, ~200 target)
+> RegenHub has run co-working and events on the second floor for two years. We incorporated as a Colorado cooperative in 2026 and built commons.id. Now expanding upstairs to triple capacity.
 
-> Boulder has talent and ideas but nowhere for builders to sit together cheaply and learn from each other. Techne fills that gap — a commons-owned workspace where Ethereum infrastructure, civic technology, and cooperative economics become skills anyone can practice, not just read about.
+### Why are you the right person? (250 char limit — 184 chars)
 
-(283 chars — revised:)
-
-> Boulder has talent but no commons-owned space for builders to learn together. Techne fills that gap — a workspace where Ethereum infrastructure, civic tech, and cooperative economics become skills anyone can practice, not just read about online.
-
-(243 chars) ✓
-
-### What progress have you made? (250 char limit, ~200 target)
-
-> RegenHub has operated on the second floor for two years — co-working, events, and community. We filed as a Colorado cooperative in February 2026. We built commons.id, a live knowledge graph debuting at ETHBoulder. Now we're expanding upstairs to triple our capacity.
-
-(265 chars — revised:)
-
-> RegenHub has operated on the second floor for two years — co-working, events, community. We incorporated as a Colorado cooperative in Feb 2026 and built commons.id, a live knowledge graph. Now we're expanding upstairs to triple capacity.
-
-(237 chars) ✓
-
-### Why are you the right person? (250 char limit, ~200 target)
-
-> Todd Youngblood has spent two years building RegenHub's community from a single floor into Boulder's center for regenerative technology. As a design engineer and cooperative organizer, he bridges the gap between Ethereum's global ambitions and the local work of actually showing up.
-
-(280 chars — revised:)
-
-> Todd Youngblood spent two years growing RegenHub from a single floor into Boulder's hub for regenerative tech. A design engineer and cooperative organizer, he bridges Ethereum's global ambitions with the local discipline of showing up every week.
-
-(244 chars) ✓
+> Todd Youngblood spent two years growing RegenHub into Boulder's regenerative tech hub. A design engineer and co-op organizer, he bridges Ethereum's global vision with local commitment.
 
 ---
 
@@ -80,25 +54,23 @@
 **Guidance for the visual:**
 The Artifact should capture the *vibe* of Techne — not marketing, not a logo. Ideas:
 
-- **A photograph of the third floor space** as it exists now — raw potential, windows, the view of the Flatirons. Documents the milestone of acquisition.
-- **The view from 1515 Walnut** — where the Great Plains meet the Rockies at 5,430 feet. The place itself as the artifact.
-- **A shot of the commons.id knowledge graph** in action during ETHBoulder — the living thing we built, running.
-- **The building exterior** at golden hour — the physical place where this happens.
+- **A photograph of the third floor space** as it exists now — raw potential, windows, the view of the Flatirons
+- **The view from 1515 Walnut** — where the Great Plains meet the Rockies at 5,430 feet
+- **The building exterior** at golden hour — the physical place where this happens
 
 Must be square, JPG/PNG/GIF, max 10MB. No text, no logos, no overlays.
 
 ---
 
-## 4. Pitch Deck
+## 4. Pitch Deck (optional)
 
-*(Optional — recommend 8-12 slides if created. Could repurpose the Techne formation narrative and commons.id framework content into a visual deck.)*
+*(8-12 slides recommended if created)*
 
 ---
 
-## Notes
+## Open Items
 
-- **Fundraising goal** needs Todd's confirmation based on actual acquisition costs
-- **Video** — consider a 60-second walkthrough of the space or a clip from ETHBoulder
-- **Logline** and **answers** are at ~80% of character limits as requested
-- All content assumes zero prior context about Techne or RegenHub
-- Profile positions Techne as the evolution/expansion while RegenHub continues on the second floor
+- [ ] Fundraising goal — confirm amount
+- [ ] Artifact image — photo of space or view
+- [ ] Video — walkthrough or ETHBoulder clip
+- [ ] Tags — confirm selections on Artizen platform
