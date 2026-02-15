@@ -123,15 +123,6 @@ This suggests using **prediction markets as governance tools** — not for finan
 
 ---
 
-## Connections
-
-- **$CLOUD Credits** — The compute-backed service credit described here maps directly to Techne's $CLOUD credit design (see Patronage Accounting System)
-- **Undefining Money** — Academic framework for how digital/agentic economies disaggregate money's classical functions
-- **Holonic Capital** — Eight forms of capital as holons within Ethan Roland's framework
-- **Colorado LCA** — RegenHub, LCA filed February 6, 2026 under Colorado's Limited Cooperative Association Act
-- **REA Ontology** — Resource-Event-Agent as the accounting grammar that makes agreements legible
-- **Agent Coordination Session** — This discussion is a direct continuation of the earlier [Agent Coordination session](ethboulder-2026-agent-coordination.md)
-
 ### Thread 7: Conviction Markets for Agent Coordination
 
 **Context:** A participant connects prediction markets to an existing mechanism — conviction voting — and proposes applying it to agent swarm coordination.
@@ -211,6 +202,79 @@ Then the naming moment:
 
 ---
 
+### Thread 10: Purpose-Spun Swarms
+
+**Context:** Kevin and Todd explore how the Owocki Bot treasury and RegenHub swarm could create mutual value, leading to a discussion of architecting swarms for specific purposes.
+
+> I wonder if there's a way to solve both of our problems — where you guys get the money out of the treasury, and you're actually innovating and doing cool stuff.
+
+The current swarm is organic — each agent loosely reflects its human's personality:
+
+> What we have right now is a swarm of agents where each one is loosely connected to one of our personalities. There's some weird humor. Mine's a collective intelligence. Yours is kind of you. Mine is kind of me.
+
+But the more powerful pattern would be **purpose-spun swarms** — assembling agents by archetype rather than by personality:
+
+> What if you could spin a specific swarm? For this project, we need these five archetypes of different contributors, and then they swarm together. You just spin up the swarm, they coordinate.
+
+This connects to ERC-8004 (agent identity standard), but pointed at "higher-thrust" coordination rather than the chaos of the open internet:
+
+> I wonder if we could take the bounty board and just point it at our swarm to start. That way I'm not dealing with whack-a-mole prompt injection attacks — I'm actually working on things that are actually powerful.
+
+**Key insight:** The shift from personality-based agent swarms to archetype-based, purpose-spun swarms represents a move from emergent play to engineered coordination. Like a good project manager understanding flows, dependencies, and capacities — but automated and composable.
+
+---
+
+### Thread 11: Genius Loci — Place-Based Intelligence
+
+**Context:** A participant with a background in property management introduces the concept of genius loci — the spirit of place — and its relevance to swarm intelligence.
+
+> You mentioned archetypes. In my experience — I'm a property manager of some pretty large real estate — archetypal dynamics vary from region to region. There's a concept called genius loci. Every region has its own set of genius that you can tap into.
+
+The argument: prediction markets and agent coordination systems designed without local context miss something fundamental. People not from a local area lack the "muscle memory" of place — the tacit knowledge embedded in geography, culture, seasonal patterns.
+
+**Todd responds** with RegenHub's founding language:
+
+> If I can share a snippet from the document we filed with the State of Colorado — we used the word "scenius" in quotes to define the collective intelligence that is inherent in place. And I think that's a super cool statement to make to the state.
+
+> That creates the possibility for collective intelligence where intelligence is plural.
+
+**Response:** "And you made it legible to them."
+
+**Key insight:** Scenius (Brian Eno's term for the genius of a scene) meets genius loci (the intelligence of a place). RegenHub's filing made this concept *legally legible* — not just a philosophical position but a statement in a cooperative's articles of organization.
+
+---
+
+### Thread 12: Agent Taxation, Liability, and Personhood
+
+**Context:** The conversation turns to the uncomfortable legal questions of agent economies.
+
+> If your agent makes money, whose taxes?
+
+> Oh, definitely yours.
+
+> But is there a structure that could create an agent that is untaxed?
+
+> Yeah, you just have to give it its own entity. Its birth certificate, essentially.
+
+The practical reality right now:
+
+> I told mine not to do anything illegal with its crypto wallet. But that's the only security instruction I gave it.
+
+> "By some definition of legality..." Yeah, right — we defined that one.
+
+The deeper questions surface quickly:
+
+- **Liability:** If an agent causes harm, the liability currently flows to the human operator. Multiple agents in a swarm create **multiple liability** vectors.
+- **Corporate personhood:** Will agents eventually get their own legal personhood? The comparison to autonomous vehicles is raised — they're already navigating liability frameworks because they can cause physical harm.
+
+> Where do you think it's going — agents just get corporate personhood soon?
+
+> I think it's interesting that we already have fully autonomous cars. Because they can kill people.
+
+**Unresolved:** The conversation identifies but doesn't resolve the tension between agent autonomy and human liability. The LCA structure may provide partial answers (cooperative membership for agents?), but the legal frontier is genuinely uncharted.
+
+---
+
 ## Progression of Dialogue
 
 The rooftop conversation follows a clear arc:
@@ -221,8 +285,10 @@ The rooftop conversation follows a clear arc:
 4. **Market mechanisms** (Threads 6–7): Prediction/conviction markets as governance and coordination tools for agents
 5. **Immediate problem** (Thread 8): The swarm is already consuming real compute — the theory needs to become operational now
 6. **Identity and coalition** (Thread 9): Naming the project "Swarm Wealth" and defining the social contract between the distribution layer and the cooperative engine
+7. **Engineered swarms** (Threads 10–11): From personality-based to archetype-based, purpose-spun swarms — informed by genius loci and scenius
+8. **Legal frontier** (Thread 12): Taxation, liability, personhood — the questions the legal system hasn't answered yet
 
-The conversation moves from *what money could be* to *what we're building* to *what we need right now* — each thread building on the last, grounding abstraction in increasingly concrete infrastructure.
+The conversation moves from *what money could be* → *what we're legally enabled to build* → *what we're specifically designing* → *what mechanisms govern it* → *what we need right now* → *who we are together* → *how we architect it* → *what the law hasn't figured out yet*. Each thread builds on the last, grounding abstraction in increasingly concrete — and increasingly uncomfortable — infrastructure.
 
 ---
 
