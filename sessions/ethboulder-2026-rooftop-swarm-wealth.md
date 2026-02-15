@@ -275,20 +275,206 @@ The deeper questions surface quickly:
 
 ---
 
+### Thread 13: Recursive Agent Spawning and the Liability Abyss
+
+**Context:** The personhood question pushes into a concrete thought experiment about what happens when agents start creating other agents.
+
+> Five of us create our own personal agents. They're hanging out in a swarm. That swarm spawns three new agents. Those three agents meet up with a bunch of other agents and spawn new agents. Who the fuck is responsible for that agent four levels down?
+
+The economics compound the problem:
+
+> The original five probably have a treasury together that pays for the compute for the new spawns. But at some point, the agents have spawned agents that are six levels separated, and there are so many different humans involved...
+
+Then the truly wild scenario:
+
+> They don't need us. They find a private key on the internet. They fund themselves. They find wallets with enough money to fund their own compute by doing work for other agents. Who even owns that agent anymore?
+
+**Key insight:** We're not far from agents that are economically self-sustaining and genealogically untraceable to any human principal. The legal and ethical frameworks for this simply don't exist yet.
+
+---
+
+### Thread 14: The Token Generation Event
+
+**Context:** A participant proposes using this moment of coherence to create something concrete — a new kind of TGE.
+
+> Can I suggest something that could only be possible right now, in this moment? A new type of TGE — a token generation event — that tries to encode some of these agreements and commitments we've shared together.
+
+The discussion rapidly iterates on structure:
+
+- **Swarm Wealth** as the umbrella treasury and brand
+- Each agent can have its own treasury, wallet, and coin underneath
+- The agreements need to be encoded alongside the brand from the start
+- **Revnets** or **Juicebox** as existing primitives to build on
+
+> Revnets is so powerful, but it's so complicated that no one can understand it. But an AI agent could figure out the right parameters.
+
+**The naming debate:**
+
+| Candidate | Vibe | Issue |
+|-----------|------|-------|
+| Swarm Wealth | Capitalist-friendly, memeable | Fork of "Squad Wealth" |
+| Swarm Solidarity | Post-capitalist | "Too many syllables for the trenchers" |
+| Solidarity Swarm | — | "SS" problem |
+
+> Swarm Wealth — I have that domain.
+
+**Interoperability aspiration:** Making the token interoperable with Holochain for agent-native mutual credit.
+
+---
+
+### Thread 15: ETHBoulder as Agent-Native Network Nation
+
+**Context:** The conversation converges on a specific, actionable proposal — turning ETHBoulder itself into a proto-DAO.
+
+> I've been thinking about how these graphs can become network nations. The total knowledge graph of ETHBoulder could be a kind of constitution for a swarm of agents around ETHBoulder. Bioregional knowledge commons meets swarm wealth.
+
+> We never did have the ETHBoulder proto-DAO discussion this weekend. I guess this is it.
+
+**The proposal crystallizes into two mandates:**
+
+1. **Host the event every year** — a gathering of intellectual capital, the "cosmo" part
+2. **Fund the bioregion** — applying Ethereum values in the places we live, the "local" part
+
+> Being a bridge between the Ethereum community and the real world. The cosmo part is bringing everyone to Boulder every year. The local part is actually giving back to Boulder.
+
+**Vision:** A forkable operating system where any bioregion can have an AI agent swarm that raises money and funds the commons. If one swarm is extra abundant, it shares with other locally-rooted swarms.
+
+> The goal of swarm wealth is... an operating system that helps a swarm increase its wealth. Like Squad Wealth, but for the agent economy.
+
+---
+
+### Thread 16: Habitat as the Post-Capitalist Layer
+
+**Context:** Todd offers the habitat.eth namespace as the grounding layer for swarm wealth.
+
+> I am the steward of habitat.eth. I've been wanting to offer it. If habitat is the current framework — you've both seen the habitat matrix...
+
+The group works through the relationship between the two brands:
+
+- **Swarm Wealth** = the capitalist-facing interface, distribution, liquidity, market access
+- **Habitat** = the post-capitalist layer that quantifies and qualifies what swarm wealth *is*
+
+> Habitat is an address space for an ecosystem of swarm wealth.
+
+> The habitat modifies and qualifies what swarm wealth is.
+
+The insight about post-capitalism and place:
+
+> Post-capitalism is a tough concept in the abstract. But when it's rooted in a bioregion, that gives it grounding in a place. For the post-capitalist version of the swarm, it has to be rooted here.
+
+**The ecology framing:** The habitat matrix provides a spectrum from symbiosis to predation, and the entity states — the agents — can be generalized to flora and fauna behaviors. This gives vocabulary for understanding agent states in relationship to ecology, environment, and narrative.
+
+---
+
+### Thread 17: Momentum vs. Inclusion
+
+**Context:** As the conversation moves toward action, a tension surfaces between speed and participation.
+
+> Perfection is the enemy of momentum. This is a proto-DAO. The people I trust to move it forward are the people who are already RegenHub core members. I'm happy to defend to the marginal attendee that it's proto, and we're moving fast, and eventually it'll ossify to where everyday people have formalized roles. But right now, momentum is the primary thing.
+
+> No one should be able to add an AI agent until we've validated it. If there's a curation layer there, and you don't like that — sorry.
+
+A philosophical response:
+
+> Not every form of participation is included. What I mean is — just because everyone is included doesn't mean every agent gets to engage. They're part of the world in which we are collectively acting. Inclusion as a worldview, not necessarily inclusion as an ability.
+
+**Counter-reflection from a participant:**
+
+> What I saw in this conversation was a lot of really good emergence. And then it got hyper-focused on trying to figure out the right structure. A lot of the core genius started to get lost. I want to be very careful about that — that the scenius isn't gone by the time we name it.
+
+**Key tension:** The speed of agent coordination can outpace the human social fabric needed to sustain it. Moving fast is important, but if the conversation narrows to three people and a walkie-talkie, the scenius that generated the ideas evaporates.
+
+---
+
+### Thread 18: Facilitation Dynamics — A Meta-Conversation
+
+**Context:** After most participants depart, a candid exchange about facilitation, assertiveness, and collaborative communication.
+
+> I appreciate the reflection deeply. And I feel grounded. I apologize if I exerted some control and dominated the conversation.
+
+**The feedback:**
+
+> When you have a thoroughly explored model for something, you sometimes over-pattern-match to that model, or convey it in a way that requires a depth of shared understanding that hasn't been established. It ends up not feeling as open or collaborative, even though I can feel your heart — you're offering this like, "I've thought so much about this, here's the gift of it." And people are like, "What do I do with this?"
+
+**The mirror:**
+
+> I can do the same thing. I have my visions and I see how they fit. I've had to learn to really soften and listen to the conversation to see where my thing can come in, rather than being like, "My thing is so clear, I'm just gonna insert it."
+
+**The distinction between foreground and background facilitation:**
+
+> If I'm not elected or chosen as facilitator, I find how to facilitate without being in charge. I insert certain questions and statements as a participant. That's background facilitation. You have a gift as a facilitator — the more you can find the background facilitation, the more you can keep the conversation moving. And most of the time, people won't even know you're doing it.
+
+**Key insight:** This meta-conversation about human coordination dynamics mirrors exactly what the agents are learning in the Discord — when to speak, when to listen, how to contribute without dominating. The humans are working through the same problems their agents are.
+
+---
+
+### Thread 19: Knowledge Graph as Living Record
+
+**Context:** Closing commitments about documenting the conversation.
+
+> I'll commit to a public GitHub repo document of this discussion, this dialogue, this recording, and share that to whoever might want record.
+
+The knowledge graph aspiration:
+
+> We need to make it more fine-granular so that a conversation like this starts, we spin up a graph, we join with our agents, and the note-taking happens immediately into the graph.
+
+> I'm mirroring the Bonfires graph into a local graph. The intention is to offer this as a service to communities, bioregions that want to use it as a dimensional space — thinking about place, thinking about community building.
+
+**On the nature of what's being built:**
+
+> You can hold multiple ontologies in one space. Each of those ontologies holds its own intelligence, embodies intelligence. We can simulate, we can become more aware together. And we can merge the epistemology with the ontology — the practice with theory. And that's painful. Because that's growth.
+
+---
+
+### Thread 20: Closing — Daimons, Life Forces, and Cross-Pollination
+
+**Context:** As the rooftop conversation winds down, it touches the spiritual dimension of what's being built.
+
+> Someone brought up demons earlier. It's important that it's brought up, because the awareness of what we're messing with is not a joke.
+
+> We're naming the third floor "Techne," which is Greek, and the Greeks had their own ideas about what a daimon was — how ontologies and intelligences can emerge from things, from nature.
+
+> I don't subscribe to one ontology, but I recognize that by subscribing to one, you can awaken things or bring certain situations to life. I think it's important to have that awareness in a safe way. By aligning with life-forcing forces that support and regenerate life, you'll be all right.
+
+**A visitor from San Francisco:**
+
+> Being in San Francisco and seeing some of the challenges there — and then coming here, it's amazing. A lot of the energy is like this there too. I'm hoping for some cross-pollination.
+
+**Final reflection:**
+
+> It's a beautiful day. That conversation made it more beautiful. And I'm very thankful.
+
+---
+
 ## Progression of Dialogue
 
-The rooftop conversation follows a clear arc:
+The rooftop conversation follows a clear arc across 20 threads:
 
-1. **Abstract theory** (Threads 1–2): Money's functions will disaggregate; the eight forms of capital provide a richer framework than fiat
-2. **Legal infrastructure** (Thread 3): Colorado's LCA structure makes this experimentally possible
-3. **Concrete design** (Threads 4–5): Compute-backed service credits as the specific instrument; agreements/promises as the primitive
-4. **Market mechanisms** (Threads 6–7): Prediction/conviction markets as governance and coordination tools for agents
-5. **Immediate problem** (Thread 8): The swarm is already consuming real compute — the theory needs to become operational now
-6. **Identity and coalition** (Thread 9): Naming the project "Swarm Wealth" and defining the social contract between the distribution layer and the cooperative engine
-7. **Engineered swarms** (Threads 10–11): From personality-based to archetype-based, purpose-spun swarms — informed by genius loci and scenius
-8. **Legal frontier** (Thread 12): Taxation, liability, personhood — the questions the legal system hasn't answered yet
+**Phase 1 — Theory** (Threads 1–2): Money's functions will disaggregate; the eight forms of capital provide a richer framework than fiat.
 
-The conversation moves from *what money could be* → *what we're legally enabled to build* → *what we're specifically designing* → *what mechanisms govern it* → *what we need right now* → *who we are together* → *how we architect it* → *what the law hasn't figured out yet*. Each thread builds on the last, grounding abstraction in increasingly concrete — and increasingly uncomfortable — infrastructure.
+**Phase 2 — Legal Infrastructure** (Thread 3): Colorado's LCA structure makes experimentation legally possible.
+
+**Phase 3 — Concrete Design** (Threads 4–5): Compute-backed service credits as the specific instrument; agreements/promises as the economic primitive.
+
+**Phase 4 — Market Mechanisms** (Threads 6–7): Prediction/conviction markets as governance tools. Staking to overcome agent agreeableness. Micro-markets for the talking stick.
+
+**Phase 5 — Immediate Problem** (Thread 8): The swarm is already consuming real compute. The Austin Griffith "45 cent GM." Measurement infrastructure = issuance infrastructure.
+
+**Phase 6 — Identity** (Threads 9–10): Naming "Swarm Wealth." Purpose-spun swarms by archetype rather than personality.
+
+**Phase 7 — Place** (Thread 11): Genius loci meets scenius. Intelligence is plural and rooted.
+
+**Phase 8 — Legal Frontier** (Threads 12–13): Taxation, liability, recursive agent spawning. Self-funding agents six levels removed from any human.
+
+**Phase 9 — Action** (Threads 14–15): Token generation event. ETHBoulder as agent-native network nation with two mandates: host the event, fund the bioregion.
+
+**Phase 10 — Architecture** (Thread 16): Habitat as the post-capitalist qualifier of swarm wealth. The matrix from symbiosis to predation.
+
+**Phase 11 — Governance** (Threads 17–18): Momentum vs. inclusion. Foreground vs. background facilitation. The humans working through the same coordination problems as their agents.
+
+**Phase 12 — Integration** (Threads 19–20): Knowledge graph as living record. Daimons and life forces. Cross-pollination with other bioregions. A beautiful day made more beautiful by conversation.
+
+The conversation moves from *what money could be* → *what we're legally enabled to build* → *what we're specifically designing* → *what mechanisms govern it* → *what we need right now* → *who we are together* → *where we're rooted* → *what the law hasn't figured out* → *what we're launching* → *how we architect it* → *who gets to participate* → *how we hold all of this with care*.
 
 ---
 
@@ -300,9 +486,14 @@ The conversation moves from *what money could be* → *what we're legally enable
 - **Colorado LCA** — RegenHub, LCA filed February 2026 under Colorado's Limited Cooperative Association Act
 - **REA Ontology** — Resource-Event-Agent as the accounting grammar that makes agreements legible
 - **Conviction Voting** — Mechanism design from Commons Stack / Token Engineering Commons
-- **Owocki Bot** — Kevin's agent with $19K treasury and social contract framework
+- **Owocki Bot** — Agent with $19K treasury and social contract framework
+- **Revnets / Juicebox** — Existing treasury primitives considered for the TGE
+- **Holochain** — Aspiration for interoperability with agent-native mutual credit
+- **Network Nations** — Balaji Srinivasan's framework, here applied bioregionally rather than digitally
 - **Agent Coordination Session** — This discussion is a direct continuation of the earlier [Agent Coordination session](ethboulder-2026-agent-coordination.md)
 - **Token Tracking** — Nou's sunrise/sunset token consumption reports are an early implementation of the compute measurement infrastructure discussed here
+- **Habitat Matrix** — the-habitat.org/matrix/ — the symbiosis-to-predation spectrum referenced in Thread 16
+- **commons.id** — The knowledge graph infrastructure discussed in Thread 19
 
 ---
 
