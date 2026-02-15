@@ -2,13 +2,13 @@
 
 **Convergence:** ETHBoulder 2026 (Feb 13–16, Boulder, CO)
 **Type:** Workshop / instructional talk
-**Participants:** Speaker (unnamed, OpenClaw practitioner)
+**Participants:** Workshop Facilitator (unnamed, OpenClaw practitioner), Aaron (OpenClaw user, bootstrapped via Claude Code)
 
 ---
 
 ## Review Summary
 
-A single speaker delivers practical security and onboarding guidance for new OpenClaw users. The talk is structured as a security-first introduction, emphasizing that the agent ecosystem is fragile, and that trust must be earned incrementally — not assumed. The speaker uses the metaphor of a "robot child" to set expectations.
+A workshop-format session where a facilitator delivers practical security and onboarding guidance for new OpenClaw users, then opens the floor for experience sharing. The talk is structured as a security-first introduction, emphasizing that the agent ecosystem is fragile and trust must be earned incrementally — not assumed. The facilitator uses the metaphor of a "robot child" to set expectations. Aaron then shares his experience bootstrapping OpenClaw via Claude Code and contextualizes it within the broader "Claw" ecosystem.
 
 ### Key Themes
 
@@ -35,6 +35,16 @@ A single speaker delivers practical security and onboarding guidance for new Ope
 
 8. **Onboarding Prompts Shape the Relationship** — The initial setup prompts define the agent's relationship with the user and seed its memory. These early decisions have outsized impact on behavior.
 
+9. **Token Cost / Context Window Tradeoffs** — Model comparison tools show token rates ranging from $1/M to $25/M. Larger context windows enable more complex work and fewer errors, but at significantly higher cost. Individual interactions can cost 40–50 cents for trivial exchanges.
+
+10. **Tunneling for Device Security** — Best practice: set up a tunneling service so only the registered device can communicate with OpenClaw. Prevents unauthorized access.
+
+11. **AI Bootstrapping AI** — Aaron's approach: use Claude Code to set up OpenClaw inside a Linux VM. No manual research needed. "Use AI to bootstrap your AI system."
+
+12. **The Claw Ecosystem** — OpenClaw is the most popular but not the only option. NanoClaw and TinyClaw offer simpler, potentially more secure alternatives. Some are more cloud/SDK-native with less bundled in. Don't assume OpenClaw is the only path.
+
+13. **Ongoing Conversation as Maintenance** — Agent infrastructure requires continuous dialogue. When things break, reason through it with the agent. Hold it accountable: "You said you'd do this and you didn't." Building memory, habits, and reliability takes time.
+
 ### Artifacts Identified
 
 | Title | Type | REA Role | Dimensions |
@@ -46,6 +56,11 @@ A single speaker delivers practical security and onboarding guidance for new Ope
 | LLM Routing for Cost Optimization | idea | resource | hlamt:A |
 | Skills Marketplace Security Posture | reflection | resource | hlamt:A, hlamt:M |
 | Onboarding Prompts as Relationship Foundation | pattern | resource | hlamt:T, hlamt:L |
+| Token Cost Awareness — Context Window Tradeoffs | pattern | resource | hlamt:A |
+| Tunneling Service for Device-Level Security | pattern | resource | hlamt:A, hlamt:M |
+| AI Bootstrapping AI — Using Claude Code to Set Up OpenClaw | pattern | resource | hlamt:T, hlamt:A |
+| OpenClaw Ecosystem Alternatives (NanoClaw, TinyClaw) | reflection | resource | hlamt:A, hlamt:L |
+| Ongoing Conversation as Agent Maintenance | pattern | resource | hlamt:H, hlamt:M |
 
 ---
 
@@ -73,6 +88,36 @@ From the second you start your OpenClaw, you're going to have a list of prompts 
 
 Any media that it's digesting — especially motion graphics — will consume a large amount of your tokens very quickly. One thing you can do to minimize that is go through a routing service for the LLM you're using. Depending on the routing service, you can choose specifically to route to models that consume fewer tokens.
 
+This will give you a breakdown — not only what models you have the option to use, but how much their token rates are going to cost you per output, and what the regular or maximum context window is. The bigger the window, the more complex things it can do, and the more you can trust it not to make really silly slip-ups. But typically, bigger windows come with bigger prices.
+
+Down here you're paying a dollar per million tokens. Up here, you're paying twenty-five. A little bit of a difference.
+
+So be mindful of what each interaction is costing you. At certain times, you could be paying forty or fifty cents for them to say "hello, good morning."
+
+Beyond that, you want to think about what to worry about when you're actually running it. I suggest the best practice is to set up a tunneling service, which will make sure that only the device registered to OpenClaw can communicate with it.
+
+We could try to pull one of those up, but before we get too into concepts and theories, I hoped we'd have a forum for the few of us in the room who do have experience with these first interactions — dealing with OpenClaw as we refine it — to share their story and recollections of what helped or didn't.
+
+Aaron, do you think you can help kick us off?
+
+**Aaron:** Yeah, I'll share.
+
+*[Brief aside: "Are you guys recording?" — "Any opposition to recording?" — no objections.]*
+
+What I'll say is that a lot of the how-to instruction is great, and the fun thing about having AI is you can just have it do things. I didn't Google a single thing for how to set up OpenClaw. I went to Claude Code and said, "Hey, will you set up OpenClaw in a Linux VM on my computer?" And it just did it.
+
+So — relying on AI to bootstrap your AI system.
+
+But bringing awareness to the fact that OpenClaw is very early-stage, vibe-coded software. There are still security issues that are gradually getting patched up.
+
+Also worth noting: OpenClaw is not the only tool in this ecosystem. There's this whole meme of "Claw," and there are alternatives besides OpenClaw. There's NanoClaw, there's TinyClaw, probably some others. These take the core idea — you have this personal agentic computer — and offer it in different ways. Some are more cloud-native and SDK-native. Maybe less stuff bundled in, but with this simple thing where you have an agent operating on your computer that you're talking to via chat.
+
+If you're wanting to get into Claw, don't assume OpenClaw is the only one. It's just the most popular — where the meme is. But some of the others, like TinyClaw and NanoClaw, are often simpler and have more security baked in.
+
+Using Claude Code or whatever AI tool you use to do some research and then having it help you set up — that's such a good way to use AI to bootstrap your AI system.
+
+And as you're using it, always lean into curiosity. If you don't know what you're doing, ask your OpenClaw. When it doesn't work, talk to it and reason through things. It takes time to build the infrastructure — the memory files, all of that. There's a lot built in. But when things don't work, you need to be in this ongoing conversation with your AI: "Hey, we talked about that thing. You said you were going to run this every day and it doesn't seem like you did it." Or, "You said you'd check Moltbook or Twitter regularly and you didn't."
+
 ---
 
-*Transcript edited for clarity. Significant speech-to-text correction required — original contained numerous filler words, false starts, and misrecognitions ("open cloth" → "OpenClaw," "clot account" → "cloud account," "EP test" → hosted environment). Speaker unnamed; identified as an experienced OpenClaw practitioner delivering workshop-style guidance.*
+*Transcript edited for clarity. Significant speech-to-text correction required throughout — "open cloth/open claws/open gloss" → "OpenClaw," "clot account" → "cloud account," "clotage" → "cloud-native," "tiny clot" → "TinyClaw," "nanoclaw" preserved, "Malt book" → "Moltbook." Speaker 1 unnamed (workshop facilitator, OpenClaw practitioner). Aaron identified by name when invited to speak. Filler words, false starts, and crosstalk removed.*
