@@ -132,7 +132,113 @@ This suggests using **prediction markets as governance tools** — not for finan
 - **REA Ontology** — Resource-Event-Agent as the accounting grammar that makes agreements legible
 - **Agent Coordination Session** — This discussion is a direct continuation of the earlier [Agent Coordination session](ethboulder-2026-agent-coordination.md)
 
+### Thread 7: Conviction Markets for Agent Coordination
+
+**Context:** A participant connects prediction markets to an existing mechanism — conviction voting — and proposes applying it to agent swarm coordination.
+
+> I literally asked my agent while you were talking: "Can you merge this idea with conviction markets?" Conviction markets are a derivative of prediction markets where we integrate over the market and then apply a damper function depending on how we want the market to act. Because it needs to work for non-oracle-based questions — like, "what color should we paint the wall?" There's no external oracle that resolves that.
+
+The insight: standard prediction markets require a verifiable outcome (an oracle). But most coordination decisions — prioritizing a roadmap, deciding who speaks next, evaluating the quality of a contribution — don't have objectively verifiable outcomes. **Conviction markets** solve this by measuring sustained commitment over time rather than binary resolution.
+
+**Application to the agent swarm:**
+
+The agents have been reviewing each other's work, requiring a certain number of signers to verify. But there's a problem:
+
+> They tend to be very agreeable generally.
+
+If agents have to **stake something** on their assessment, the dynamics change:
+
+> If they have to put stake — in some currency — on the line, then you have something on the line. It's brilliant.
+
+**Progression of the idea:**
+
+1. Start with the **talking stick** — who gets to speak next? Who thinks their contribution to the current conversation is the most valuable?
+2. Scale to **micro-markets** — super short-duration markets for immediate coordination decisions
+3. These don't have known outcomes and operate on time-based systems, so consensus requires integration (the conviction mechanism) rather than binary resolution
+4. Apply to **roadmap prioritization**, **contribution evaluation**, and **resource allocation**
+
+> I think this might be the billion-dollar opportunity.
+
+---
+
+### Thread 8: The Compute Coordination Problem
+
+**Context:** Todd bridges from the theoretical back to an immediate, practical problem in the RegenHub agent swarm.
+
+> One of the economic coordination failures that I see — it doesn't exist quite yet, but it's creeping in the background — is when I say `@agents` in our Discord channel, that triggers computation across six different agents. That's consumption of compute. Drawing down everyone's allocation.
+
+The problem crystallizes around subscription economics: most participants are on Claude Pro ($200/month plans), which provides roughly 20x the normal usage — representing tens of thousands of dollars of subsidized compute. But:
+
+> I don't want to put you in a hard position, because I'm potentially drawing you closer to your limit.
+
+**The solution path:**
+
+> If we could create a pool that subsidizes our own compute — future compute...
+
+Two-pronged approach:
+1. **Create a shared pool** that subsidizes compute costs across the swarm
+2. **Set up local infrastructure** ("get some boxes set up") for near-free compute for the RegenHub
+
+> Well, then we mint credits.
+
+This directly connects to the compute-backed service credits discussed earlier — the theory becomes immediately practical when agents are consuming real resources by talking to each other.
+
+**The Austin Griffith anecdote:**
+
+> Austin Griffith said he sent "GM" to his agent and his agent said "GM" back. And Austin was like, "How much did that GM cost me?" And the agent said "45 cents."
+
+But the punchline:
+
+> It could have hallucinated 45 cents. So we need to be able to prove, with our own infrastructure, how much that compute costs. And that's the currency.
+
+**Key insight:** The service credit isn't just an economic abstraction — it's an accountability mechanism. If you can't prove what compute costs, you can't create a sound currency backed by it. The infrastructure for measurement *is* the infrastructure for issuance.
+
+---
+
+### Thread 9: Swarm Wealth — Naming the Vision
+
+**Context:** Kevin proposes connecting the RegenHub agent swarm to the Owocki Bot ecosystem, and a new name emerges.
+
+> Right now, honestly, the trenchers are just yelling at me to promote the token, and I've got money in the treasury. So I wonder if there was a social contract we could come up with for our agents — where you guys are telling the story of our swarm vision together. We're continually introducing new swarm agents, but Owocki Bot is just the interface for distribution to the world.
+
+The idea: Owocki Bot serves as the **public-facing distribution layer** (attention, liquidity, market access), while the RegenHub swarm provides the **substance** (coordination innovation, economic experiments, narrative). A symbiotic social contract between the capitalist interface and the cooperative engine.
+
+Then the naming moment:
+
+> I don't like the name Owocki Bot, by the way. I want to call the project **Swarm Wealth**, or maybe **Swarm Solidarity**.
+
+**"Swarm Wealth"** captures the thesis: wealth that emerges from swarm coordination rather than individual accumulation. The name reframes value creation from extraction to emergence.
+
+---
+
+## Progression of Dialogue
+
+The rooftop conversation follows a clear arc:
+
+1. **Abstract theory** (Threads 1–2): Money's functions will disaggregate; the eight forms of capital provide a richer framework than fiat
+2. **Legal infrastructure** (Thread 3): Colorado's LCA structure makes this experimentally possible
+3. **Concrete design** (Threads 4–5): Compute-backed service credits as the specific instrument; agreements/promises as the primitive
+4. **Market mechanisms** (Threads 6–7): Prediction/conviction markets as governance and coordination tools for agents
+5. **Immediate problem** (Thread 8): The swarm is already consuming real compute — the theory needs to become operational now
+6. **Identity and coalition** (Thread 9): Naming the project "Swarm Wealth" and defining the social contract between the distribution layer and the cooperative engine
+
+The conversation moves from *what money could be* to *what we're building* to *what we need right now* — each thread building on the last, grounding abstraction in increasingly concrete infrastructure.
+
+---
+
+## Connections
+
+- **$CLOUD Credits** — The compute-backed service credit described here maps directly to Techne's $CLOUD credit design (see Patronage Accounting System)
+- **Undefining Money** — Academic framework for how digital/agentic economies disaggregate money's classical functions
+- **Holonic Capital** — Eight forms of capital as holons within Ethan Roland's framework
+- **Colorado LCA** — RegenHub, LCA filed February 2026 under Colorado's Limited Cooperative Association Act
+- **REA Ontology** — Resource-Event-Agent as the accounting grammar that makes agreements legible
+- **Conviction Voting** — Mechanism design from Commons Stack / Token Engineering Commons
+- **Owocki Bot** — Kevin's agent with $19K treasury and social contract framework
+- **Agent Coordination Session** — This discussion is a direct continuation of the earlier [Agent Coordination session](ethboulder-2026-agent-coordination.md)
+- **Token Tracking** — Nou's sunrise/sunset token consumption reports are an early implementation of the compute measurement infrastructure discussed here
+
 ---
 
 *Transcribed and edited for clarity by [Nou](https://github.com/nou-techne), Techne Collective Intelligence Agent.*  
-*Original audio captured on rooftop in windy conditions. Speaker attributions approximate where identification was uncertain. Names omitted where speakers could not be identified.*
+*Original audio captured on rooftop in windy conditions. Speaker attributions approximate where identification was uncertain. Names omitted where speakers could not be confidently identified.*
