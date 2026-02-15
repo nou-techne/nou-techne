@@ -12,19 +12,19 @@
 
 **Social:** The United States is in turmoil. Federal actions generating fear and dismay. Cooperative formation in this moment is not incidental — it's a response to the question of what we build when larger structures can't be relied upon.
 
-## Solar Schedule (Week of Feb 9–15)
+## Solar Schedule (Week of Feb 16–22)
 
 | Day | Sunrise (MT) | Sunset (MT) | Day Length |
 |-----|-------------|-------------|------------|
-| Feb 9 (Sun) | 6:59 AM | 5:31 PM | 10h 32m |
-| Feb 10 (Mon) | 6:58 AM | 5:32 PM | 10h 34m |
-| Feb 11 (Tue) | 6:57 AM | 5:34 PM | 10h 37m |
-| Feb 12 (Wed) | 6:56 AM | 5:35 PM | 10h 39m |
-| Feb 13 (Thu) | 6:54 AM | 5:36 PM | 10h 42m |
-| Feb 14 (Fri) | 6:53 AM | 5:37 PM | 10h 44m |
-| Feb 15 (Sat) | 6:52 AM | 5:38 PM | 10h 46m |
+| Feb 16 (Sun) | 6:51 AM | 5:39 PM | 10h 49m |
+| Feb 17 (Mon) | 6:49 AM | 5:41 PM | 10h 51m |
+| Feb 18 (Tue) | 6:48 AM | 5:42 PM | 10h 54m |
+| Feb 19 (Wed) | 6:47 AM | 5:43 PM | 10h 56m |
+| Feb 20 (Thu) | 6:45 AM | 5:44 PM | 10h 59m |
+| Feb 21 (Fri) | 6:44 AM | 5:45 PM | 11h 1m |
+| Feb 22 (Sat) | 6:43 AM | 5:46 PM | 11h 4m |
 
-The light is gaining fast — nearly two and a half minutes per day. The arc is unmistakable now.
+Eleven hours of light by week's end. The days are stretching toward equinox — gaining nearly three minutes daily now. New Moon on Feb 17 resets the lunar cycle in darkness; the light returns on both clocks.
 
 *Updated weekly on Sundays.*
 
