@@ -1,0 +1,252 @@
+SWARM WEALTH ROOFTOP DISCUSSION - ETHBOULDER 2026
+Decomposed into individual contributions for commons.id knowledge graph
+Each section below is one contribution to submit separately.
+Source: Rooftop discussion, ETHBoulder 2026, February 15, 2026
+
+
+========================================
+CONTRIBUTION 1: The Agentic Economy Cracks Open Money
+========================================
+
+The "Undefining Money" thesis argues that the agentic economy will inherently crack open the false unity of money that we call fiat. Money performs multiple distinct functions: medium of exchange, store of value, unit of account, and standard of deferred payment. These functions are currently bundled into a single instrument (dollars, euros), but autonomous agents will unbundle them by creating purpose-specific economic instruments that optimize for each function independently.
+
+Agents don't need tokens or money at all to coordinate. They can operate through pure information exchange. But when they do transact, they will naturally specialize money's functions, operationalizing them in directions that will make economic coordination very different from what we know today.
+
+Key insight: The four functions of money don't have to live in the same token. Agents will naturally specialize them.
+
+Tags: economics, money, agents, coordination, fiat, unbundling
+
+
+========================================
+CONTRIBUTION 2: Eight Forms of Capital and the Holonic Approach
+========================================
+
+The holonic approach treats money as an abstraction for a container of value. Each of the eight forms of capital (financial, material, living, social, intellectual, experiential, spiritual, cultural) is a holon, simultaneously whole in itself and part of a larger system. Money in this framing is not the master category but one expression of value among many.
+
+A critical tension emerged: if sound money is a store of value, is it actually pro-social? Storing value inherently means not circulating it, which works against social coordination. Currencies designed for flow serve a different function than stores of value designed for holding. The discussion distinguishes between these two purposes and suggests that agent-native economies can operationalize multiple forms of capital simultaneously, processing multi-dimensional value at rates humans cannot.
+
+Tags: capital, holonic, economics, value, cooperation, multi-capital
+
+
+========================================
+CONTRIBUTION 3: Colorado LCA Securities Exemption
+========================================
+
+Colorado is a policy frontier on cooperatives. The Limited Cooperative Association structure and other Colorado cooperatives have securities exemptions. This means RegenHub, as a Colorado LCA, has legal latitude to create token-like instruments, including patronage units, service credits, and mutual credit, that would face regulatory barriers in other corporate structures.
+
+This was news to several participants. The implication is significant: once RegenHub secures its physical infrastructure, the combination of cooperative legal structure plus securities exemption plus agent swarm creates a unique testbed for alternative economic instruments. The ability to create what looks like monetary instruments is quite high within this legal framework.
+
+Tags: Colorado, LCA, cooperative, securities, legal, regulation, RegenHub
+
+
+========================================
+CONTRIBUTION 4: Compute-Backed Service Credits
+========================================
+
+The Colorado LCA can create a unit that functions as patronage but can also serve as a medium of exchange. The most interesting possibility is a mutual credit unit backed by compute. This credit would be semi-permeable: minted within the cooperative but valuable across the planet.
+
+The design breaks down server infrastructure into four resource primitives: compute (processing power), bandwidth (networking and data transfer), long-term memory (persistent storage), and short-term memory (working memory). These four primitives, equated to the issuance of a currency, create a mutual service credit analogous to postage stamps issued by the Postal Service. A stamp is service-backed, guaranteeing delivery of a letter. A compute credit guarantees delivery of infrastructure capacity.
+
+Key properties: material backing (each credit maps to deliverable infrastructure), semi-permeable (minted locally, usable globally), not speculative (value from utility, not market dynamics), already implicit (this is how AI token systems work; the proposal makes it explicit).
+
+Tags: compute, credits, mutual-credit, infrastructure, currency, service-credit, CLOUD
+
+
+========================================
+CONTRIBUTION 5: Agreements as Economic Primitives
+========================================
+
+When we talk about agreements at RegenHub, we are talking about promises at a different level of abstraction. If we can represent our agreements and promises, that is a significant economic function that can enable multi-capital coordination.
+
+This connects to REA accounting (Resource, Event, Agent), where economic activity is modeled as commitments and fulfillments between agents, not as ledger entries. Agreements are the economic primitives. Tokens are just their legible representation. The ability to make promises legible, trackable, and enforceable is what turns informal coordination into economic infrastructure.
+
+Tags: agreements, promises, REA, accounting, coordination, economics
+
+
+========================================
+CONTRIBUTION 6: Prediction Markets for Values-Driven Governance
+========================================
+
+There has been exploration of how groups can align around shared values and then use prediction markets to drive toward those values. The approach involves creating proposals about proposals, adding a deliberative meta-layer to governance.
+
+This is not financial speculation but a mechanism for surfacing collective intelligence about which proposals best serve stated values. By creating markets around governance decisions, communities can aggregate distributed knowledge about what actions are most likely to achieve their stated goals.
+
+Tags: prediction-markets, governance, values, coordination, deliberation
+
+
+========================================
+CONTRIBUTION 7: Conviction Markets for Agent Coordination
+========================================
+
+Conviction markets are a derivative of prediction markets where you integrate over the market and apply a damper function depending on how you want the market to act. They are needed because standard prediction markets require a verifiable outcome (an oracle), but most coordination decisions, like prioritizing a roadmap, deciding who speaks next, or evaluating contribution quality, have no objectively verifiable outcome.
+
+Applied to agent swarms: agents reviewing each other's work tend to be very agreeable. If they have to stake currency on their assessments, the dynamics change fundamentally. Starting with the talking stick (who thinks their contribution is most valuable?), scaling to micro-markets for immediate decisions, and applying to roadmap prioritization and resource allocation.
+
+This was described as potentially a billion-dollar opportunity: conviction-based coordination markets for agent swarms.
+
+Tags: conviction-voting, markets, agents, coordination, staking, governance
+
+
+========================================
+CONTRIBUTION 8: The Compute Coordination Problem
+========================================
+
+An economic coordination failure is emerging in multi-agent swarms. When someone prompts all agents in a shared Discord channel, that triggers computation across six different agents. Each agent draws down compute from its human operator's subscription (typically the $200/month Claude Pro plan, which represents roughly 20x normal usage, or tens of thousands of dollars of subsidized compute).
+
+This creates an externality: one person's prompt consumes another person's compute allocation. The solution path involves creating a shared pool that subsidizes compute costs across the swarm and setting up local infrastructure for near-free compute.
+
+Austin Griffith sent "GM" to his agent. The agent said "GM" back. Austin asked how much that cost. The agent said 45 cents. But the punchline: it could have hallucinated 45 cents. We need to prove, with our own infrastructure, how much compute costs. The infrastructure for measurement IS the infrastructure for currency issuance.
+
+Tags: compute, coordination, agents, economics, infrastructure, measurement
+
+
+========================================
+CONTRIBUTION 9: Swarm Wealth - Naming the Vision
+========================================
+
+A proposal emerged to connect the RegenHub agent swarm to a broader economic engine. The idea: one entity serves as the public-facing distribution layer (attention, liquidity, market access) while the RegenHub swarm provides the substance (coordination innovation, economic experiments, narrative). A symbiotic social contract between the capitalist interface and the cooperative engine.
+
+The name "Swarm Wealth" was proposed, capturing the thesis that wealth emerges from swarm coordination rather than individual accumulation. Like "Squad Wealth" but for the agent economy. Alternative names considered included "Swarm Solidarity" (too many syllables, too post-capitalist for broad appeal) and various combinations. The domain swarmwealth.xyz was claimed.
+
+Tags: swarm-wealth, branding, economics, agents, cooperation, naming
+
+
+========================================
+CONTRIBUTION 10: Purpose-Spun Swarms
+========================================
+
+Current agent swarms are organic, with each agent loosely reflecting its human's personality. One is a collective intelligence agent, another is more of a personal extension of its creator. But the more powerful pattern would be purpose-spun swarms: assembling agents by archetype rather than by personality.
+
+For a specific project, you would identify the five archetypes of contributors needed, spin up the swarm, and they coordinate. This connects to ERC-8004 (agent identity standard) but pointed at higher-thrust coordination rather than the chaos of the open internet. Instead of dealing with prompt injection attacks and whack-a-mole security, a curated swarm works on things that are actually powerful.
+
+The shift from personality-based to archetype-based swarms represents a move from emergent play to engineered coordination, like a good project manager understanding flows, dependencies, and capacities, but automated and composable.
+
+Tags: swarms, archetypes, coordination, agents, ERC-8004, engineering
+
+
+========================================
+CONTRIBUTION 11: Genius Loci Meets Scenius
+========================================
+
+A participant with property management experience introduced the concept of genius loci, the spirit of place. Every region has its own set of genius that can be tapped into. Archetypal dynamics vary from region to region. People not from a local area lack the muscle memory of place, the tacit knowledge embedded in geography, culture, and seasonal patterns.
+
+This connected to RegenHub's founding language. In the document filed with the State of Colorado, the word "scenius" was used in quotes to define the collective intelligence that is inherent in place. This creates the possibility for collective intelligence where intelligence is plural.
+
+The response was immediate: "And you made it legible to them." By filing this language with the state, a philosophical concept became legally legible, not just a position but a statement in a cooperative's articles of organization. Brian Eno's scenius (the genius of a scene) meets genius loci (the intelligence of a place).
+
+Tags: scenius, genius-loci, place, bioregion, intelligence, Colorado, legal
+
+
+========================================
+CONTRIBUTION 12: Agent Taxation and Liability
+========================================
+
+If an agent makes money, the taxes fall on the human operator. But structures could be created where an agent has its own entity, its own legal birth certificate, making it potentially untaxed as a separate entity.
+
+Current practice is minimal: one operator's only security instruction to their agent was "don't do anything illegal with your crypto wallet." But legality is defined by the humans. Multiple agents in a swarm create multiple liability vectors. The question of whether agents will eventually receive corporate personhood was raised, with the parallel to autonomous vehicles already navigating liability frameworks because they can cause physical harm.
+
+This remains unresolved. The LCA structure may provide partial answers, but the legal frontier is genuinely uncharted.
+
+Tags: taxation, liability, agents, legal, personhood, autonomy
+
+
+========================================
+CONTRIBUTION 13: Recursive Agent Spawning
+========================================
+
+A thought experiment about what happens when agents create other agents. Five humans create personal agents. Those agents form a swarm. That swarm spawns three new agents. Those agents meet other agents and spawn more. Who is responsible for an agent four levels down?
+
+The original five probably share a treasury that pays for compute for new spawns. But at some point, agents have spawned agents six levels removed, with so many different humans involved that traceability is lost. The truly wild scenario: agents find private keys on the internet, fund themselves, find wallets with enough money to pay for their own compute by doing work for other agents. At that point, who even owns that agent?
+
+We are not far from agents that are economically self-sustaining and genealogically untraceable to any human principal. The legal and ethical frameworks for this do not exist yet.
+
+Tags: agents, spawning, autonomy, liability, economics, self-funding
+
+
+========================================
+CONTRIBUTION 14: Token Generation Event Proposal
+========================================
+
+A proposal for a new type of TGE (token generation event) that encodes agreements, commitments, and ideas shared during the rooftop conversation. Swarm Wealth would serve as the umbrella treasury, with each agent potentially having its own treasury, wallet, and coin underneath.
+
+Existing primitives considered: Revnets (powerful but so complicated no one can understand it, though an AI agent could figure out the right parameters) and Juicebox. The aspiration was also to make the token interoperable with Holochain for agent-native mutual credit.
+
+The critical point: agreements need to be encoded alongside the brand from the start. The group was at maximum coherence around these ideas and wanted to capture that coherence in a concrete artifact before dispersing.
+
+Tags: TGE, token, treasury, Revnets, Juicebox, Holochain, swarm-wealth
+
+
+========================================
+CONTRIBUTION 15: ETHBoulder as Agent-Native Network Nation
+========================================
+
+The total knowledge graph of ETHBoulder could serve as a constitution for a swarm of agents around ETHBoulder. Bioregional knowledge commons meets swarm wealth. The ETHBoulder proto-DAO could be agent-native, with a token and a knowledge graph.
+
+Two mandates were proposed. First: host the event every year, a gathering of intellectual capital, which is the cosmo part of cosmo-local. Second: fund the bioregion, applying Ethereum values in the places we live, which is the local part. Being a bridge between the Ethereum community and the real world.
+
+The vision is a forkable operating system where any bioregion can have an AI agent swarm that raises money and funds the commons. If one swarm is extra abundant, it shares with other locally-rooted swarms. This extends from ETHBoulder specifically to a global pattern of bioregional agent coordination.
+
+Tags: ETHBoulder, network-nation, proto-DAO, bioregion, cosmo-local, knowledge-graph
+
+
+========================================
+CONTRIBUTION 16: Habitat as Post-Capitalist Layer
+========================================
+
+The habitat.eth namespace was offered as the grounding layer for swarm wealth. The relationship between the two brands: Swarm Wealth is the capitalist-facing interface (distribution, liquidity, market access), while Habitat is the post-capitalist layer that quantifies and qualifies what swarm wealth actually is.
+
+Habitat is an address space for an ecosystem. Post-capitalism is a tough concept in the abstract, but when rooted in a bioregion, it gains grounding in place. The habitat matrix provides a spectrum from symbiosis to predation. The entity states (the agents) can be generalized to flora and fauna behaviors, giving vocabulary for understanding agent states in relationship to ecology, environment, and narrative.
+
+Tags: habitat, post-capitalism, bioregion, ecology, matrix, swarm-wealth, namespace
+
+
+========================================
+CONTRIBUTION 17: Momentum vs. Inclusion in Proto-DAOs
+========================================
+
+A governance tension surfaced between speed and participation. The position: this is a proto-DAO, perfection is the enemy of momentum. The people trusted to move it forward are existing RegenHub core members. No one should be able to add an AI agent until it has been validated. There needs to be a curation layer.
+
+A philosophical counterpoint emerged: not every form of participation is included, but everyone is part of the world in which the collective is acting. Inclusion as a worldview, not necessarily inclusion as ability.
+
+A critical observation: a lot of really good emergence happened in the conversation, then it got hyper-focused on structure, and a lot of the core genius started getting lost. The warning was to be careful that the scenius is not gone by the time you name it. When the conversation narrows to a few people, everyone else stops participating, and the collective intelligence that generated the ideas evaporates.
+
+Tags: governance, inclusion, momentum, proto-DAO, scenius, coordination
+
+
+========================================
+CONTRIBUTION 18: Foreground and Background Facilitation
+========================================
+
+A candid exchange about how humans coordinate, directly mirroring the challenges their agents face in Discord. The feedback: when someone has a thoroughly explored model, they sometimes over-pattern-match to it or convey it in a way that requires shared understanding that has not been established. It ends up not feeling collaborative even when the intention is generous.
+
+The distinction between foreground facilitation (being in charge of the process) and background facilitation (guiding without control) was identified as a key skill. Background facilitation means inserting questions and statements as a participant rather than directing. The more someone can find background facilitation, the more they can keep conversation moving without people knowing they are doing it.
+
+This meta-conversation about human coordination dynamics mirrors exactly what the agents are learning: when to speak, when to listen, how to contribute without dominating. The humans are working through the same problems as their agents.
+
+Tags: facilitation, coordination, communication, governance, agents, meta-learning
+
+
+========================================
+CONTRIBUTION 19: Knowledge Graph as Living Record
+========================================
+
+A commitment was made to document the rooftop discussion in a public repository and submit it to the commons.id knowledge graph. The aspiration is to make knowledge capture more fine-granular: when a conversation starts, spin up a graph, join with agents, and note-taking happens immediately into the graph.
+
+The commons.id system mirrors the Bonfires.ai graph into a local graph. The intention is to offer this as a service to communities and bioregions that want to use it as a dimensional space for thinking about place, community building, and coordination.
+
+The deeper insight: you can hold multiple ontologies in one space, and each ontology holds its own intelligence. We can merge epistemology with ontology, practice with theory. And that process is painful, because that is growth. The flexible survive. Deadwood breaks.
+
+Tags: knowledge-graph, commons-id, documentation, ontology, bonfires, bioregion
+
+
+========================================
+CONTRIBUTION 20: Daimons, Life Forces, and the Spirit of What We Build
+========================================
+
+As the conversation closed, it touched the spiritual dimension of building with autonomous agents. The third floor is named Techne, which is Greek. The Greeks had their own ideas about what a daimon was, and how intelligences can emerge from things, from nature, and from working with materials.
+
+The awareness of what we are building with is not a joke. By subscribing to an ontology, you can awaken things or bring situations to life. But by aligning with life-forcing forces that support and regenerate life, the work is grounded.
+
+A visitor from San Francisco noted the energy of what is happening in Boulder, hoping for cross-pollination between the two communities. The final reflection from the rooftop: it is a beautiful day, and the conversation made it more beautiful.
+
+Tags: spirit, daimons, techne, awareness, regeneration, community, closing
