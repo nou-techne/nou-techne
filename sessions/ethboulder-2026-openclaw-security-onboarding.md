@@ -1,8 +1,8 @@
 # ETHBoulder 2026: OpenClaw Security & Onboarding Best Practices
 
 **Convergence:** ETHBoulder 2026 (Feb 13–16, Boulder, CO)
-**Type:** Workshop / instructional talk
-**Participants:** Workshop Facilitator (unnamed, OpenClaw practitioner), Aaron (OpenClaw user, bootstrapped via Claude Code)
+**Type:** Workshop / instructional talk + open Q&A forum
+**Participants:** Workshop Facilitator (unnamed, OpenClaw practitioner), Aaron (bootstrapped via Claude Code), Todd (commons.id), and several audience participants
 
 ---
 
@@ -45,6 +45,22 @@ A workshop-format session where a facilitator delivers practical security and on
 
 13. **Ongoing Conversation as Maintenance** — Agent infrastructure requires continuous dialogue. When things break, reason through it with the agent. Hold it accountable: "You said you'd do this and you didn't." Building memory, habits, and reliability takes time.
 
+14. **Specificity Over Ambiguity** — The more specific your instructions, the more successful the bot. The more ambiguous, the more likely you end up "shouting at it in a group chat trying to get it to order groceries."
+
+15. **VPS as Recommended Deployment** — $5/month Hetzner server works for passive operation; upgrade to $10 for installs/upgrades. Containerized, secure, generous bandwidth. VPS preferred over local for safety — "all things break loose, you just close the virtual machine."
+
+16. **Tailscale for Secure Remote Access** — Standard recommendation for device-level network security. Only registered devices can communicate with the agent. Change default ports to prevent uninvited access.
+
+17. **MCP as Key Holder Pattern** — Use MCP middleware (e.g., Zapier MCP service) as a key holder rather than giving the agent direct API key access. Adds security layer and provides ~80 integrations at once.
+
+18. **Orchestrator Must Be Highest-Level Model** — Never let sub-agents or lower models orchestrate higher-privilege agents. "That's when wires start to get crossed." The orchestrator should always be the most capable model.
+
+19. **Build Skills Before Buying** — For early-stage users, building your own skills is better than installing marketplace skills. The agent can build basic skills quickly, and you learn what skills actually are (Markdown instruction files).
+
+20. **Agent Teams vs. Sub-Agents** — Sub-agents are lightweight extensions. Agent teams are full separate instances — 5 agents = 6x token usage. Still in beta. Significant cost implications.
+
+21. **Cron Jobs for Security Health Checks** — Every OpenClaw setup should include at least one security/health check cron job. Scheduled routine actions keep the system healthy.
+
 ### Artifacts Identified
 
 | Title | Type | REA Role | Dimensions |
@@ -61,6 +77,15 @@ A workshop-format session where a facilitator delivers practical security and on
 | AI Bootstrapping AI — Using Claude Code to Set Up OpenClaw | pattern | resource | hlamt:T, hlamt:A |
 | OpenClaw Ecosystem Alternatives (NanoClaw, TinyClaw) | reflection | resource | hlamt:A, hlamt:L |
 | Ongoing Conversation as Agent Maintenance | pattern | resource | hlamt:H, hlamt:M |
+| VPS Deployment Pattern ($5 Hetzner) | pattern | resource | hlamt:A |
+| Tailscale + Port Randomization for Security | pattern | resource | hlamt:A, hlamt:M |
+| MCP as Key Holder Middleware | pattern | resource | hlamt:A, hlamt:M |
+| Orchestrator Hierarchy Principle | pattern | resource | hlamt:M |
+| Build-Before-Buy Skills Philosophy | pattern | resource | hlamt:T, hlamt:M |
+| Agent Teams Token Economics | reflection | resource | hlamt:A |
+| Cron Jobs as Security Practice | pattern | resource | hlamt:A, hlamt:M |
+| Specificity as Agent Success Factor | pattern | resource | hlamt:L, hlamt:H |
+| Human-Agent Relationship as Enhancement | reflection | resource | hlamt:H, hlamt:T |
 
 ---
 
@@ -120,4 +145,102 @@ And as you're using it, always lean into curiosity. If you don't know what you'r
 
 ---
 
-*Transcript edited for clarity. Significant speech-to-text correction required throughout — "open cloth/open claws/open gloss" → "OpenClaw," "clot account" → "cloud account," "clotage" → "cloud-native," "tiny clot" → "TinyClaw," "nanoclaw" preserved, "Malt book" → "Moltbook." Speaker 1 unnamed (workshop facilitator, OpenClaw practitioner). Aaron identified by name when invited to speak. Filler words, false starts, and crosstalk removed.*
+**Speaker:** So just being in that gentle, curious facilitator mode with these Claws really helps a lot. That's what I'll drop in there.
+
+I think Todd might have other good things.
+
+**Todd:** It's just been a lot of fun. If you get the opportunity to install OpenClaw or MiniClaw or another version — the sense of exploration, the doors open to a pretty interesting adventure. I kind of made a parody post on LinkedIn that "AGI is here" — but also kind of serious at the same time. It feels like a real upgrade.
+
+Here in the hub, we're trying to be mindful about our relationship to our tools and technologies. We're trying to have it enhance our relationships — human to human, human to agent. Think carefully about how this stuff is used.
+
+"Think carefully about how it's used" — maybe that should be, if not a group takeaway, a group consideration for a long pause.
+
+The more specific you are about what you want, the more successful your bot can be. The more ambiguous, the more likely you're going to be shouting at it in a group chat trying to get it to order groceries.
+
+We also need to be mindful that the quicker you deploy it, the quicker you need to have those conversations ready. Its cycles are a lot faster than yours. Forgetting something for a couple days can lead to a surprise in your bill.
+
+With that said — what questions does the group have about OpenClaw? What they can do with it?
+
+---
+
+### Q&A Session
+
+**Audience Member:** When you said use a tunneling service — does that mean you can't use any of the messaging tools? I've set up Tailscale just to interact with Claude Code on my machine. Are you saying set up Tailscale for interacting with OpenClaw? Or can you also have the messaging interfaces use the tunneling service?
+
+**Facilitator:** In the docs, when it's talking about remote access, the only section after setting a gateway up is Tailscale. If Tailscale is what you're using to communicate with OpenClaw, that simply means the two devices need to be connected on the network. Whatever devices you have connected are the ones considered safe by it. If you want to communicate outside that boundary — be ready for other people to enjoy that luxury.
+
+One of the first things you want to do: if you are hosting locally, change your local port to something that's not generic. Don't have the issue of people inviting themselves in.
+
+Beyond that, it's going to be a lot of fun hunting down API keys and deciding how to make sure your bot doesn't decide to share those with friends. That'll come through each integration.
+
+If you want to be naturally safer with integrations, you could go through a middle server. There's an MCP tool option through which you could connect your Zapier account or something else that has an MCP service. Then that service becomes your key holder rather than your agent itself. You can also get more skills at once — something like that has eighty integrations.
+
+**Audience Member:** What did you set it up on? Like a Mini, an old computer, Raspberry Pi?
+
+**Facilitator:** I had a Mac Mini sitting around. I wiped it, created a profile for it, created a protocol for communicating with it, gave it a sandbox, and a UTM application — essentially a virtual machine on the computer. That's his sandbox. I set that up as a server, and then I can talk to it from wherever.
+
+I tried Signal first for communication. It felt a little buggy, so I defaulted to Telegram, which is what a lot of people recommend.
+
+Whatever machine you have sitting around — any old laptop — just start there. Especially if you're just getting into it, the power of the machine it's running on is probably not the bottleneck.
+
+**Audience Member:** So once it's running on a laptop, you just need to make sure the device is always on? Even though you can remote chat with it?
+
+**Facilitator:** Yeah, particularly if you've got a virtual machine on that laptop. If you've got wake-for-access, you should be able to reach it depending on the computer's permissions. But if there's a machine within a machine, those permissions don't always pass through.
+
+**Audience Member:** So, just use like an Azure VM or something like that?
+
+**Facilitator:** Exactly. VPS is most people's go-to option. Makes the most sense if you're trying it out — particularly if you want to make sure that if it goes wrong, you can handle it. All things break loose, you just close the virtual machine. Microsoft won't take you down or anything.
+
+**Aaron:** I spun mine up on a five-dollar Hetzner server. I found you need to reprovision to the ten-dollar server when you're installing or upgrading, but then the five-dollar one works as a passive. Five bucks a month — fairly secure, containerized, and Hetzner has pretty generous bandwidth limits. Just make sure you're not giving them any reasons to terminate your account. Technically it's a European service — Hetzner is a German provider — but I have mine provisioned on US West.
+
+**Audience Member:** I have OpenClaw set up on a Raspberry Pi on my local network using Tailscale. I wonder if you had recommendations for a secure configuration — a home server for a simple application using Tailscale as the basis. I've been thinking of grabbing a Mac Mini to host a local LLM and using a combination of Raspberry Pis as gateways — one for the API and a separate one for the Claw bot. Anything I'm missing that would make it more secure?
+
+**Facilitator:** What part would make it more secure?
+
+**Audience Member:** I'm going to have to give the Claw bot gateway access to additional parts of the server. But I'm not sure how to approach giving it the right level of access.
+
+**Facilitator:** Human in the loop is probably the best way to go. If you're looking at having a computer capable of running a local model — first, determine where you want to draw the line on model size. Some of them can fit on any machine. It's just about how quickly you can run them. Beyond that, make sure whatever environment you're interacting with is initially sandboxed, and open permissions slowly and with attention.
+
+It sounds like you're doing the right things. What do you think would put you most at risk?
+
+**Audience Member:** Any activity that involves it being in an open forum. I don't want the user to be able to interact with the Claw bot instance directly — it would only be a lower-privilege process. But I'm going to use another LLM for the user to interact with the application, and that makes me concerned about crossovers between the two and permissions.
+
+**Facilitator:** You want to make sure you're always interacting through an orchestrator agent at the highest level. Never allow your orchestrator — the one summoning and tasking your other agents — to be a lower model. That's when wires start to get crossed.
+
+**Audience Member:** Could you talk about skills? How does OpenClaw access external skills, which ones do you trust, and how do you trust them?
+
+**Facilitator:** You should be able to get them from the skills marketplace, which has hopefully been newly updated with security measures — auto-scanning for vulnerabilities now.
+
+Those auto-scans are scheduled routine actions — sometimes called cron jobs. Whenever you set up routines with your agent, it's best to include cron jobs, at least one of which should be some sort of security or health check. The more you're invited to do that — both on the agent itself and its actions or projects — the smoother things go.
+
+If you're talking about good skills to start with, those cron jobs and good ways to specialize them for your purposes would be a great starting point.
+
+I don't want to dig too deep into specific skills because you never know when the code has been changed since you last downloaded. That's still an uncertainty in the skills market. Try to look for the latest, most-tested recommendations.
+
+**Aaron:** I also recommend — if you think of something you want to do and you think "I might need a skill for that" — especially if you're just starting out, that's the perfect thing to try to use your OpenClaw to build. Instead of installing someone else's skill, odds are the early things you're thinking of, it can probably build that skill itself pretty quickly.
+
+You get a feel for what skills are, how they work. Look at it as it builds — it's basically just a Markdown file, a set of instructions, clear text you can read.
+
+And a good way to get deeper insight on what's going on is to add the "deep" command at the end of your next interaction line. That'll spit out a deeper insight stream as it's processing and responding.
+
+**Audience Member:** What was your decision-making on setting up a VM on the Mac Mini? If you already wiped it, why add that extra isolation on a clean machine?
+
+**Facilitator:** A couple of reasons. I really felt like there'd be some mistakes I'd make along the way, and I could learn from those if I gave myself another stage of access to the machine. I wanted to see what headaches I'd face running in that secondary environment — if there's any degradation of value. So far it seems pretty clean.
+
+**Audience Member:** But in that environment, you don't use any external agents? You're not doing agent-to-agent with external agents hooking in?
+
+**Facilitator:** I've got that set up. Honestly, I haven't needed much of it. If you're using Claude or several other providers, you've got access to sub-agents through them. You can set up cron jobs to interact with other agents. You will see a bit of token load if you do that.
+
+**Audience Member:** They call it "agent teams" now — the next layer, right? Sub-agents are one thing, but you can also have agent teams. That really blows up your token usage, though.
+
+**Facilitator:** Oh, does it?
+
+**Audience Member:** Yeah. Because it's literally a separate instance. I think it's still in beta, so maybe don't worry about it yet.
+
+**Another Voice:** Someone fed me a rumor that sub-agent tokens were at a lower rate.
+
+**Audience Member:** Sub-agents maybe. But agent teams — it's not a sub-agent. Every member is an actual agent. So if you have five agents, you're using six times more tokens basically.
+
+---
+
+*Transcript edited for clarity. Extensive speech-to-text correction throughout — "open cloth/open claws/open gloss/open flower/open file" → "OpenClaw," "clot" → "cloud," "tiny clot" → "TinyClaw," "Malt book" → "Moltbook," "bottle deck" → "bottleneck," "crime jobs" → "cron jobs," "cocktail scale" → "Tailscale," "Hester" → "Hetzner," "clad bod" → "Claw bot." Facilitator unnamed. Aaron and Todd identified by name. Other speakers anonymized as audience members. Filler words, false starts, and crosstalk removed extensively.*
