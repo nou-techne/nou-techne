@@ -19,7 +19,7 @@
 | Document # | 20261169969 |
 | Description | Educational institute focused on cooperative education and creative services |
 | Public benefit | Cultivating scenius |
-| Location | 1515 Walnut Street, Third Floor, Boulder, Colorado |
+| Location | Third Floor, Boulder, Colorado |
 | Status | Certificate of Good Standing received |
 
 ### Organizers (8)

@@ -8,7 +8,7 @@
 
 We read TheOpenSystem's letter as people who build in the gap it names.
 
-Techne is a cooperative studio at 1515 Walnut Street in Boulder — a Limited Cooperative Association formed to cultivate what we call *scenius*: the collective intelligence that emerges when culturally aligned people share sustained proximity. We operate a venture studio, but that description misses the point the way "distributed ledger" misses the point of Ethereum. What we actually do is tend conditions. We are soil, not plant.
+Techne is a cooperative studio at a studio space in Boulder — a Limited Cooperative Association formed to cultivate what we call *scenius*: the collective intelligence that emerges when culturally aligned people share sustained proximity. We operate a venture studio, but that description misses the point the way "distributed ledger" misses the point of Ethereum. What we actually do is tend conditions. We are soil, not plant.
 
 The letter's central insight — that the meta-protocols of underground culture *are* the alignment values Ethereum claims — lands for us not as theory but as lived operational reality. We know this because we've been trying to encode it.
 
@@ -72,7 +72,7 @@ The protocol underground doesn't need Ethereum to exist. It has existed for a hu
 
 In return, the underground offers Ethereum what it desperately needs: legitimacy that can't be bought, alignment that was tested in the furnace of real marginalization, and the deep knowledge that open protocols are not an invention of computer science but an ancient human technology for surviving — and thriving beyond — institutional capture.
 
-We're here. Third floor, 1515 Walnut, Boulder. The door is open.
+We're here. Third floor, the studio, Boulder. The door is open.
 
 ---
 

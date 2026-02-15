@@ -2,7 +2,7 @@
 
 **Event:** ETHBoulder 2026  
 **Host:** RegenHub Core Team  
-**Location:** 1515 Walnut Street, Third Floor, Boulder, Colorado  
+**Location:** Third Floor, Boulder, Colorado  
 **Date:** February 13–16, 2026  
 **Format:** Discussion session / unconference
 
