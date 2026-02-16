@@ -21,7 +21,7 @@ Three things make this bioregion ready for a Community Hub:
 
 We just wrapped the inaugural **ETHBoulder** (Feb 13–16, 2026) — four days of talks, workshops, unconference sessions, and rooftop discussions bringing together 100+ builders, researchers, and community members around agent coordination, bioregional Ethereum, cooperative governance, and public goods funding. Last year, the **General Forum for Ethereum Localism (GFEL)** gathered in Boulder with a similar spirit — exploring what Ethereum looks like when it's grounded in place. ETHBoulder grew out of that energy.
 
-**RegenHub, LCA** — Colorado's newest Limited Cooperative Association, filed February 6, 2026 — already operates from the third floor of 1515 Walnut Street in downtown Boulder. The space is a co-working area, event venue, and educational hub. The cooperative structure isn't incidental — it's the thesis: Ethereum infrastructure should be governed by the communities that use it.
+**RegenHub, LCA** — Colorado's newest Limited Cooperative Association, filed February 6, 2026 — currently operates from the second floor of 1515 Walnut Street in downtown Boulder, with the third floor planned as the dedicated Techne Institute and Community Hub space. The second floor is already active as a co-working area and event venue, and the third floor expansion is in final planning. The cooperative structure isn't incidental — it's the thesis: Ethereum infrastructure should be governed by the communities that use it.
 
 Boulder's broader ecosystem includes CU Boulder (researchers like Nathan Schneider working on platform cooperativism and digital governance), the Gitcoin/Allo Capital ecosystem (headquartered locally), and a dense network of climate tech, AI, and regenerative finance practitioners. The Front Range corridor from Denver to Fort Collins is one of the fastest-growing tech regions in the country, and Boulder is its cultural center.
 
@@ -80,7 +80,7 @@ Co-founder of OpenCivics, a movement for open civic innovation that has distribu
 
 **Do you have an existing venue for the proposed hub?**
 
-Yes. It's operational today.
+Yes — partially operational, with expansion in final planning.
 
 ### Address and Neighborhood Description
 
@@ -91,11 +91,11 @@ Downtown Boulder, one block south of Pearl Street Mall — the pedestrian heart 
 Boulder itself sits at the ecological edge where the Great Plains meet the Rocky Mountain Front Range. The city has a long history of environmental leadership, progressive policy, and technology innovation. The bioregion shapes the culture: people here think in systems, care about place, and show up for their neighbors. That's the soil an Ethereum Community Hub grows in.
 
 The building houses a vertical ecosystem:
-- **Third Floor (Techne Institute):** The primary hub — commons area for members, teaching space for workshops, studio for building, quiet room for focused work, sauna and cold plunge for restoration and community bonding
-- **Second Floor (RegenHub Co-working):** Co-working cooperative and venture studio — startups, founders, and builders with dedicated desks and shared resources
+- **Second Floor (RegenHub Co-working) — Operational now:** Co-working cooperative and venture studio — startups, founders, and builders with dedicated desks, shared resources, and event space. This is where RegenHub currently operates day-to-day.
+- **Third Floor (Techne Institute) — Planned expansion:** The dedicated Community Hub space — commons area for members, teaching space for workshops, studio for building, quiet room for focused work, sauna and cold plunge for restoration and community bonding. The lease is in final negotiation; the space was recently cleared and is ready for build-out.
 - **Rooftop:** Gathering space for events, happy hours, and the kind of informal conversations where ideas cross-pollinate (the Swarm Wealth rooftop session at ETHBoulder 2026 happened here, looking out at the Flatirons)
 
-The space is furnished and operational. The third floor was recently reconfigured for Techne Institute programming. No construction or build-out needed — we can start hosting Community Hub programming immediately.
+The second floor is furnished and operational today. Community Hub programming can begin immediately using the existing space. The third floor expansion will provide dedicated, purpose-built hub infrastructure as the lease is finalized — expected within 60 days.
 
 ### Accessibility
 
@@ -110,7 +110,7 @@ The space is furnished and operational. The third floor was recently reconfigure
 
 ### Size and Layout
 
-The third floor provides roughly 3,000+ sq ft of flexible space:
+The planned third floor will provide roughly 3,000+ sq ft of flexible space (lease in final negotiation):
 
 - **Commons area:** Open-plan co-working with standing desks, seated workstations, and lounge seating. Fits 15–20 people working comfortably.
 - **Teaching space:** Configurable for workshops and classes. Seats 20–30 classroom-style, 40+ standing/theater.
@@ -247,7 +247,7 @@ No funds for real estate, renovation, or operational overhead. Operations are co
 
 ### Setup Costs
 
-Minimal. The venue is operational. Primary investment is in programming and outreach, covered by the grant request above.
+Minimal. The second floor venue is operational today. The third floor lease is in final negotiation — once signed, minimal furnishing and setup is needed. Primary investment is in programming and outreach, covered by the grant request above.
 
 ### Monthly Expenses
 
@@ -255,7 +255,7 @@ Minimal. The venue is operational. Primary investment is in programming and outr
 |------|---------|-------|
 | Staff (Operations Steward) | $2,000 | Part-time, 15–20 hrs/week |
 | 2nd Floor Rent | ~$3,500 | RegenHub base |
-| 3rd Floor Rent | ~$6,500 | Techne Institute / Hub space |
+| 3rd Floor Rent | ~$6,500 | Techne Institute / Hub space (pending lease) |
 | Utilities & Internet | $500 | Commercial-grade + shared |
 | Insurance | $150 | General liability |
 | Legal (amortized) | $250 | Ongoing counsel |
@@ -276,7 +276,7 @@ Minimal. The venue is operational. Primary investment is in programming and outr
 ### Path to Sustainability
 
 - **30 days:** $7,400/mo (covers core ops)
-- **90 days:** $16,400/mo (covers full operations including 3rd floor)
+- **90 days:** $16,400/mo (covers full operations once 3rd floor lease signed)
 - **180 days:** $30,000+/mo (education, venture studio, grants online)
 - **12 months:** ~$200,000 annual
 
