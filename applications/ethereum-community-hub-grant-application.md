@@ -23,7 +23,7 @@ We just wrapped the inaugural **ETHBoulder** (Feb 14–16, 2026) — three days 
 
 **RegenHub, LCA** — Colorado's newest Limited Cooperative Association, filed February 6, 2026 — currently operates from the second floor of 1515 Walnut Street in downtown Boulder, with the third floor planned as the dedicated Techne Institute and Community Hub space. The second floor is already active as a co-working area and event venue, and the third floor expansion is in final planning. The cooperative structure isn't incidental — it's the thesis: Ethereum infrastructure should be governed by the communities that use it.
 
-Boulder's broader ecosystem includes CU Boulder (researchers like Nathan Schneider working on platform cooperativism and digital governance), the Gitcoin/Allo Capital ecosystem (headquartered locally), and a dense network of climate tech, AI, and regenerative finance practitioners. The Front Range corridor from Denver to Fort Collins is one of the fastest-growing tech regions in the country, and Boulder is its cultural center.
+Boulder's broader ecosystem includes CU Boulder (researchers like Nathan Schneider working on platform cooperativism and digital governance), the Gitcoin/Allo Capital ecosystem (headquartered at RegenHub), and a dense network of climate tech, AI, and regenerative finance practitioners. The Front Range corridor from Denver to Fort Collins is one of the fastest-growing tech regions in the country, and Boulder is its cultural center.
 
 **What's missing — and what a hub would unlock.**
 
