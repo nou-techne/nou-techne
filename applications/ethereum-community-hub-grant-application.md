@@ -19,7 +19,7 @@ Three things make this bioregion ready for a Community Hub:
 
 **The community is already here and building.**
 
-We just wrapped the inaugural **ETHBoulder** (Feb 13–16, 2026) — four days of talks, workshops, unconference sessions, and rooftop discussions bringing together 100+ builders, researchers, and community members around agent coordination, bioregional Ethereum, cooperative governance, and public goods funding. Last year, the **General Forum for Ethereum Localism (GFEL)** gathered in Boulder with a similar spirit — exploring what Ethereum looks like when it's grounded in place. ETHBoulder grew out of that energy.
+We just wrapped the inaugural **ETHBoulder** (Feb 14–16, 2026) — three days of talks, workshops, unconference sessions, and rooftop discussions bringing together 100+ builders, researchers, and community members around agent coordination, bioregional Ethereum, cooperative governance, and public goods funding. Last year, the **General Forum for Ethereum Localism (GFEL)** gathered in Boulder with a similar spirit — exploring what Ethereum looks like when it's grounded in place. ETHBoulder grew out of that energy.
 
 **RegenHub, LCA** — Colorado's newest Limited Cooperative Association, filed February 6, 2026 — currently operates from the second floor of 1515 Walnut Street in downtown Boulder, with the third floor planned as the dedicated Techne Institute and Community Hub space. The second floor is already active as a co-working area and event venue, and the third floor expansion is in final planning. The cooperative structure isn't incidental — it's the thesis: Ethereum infrastructure should be governed by the communities that use it.
 
@@ -145,7 +145,7 @@ The second floor adds co-working capacity with VIP desks ($500/mo) and hot desks
 ### Programming: Active and Planned
 
 **Running now:**
-- **ETHBoulder** (annual, Feb) — Four-day gathering: talks, workshops, unconference sessions, hackathon, rooftop discussions. Just completed its first year with 100+ participants. Last year's General Forum for Ethereum Localism in Boulder carried a similar spirit and seeded the community.
+- **ETHBoulder** (annual, Feb) — Three-day gathering: talks, workshops, unconference sessions, hackathon, rooftop discussions. Just completed its first year with 100+ participants. Last year's General Forum for Ethereum Localism in Boulder carried a similar spirit and seeded the community.
 - **Formation meetings** (weekly/bi-weekly) — Open cooperative governance sessions. Bylaws, patronage system design, member input.
 - **Studio nights** (weekly) — Open evenings for co-working, informal talks, and community building. Donation-based.
 - **Rooftop happy hours** (bi-weekly) — Social anchor. Where relationships form across projects and disciplines, with the mountains in the background.
