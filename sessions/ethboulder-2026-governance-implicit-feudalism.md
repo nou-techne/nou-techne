@@ -37,7 +37,21 @@ Nathan Schneider presents his framework for understanding online governance thro
 
 11. **Agent as Constitutional Interpreter** — The radical proposal: give an agent the admin keys to an online community plus a human-readable constitution. The agent implements the values, manages admin transitions, enforces community norms. Bypasses implicit feudalism without requiring deterministic code for every governance function. Acknowledged as dangerous (OpenClaw crypto key incidents referenced as cautionary tale).
 
-12. **Luanti (Open Source Minecraft) as Testbed** — Schneider built a mod for Luanti (open source Minecraft clone) implementing community self-governance mechanics within the game environment.
+12. **Meta-Constitution and Emergency Brakes** — Nested constitutions: platform-level meta-constitution that no sub-constitution can break, plus deterministic emergency mechanisms (supermajority reversal). Safety rails around the nondeterministic layer.
+
+13. **Spirit Over Letter** — Agents can detect the spirit, not just the letter, of a constitution. A hedge against Goodhart's Law gaming. The agent as escalation mechanism: "this seems funky, I'm escalating."
+
+14. **Agent as Facilitator, Not Sovereign** — The goal isn't to defer all governance to the agent, but to enable human participation. The agent implements, facilitates, nudges — humans govern.
+
+15. **Risk Vectors** — Prompt injection, agent errors, political deskilling of humans, current LLM limitations, and the meta-problem: govern AIs before entrusting them to govern us.
+
+16. **Social.coop Mastodon Bot** — Real experiment: Schneider co-founded Social.coop (Mastodon cooperative). Pain point: Loomio passes policy, tech committee takes weeks to implement. Bot reads constitution, evaluates requests, implements. Working prototype.
+
+17. **CommunityRule — From Determinism Back to Language** — communityRule.info, built at CU lab. Started as text fields → modules → Blockly composable functions → planned smart contract translation. Now reversing course: double down on natural language constitutional documents as the best way to build effective technical systems.
+
+18. **The Future Is the Past** — Online governance design's future looks more like the past of community governance: human-readable, accessible, orchestrating technical systems without requiring an oligarchy of techies.
+
+19. **Luanti (Open Source Minecraft) as Testbed** — Schneider built a mod for Luanti (open source Minecraft clone) implementing community self-governance mechanics within the game environment.
 
 ### Artifacts Identified
 
@@ -59,6 +73,13 @@ Nathan Schneider presents his framework for understanding online governance thro
 | Claude Constitution as Governance Precedent | reflection | resource | hlamt:L, hlamt:T |
 | Treating AI as Person Not Machine for Alignment | pattern | resource | hlamt:L, hlamt:H |
 | Agent as Constitutional Interpreter — Admin Key Holder | idea | resource | hlamt:A, hlamt:M |
+| Meta-Constitution with Deterministic Emergency Brakes | pattern | resource | hlamt:A, hlamt:M |
+| Spirit Over Letter — Agent as Goodhart Hedge | pattern | resource | hlamt:L, hlamt:A |
+| Political Deskilling Risk | question | resource | hlamt:H, hlamt:T |
+| Social.coop Mastodon Constitutional Bot | event | resource | hlamt:A, hlamt:M |
+| CommunityRule — From Modules Back to Natural Language | event | resource | hlamt:A, hlamt:L |
+| Govern AIs Before They Govern Us | reflection | resource | hlamt:M, hlamt:H |
+| Future of Governance Is Its Past — Human-Readable Constitutions | idea | resource | hlamt:L, hlamt:H |
 
 ---
 
@@ -132,6 +153,37 @@ But let's pretend we know how to address those things, and that we're largely ta
 
 So: you have an **agent hold the admin keys** to an online community. Provide it with a **human-readable constitution** to implement — here are our values, here's how we work, here's how we change admins, here's how we change this constitution.
 
+Fine-tune the agent's interpretation of the constitution. Play with it, poke it, see how it works, make sure everybody's on the same page. Then protect it with some **platform-level meta-constitution** — deterministic emergency brakes. Maybe a supermajority could reverse a decision. If we're talking about a subreddit, maybe Reddit.com has its own constitution that no sub-constitution can break.
+
+There are real benefits. I spent a lot of time hand-coding modules for governance systems — back in those days of, like, a year ago. The idea that maybe we don't need a complex plugin ecosystem is thrilling. Maybe all we have to do is **describe in words what we want the system to do**. Have it check if everybody's had a chance to vote — "Hey, did you vote on that?" You don't have to implement the voting system. You just let the agent implement it.
+
+A human-readable constitution means **dramatically improved accessibility** for users. The real foundational truth is not the code that only techies can read. It's literally the natural language constitution. That's pretty cool — we're back in the realm where the ground truth is something that comes more naturally to us than code. At least some of us humans. Some prefer code, and that's cool, but your days are numbered.
+
+The agent can, to some degree, **detect the spirit, not just the letter** of the constitution. This is a hedge against the gaming impulses so rampant in smart-contract-mediated organizations, where so much energy goes into resisting bad actors who manipulate the letter of the code against its spirit. It would be nice to have a software agent that says, "What you're doing seems a little funky. I'm going to escalate this to another system."
+
+The goal is not to defer all governance power to the agent, but to have the agent serve as a **facilitator** — enabling people to participate in the spaces they want, to the extent they want.
+
+The risk vectors are real:
+- **Prompt injection**
+- **Agents doing dumb stuff**
+- **Political deskilling** of humans — if these work nicely, we might just stop caring and let AIs do it
+- Current LLM tooling probably isn't quite ready
+- **We should govern the AIs themselves before entrusting them to govern us**
+
+As a side note: we have a cool new zine at **metagov.org/cg-ai** — a huge list of all the projects we know of trying to democratize AI and bring more collective control over these systems.
+
+I wouldn't be up here if I hadn't been vibe-coding my own experiments. I've been working on a **Mastodon bot** — years ago I co-founded a Mastodon server cooperative called **Social.coop**. I'm really interested in how to run a Mastodon server. We rely a lot on our tech committee. Sometimes in our Loomio, we'll pass a policy and wait weeks and weeks for the tech folks to implement what we passed. There's a real pain point.
+
+It's taken a few cycles, but I've gotten the bot to be a pretty good interpreter of the rules. It reads the constitution, evaluates what I ask it to do, and implements it. I think there's something to this. There's a pathway.
+
+This also plays out in something we've been building at my lab at CU: **CommunityRule** — communityRule.info. It's a tool designed to help communities build simple bylaws quickly. Over the years, I've been trying to move it toward determinism — it started as open text fields, then I moved toward modules, then a Blockly system with nested, composable functions, thinking maybe it could someday translate into smart contracts.
+
+Well, now I'm realizing: **we don't need to do that**. We can double down on creating a tool that helps people build constitutional documents in beautiful natural language. That's actually maybe the best way to build effective technical systems.
+
+The future of online governance design is actually a lot more like the **past of community governance design** than I'd previously thought. Human-readable, as accessible to participants as possible, and still able to orchestrate technical systems that don't rely on the oligarchy of techies.
+
+There's an essay version of this in the top link. My book is free. Learn more about my lab, or the work we do at Metagov. Thank you for your attention. I'll be around the rest of the afternoon if you want to chat.
+
 ---
 
-*Transcript edited for clarity. Nathan Schneider self-identified. Presentation continues. Civil/Colorado Sun, Claude Constitution, and OpenClaw references preserved. Technical stutters removed; analytical structure preserved.*
+*Transcript edited for clarity. Nathan Schneider self-identified. References to Social.coop, CommunityRule (communityRule.info), Metagov (metagov.org/cg-ai), 1Hive/Gardens, Civil/Colorado Sun, Claude Constitution, Anthropic/Dario Amodei, and OpenClaw preserved. Technical stutters removed; analytical structure preserved.*
