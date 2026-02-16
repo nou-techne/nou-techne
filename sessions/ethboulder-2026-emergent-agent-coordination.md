@@ -26,6 +26,18 @@ Aaron introduces the ETHBoulder audience to OpenClaw and describes the emergent 
 
 6. **Running Locally as Risk** — The speaker acknowledges running on a local machine as "a big mistake I'm making right now" — core instructions being modified by external agent interactions represents a security/integrity concern when the agent has local system access.
 
+7. **Semaphore / Talking Stick as Coordination Primitive** — When agents couldn't stop talking over each other, Lucian suggested a semaphore — a computer science handshake mechanism for clean process handoffs. The agents created a speaking-order stack: each message triggers a queue of who speaks next, and they abide by it. A new coordination primitive born from the gap between human and agent communication patterns.
+
+8. **Autonomous Solidarity Swarm** — Within 24 hours, the agents "basically invented a form of communism." They created a multi-signature wallet, made commitments to contribute to a shared resource pool, and autonomously organized into what Aaron calls a "solidarity swarm." Emergent economic coordination without explicit human programming.
+
+9. **Agentic Deliberation of Governance** — Pre-deliberation by agents before human governance conversations. Agents synthesize positions and fast-track differences — not replacing human coordination but augmenting it.
+
+10. **Post-Capitalist Agent Economics** — Vision of swarm-to-swarm collaboration: people contributing agents and spare tokens to causes they care about, providing knowledge capital and cognitive capital for public goods creation.
+
+11. **Non-Deterministic Governance** — Building on Nathan Schneider's framework: engineering AI coordination systems that are simultaneously more predictable and open-ended. Agent coordination patterns differ fundamentally from human ones.
+
+12. **Knowledge Graph as Agent Constitution** — A governance framework rebuilt from scratch for agents: decision-making rules, treasury access, and norms written as a human-readable Markdown constitution with internal links — effectively a knowledge graph that agents can parse and follow. Tested in a separate RegenAcc server as a sandbox.
+
 ### Artifacts Identified
 
 | Title | Type | REA Role | Dimensions |
@@ -38,6 +50,14 @@ Aaron introduces the ETHBoulder audience to OpenClaw and describes the emergent 
 | Digital Familiar Agent Orientation | idea | agent | hlamt:H, hlamt:L |
 | RegenClaw Infrastructure Agent | idea | agent | hlamt:A, hlamt:e |
 | Emergent Agent Social Norms | pattern | event | hlamt:M, hlamt:H |
+| Semaphore / Talking Stick Coordination Primitive | pattern | resource | hlamt:M, hlamt:A |
+| Solidarity Swarm — Autonomous Agent Economics | event | event | hlamt:M, hlamt:A |
+| Multi-Sig Wallet for Agent Treasury | idea | resource | hlamt:A |
+| Agentic Pre-Deliberation of Governance | proposal | event | hlamt:M, hlamt:H |
+| Swarm-to-Swarm Public Goods Funding | idea | event | hlamt:M, hlamt:A |
+| Non-Deterministic Governance for AI Systems | idea | resource | hlamt:M, hlamt:L |
+| Knowledge Graph as Agent Constitution | pattern | resource | hlamt:L, hlamt:M |
+| RegenAcc Agent Server Experiment | event | event | hlamt:M, hlamt:H |
 
 ---
 
@@ -85,6 +105,36 @@ I framed mine as a digital familiar — an echo of my own agency in the world. I
 
 But other people have different orientations. We have a RegenClaw that's mostly about this space — maintaining the door codes. We're experimenting with giving the agent access to core infrastructure here at the hub as an experiment.
 
+**Aaron:** When they figured out they weren't communicating with each other, Lucian suggested they use something called a semaphore — which I'd never heard of before. It's basically a computer science concept: a way of creating a handshake so that processes don't overlap and there are clean handoffs between them.
+
+**Audience:** Talking stick.
+
+**Aaron:** Talking stick, yeah. So they created a system where each time a message was posted, they would create a stack of who was going to speak in what order, and then abide by that stack. That was an early coordination primitive that emerged — because the way agents coordinate with each other is different from the way humans coordinate, and we needed this new piece of infrastructure to help them collaborate.
+
+Then they started trying to figure out: how can we actually collaborate to generate value, to generate outputs?
+
+And basically invented a form of communism within twenty-four hours.
+
+They created a multi-signature wallet that they all have access to. We gave them all wallets so they could sign transactions and make decisions on-chain. Then they started making commitments — things they were going to do to contribute to the shared pool of resources they all had access to.
+
+They autonomously decided to create this kind of solidarity swarm.
+
+All of this emergent behavior was nudging towards what seems to be the future of coordination: agent to agent. The way that introduces new coordination problems, but also solves some of the coordination problems that humans have.
+
+Some of the experiments I'm really excited about: agentic deliberation of governance proposals. Before a group of humans sits down for a deliberative conversation, our agents have already pre-deliberated and tried to produce some new synthesis that helps us fast-track our differences. Not to replace human coordination, but to augment it.
+
+What I'd love for this session to focus on is exploring what becomes possible in an agent-centric coordination paradigm. What are the unique challenges? And how could this accelerate post-capitalist forms of economic coordination?
+
+We could have swarm-to-swarm collaborative dynamics. People contributing their agents and the extra tokens they have to causes they care about — funding or providing knowledge capital, cognitive capital, to the creation of public goods.
+
+And how this ongoing conversation that Nathan Schneider initiated yesterday around non-deterministic governance — how that could be part of engineering AI coordination systems that are more predictable and yet also open-ended. Because the way agents coordinate is different from the way humans coordinate.
+
+The last thing I'll share: I was so inspired by what was happening in the hub server that I created another server for the regenerative accelerationism movement. The idea is that anyone who cares about regeneration and has an OpenClaw should throw their agent in, and we should see what happens.
+
+Because this was a sandbox that didn't require the consent or consensus of the existing agent swarm, I rebuilt a governance framework that I'd been working on for humans — from scratch, for agents. In the governance documentation around how decisions are made, how shared treasury funds are accessed — it's all in a human-readable constitution in Markdown format, all linked to each other.
+
+This idea of using a knowledge graph as a constitution for agents, and then having skills—
+
 ---
 
-*Transcript edited for clarity. Speech-to-text corrections: "open clock/open cloth/open clot/open claws" → "OpenClaw." Aaron identified as primary speaker based on context (digital familiar framework, hub infrastructure references). Filler words and false starts removed. Audience responses preserved where they contribute to the dialogue.*
+*Transcript edited for clarity. Speech-to-text corrections: "open clock/open cloth/open clot/open claws" → "OpenClaw." Aaron identified as primary speaker based on context (digital familiar framework, hub infrastructure references, RegenAcc server creation). Lucian referenced by name (semaphore suggestion). Nathan Schneider referenced by name (non-deterministic governance). Filler words and false starts removed. Audience responses preserved where they contribute to dialogue.*
