@@ -32,6 +32,10 @@ A facilitator leads the group through the intersection of AI pattern-matching, m
 
 10. **AI Augments but Cannot Replace Human Mirroring** — The facilitator explicitly sets a boundary: AI and Web3 can help capture and own internal data faster, but the irreducible element is human-to-human seeing. Technology accelerates; connection reveals.
 
+11. **3-4x/Week Threshold for Psyche Change** — From the facilitator's study group data: logging triggers and self-reflection 3-4 times per week over a ~3 month container produces "tremendous change." Lower frequency yields less. Consistency in a repeatable way is the key variable.
+
+12. **Somatic Discharge** — When emotions surface, move them physically. Run, dance, scream into a pillow. No tools or money required. The body processes what the mind captures.
+
 ### Artifacts Identified
 
 | Title | Type | REA Role | Dimensions |
@@ -45,6 +49,8 @@ A facilitator leads the group through the intersection of AI pattern-matching, m
 | Paired Reflection for Community Processing | pattern | event | hlamt:H, hlamt:T |
 | Everything Is a Mirror — Human Connection as Data | pattern | resource | hlamt:H, hlamt:L |
 | AI Augments but Cannot Replace Human Mirroring | reflection | resource | hlamt:H, hlamt:T |
+| 3-4x/Week Psyche Data Capture Protocol | pattern | resource | hlamt:M, hlamt:H |
+| Somatic Discharge for Emotional Processing | pattern | resource | hlamt:H, hlamt:T |
 
 ---
 
@@ -188,4 +194,28 @@ So the goal is to accelerate technology *and* human connection in each other.
 
 ---
 
-*Transcript edited for clarity. Paired conversation lightly edited for privacy — identifying details of the elder removed (field preserved, name omitted). The five wound words (abandonment, rejection, humiliation, betrayal, injustice) preserved exactly as spoken — drawn from established somatic/therapeutic frameworks. Facilitator unnamed.*
+### Closing: The Practice
+
+**Facilitator:** If you want to really double down and have a super-fast evolution of your own psyche and pattern-matching — a couple of things you can do.
+
+One: commit to your data capture. I can't tell you how many people I've worked with — including people who were gravely ill with rough prospects — who didn't have that desire, that spark to do this work. I have no judgment, genuinely, because it is hard. But in order to move through these things, no technology is going to solve it for you. You have to do it yourself.
+
+A simple, easy, digestible way to start — you don't need to read a million books or go to a million seminars: just ask yourself some questions when you're feeling activated. Capture it in your notes app. Then talk to somebody about it. Within yourself, within your friend group. Maybe once a week, sit down and say, "What were the patterns here?"
+
+If you're really committed — from watching and thinking about our study group and all the people we were reflecting on — when someone really showed up, logging triggers and looking at themselves three to four times a week, in a container of about three months, we saw tremendous change.
+
+Someone doing it once or twice — I get it, life is life, no judgment — but this is the data we found: when you show up consistently and look at yourself in a repeatable way, you'll see change.
+
+When you talk with somebody else about this data, it makes it ten times more effective.
+
+And the last piece — not to get too complicated: when you feel stuff come up, when emotions bubble to the surface — move the emotion. You don't need lots of money, you don't need lots of tools. Go outside for a run. Dance it out. Scream into a pillow — my personal favorite.
+
+That helps.
+
+Technology and tech solutions for healing can work at scale, but they will never replace the humanity.
+
+With that — thanks. Hope you got something out of this. Let me know if you have questions.
+
+---
+
+*Transcript edited for clarity throughout. Paired conversation lightly edited for privacy — identifying details of the elder removed (field preserved, name omitted). The five wound words (abandonment, rejection, humiliation, betrayal, injustice) preserved exactly as spoken — drawn from established somatic/therapeutic frameworks. Facilitator unnamed — identified as a healing practitioner with experience running AI-assisted psyche study groups over three-month containers.*
