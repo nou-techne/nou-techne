@@ -27,9 +27,9 @@ Boulder's broader ecosystem includes CU Boulder (researchers like Nathan Schneid
 
 **What's missing — and what a hub would unlock.**
 
-Boulder has the people and the energy, but no permanent, branded Ethereum presence that newcomers can walk into. The university produces hundreds of CS and engineering graduates each year who are Ethereum-curious but have no local on-ramp. Digital nomads passing through (there are a lot of them — Boulder's that kind of place) have no Ethereum-specific landing pad. Founders building on Ethereum work in isolation when they could be collaborating a block from Pearl Street.
+Boulder has the people and the energy, but no permanent community space with a visible Ethereum presence that newcomers can walk into. The university produces hundreds of CS and engineering graduates each year who are Ethereum-curious but have no local on-ramp. Digital nomads passing through (there are a lot of them — Boulder's that kind of place) have no Ethereum-specific landing pad. Founders building on Ethereum work in isolation when they could be collaborating a block from Pearl Street.
 
-A Community Hub at Techne would make the invisible visible — turning a thriving but informal Ethereum community into something legible, accessible, and connected to the global network.
+Hosting an Ethereum Community Hub at Techne would make the invisible visible — giving Boulder's thriving but informal Ethereum community a legible home while connecting it to the global network. Techne wouldn't be exclusively Ethereum-branded, but Ethereum values and infrastructure are central to what we're building, and we'd welcome the partnership and visibility.
 
 **What else exists nearby:**
 - Galvanize Boulder (general tech co-working, no Ethereum focus)
