@@ -216,16 +216,16 @@ The second floor adds co-working capacity with VIP desks ($500/mo) and hot desks
 
 ## 8. Support and Funding Request
 
-### Budget Request: $25,000 (one-time, allocated over 12 months)
+### Budget Request: $35,000 (one-time, allocated over 12 months)
 
 | Category | Amount | What It Covers |
 |----------|--------|----------------|
-| Events & programming | $10,000 | Speaker fees, supplies, A/V, catering, hackathon prizes |
-| Education & onboarding | $6,000 | LearnVibe.Build scholarships (4 × $1,500), workshop materials, content |
-| Outreach & visibility | $4,000 | Marketing, community outreach, ETHBoulder promotion, video production |
-| Tools & subscriptions | $3,000 | commons.id infrastructure, collaboration tools, platform subscriptions |
-| Community building | $2,000 | Welcome kits, community meals, networking events |
-| **Total** | **$25,000** | |
+| Events & programming | $14,000 | Speaker fees, supplies, A/V, catering, hackathon prizes, venue costs for larger events |
+| Education & onboarding | $8,000 | LearnVibe.Build scholarships (5 × $1,500), workshop materials, content development |
+| Outreach & visibility | $5,000 | Marketing, community outreach, ETHBoulder promotion, video production, signage |
+| Tools & subscriptions | $5,000 | commons.id infrastructure, collaboration tools, platform subscriptions, equipment |
+| Community building | $3,000 | Welcome kits, community meals, networking events, visiting speakers |
+| **Total** | **$35,000** | |
 
 No funds for real estate, renovation, or operational overhead. Operations are covered by memberships, space rentals, venture studio services, and investor capital.
 
