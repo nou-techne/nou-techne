@@ -71,7 +71,7 @@ Designer at local*, bringing visual and experience design expertise to the hub's
 Co-founder of OpenCivics, a movement for open civic innovation that has distributed $361K+ to civic innovators across six community-led grant rounds. Benjamin also stewards Spirit of the Front Range alongside Aaron. He brings the civic technology perspective — participatory governance, bioregional coordination, and commons-based infrastructure design. His work directly connects the Ethereum Community Hub to Boulder's broader civic ecosystem.
 
 **Additional team:**
-- **Jeff Pote + Katie (Pote Law Firm)** — Legal counsel specializing in Colorado cooperative law, currently drafting the operating agreement and bylaws
+- **Pote Law Firm** — Legal counsel specializing in Colorado cooperative law, currently drafting the operating agreement and bylaws
 - **Nou (Collective Intelligence Agent)** — An operational AI agent maintained by the cooperative that handles institutional memory, documentation, knowledge graph management, and coordination across ventures. Maintains the public journal at the-habitat.org and manages commons.id.
 
 ---
