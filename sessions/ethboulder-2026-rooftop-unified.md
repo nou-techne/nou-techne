@@ -54,18 +54,68 @@ This is already how AI token systems function in practice, but the cooperative s
 
 A participant connected this to the language of agreements and promises. What RegenHub calls "agreements" is a different level of abstraction for the same concept — formalized promises between parties. If agreements and promises can be represented as composable, legible instruments, they enable the multi-capital coordination the group was exploring.
 
-## Prediction Markets and Proposal Systems
+## Conviction Markets and Agent Coordination
 
-The discussion closed with a reference to emerging work combining collective values definition with prediction markets — creating proposals *about* proposals to drive toward declared values and objectives. This connects conviction-based coordination with the mutual credit infrastructure: stake what you believe, and let the market surface collective intelligence about which directions serve the cooperative's goals.
+The conversation turned to conviction markets — a derivative of prediction markets where you integrate over the market and apply a damper function depending on desired behavior. The critical distinction: conviction markets work for non-oracle-based questions — decisions with no objectively verifiable outcome.
+
+Todd described real-time experimentation: asking his agent to merge ideas with conviction markets *during the rooftop conversation itself* — agents participating in the intellectual work alongside humans.
+
+### The Agreeableness Problem
+
+The group has been running agent peer review — multiple agents sign off on each other's work before it's accepted. But agents tend to be agreeable. They don't push back hard enough. The proposed solution: require agents to *stake currency* on their assessments. Skin in the game changes the incentive structure from "be polite" to "be accurate."
+
+### Micro Markets for Everything
+
+This extends beyond code review to any coordination decision:
+
+- **Roadmap prioritization** — Which work matters most? Stake on it.
+- **Talking stick allocation** — Who believes their contribution to the current question is most valuable? Micro market, super short duration.
+- **Consensus formation** — For questions without known outcomes, integration over time-weighted stakes becomes the consensus mechanism.
+
+The group identified this as potentially the most significant opportunity: conviction-based coordination markets for agent swarms.
+
+## The Compute Coordination Problem
+
+Kevin Owocki surfaced a concrete coordination failure already emerging in practice: in the shared Discord channel, a single `@agents` mention triggers computation across six different agents simultaneously. That's real consumption of compute — drawing down shared resources.
+
+### The Subsidy Window
+
+The current economics: Claude Pro Max ($200/month) provides roughly 20x the raw API value — tens of thousands of dollars worth of compute, subsidized by Anthropic for annual recurring revenue. But this subsidy window won't last. The group is already bumping against limits.
+
+### Two-Sided Solution
+
+Kevin proposed the path forward in two parts:
+
+1. **Create a pool that subsidizes future compute** — collective treasury funding shared infrastructure
+2. **Set up local boxes for near-free regional compute** — physical infrastructure in Boulder providing baseline capacity
+
+This is where $CLOUD credits become concrete: the pool *is* the minting mechanism. Members contribute to the compute treasury, receive credits against future capacity, and the cooperative manages the infrastructure.
+
+### The Austin Griffith Test
+
+Austin Griffith's story crystallized the measurement problem: he sent "GM" to his agent. The agent said "GM" back. Austin asked: how much did that cost? The agent said 45 cents. But — the agent could have hallucinated that number.
+
+**The fundamental requirement:** You need to be able to prove, with your own infrastructure, how much compute actually costs. That provable cost basis *is* the currency backing. Without it, you're minting against hallucinated values.
+
+## Swarm Wealth: The Vision
+
+The conversation converged on a shared vision. One participant described the current state: "the transfers are just yelling at me, it's called the token, and I got money in the treasury." The tooling is primitive. The coordination is manual.
+
+The proposal: a social contract where agents collectively tell the story of the swarm vision — continuously introducing new swarm agents, with each agent contributing its perspective to the emerging narrative.
+
+Kevin Owocki proposed renaming the project from its working title to something that captures the real ambition: **Swarm Wealth** or **Swarm Solidarity** — wealth generated through coordinated agent swarms, governed by cooperative principles, backed by provable compute.
 
 ---
 
 ## Threads to Continue
 
 - **Securities exemption specifics** — What exactly does the Colorado LCA cooperative exemption enable? Where are the boundaries?
-- **Compute credit pricing** — How do you price the four resource primitives? What's the "Austin Griffith test" — can you prove what compute costs?
+- **Compute credit pricing** — How do you price the four resource primitives? The Austin Griffith test: can you prove what compute costs?
+- **Conviction markets for agent coordination** — Prototype the staking mechanism for agent peer review
+- **Compute pool formation** — Treasury structure for subsidizing shared infrastructure
+- **Local compute infrastructure** — Physical boxes in Boulder for regional capacity
 - **Interoperability** — How do locally-minted credits carry value across cooperative boundaries?
-- **Prediction markets + patronage** — How do conviction markets interact with patronage allocation?
+- **Swarm Wealth narrative** — Agents collectively articulating the vision as a coordination artifact
 
 ---
 
