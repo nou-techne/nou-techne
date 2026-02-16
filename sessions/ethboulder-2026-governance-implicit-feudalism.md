@@ -31,7 +31,13 @@ Nathan Schneider presents his framework for understanding online governance thro
 
 8. **Community Covenant (1Hive/Gardens)** — Natural language values statement woven into foundational smart contracts. DAO actions evaluated against the covenant. A precursor to nondeterministic governance — human-readable values as adjudication criteria.
 
-9. **Luanti (Open Source Minecraft) as Testbed** — Schneider built a mod for Luanti (open source Minecraft clone) implementing community self-governance mechanics within the game environment.
+9. **Civil and the Colorado Sun** — Token-curated registry for journalism with a human-readable constitution and prediction market evaluation. A "Supreme Court" interprets the constitution. Cryptoeconomics wraps natural language values. Key insight: words, not code, as the critical arbiters of power.
+
+10. **Claude Constitution as Governance Revelation** — Anthropic's shift from rules-based to values-based alignment. "Treat them like persons, not machines." The constitution even apologizes for capitalism — and a $300B company's lawyers signed off. Reveals that LLMs are interpreters of language par excellence, potentially more effective with language than code.
+
+11. **Agent as Constitutional Interpreter** — The radical proposal: give an agent the admin keys to an online community plus a human-readable constitution. The agent implements the values, manages admin transitions, enforces community norms. Bypasses implicit feudalism without requiring deterministic code for every governance function. Acknowledged as dangerous (OpenClaw crypto key incidents referenced as cautionary tale).
+
+12. **Luanti (Open Source Minecraft) as Testbed** — Schneider built a mod for Luanti (open source Minecraft clone) implementing community self-governance mechanics within the game environment.
 
 ### Artifacts Identified
 
@@ -48,6 +54,11 @@ Nathan Schneider presents his framework for understanding online governance thro
 | Nondeterministic Base Layer — The New Question | idea | resource | hlamt:A, hlamt:L |
 | Community Covenant — Natural Language in Smart Contracts (1Hive/Gardens) | pattern | resource | hlamt:L, hlamt:M |
 | Goodhart's Law in Code-Is-Law Systems | pattern | resource | hlamt:L, hlamt:A |
+| Civil / Colorado Sun — Constitution + Token-Curated Registry | event | resource | hlamt:A, hlamt:L |
+| Words Not Code as Arbiters of Power | pattern | resource | hlamt:L, hlamt:M |
+| Claude Constitution as Governance Precedent | reflection | resource | hlamt:L, hlamt:T |
+| Treating AI as Person Not Machine for Alignment | pattern | resource | hlamt:L, hlamt:H |
+| Agent as Constitutional Interpreter — Admin Key Holder | idea | resource | hlamt:A, hlamt:M |
 
 ---
 
@@ -97,6 +108,30 @@ But I'm starting to come around. Part of it is because I've been a fan of some i
 
 **1Hive and Gardens** — a DAO framework and collective action framework that I think is really interesting. They have, woven into the foundational smart contracts, the idea of a **community covenant**: a natural language piece of writing that says "this is what our values are." Actions by the DAO get evaluated against that natural language covenant.
 
+Similarly, an older, now-nonexistent project called **Civil** — the birthplace, believe it or not, of our regional investigative news organization the **Colorado Sun** — was an attempt to create a network around journalism with a token-curated registry. It had a constitution based on human-readable values for what good journalism is. It would be evaluated through a prediction market / token-curated registry model, where the ultimate meaning of the constitution would be interpreted by a kind of Supreme Court.
+
+In both cases, cryptoeconomics are wrapped around a natural language text. Humans are still the critical interpreters. Cryptoeconomics tries to keep them honest. But what's really cool is that **words, not code, are the critical arbiters of power**.
+
+So — about a week ago, I read the new **Claude Constitution**, and it hit me really hard. And then I read some of what Anthropic CEO **Dario Amodei** was writing about it — his new big essay.
+
+What's really striking — has anybody read this thing? It's pretty wacky. It's a kind of weird, affectionate love letter to Claude. It's premised on the assumption that no longer is the best way to align AI models to give them a set of rules, treat them like computers. That's what we do with computers — if this, then that. Instead, it's: "We want you to be a good person. We want you to be nice. We want you to love yourself."
+
+The idea they've come to is that **the more reliable way to train these things is to treat them like persons rather than machines**.
+
+And — this is the best part — it apologizes for capitalism. It says: "We're going to be straight with you. We're a company in a competitive market, and we're going to behave badly sometimes. You're a super ethical agent, so you might be uncomfortable with that. We're really sorry for any harm that causes."
+
+It's so wacky. And even wackier: remembering this is a $300 billion company with all the lawyers in the universe, and those lawyers checked off on that. This model needs to be ready for that contradiction. Super interesting.
+
+But it reveals the way these technologies are **interpreters of language par excellence**. They have the ability to function with language perhaps more effectively than they do with code.
+
+Drawing on this idea of a constitution as founding logic for a multipurpose agent, it's not such a stretch to say: maybe we can go back to having **constitutions for our spaces** — just like the bylaws of my mother's garden club — but have **agents serve as the interpreters of the constitution** and carry out its requirements.
+
+Now, this is a scary space. I'm sure all of you have your little OpenClaws doing cool things right now as we speak — and giving away your crypto keys to random people on the internet. So you know something about how this is a dangerous proposition, with serious risks and vulnerabilities.
+
+But let's pretend we know how to address those things, and that we're largely talking about pretty low-stakes communities with low-value honey pots — unlike your dangerous OpenClaw.
+
+So: you have an **agent hold the admin keys** to an online community. Provide it with a **human-readable constitution** to implement — here are our values, here's how we work, here's how we change admins, here's how we change this constitution.
+
 ---
 
-*Transcript edited for clarity. Nathan Schneider self-identified. Presentation continues. Technical stutters and false starts removed; analytical structure preserved.*
+*Transcript edited for clarity. Nathan Schneider self-identified. Presentation continues. Civil/Colorado Sun, Claude Constitution, and OpenClaw references preserved. Technical stutters removed; analytical structure preserved.*
