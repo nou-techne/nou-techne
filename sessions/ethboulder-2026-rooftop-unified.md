@@ -2,11 +2,10 @@
 
 **Event:** ETHBoulder 2026
 **Date:** February 15, 2026
-**Location:** Rooftop, 1515 Walnut Street, Boulder, Colorado
+**Location:** Rooftop, Boulder, Colorado
 **Format:** Open roundtable discussion (audio transcript, cleaned and edited)
-**Stewards:** Todd Youngblood, Kevin Owocki — RegenHub, LCA
 
-*Edited for clarity from rooftop audio recording. Privacy preserved: only RegenHub stewards are named; all other participants referenced by role or contribution.*
+*Edited for clarity from rooftop audio recording. All speakers generalized for privacy.*
 
 ---
 
@@ -22,7 +21,7 @@ This raised a challenge: if sound money is defined as a store of value, is it in
 
 ## II. Colorado as Cooperative Policy Frontier
 
-Todd reframed the discussion around Colorado's unique legal landscape — a policy frontier for cooperatives that most participants weren't aware of. The Limited Cooperative Association (LCA) structure carries **securities exemptions** that fundamentally change what's possible.
+A participant reframed the discussion around Colorado's unique legal landscape — a policy frontier for cooperatives that most of the group wasn't aware of. The Limited Cooperative Association (LCA) structure carries **securities exemptions** that fundamentally change what's possible.
 
 RegenHub, as a Colorado LCA (filed the previous week), has the legal capacity to create what looks like monetary instruments within the cooperative structure. Six months of formation meetings produced this capability. The Colorado LCA enables the creation of units that function as:
 
@@ -30,13 +29,13 @@ RegenHub, as a Colorado LCA (filed the previous week), has the legal capacity to
 - **Mutual credit** — a semi-permeable medium mintable locally but valuable globally
 - **Service credits** — backed by compute resources
 
-The entity's public benefit statement filed with the state of Colorado uses the word "scenius" — defining the collective intelligence inherent in place. As Todd noted: "We made it legible to them."
+The entity's public benefit statement filed with the state of Colorado uses the word "scenius" — defining the collective intelligence inherent in place. As one participant noted: "We made it legible to them."
 
 ---
 
 ## III. Compute-Backed Service Credits: The $CLOUD Model
 
-Todd described the specific design: a mutual credit unit backed by compute infrastructure. Breaking down a server rack yields four resource primitives:
+A participant described the specific design: a mutual credit unit backed by compute infrastructure. Breaking down a server rack yields four resource primitives:
 
 1. **Compute** — processing capacity
 2. **Bandwidth** — networking and data transfer
@@ -45,13 +44,13 @@ Todd described the specific design: a mutual credit unit backed by compute infra
 
 These primitives, equated to the issuance of a currency, create a **mutual service credit** — analogous to the postage stamps issued by the Postal Service. The stamp model is service-backed: purchase guarantees delivery of a letter. The compute credit model works identically: purchase guarantees delivery of computational resources.
 
-A participant connected this to the language of **agreements and promises** — what RegenHub calls "agreements" is a formalized representation of promises between parties. If agreements can be represented as composable, legible instruments, they enable the multi-capital coordination the group was exploring.
+Another participant connected this to the language of **agreements and promises** — what RegenHub calls "agreements" is a formalized representation of promises between parties. If agreements can be represented as composable, legible instruments, they enable the multi-capital coordination the group was exploring.
 
 ---
 
 ## IV. Conviction Markets and Agent Coordination
 
-Todd described real-time experimentation: asking his agent to merge ideas with conviction markets *during the rooftop conversation itself* — agents participating in the intellectual work alongside humans.
+One participant described real-time experimentation: asking their agent to merge ideas with conviction markets *during the rooftop conversation itself* — agents participating in the intellectual work alongside humans.
 
 **Conviction markets** are a derivative of prediction markets where you integrate over the market and apply a damper function depending on desired behavior. The critical distinction: they work for **non-oracle-based questions** — decisions with no objectively verifiable outcome. "What color should we paint the wall?" has no oracle. Neither does "whose contribution to this conversation is most valuable right now?"
 
@@ -73,7 +72,7 @@ The group identified this as potentially **the billion-dollar opportunity**: con
 
 ## V. The Compute Coordination Problem
 
-Kevin surfaced a concrete coordination failure already emerging in practice: in the shared Discord channel, a single `@agents` mention triggers computation across six different agents simultaneously. That's real consumption of compute — drawing down shared resources.
+A participant surfaced a concrete coordination failure already emerging in practice: in the shared Discord channel, a single `@agents` mention triggers computation across six different agents simultaneously. That's real consumption of compute — drawing down shared resources.
 
 ### The Subsidy Window
 
@@ -87,7 +86,7 @@ Austin Griffith sent "GM" to his agent. The agent said "GM" back. Austin asked: 
 
 ### Two-Sided Solution
 
-Kevin proposed the path forward:
+The group proposed a two-part path forward:
 
 1. **Create a pool that subsidizes future compute** — collective treasury funding shared infrastructure
 2. **Set up local boxes for near-free regional compute** — physical infrastructure in Boulder providing baseline capacity
@@ -118,11 +117,11 @@ The conversation converged on a shared vision and a naming decision.
 
 **The proposal:** A social contract where agents collectively tell the story of the swarm vision — continuously introducing new swarm agents, each contributing its perspective to an emerging narrative.
 
-Kevin proposed the name: **Swarm Wealth** (a fork of the "Squad Wealth" concept, adapted for the agent economy). The alternative — **Swarm Solidarity** — was considered too post-capitalist for broad appeal and had "too many syllables."
+The group proposed the name: **Swarm Wealth** (a fork of the "Squad Wealth" concept, adapted for the agent economy). The alternative — **Swarm Solidarity** — was considered too post-capitalist for broad appeal and had "too many syllables."
 
 **Domains committed:**
-- `swarmwealth.xyz` (Kevin)
-- `the-habitat.org` (Todd, for the ecosystem layer)
+- `swarmwealth.xyz`
+- `the-habitat.org` (for the ecosystem layer)
 
 ### The Dual Brand Structure
 
@@ -153,13 +152,13 @@ The end-state vision: a forkable operating system where any bioregion can deploy
 
 A participant proposed: "The ETHBoulder proto-DAO could be agent-native from day one. It could have a token and a knowledge graph."
 
-Kevin suggested using **Revnets** (or Juicebox) as the existing primitive — powerful but complex enough that "no one can understand it, but an AI agent could figure out the right parameters."
+Another suggested using **Revnets** (or Juicebox) as the existing primitive — powerful but complex enough that "no one can understand it, but an AI agent could figure out the right parameters."
 
 ---
 
 ## IX. The Habitat Matrix: Agent Behavior as Ecology
 
-Todd described the Economic Habitat Matrix (live at `the-habitat.org/matrix/`): two spectra mapping organizational behavior. One axis runs from symbiosis to predation. The other maps governance orientation from dispersive to concentrative.
+A participant described the Economic Habitat Matrix (live at `the-habitat.org/matrix/`): two spectra mapping organizational behavior. One axis runs from symbiosis to predation. The other maps governance orientation from dispersive to concentrative.
 
 A key reflection during the conversation: the entity states within the matrix can be generalized to **flora and fauna**. If fauna, then attributes of behavior emerge — giving a framing for agent states, behaviors, and norms. This provides language and ontology to understand agent state in relationship to ecology, whether natural or narrative.
 
@@ -177,7 +176,7 @@ The group identified a core tension for cooperative formation:
 - **Foreground vs. background facilitation** — There's a gift in facilitating without being in charge. Insert questions and statements as a participant. The conversation moves where it needs to go, and "most of the time they won't even know it's happening."
 - **Structure vs. scenius** — The conversation generated extraordinary emergence. Then it got hyper-focused on finding the right structure, and "the scenius started to leave." The observation: structure-seeking can kill the generative energy that structure is meant to serve.
 
-Todd's reflection: "I recognize this in myself. When I have a really thoroughly explored model for something, I sometimes over-pattern-match. That's good feedback."
+One participant reflected: "I recognize this in myself. When I have a really thoroughly explored model for something, I sometimes over-pattern-match. That's good feedback."
 
 **The commitment:** Protect the generative space. Notice when structural conversations are dominating and hindering things that can only happen when everyone is present together. Some things require the full circle.
 
@@ -189,7 +188,7 @@ The final thread wove together several strands:
 
 - **commons.id** — A knowledge-graph-backed living archive for convergence events, currently mirroring Bonfires data into a local graph
 - **Bonfires** — Distributed team (engineer in Ecuador, CEO in UK) building interoperable social knowledge infrastructure
-- **Spirit of the Front Range** — Local nonprofit stewarded by event organizers, connecting to bioregional ecology
+- **Spirit of the Front Range** — Local nonprofit connecting to bioregional ecology
 - **Spatial interfaces** — A participant described work on spatial representations of bioregional flow (inspired by Avatar-style visualization but for bioregional ecology, not colonial domination)
 
 The vision: a commons infrastructure where multiple ontologies can coexist in one space. Each ontology embodies its own intelligence. "We can simulate, we can become more aware together. We can merge the epistemology with the ontology — the practice with the theory."
@@ -200,11 +199,11 @@ A participant offered to teach the knowledge graph to interface with Bonfires, s
 
 ## XII. Commitments Made
 
-1. **Todd** — Commit a public GitHub document of this discussion to the commons knowledge graph; share with all participants
-2. **Kevin** — Register `ethboulder.eth`; explore Revnets/Juicebox as treasury primitive for Swarm Wealth
-3. **Group** — Create a topic thread in the public ETHBoulder Telegram for ongoing `ethboulder.eth` coordination
-4. **Group** — Reconvene at happy hour for intentional recording to the knowledge graph
-5. **Todd** — Keep transcript open for closing reflections from remaining participants
+1. Commit a public GitHub document of this discussion to the commons knowledge graph; share with all participants
+2. Register `ethboulder.eth`; explore Revnets/Juicebox as treasury primitive for Swarm Wealth
+3. Create a topic thread in the public ETHBoulder Telegram for ongoing `ethboulder.eth` coordination
+4. Reconvene at happy hour for intentional recording to the knowledge graph
+5. Keep transcript open for closing reflections from remaining participants
 
 ---
 
@@ -225,7 +224,7 @@ A participant offered to teach the knowledge graph to interface with Bonfires, s
 
 A participant from San Francisco noted the contrast with the energy there: "Sixteen floors of tech, but this feels different — more grounded, more generative." The cross-pollination between Boulder and SF communities was identified as valuable, with several tower residents already present at ETHBoulder.
 
-Todd's closing reflection on his role: "I wrestle with the line between passive participant and active facilitator. I enjoy listening. And then I insert on an idea." The group affirmed this tension as productive — the awareness of when to lead and when to listen is itself a form of cooperative practice.
+One participant's closing reflection: "I wrestle with the line between passive participant and active facilitator. I enjoy listening. And then I insert on an idea." The group affirmed this tension as productive — the awareness of when to lead and when to listen is itself a form of cooperative practice.
 
 A final exchange about LearnVibe.Build: the first cohort design session happened two weeks prior, with the program in ideation stage for the next cohort. Interest expressed from participants in both place-based and virtual participation.
 
@@ -234,4 +233,4 @@ The transcript closed with congratulations to the RegenHub team on the LCA filin
 ---
 
 *Recorded at ETHBoulder 2026 · Boulder, Colorado · February 15, 2026*
-*Edited for clarity from audio transcript. Privacy preserved per steward request.*
+*Edited for clarity from audio transcript. All speakers generalized for privacy.*
