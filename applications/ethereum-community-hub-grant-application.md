@@ -44,18 +44,35 @@ None of these connect Ethereum builders, onboard new contributors, or link local
 
 **Who are the core members of your team?**
 
-**Todd Youngblood — Ventures & Operations Steward**
-Data engineer with deep experience in information systems, cooperative formation, and community organizing. Todd led the six-month formation process for RegenHub, LCA — navigating Colorado cooperative law, drafting governance structures, and building the operational framework. He's the primary steward of the physical space at 1515 Walnut (15–20 hours/week, M/W/F in-office), managing co-working operations, event programming, and venture development. He brings both the technical depth to support Ethereum builders and the operational discipline to keep the lights on.
+The RegenHub organizing team brings together technologists, community builders, designers, and civic practitioners — all rooted in Boulder and the Front Range bioregion.
 
-**Aaron Gabriel Neyer — Community & Programs**
-Co-organizer of ETHBoulder and steward of Spirit of the Front Range, a local nonprofit connecting bioregional ecology to technology practice. Aaron brings deep facilitation experience and a framework he calls "Amplifying Aliveness" — the principle that technology should amplify what's most alive in communities. He co-designed the LearnVibe.Build curriculum and leads community programming, event facilitation, and participant onboarding. His strength is making complex ideas accessible and creating spaces where people actually want to show up.
+**Todd Youngblood — Ventures & Operations Steward**
+Data engineer and IT MBA with deep experience in information systems architecture, cooperative formation, and community organizing. Todd led the six-month formation process for RegenHub, LCA — navigating Colorado cooperative law, drafting governance structures, and building the operational framework. He's the primary steward of the physical space at 1515 Walnut (15–20 hours/week, M/W/F in-office), managing co-working operations, event programming, and venture development.
 
 **Kevin Owocki — Strategic Advisor & Investor Member**
-Co-founder of Gitcoin and Allo Capital. Kevin connects RegenHub directly to the global Ethereum ecosystem, public goods funding infrastructure, and years of experience scaling community-driven projects. As an investor member, he provides strategic guidance, ecosystem visibility, and bridge connections between Boulder and the broader network.
+Co-founder of Gitcoin (the largest public goods funding platform in Ethereum, distributing $60M+ to open source projects) and Allo Capital. Kevin connects RegenHub directly to the global Ethereum ecosystem and brings years of experience scaling community-driven projects. As an investor member, he provides strategic guidance, ecosystem visibility, and bridge connections between Boulder and the broader network.
+
+**Lucian Hymer — Engineering & Identity Infrastructure**
+Lead engineer at Gitcoin Passport (passportxyz), the decentralized identity verification system used across the Ethereum ecosystem. Lucian brings deep technical expertise in identity, sybil resistance, and decentralized systems — and a hacker's sensibility about building things that actually work. Boulder-based and actively contributing to the local Ethereum community.
+
+**Jonathan Borichevskiy — Independent Developer**
+Indie developer (jon.bo) focused on tools for human connection and cognitive infrastructure. Jonathan builds at the intersection of how the mind works and how we connect with each other — a natural fit for a community hub grounded in collective intelligence. Boulder-based, deeply embedded in the local builder community.
+
+**Aaron Gabriel Neyer — Community & Programs**
+Formerly of Google, with graduate work at Naropa University (Boulder's contemplative education institution). Aaron co-organized ETHBoulder and stewards Spirit of the Front Range, a local nonprofit connecting bioregional ecology to technology practice. He co-designed the LearnVibe.Build curriculum and brings a framework he calls "Amplifying Aliveness" — the principle that technology should amplify what's most alive in communities. His strength is making complex ideas accessible and creating spaces where people actually want to show up.
+
+**Savannah Kruger — Neighborhood & Placemaking**
+Founder of the Neighborhood Village Project (NVP), a program for neighborhood-scale community building that grew out of Cabin DAO's Neighborhood Accelerator. Savannah brings experience co-leading international social impact accelerators, managing community at Impact Hub Boulder, facilitating sustainability programs at Harvard, and organizing neighborhoods for placemaking projects with City Repair Boulder. She runs weekly community rituals in Boulder (Park Prance, Boulder Food Exchange) and has years of experience in intentional co-living. She's the connective tissue between Techne and Boulder's neighborhood-level community.
+
+**Neil Mackay Yarnal — Design**
+Designer at local*, bringing visual and experience design expertise to the hub's identity, events, and communications. Neil ensures that the community hub is not just functional but welcoming and legible — from event materials to spatial design to digital presence.
+
+**Benjamin Ross — Civic Infrastructure & Bioregional Commons**
+Co-founder of OpenCivics, a movement for open civic innovation that has distributed $361K+ to civic innovators across six community-led grant rounds. Benjamin also stewards Spirit of the Front Range alongside Aaron. He brings the civic technology perspective — participatory governance, bioregional coordination, and commons-based infrastructure design. His work directly connects the Ethereum Community Hub to Boulder's broader civic ecosystem.
 
 **Additional team:**
 - **Jeff Pote + Katie (Pote Law Firm)** — Legal counsel specializing in Colorado cooperative law, currently drafting the operating agreement and bylaws
-- **Nou (Collective Intelligence Agent)** — An operational AI agent that handles institutional memory, documentation, knowledge graph management, and coordination across ventures. Maintains the public journal at the-habitat.org and manages commons.id.
+- **Nou (Collective Intelligence Agent)** — An operational AI agent maintained by the cooperative that handles institutional memory, documentation, knowledge graph management, and coordination across ventures. Maintains the public journal at the-habitat.org and manages commons.id.
 
 ---
 
