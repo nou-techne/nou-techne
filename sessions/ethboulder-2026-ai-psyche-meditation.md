@@ -22,6 +22,12 @@ A facilitator leads the group through the intersection of AI pattern-matching, m
 
 5. **Contained Safety for Vulnerability** — Careful framing of the physical space as "contained and safe" before asking participants to access difficult emotions. Gentle but firm invitation to close devices and be present.
 
+6. **Five Wound Words as Diagnostic Framework** — Abandonment, rejection, humiliation, betrayal, injustice. A structured emotional inventory drawn from therapeutic frameworks, used to classify the activated experience. Pattern-matching against core wound categories.
+
+7. **Psyche Data Capture as Repeated Practice** — The facilitator frames emotional self-reflection as data capture: write it down, track patterns over time, notice threads between present conflicts and past experiences. Diligent data capture → pattern recognition → realization → healing.
+
+8. **Paired Reflection as Community Processing** — After individual meditation and data capture, participants pair up to share high-level reflections. The social processing step that activates the "community as timeline collapser" mechanism.
+
 ### Artifacts Identified
 
 | Title | Type | REA Role | Dimensions |
@@ -30,6 +36,9 @@ A facilitator leads the group through the intersection of AI pattern-matching, m
 | Meditative States as Data Quality Technique | pattern | resource | hlamt:T, hlamt:H |
 | Community-Accelerated Healing Timelines | pattern | event | hlamt:H, hlamt:T |
 | Guided Somatic Activation for Self-Reflection | pattern | resource | hlamt:T, hlamt:H |
+| Five Wound Words Diagnostic Framework | pattern | resource | hlamt:L, hlamt:H |
+| Psyche Data Capture as Repeated Practice | pattern | resource | hlamt:M, hlamt:H |
+| Paired Reflection for Community Processing | pattern | event | hlamt:H, hlamt:T |
 
 ---
 
@@ -87,4 +96,54 @@ Try to get pretty unfiltered about what the conflict or the challenge or the emo
 
 ---
 
-*Transcript edited for clarity. Filler words and false starts removed. Facilitator unnamed — identified as a healing/meditation practitioner with personal experience of AI-assisted psyche work. Guided meditation preserved in full as experiential content.*
+### Body Scan & Emotional Inventory
+
+Ask yourself: what is my body feeling? Tightness in my chest? Shoulders raising? Jaw clenching? An urge to fidget? Take a mental note of the physical body.
+
+Then ask: what emotions are you feeling right now? Just tabulating data. Sadness, anger, frustration, shame, worry.
+
+Take another deep breath. You're in a safe, contained space.
+
+Now, keeping your eyes closed — I'm going to read five words. Feel into whether this situation felt like one, all, or a few of them:
+
+**Abandonment. Rejection. Humiliation. Betrayal. Injustice.**
+
+Did this reinforce a negative or positive belief you have about yourself? Just feel into it — we're using our intuition, not overthinking.
+
+And have you felt like this before? Has something like this occurred previously in your life? A similar feeling, a similar argument or trigger?
+
+Take about three more breaths. In through the nose, out through the mouth. Slowly deepening the breath. Last one, real nice and deep. Letting that go.
+
+Slowly begin to open your eyes.
+
+---
+
+### Data Capture
+
+Before you move on — open your notes app or grab a piece of paper. Jot down a couple of notes. Just capture what that experience was.
+
+I have some questions here you can tabulate in your head, but it's nice to write it down so you can revisit it. Even if you're feeling a little activated — that's good. Those feelings are the data.
+
+Think especially about: where have I seen this show up before?
+
+---
+
+### Reflection: Why This Works
+
+What do we think about going into our emotional state through meditation or meditative practices?
+
+What it means is — like I said — we get more access to emotional and psychological data. If you can start capturing some of that data in a somewhat repeated way, you will start to track patterns.
+
+You'll start to notice if there's a thread between an argument you had with a colleague and something that happened when you were a kid. When you start to realize these things through diligent data capture, you can come into realization.
+
+And those realizations get shortened, condensed, and accelerated when we can talk with each other and reflect upon each other's experience.
+
+I know everyone absolutely does not love this — but we're going to do it anyway, because that's why we're here.
+
+I'm going to invite you to turn to the person next to you. You don't have to go deep into anything. Give a high-level sense of how that was for you, whether there was any revelation. You might not know the person — find someone nearby and have a quick five-minute-or-less conversation.
+
+*[Participants break into paired conversations]*
+
+---
+
+*Transcript edited for clarity. The five wound words (abandonment, rejection, humiliation, betrayal, injustice) preserved exactly as spoken — these appear to draw from established somatic/therapeutic frameworks. Guided meditation and data capture exercise preserved in full as experiential content. Paired conversation audio not transcribed (ambient crosstalk). Facilitator unnamed.*
