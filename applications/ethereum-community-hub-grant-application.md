@@ -257,9 +257,9 @@ Minimal. The second floor venue is operational today. The third floor lease is i
 | 2nd Floor Rent | ~$3,500 | RegenHub base |
 | 3rd Floor Rent | ~$6,500 | Techne Institute / Hub space (pending lease) |
 | Utilities & Internet | $500 | Commercial-grade + shared |
-| Insurance | $150 | General liability |
-| Legal (amortized) | $250 | Ongoing counsel |
-| **Total** | **~$12,900** | |
+| Insurance | $500 | General liability, D&O, event coverage |
+| Legal (amortized) | $750 | Cooperative counsel, compliance, contracts |
+| **Total** | **~$13,750** | |
 
 ### Monthly Revenue (at 90-day targets)
 
