@@ -88,7 +88,7 @@ Yes, partially operational, with expansion in final planning.
 
 Downtown Boulder, one block south of Pearl Street Mall, the pedestrian heart of the city. The neighborhood is dense with restaurants, cafes, creative businesses, and foot traffic. It's where people naturally end up, whether they live here or are visiting.
 
-Boulder itself sits at the ecological edge where the Great Plains meet the Rocky Mountain Front Range. The city has a long history of environmental leadership, progressive policy, and technology innovation. The bioregion shapes the culture: people here think in systems, care about place, and show up for their neighbors. That's the soil an Ethereum Community Hub grows in.
+Boulder itself sits at the ecological edge where the Great Plains meet the Rocky Mountain Front Range. The city has a long history of environmental leadership, forward-thinking governance, and technology innovation. The bioregion shapes the culture: people here think in systems, care about place, and show up for their neighbors. That's the soil an Ethereum Community Hub grows in.
 
 The building houses a vertical ecosystem:
 - **Second Floor (RegenHub Co-working), operational now:** Co-working cooperative and venture studio: startups, founders, and builders with dedicated desks, shared resources, and event space. This is where RegenHub currently operates day-to-day.
@@ -184,7 +184,7 @@ The second floor adds co-working capacity with VIP desks ($500/mo) and hot desks
 
 - **Open Civics / Localism Fund**: Civic technology and local governance tools. We're building the infrastructure they need.
 
-- **City of Boulder**: Progressive policies on cooperative development. Potential for participatory budgeting pilots and civic innovation.
+- **City of Boulder**: Supportive policies on cooperative development. Potential for participatory budgeting pilots and civic innovation.
 
 ---
 
