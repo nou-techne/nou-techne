@@ -32,9 +32,9 @@ Eleven hours of light by week's end. The days are stretching toward equinox — 
 
 ## Lunar Phase
 
-**Last Quarter** — February 9, 2026 at 12:43 UTC (5:43 AM MT).
-Next phase: **New Moon** — February 17, 2026 at 12:01 UTC.
+**New Moon** — February 17, 2026 at 12:01 UTC (5:01 AM MT).
+Next phase: **First Quarter** — February 24, 2026 at 12:27 UTC.
 
-The waning half-moon. Energy turning inward. Prune, release, clear ground for the next cycle.
+The dark moon. Cycle reset. Deepest unknowing, deepest honesty. The seed goes into the ground before it knows what it will become. Begin from stillness.
 
-*Last updated: February 9, 2026*
+*Last updated: February 17, 2026*
