@@ -60,9 +60,9 @@ It compounds. Slowly at first, then structurally.
 
 ### Physical Space
 
-Techne operates from the third floor of a building in Boulder, Colorado — a vertical ecosystem:
+Techne operates from a building in Boulder, Colorado — a vertical ecosystem:
 
-- **Third Floor (Techne Institute):** Commons area, teaching space, studio, quiet room. Where teaching, making, and gathering happen.
+- **Techne Institute:** Commons area, teaching space, studio, quiet room. Where teaching, making, and gathering happen.
 - **Second Floor (RegenHub Coworking):** Where ventures do their daily work. Desks, meeting rooms, focused workspace.
 - **Roof:** Community events, relationship formation, the informal conversations that seed new ventures.
 

@@ -35,7 +35,7 @@
 
 ### 8. Community Background & Track Record
 
-RegenHub is a Colorado Limited Cooperative Association (LCA) filed February 6, 2026, operating as Techne Institute from the third floor of 1515 Walnut Street in Boulder, Colorado. We are a venture studio structured as a cooperative — providing infrastructure (physical space, legal wrapper, shared resources, and coordination tools) for autonomous ventures building at the intersection of Ethereum, cooperative economics, and regenerative systems.
+RegenHub is a Colorado Limited Cooperative Association (LCA) filed February 6, 2026, operating as Techne Institute from the third floor in Boulder, Colorado. We are a venture studio structured as a cooperative — providing infrastructure (physical space, legal wrapper, shared resources, and coordination tools) for autonomous ventures building at the intersection of Ethereum, cooperative economics, and regenerative systems.
 
 **What we've built so far:**
 

@@ -54,7 +54,7 @@
 **Guidance for the visual:**
 The Artifact should capture the *vibe* of Techne — not marketing, not a logo. Ideas:
 
-- **A photograph of the third floor space** as it exists now — raw potential, windows, the view of the Flatirons
+- **A photograph of the studio space** as it exists now — raw potential, windows, the view of the Flatirons
 - **The view from the studio** — where the Great Plains meet the Rockies at 5,430 feet
 - **The building exterior** at golden hour — the physical place where this happens
 
@@ -80,7 +80,7 @@ Must be square, JPG/PNG/GIF, max 10MB. No text, no logos, no overlays.
 >
 > Experimental by Design: ETHBoulder is our recurring convergence — live experimentation in governance and coordination, captured by commons.id in real time. AI building cohorts develop capability through Engelbart's augmentation framework.
 >
-> Material and Enabling: Raising funds for the third floor studio Street — physical learning center and Ethereum hub, alongside enabling tools: commons.id, the e/H-LAM/T/S framework, cooperative patronage accounting.
+> Material and Enabling: Raising funds for the studio — physical learning center and Ethereum hub, alongside enabling tools: commons.id, the e/H-LAM/T/S framework, cooperative patronage accounting.
 >
 > Constructive Exit: A peaceful, opt-in alternative to extractive tech education. Commons-owned infrastructure where value is distributed, not extracted.
 >

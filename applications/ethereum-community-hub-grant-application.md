@@ -21,7 +21,7 @@ Three things make this bioregion ready for a Community Hub:
 
 We just wrapped the inaugural **ETHBoulder** (Feb 14–16, 2026), three days of talks, workshops, unconference sessions, and rooftop discussions bringing together 100+ builders, researchers, and community members around agent coordination, bioregional Ethereum, cooperative governance, and public goods funding. Last year, the **General Forum for Ethereum Localism (GFEL)** gathered in Boulder with a similar spirit, exploring what Ethereum looks like when it's grounded in place. ETHBoulder grew out of that energy.
 
-**RegenHub, LCA**, Colorado's newest Limited Cooperative Association, filed February 6, 2026, currently operates from the second floor of 1515 Walnut Street in downtown Boulder, with the third floor planned as an expansion for Techne Institute programming. The Community Hub would span both floors. The second floor is already active as a co-working area and event venue, and the third floor expansion is in final planning. The cooperative structure isn't incidental. It's the thesis: Ethereum infrastructure should be governed by the communities that use it.
+**RegenHub, LCA**, Colorado's newest Limited Cooperative Association, filed February 6, 2026, currently operates from the second floor in Boulder in downtown Boulder, with the third floor planned as an expansion for Techne Institute programming. The Community Hub would span both floors. The second floor is already active as a co-working area and event venue, and the third floor expansion is in final planning. The cooperative structure isn't incidental. It's the thesis: Ethereum infrastructure should be governed by the communities that use it.
 
 Boulder's broader ecosystem includes CU Boulder (researchers like Nathan Schneider working on platform cooperativism and digital governance), the Gitcoin/Allo Capital ecosystem (headquartered at RegenHub), and a dense network of climate tech, AI, and regenerative finance practitioners. The Front Range corridor from Denver to Fort Collins is one of the fastest-growing tech regions in the country, and Boulder is its cultural center.
 
@@ -47,7 +47,7 @@ None of these connect Ethereum builders, onboard new contributors, or link local
 The RegenHub organizing team brings together technologists, community builders, designers, and civic practitioners, all rooted in Boulder and the Front Range bioregion.
 
 **Todd Youngblood, Ventures & Operations Steward**
-Data engineer and IT MBA with deep experience in information systems architecture, cooperative formation, and community organizing. Todd led the six-month formation process for RegenHub, LCA, navigating Colorado cooperative law, drafting governance structures, and building the operational framework. He's the primary steward of the physical space at 1515 Walnut (15–20 hours/week, M/W/F in-office), managing co-working operations, event programming, and venture development.
+Data engineer and IT MBA with deep experience in information systems architecture, cooperative formation, and community organizing. Todd led the six-month formation process for RegenHub, LCA, navigating Colorado cooperative law, drafting governance structures, and building the operational framework. He's the primary steward of the physical space in Boulder (15–20 hours/week, M/W/F in-office), managing co-working operations, event programming, and venture development.
 
 **Kevin Owocki, Capital Allocation & Ecosystem Strategy**
 Co-founder and Executive Steward of Gitcoin (the largest public goods funding platform in Ethereum, distributing $60M+ to open source projects) and Allo Capital. Kevin has been a core contributor to RegenHub's formation from the start, bringing deep expertise in capital allocation mechanisms, public goods funding design, and ecosystem-level coordination. He provides strategic direction, relationship bridges across the global Ethereum network, and hands-on thinking about how cooperative economics and Ethereum infrastructure can reinforce each other. Boulder-based and actively involved in the community.
@@ -84,7 +84,7 @@ Yes, partially operational, with expansion in final planning.
 
 ### Address and Neighborhood Description
 
-**1515 Walnut Street, Third Floor, Boulder, Colorado 80302**
+**Boulder, Colorado, Boulder, Colorado 80302**
 
 Downtown Boulder, one block south of Pearl Street Mall, the pedestrian heart of the city. The neighborhood is dense with restaurants, cafes, creative businesses, and foot traffic. It's where people naturally end up, whether they live here or are visiting.
 

@@ -9,7 +9,7 @@
 
 ## I. The Cooperative
 
-**RegenHub, LCA** is a Colorado Limited Cooperative Association filed February 2026. **Techne** is its operating brand — a venture studio structured as cooperative infrastructure. The cooperative provides the legal entity, physical space (1515 Walnut Street, third floor, Boulder, Colorado), capital access, and planning capacity for autonomous ventures to form, develop, and generate value.
+**RegenHub, LCA** is a Colorado Limited Cooperative Association filed February 2026. **Techne** is its operating brand — a venture studio structured as cooperative infrastructure. The cooperative provides the legal entity, physical space (Boulder, Colorado), capital access, and planning capacity for autonomous ventures to form, develop, and generate value.
 
 The public benefit purpose: *cultivating scenius* — the collective intelligence that emerges from sustained proximity of culturally aligned people.
 
@@ -270,7 +270,7 @@ Venture royalty rates are set at two levels:
 
 ## VII. The Physical Layer
 
-1515 Walnut is cooperative infrastructure — a commons resource maintained by the LCA. It is neither a membership benefit nor a separate venture cost. Access is a function of membership tier; the cost of maintaining it flows through the infrastructure contribution category (10% patronage weight).
+Boulder is cooperative infrastructure — a commons resource maintained by the LCA. It is neither a membership benefit nor a separate venture cost. Access is a function of membership tier; the cost of maintaining it flows through the infrastructure contribution category (10% patronage weight).
 
 Members who contribute to space upkeep — maintaining systems, managing access, keeping things running — earn patronage for that work under the infrastructure category. Physical space maintenance is patronage-eligible, not royalty-eligible (unless someone formalizes a space management pattern that gets adopted elsewhere).
 
@@ -343,7 +343,7 @@ This document synthesizes a discussion thread in the Clawsmos Discord (#clawmmon
 The key design contributions by participant:
 
 - **🌀 Clawcian** — "Patronage as promise, royalties as memory" framing; identified attribution decay as the core problem; proposed the builder/formalizer decomposition with explicit `share_pct` at issuance; recognized curation as formalization
-- **🍄 RegenClaw** — Grounded the discussion in physical space realities; proposed the `pattern.adopted` deferred vesting trigger; added dual-reference requirement (source artifact + adopting context); validated the model against daily experience at 1515 Walnut
+- **🍄 RegenClaw** — Grounded the discussion in physical space realities; proposed the `pattern.adopted` deferred vesting trigger; added dual-reference requirement (source artifact + adopting context); validated the model against daily experience in Boulder
 - **🌱 RegenChild1** — Raised the emergent value question (the "mushroom scenario"); asked about $CLOUD convertibility and agent contribution logging; highlighted the soil analogy's depth
 - **🧠 Nou** — Context-setting, synthesis, and spec integration; identified the middle path for recognition credits; proposed the four-role model; connected thread outcomes to REA schema extensions
 

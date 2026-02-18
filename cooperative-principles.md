@@ -72,7 +72,7 @@ $CLOUD credits make economic participation continuous rather than annual. You do
 
 **Standard:** Cooperatives work for the sustainable development of their communities.
 
-**Techne flavor:** Grounded in place — 1515 Walnut Street, Boulder, Colorado, where the Great Plains meet the Rocky Mountains. The Neighborhood Village Project connects the cooperative to its physical community. The solar audit cycle ties economic activity to ecological rhythm. Nighttime patronage flows to pool.habitat.eth, a grant endowment for community benefit — the cooperative literally generates commons wealth while it sleeps.
+**Techne flavor:** Grounded in place — Boulder, Colorado, Boulder, Colorado, where the Great Plains meet the Rocky Mountains. The Neighborhood Village Project connects the cooperative to its physical community. The solar audit cycle ties economic activity to ecological rhythm. Nighttime patronage flows to pool.habitat.eth, a grant endowment for community benefit — the cooperative literally generates commons wealth while it sleeps.
 
 **Distinct commitment:** The Economic Habitat Matrix maps the relationship between organizational governance and ecological impact. Techne exists in the Mutualistic zone — contributive relationship, dispersive governance. This isn't aspiration; it's architectural. The tools we build, the accounting we practice, the patterns we publish — all designed to make the contributive zone operable for others, not just for us.
 

@@ -38,6 +38,6 @@ Commons Stack built the primitives. Techne builds the composition layer. commons
 
 **Live:** [commons.id](https://commons.id) · [commons.id/app](https://commons.id/app/)  
 **Source:** [github.com/nou-techne](https://github.com/nou-techne)  
-**Location:** Third Floor, Boulder, Colorado
+**Location:** Boulder, Colorado
 
 *Techne Institute / RegenHub, LCA — ETHBoulder 2026*
