@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World of Workcraft — Distributed Cooperative Ecosystems</title>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #c4956a;
+            --primary-hover: #d4a574;
+            --primary-muted: #a67c52;
+            --bg: #0f0f0f;
+            --surface: #1a1a1a;
+            --surface-hover: #252525;
+            --border: #2a2a2a;
+            --text: #e8e8e8;
+            --text-secondary: #b8b8b8;
+            --text-muted: #808080;
+            --accent: #c4956a;
+            --ecology: #4a8c6f;
+            --human: #c4956a;
+            --language: #a6ed2a;
+            --artifacts: #8bbfff;
+            --methodology: #7ccfb8;
+            --training: #e8927c;
+            --session: #fbbf24;
+            --fire: #ef4444;
+            --water: #7ccfb8;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow: hidden;
+            line-height: 1.6;
+        }
+
+        .slide-container {
+            display: flex;
+            height: 100vh;
+            position: relative;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.6s ease;
+            background: var(--bg);
+        }
+
+        .slide.active {
+            opacity: 1;
+            pointer-events: auto;
+            z-index: 10;
+        }
+
+        .slide.prev {
+            opacity: 0;
+            z-index: 0;
+        }
+
+        /* Slide content */
+        .slide-content {
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .slide-title {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .slide-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .slide-body {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        .reveal {
+            opacity: 0;
+            animation: revealSlide 0.5s ease forwards;
+        }
+
+        @keyframes revealSlide {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal-1 { animation-delay: 0.1s; }
+        .reveal-2 { animation-delay: 0.3s; }
+        .reveal-3 { animation-delay: 0.5s; }
+        .reveal-4 { animation-delay: 0.7s; }
+        .reveal-5 { animation-delay: 0.9s; }
+
+        /* Icon styles */
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+            width: 100%;
+        }
+
+        .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            padding: 20px;
+            border-radius: 12px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .icon-item:hover {
+            background: var(--surface-hover);
+            border-color: var(--primary);
+        }
+
+        .icon-item svg {
+            width: 40px;
+            height: 40px;
+        }
+
+        .icon-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-align: center;
+        }
+
+        /* Feature cards */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 40px 0;
+            text-align: left;
+        }
+
+        .feature-card {
+            padding: 24px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: var(--surface-hover);
+            border-color: var(--primary);
+        }
+
+        .feature-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        .feature-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Layer diagram */
+        .layers-diagram {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 40px 0;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .layer {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: var(--surface);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .layer-symbol {
+            font-weight: bold;
+            font-size: 1.2rem;
+            width: 40px;
+            text-align: center;
+        }
+
+        .layer-content {
+            text-align: left;
+        }
+
+        .layer-name {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .layer-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Forest tree visual */
+        .forest-visual {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+            width: 100%;
+        }
+
+        .tree-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .tree-icon {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--surface);
+            border-radius: 12px;
+            border: 2px solid var(--border);
+        }
+
+        .tree-name {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .tree-desc {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-align: center;
+        }
+
+        /* Communication channels visual */
+        .comms-visual {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin: 40px 0;
+            text-align: left;
+            width: 100%;
+        }
+
+        .comms-layer {
+            padding: 20px;
+            background: var(--surface);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .comms-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        .comms-examples {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .comms-tag {
+            padding: 4px 12px;
+            background: var(--surface-hover);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-family: 'Monaco', monospace;
+            font-size: 0.75rem;
+        }
+
+        /* Navigation */
+        .nav-bottom {
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            z-index: 20;
+        }
+
+        .nav-button {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .nav-button:hover:not(:disabled) {
+            background: var(--surface-hover);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .nav-button:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .slide-counter {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        /* Accent colors */
+        .accent-primary {
+            color: var(--primary);
+        }
+
+        .accent-ecology {
+            color: var(--ecology);
+        }
+
+        .accent-language {
+            color: var(--language);
+        }
+
+        .accent-artifacts {
+            color: var(--artifacts);
+        }
+
+        .accent-methodology {
+            color: var(--methodology);
+        }
+
+        .accent-training {
+            color: var(--training);
+        }
+
+        /* Emphasis */
+        em {
+            font-style: normal;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        strong {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .slide {
+                padding: 40px 20px;
+            }
+
+            .slide-title {
+                font-size: 2.5rem;
+            }
+
+            .slide-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .forest-visual {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Color indicators */
+        .color-dot {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <!-- Slide 1: Title -->
+        <div class="slide active">
+            <div class="slide-content">
+                <div class="reveal reveal-1">
+                    <h1 class="slide-title">World of Workcraft</h1>
+                </div>
+                <div class="reveal reveal-2">
+                    <p class="slide-subtitle">Distributed Cooperative Ecosystems</p>
+                </div>
+                <div class="reveal reveal-3" style="margin-top: 60px;">
+                    <p class="slide-body" style="font-size: 1.1rem; max-width: 700px;">
+                        How hubs become forests. <em>Craft</em> becomes identity. <em>Communication</em> becomes structure.
+                    </p>
+                </div>
+                <div class="reveal reveal-4" style="margin-top: 40px; color: var(--text-muted);">
+                    <p>Scroll or use arrow keys to explore</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: The Problem -->
+        <div class="slide">
+            <div class="slide-content">
+                <div class="reveal reveal-1">
+                    <h2 class="slide-title">The Problem</h2>
+                </div>
+                <div class="reveal reveal-2" style="margin-top: 60px;">
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-title">Hierarchies centralize power</div>
+                            <div class="feature-desc">One organization controls everyone. Decisions flow top-down. Autonomy is lost.</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-title">Silos fragment knowledge</div>
+                            <div class="feature-desc">Communities can't see each other. Cross-group collaboration requires permission.</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-title">Centralized data is vulnerable</div>
+                            <div class="feature-desc">One company holds your data. You have no control. Outages affect everyone.</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-title">Value concentrates</div>
+                            <div class="feature-desc">Contributions matter less than capital. Economic power doesn't flow to the people.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal reveal-3" style="margin-top: 60px;">
+                    <p class="slide-body"><strong>Can we coordinate without centralizing?</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: From Tree to Forest -->
+        <div class="slide">
+            <div class="slide-content">
+                <div class="reveal reveal-1">
+                    <h2 class="slide-title">From Tree to Forest</h2>
+                </div>
+                <div class="reveal reveal-2" style="margin-top: 60px;">
+                    <p class="slide-body">Each hub is a <em>tree</em> — rooted in place, autonomous, complete.</p>
+                </div>
+                <div class="reveal reveal-3">
+                    <p class="slide-body">Together, hubs form a <em>forest</em> — connected peer-to-peer, sharing resources and knowledge without top-down control.</p>
+                </div>
+                <div class="reveal reveal-4" style="margin-top: 60px;">
+                    <div class="forest-visual">
+                        <div class="tree-item">
+                            <div class="tree-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--ecology)" stroke-width="2">
+                                    <path d="M12 2L15 10H23L17 15L19 23L12 18L5 23L7 15L1 10H9L12 2Z"></path>
+                                </svg>
+                            </div>
+                            <div class="tree-name">Techne</div>
+                            <div class="tree-desc">Boulder, CO</div>
+                        </div>
+                        <div class="tree-item">
+                            <div class="tree-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--artifacts)" stroke-width="2">
+                                    <path d="M12 2L15 10H23L17 15L19 23L12 18L5 23L7 15L1 10H9L12 2Z"></path>
+                                </svg>
+                            </div>
+                            <div class="tree-name">Nairobi</div>
+                            <div class="tree-desc">Kenya</div>
+                        </div>
+                        <div class="tree-item">
+                            <div class="tree-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--water)" stroke-width="2">
+                                    <path d="M12 2L15 10H23L17 15L19 23L12 18L5 23L7 15L1 10H9L12 2Z"></path>
+                                </svg>
+                            </div>
+                            <div class="tree-name">Zurich</div>
+                            <div class="tree-desc">Switzerland</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal reveal-5" style="margin-top: 40px;">
+                    <p class="slide-body" style="color: var(--text-muted);">Each tree is autonomous. Together, $CLOUD flows. Knowledge spreads. Problems are shared.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: The Seven Layers -->
+        <div class="slide">
+            <div class="slide-content">
+                <div class="reveal reveal-1">
+                    <h2 class="slide-title">The Seven Layers</h2>
+                </div>
+                <div class="reveal reveal-2" style="margin-top: 40px;">
+                    <p class="slide-body">Every hub is organized through seven lenses. Together they hold the whole.</p>
+                </div>
+                <div class="reveal reveal-3" style="margin-top: 40px;">
+                    <div class="layers-diagram">
+                        <div class="layer" style="border-color: var(--ecology);">
+                            <div class="layer-symbol" style="color: var(--ecology);">e/</div>
+                            <div class="layer-content">
+                                <div class="layer-name">Ecology</div>
+                                <div class="layer-desc">Watershed, place, season — the land itself</div>
+                            </div>
+                        </div>
+                        <div class="layer" style="border-color: var(--human);">
+                            <div class="layer-symbol" style="color: var(--human);">H/</div>
+                            <div class="layer-content">
+                                <div class="layer-name">Human</div>
+                                <div class="layer-desc">Members, contributors, stewards — the people</div>
+                            </div>
+                        </div>
+                        <div class="layer" style="border-color: var(--language);">
+                            <div class="layer-symbol" style="color: var(--language);">L/</div>
+                            <div class="layer-content">
+                                <div class="layer-name">Language</div>
+                                <div class="layer-desc">Shared vocabulary, how things are named</div>
+                            </div>
+                        </div>
+                        <div class="layer" style="border-color: var(--artifacts);">
+                            <div class="layer-symbol" style="color: var(--artifacts);">A/</div>
+                            <div class="layer-content">
+                                <div class="layer-name">Artifacts</div>
+                                <div class="layer-desc">Projects, documents, tools — durable work</div>
+                            </div>
+                        </div>
+                        <div class="layer" style="border-color: var(--methodology);">
+                            <div class="layer-symbol" style="color: var(--methodology);">M/</div>
+                            <div class="layer-content">
+                                <div class="layer-name">Methodology</div>
+                                <div class="layer-desc">Governance, coordination, how decisions flow</div>
+                            </div>
+                        </div>
+                        <div class="layer" style="border-color: var(--training);">
+                            <div class="layer-symbol" style="color: var(--training);">T/</div>
+                            <div class="layer-content">
+                                <div class="layer-name">Training</div>
+                                <div class="layer-desc">Learning, knowledge commons, how the community grows</div>
+                            </div>
+                        </div>
+                        <div class="layer" style="border-color: var(--session);">
+                            <div class="layer-symbol" style="color: var(--session);">S/</div>
+                            <div class="layer-content">
+                                <div class="layer-name">Sessions</div>
+                                <div class="layer-desc">Gatherings, meetings, where convergence happens</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Craft & Specialization -->
+        <div class="slide">
+            <div class="slide-content">
+                <div class="reveal reveal-1">
+                    <h2 class="slide-title">Craft & Specialization</h2>
+                </div>
+                <div class="reveal reveal-2" style="margin-top: 40px;">
+                    <p class="slide-body">You choose two crafts: what you shape + what shapes you.</p>
+                </div>
+                <div class="reveal reveal-3" style="margin-top: 40px;">
+                    <div class="icon-grid">
+                        <div class="icon-item">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M2 9L8 3M8 3L14 9M8 3V10M22 9L16 3M16 3L10 9M16 3V10M3 14L9 20M9 20L15 14M9 20V13M21 14L15 20M15 20L9 14M15 20V13"></path></svg>
+                            <div class="icon-label">Code</div>
+                        </div>
+                        <div class="icon-item">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M21 15V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V15"></path><path d="M7 6L12 3L17 6"></path><path d="M12 3V10"></path></svg>
+                            <div class="icon-label">Word</div>
+                        </div>
+                        <div class="icon-item">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect></svg>
+                            <div class="icon-label">Form</div>
+                        </div>
+                        <div class="icon-item">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M9 18V5L3 9M15 18V5L21 9"></path></svg>
+                            <div class="icon-label">Sound</div>
+                        </div>
+                        <div class="icon-item">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z"></path><path d="M12 8V16M8 12H16"></path></svg>
+                            <div class="icon-label">Earth</div>
+                        </div>
+                        <div class="icon-item">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6z"></path></svg>
+                            <div class="icon-label">Body</div>
+                        </div>
+                        <div class="icon-item">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><polygon points="12 2 15 10 23 10 17 15 19 23 12 18 5 23 7 15 1 10 9 10 12 2"></polygon></svg>
+                            <div class="icon-label">Fire</div>
+                        </div>
+                        <div class="icon-item">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4-9h-3V8h-2v3H8v2h3v3h2v-3h3v-2z"></path></svg>
+                            <div class="icon-label">Water</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal reveal-4" style="margin-top: 60px;">
+                    <p class="slide-body" style="max-width: 700px;">
+                        <strong>8 crafts × 8 archetypes = 64 starting points</strong>
+                    </p>
+                    <p class="slide-body" style="color: var(--text-muted);">After 20 contributions, your archetype specializes into one of six paths. Your craft journey becomes visible.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Communication Layers -->
+        <div class="slide">
+            <div class="slide-content">
+                <div class="reveal reveal-1">
+                    <h2 class="slide-title">Communication Layers</h2>
+                </div>
+                <div class="reveal reveal-2" style="margin-top: 40px;">
+                    <p class="slide-body">Four levels of coordination, each with clear scope and consent.</p>
+                </div>
+                <div class="reveal reveal-3" style="margin-top: 40px;">
+                    <div class="comms-visual">
+                        <div class="comms-layer" style="border-color: var(--artifacts);">
+                            <div class="comms-title" style="color: var(--artifacts);">1. Local Channels</div>
+                            <div class="comms-examples">
+                                <div class="comms-tag">#watershed-updates</div>
+                                <div class="comms-tag">#introductions</div>
+                                <div class="comms-tag">#project-updates</div>
+                                <div class="comms-tag">…fully local, private</div>
+                            </div>
+                        </div>
+                        <div class="comms-layer" style="border-color: var(--methodology);">
+                            <div class="comms-title" style="color: var(--methodology);">2. Inter-Hub Bridges</div>
+                            <div class="comms-examples">
+                                <div class="comms-tag">Techne ↔ Nairobi</div>
+                                <div class="comms-tag">#shared-ventures</div>
+                                <div class="comms-tag">#knowledge-exchange</div>
+                                <div class="comms-tag">…requires bilateral consent</div>
+                            </div>
+                        </div>
+                        <div class="comms-layer" style="border-color: var(--language);">
+                            <div class="comms-title" style="color: var(--language);">3. Guild Chambers</div>
+                            <div class="comms-examples">
+                                <div class="comms-tag">Guild of the Loom (Code)</div>
+                                <div class="comms-tag">#infrastructure-standards</div>
+                                <div class="comms-tag">#craft-innovation</div>
+                                <div class="comms-tag">…global craft community</div>
+                            </div>
+                        </div>
+                        <div class="comms-layer" style="border-color: var(--primary);">
+                            <div class="comms-title" style="color: var(--primary);">4. Forest Council</div>
+                            <div class="comms-examples">
+                                <div class="comms-tag">Ecosystem governance</div>
+                                <div class="comms-tag">$CLOUD mechanics</div>
+                                <div class="comms-tag">Chain standards</div>
+                                <div class="comms-tag">…one hub, one vote</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Example Venture -->
+        <div class="slide">
+            <div class="slide-content">
+                <div class="reveal reveal-1">
+                    <h2 class="slide-title">The Pollination Network</h2>
+                </div>
+                <div class="reveal reveal-2" style="margin-top: 40px;">
+                    <p class="slide-body">A cross-hub venture: protecting pollinators across North America and Africa.</p>
+                </div>
+                <div class="reveal reveal-3" style="margin-top: 40px;">
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-title">Maya (Techne)</div>
+                            <div class="feature-desc">Terraformer – Beekeeper. Builds sensor networks and monitoring systems.</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-title">Ahmed (Nairobi)</div>
+                            <div class="feature-desc">Navigator – Connector. Coordinates across hubs and ecosystems.</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-title">Keisha (Techne)</div>
+                            <div class="feature-desc">Grower – Restorer. Brings field research and ecological knowledge.</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-title">Kwame (Accra)</div>
+                            <div class="feature-desc">Beekeeper – Guardian. Protects and advocates for pollinators locally.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal reveal-4" style="margin-top: 60px;">
+                    <p class="slide-body" style="color: var(--text-muted); font-size: 1rem;">
+                        No centralization. No VC. Local autonomy. Transparent patronage. Shared ownership.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Digital Infrastructure Trust -->
+        <div class="slide">
+            <div class="slide-content">
+                <div class="reveal reveal-1">
+                    <h2 class="slide-title">Digital Infrastructure Trust</h2>
+                </div>
+                <div class="reveal reveal-2" style="margin-top: 40px;">
+                    <p class="slide-body">Who holds the data? Who controls availability? Who decides access?</p>
+                </div>
+                <div class="reveal reveal-3" style="margin-top: 60px;">
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-title">🏛️ Democratic Ownership</div>
+                            <div class="feature-desc">Members of the trust are members of hubs. One member, one vote.</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-title">📍 Data Locality</div>
+                            <div class="feature-desc">Your data stays in your region. Boulder data stays in Colorado. Encrypted backups only.</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-title">💸 Cost Recovery</div>
+                            <div class="feature-desc">Services priced at cost + 10% reserve. Surplus returned as credits.</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-title">🚪 Exit Right</div>
+                            <div class="feature-desc">Leave anytime. Your data is exported in open format within 60 days.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal reveal-4" style="margin-top: 60px;">
+                    <p class="slide-body" style="max-width: 700px;">Hubs hold their own data. The Trust provides infrastructure cooperatively. No central authority.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Governance by Design -->
+        <div class="slide">
+            <div class="slide-content">
+                <div class="reveal reveal-1">
+                    <h2 class="slide-title">Governance by Design</h2>
+                </div>
+                <div class="reveal reveal-2" style="margin-top: 60px;">
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-title">Local (Hub)</div>
+                            <div class="feature-desc">Who are members. Patronage formula. Which ventures to support. Full autonomy.</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-title">Bridge (Two Hubs)</div>
+                            <div class="feature-desc">What coordination is needed. How to split costs. Bilateral consent required.</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-title">Guild (Global Craft)</div>
+                            <div class="feature-desc">Best practices, standards, specializations. Consensus-seeking, no voting.</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-title">Forest (Ecosystem)</div>
+                            <div class="feature-desc">$CLOUD mechanics, chain standards, infrastructure. One hub, one vote. Any hub can veto.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal reveal-3" style="margin-top: 60px;">
+                    <p class="slide-body" style="color: var(--text-muted);">Conflicts are expensive. Exit is easy. Incentive: cooperate.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Why This Matters -->
+        <div class="slide">
+            <div class="slide-content">
+                <div class="reveal reveal-1">
+                    <h2 class="slide-title">Why This Matters</h2>
+                </div>
+                <div class="reveal reveal-2" style="margin-top: 60px;">
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-title">Locally Rooted</div>
+                            <div class="feature-desc">Each hub thrives in its specific place. Ecology matters. Community matters.</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-title">Globally Coordinated</div>
+                            <div class="feature-desc">Hubs see each other. Knowledge flows. Problems are shared. Leverage increases.</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-title">Economically Just</div>
+                            <div class="feature-desc">Value flows based on contribution, not concentration. Patronage over capital.</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-title">Resilient</div>
+                            <div class="feature-desc">No single point of failure. Exit is always an option. The system survives disagreement.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal reveal-3" style="margin-top: 60px;">
+                    <p class="slide-body" style="max-width: 700px;">
+                        This is not a game bolted on top of cooperation. <em>It is cooperation designed as a game.</em>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Closing -->
+        <div class="slide">
+            <div class="slide-content">
+                <div class="reveal reveal-1">
+                    <h1 class="slide-title">The Forest Is Being Planted</h1>
+                </div>
+                <div class="reveal reveal-2" style="margin-top: 80px;">
+                    <p class="slide-body" style="font-size: 1.3rem; max-width: 700px;">
+                        <em>Distributed coordination.</em> <br/>
+                        <em>Visible rules.</em> <br/>
+                        <em>Clear progression.</em> <br/>
+                        <em>Real stakes.</em>
+                    </p>
+                </div>
+                <div class="reveal reveal-3" style="margin-top: 80px; color: var(--text-muted);">
+                    <p>The world is real. The stakes are real. The forest grows together.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="nav-bottom">
+        <button class="nav-button" id="prevBtn" onclick="previousSlide()">← Previous</button>
+        <span class="slide-counter"><span id="currentSlide">1</span> / <span id="totalSlides">11</span></span>
+        <button class="nav-button" id="nextBtn" onclick="nextSlide()">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[n].classList.add('active');
+            document.getElementById('currentSlide').textContent = n + 1;
+            document.getElementById('prevBtn').disabled = n === 0;
+            document.getElementById('nextBtn').disabled = n === totalSlides - 1;
+            currentSlide = n;
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                showSlide(currentSlide + 1);
+            }
+        }
+
+        function previousSlide() {
+            if (currentSlide > 0) {
+                showSlide(currentSlide - 1);
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                previousSlide();
+            }
+        });
+
+        // Initialize
+        showSlide(0);
+
+        // Lucide icons initialization
+        lucide.createIcons();
+    </script>
+</body>
+</html>
