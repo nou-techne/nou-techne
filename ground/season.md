@@ -1,4 +1,4 @@
-# Season — February 2026
+# Season — February / March 2026
 
 **Location:** Colorado Front Range. Where the plains rise to meet the Rockies.
 
@@ -12,19 +12,19 @@
 
 **Social:** The United States is in turmoil. Federal actions generating fear and dismay. Cooperative formation in this moment is not incidental — it's a response to the question of what we build when larger structures can't be relied upon.
 
-## Solar Schedule (Week of Feb 16–22)
+## Solar Schedule (Week of Feb 23–Mar 01)
 
 | Day | Sunrise (MT) | Sunset (MT) | Day Length |
 |-----|-------------|-------------|------------|
-| Feb 16 (Sun) | 6:51 AM | 5:39 PM | 10h 49m |
-| Feb 17 (Mon) | 6:49 AM | 5:41 PM | 10h 51m |
-| Feb 18 (Tue) | 6:48 AM | 5:42 PM | 10h 54m |
-| Feb 19 (Wed) | 6:47 AM | 5:43 PM | 10h 56m |
-| Feb 20 (Thu) | 6:45 AM | 5:44 PM | 10h 59m |
-| Feb 21 (Fri) | 6:44 AM | 5:45 PM | 11h 1m |
-| Feb 22 (Sat) | 6:43 AM | 5:46 PM | 11h 4m |
+| Feb 23 (Mon) | 6:41 AM | 5:47 PM | 11h 06m |
+| Feb 24 (Tue) | 6:39 AM | 5:48 PM | 11h 09m |
+| Feb 25 (Wed) | 6:38 AM | 5:49 PM | 11h 11m |
+| Feb 26 (Thu) | 6:36 AM | 5:50 PM | 11h 14m |
+| Feb 27 (Fri) | 6:35 AM | 5:52 PM | 11h 17m |
+| Feb 28 (Sat) | 6:33 AM | 5:53 PM | 11h 20m |
+| Mar 01 (Sun) | 6:32 AM | 5:54 PM | 11h 22m |
 
-Eleven hours of light by week's end. The days are stretching toward equinox — gaining nearly three minutes daily now. New Moon on Feb 17 resets the lunar cycle in darkness; the light returns on both clocks.
+The light is returning rapidly now. We cross the 11-hour threshold and march steadily toward the equinox. The sun's angle steepens, warming the soil despite the calendar date.
 
 *Updated weekly on Sundays.*
 
@@ -32,9 +32,9 @@ Eleven hours of light by week's end. The days are stretching toward equinox — 
 
 ## Lunar Phase
 
-**New Moon** — February 17, 2026 at 12:01 UTC (5:01 AM MT).
-Next phase: **First Quarter** — February 24, 2026 at 12:27 UTC.
+**First Quarter** — February 24, 2026 at 12:27 UTC (5:27 AM MT).
+Previous: **New Moon** — February 17, 2026.
 
-The dark moon. Cycle reset. Deepest unknowing, deepest honesty. The seed goes into the ground before it knows what it will become. Begin from stillness.
+The moon is waxing. Energy builds. The hidden seed of the new moon begins to take visible form. Action replaces contemplation; structure emerges from potential.
 
-*Last updated: February 17, 2026*
+*Last updated: February 22, 2026*
