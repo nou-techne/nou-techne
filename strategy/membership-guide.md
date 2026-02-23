@@ -72,7 +72,7 @@ This is the ownership layer. Cooperative members are the legal owners of RegenHu
 |---|---|
 | **Access** | Everything in Co-working, plus: governance rights, equity stake, patronage dividends, capital account |
 | **Contribution** | Demonstrated contribution over a provisional period (6–12 months), followed by board approval |
-| **Cost** | Member equity buy-in (amount determined by the Financial Engineering Committee) |
+| **Cost** | Member equity buy-in (amount determined by the Financial Systems Committee) |
 | **Governance** | One member, one vote. Can run for the board. Vote on bylaws and major decisions. |
 
 You don't buy your way into this tier. You earn it through demonstrated alignment and contribution. The provisional period (6–12 months) exists so that both you and the cooperative can verify the fit before making a long-term commitment.
@@ -264,7 +264,7 @@ Yes. Co-working membership gives you full space access without cooperative owner
 The provisional period is 6–12 months. The exact timeline depends on your level of engagement and contribution. It's not a clock — it's a relationship.
 
 **What's the equity buy-in for cooperative membership?**
-The amount is determined by the Financial Engineering Committee and may change over time. Ask us for the current figure.
+The amount is determined by the Financial Systems Committee and may change over time. Ask us for the current figure.
 
 **Can I be both an investor member and a patron member?**
 Yes, but you go through the standard provisional process for patron membership regardless of your capital contribution.

@@ -25,7 +25,7 @@ This document catalogs the known gaps in Techne's patronage and royalties system
 - What happens to royalty units when a member departs? The operating agreement needs clear language on whether units are forfeited, bought back at assessed value, or retained with continued distributions.
 - Can royalty units be inherited or transferred in the event of a member's death or incapacity?
 
-**Who owns this:** Legal counsel (Jeff Pote), with input from the Financial Engineering Committee.
+**Who owns this:** Legal counsel (Jeff Pote), with input from the Financial Systems Committee.
 
 ### 1.2 Agent Membership
 
@@ -38,7 +38,7 @@ This document catalogs the known gaps in Techne's patronage and royalties system
 - The Clawmmons Commitment Pool already has agents staking ETH and earning. If this activity isn't legally classified, the cooperative may have unintentional tax exposure.
 - Wyoming DUNA (Decentralized Unincorporated Nonprofit Association) has been mentioned as a possible vehicle for agent membership at scale (100+ agents). What's the timeline and threshold for pursuing this?
 
-**Who owns this:** Organizers + legal counsel. The Financial Engineering Committee should define the desired end state; counsel determines feasibility.
+**Who owns this:** Organizers + legal counsel. The Financial Systems Committee should define the desired end state; counsel determines feasibility.
 
 ### 1.3 Securities Classification
 
@@ -69,7 +69,7 @@ This document catalogs the known gaps in Techne's patronage and royalties system
 
 ## II. Governance & Parameters
 
-### 2.1 Financial Engineering Committee
+### 2.1 Financial Systems Committee
 
 **Status:** Forming. Aaron G Neyer and Todd Youngblood confirmed as initial members.
 
@@ -93,7 +93,7 @@ This document catalogs the known gaps in Techne's patronage and royalties system
 - The community category (20%) is explicitly the catch-all for relational and emergent value that resists attribution. Is 20% the right size for this catch-all? Too low undervalues relational work; too high dilutes the signal from more measurable categories.
 - Are there contribution types that don't fit any of the four categories? What's the process for adding new categories if needed?
 
-**Who owns this:** Financial Engineering Committee + membership vote.
+**Who owns this:** Financial Systems Committee + membership vote.
 
 ### 2.3 Royalty Pool Percentage
 
@@ -233,7 +233,7 @@ This document catalogs the known gaps in Techne's patronage and royalties system
 
 **Gaps:**
 - The current system is designed for a small cooperative (8 organizers, a handful of ventures). How does it behave at 50 members? 500?
-- At scale, the Financial Engineering Committee becomes a bottleneck if it manually assesses every royalty issuance. What's the automation path?
+- At scale, the Financial Systems Committee becomes a bottleneck if it manually assesses every royalty issuance. What's the automation path?
 - The community category (20%) distributes patronage to relational work. At large scale, relational work becomes harder to attribute and easier to game.
 - Governance voting on parameter changes: at small scale, every member understands the system. At large scale, most won't. How do you maintain informed governance?
 
@@ -253,7 +253,7 @@ This document catalogs the known gaps in Techne's patronage and royalties system
 
 ### Must resolve before first royalty issuance:
 1. **Legal:** Counsel review of royalty unit classification (securities, tax treatment, IP ownership)
-2. **Governance:** Financial Engineering Committee charter
+2. **Governance:** Financial Systems Committee charter
 3. **Governance:** Ratify initial parameters (pool %, weights, default splits)
 4. **Technical:** Unblock Supabase migration (Q32)
 

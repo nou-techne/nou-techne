@@ -143,7 +143,7 @@ This is a standard cooperative accounting structure, just made more granular and
 
 Techne is democratically governed. **One member, one vote** — regardless of how much you've contributed or how many royalty units you hold. Your voice in governance is equal to everyone else's.
 
-The specific parameters of the patronage and royalty systems are set by the **Financial Engineering Committee**:
+The specific parameters of the patronage and royalty systems are set by the **Financial Systems Committee**:
 
 - What percentage of asset revenue goes to royalty holders (currently proposed at 20%)
 - How royalty units are valued and issued
@@ -176,7 +176,7 @@ For royalties specifically, the system also tracks:
 ## Practical Questions
 
 **How do I start earning?**
-Become a Contributor. Do work. Your contributions are tracked and flow into patronage calculations. If your work produces lasting artifacts, discuss royalty unit issuance with the Financial Engineering Committee.
+Become a Contributor. Do work. Your contributions are tracked and flow into patronage calculations. If your work produces lasting artifacts, discuss royalty unit issuance with the Financial Systems Committee.
 
 **When do I get paid?**
 Patronage allocations happen on regular cycles. Royalty distributions happen when assets generate revenue (irregular, depends on market activity). Both credit your capital account. Distributions (actual withdrawals) follow cooperative policy.

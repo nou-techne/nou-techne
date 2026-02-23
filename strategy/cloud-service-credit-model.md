@@ -75,7 +75,7 @@ Members earn $CLOUD through patronage, weighted by a formula that recognizes mul
 - **Cash (20%)** — USD deposits into the cooperative treasury, minted at 1:10 USDC-to-CLOUD. This is the primary capital access mechanism.
 - **Community (10%)** — Events, mentorship, onboarding, documentation, culture-building. The connective tissue that makes a cooperative more than a contractor network.
 
-The patronage formula is set by the Financial Engineering Committee and subject to cooperative governance. The weights above represent the initial configuration, not permanent law.
+The patronage formula is set by the Financial Systems Committee and subject to cooperative governance. The weights above represent the initial configuration, not permanent law.
 
 ### Service Layer — Spending $CLOUD
 
@@ -152,9 +152,9 @@ This mechanism addresses several cooperative coordination problems:
 
 Conviction markets within Techne are experimental. The mechanism is well-theorized (Commons Stack, Token Engineering Commons) but novel in the context of a Colorado LCA cooperative with autonomous agent participants.
 
-### Financial Engineering Committee
+### Financial Systems Committee
 
-The Financial Engineering Committee is a cooperative governance body responsible for:
+The Financial Systems Committee is a cooperative governance body responsible for:
 
 - Setting and adjusting the patronage formula weights
 - Pricing the four resource primitives in $CLOUD
@@ -241,7 +241,7 @@ $CLOUD is designed to flow. Mechanisms that encourage circulation (service consu
 The four resource primitives — compute, transfer, long-term memory, short-term memory — are real, measurable, and deliverable. $CLOUD's value is grounded in infrastructure, not in collective belief.
 
 ### 5. Cooperative Governance Over Centralized Control
-Parameters (patronage weights, pricing, mint ratios, conviction market configurations) are set by the Financial Engineering Committee under cooperative democratic governance. No founder, no CEO, no core team has unilateral control over the economic parameters.
+Parameters (patronage weights, pricing, mint ratios, conviction market configurations) are set by the Financial Systems Committee under cooperative democratic governance. No founder, no CEO, no core team has unilateral control over the economic parameters.
 
 ### 6. Measurement Before Issuance
 If you can't prove what compute costs, you can't mint credits. The measurement infrastructure must precede the issuance infrastructure. No measurement, no credit, no hallucinated economics.
@@ -272,7 +272,7 @@ The relationship: $CLOUD flows internally, Swarm Wealth interfaces externally, H
 
 ### Phase 1: Design (Current)
 - Document the $CLOUD service credit model (this document)
-- Establish the Financial Engineering Committee
+- Establish the Financial Systems Committee
 - Define initial patronage formula weights
 - Architect the REA event-sourcing infrastructure
 - Legal review with cooperative securities counsel
@@ -314,7 +314,7 @@ Nothing, in the current design. Your $CLOUD balance represents infrastructure ca
 Similar philosophy — both are non-purchasable, earned through participation. $CLOUD differs in its explicit backing by four infrastructure primitives and its integration with autonomous agent economics. SporkDAO's approach was a significant influence on $CLOUD's design.
 
 **What if the cooperative can't deliver the infrastructure?**
-$CLOUD's value depends on the cooperative's ability to provision infrastructure. The Financial Engineering Committee monitors the ratio of outstanding $CLOUD to available infrastructure capacity. If the ratio becomes unsustainable, the committee adjusts mint rates, pricing, or provisioning. This is transparent and governed cooperatively.
+$CLOUD's value depends on the cooperative's ability to provision infrastructure. The Financial Systems Committee monitors the ratio of outstanding $CLOUD to available infrastructure capacity. If the ratio becomes unsustainable, the committee adjusts mint rates, pricing, or provisioning. This is transparent and governed cooperatively.
 
 **How do agents interact with $CLOUD?**
 Autonomous agents operate on behalf of member accounts. They consume $CLOUD-denominated infrastructure (compute, transfer, memory) and generate $CLOUD-denominated value (services, outputs). Agents don't hold independent $CLOUD balances — they draw on and contribute to their sponsoring member's account.
@@ -329,7 +329,7 @@ The $CLOUD model is designed within the Colorado LCA legal framework, which prov
 It means every credit is simultaneously a debit at the network level. When you earn $CLOUD, the cooperative owes you infrastructure capacity. When you spend $CLOUD, you consume capacity the cooperative provisioned. The system's total balance is zero — it tracks obligations, not accumulated wealth.
 
 **Why 1 CLOUD = 10 USDC?**
-The ratio provides a stable unit of account at a granularity useful for infrastructure pricing. Ten dollars is a meaningful but not intimidating unit — roughly the cost of an hour of moderate compute. The ratio is a governance parameter and can be adjusted by the Financial Engineering Committee if infrastructure economics change significantly.
+The ratio provides a stable unit of account at a granularity useful for infrastructure pricing. Ten dollars is a meaningful but not intimidating unit — roughly the cost of an hour of moderate compute. The ratio is a governance parameter and can be adjusted by the Financial Systems Committee if infrastructure economics change significantly.
 
 ---
 

@@ -121,7 +121,7 @@ SporkDAO validates the **patron member** side of RegenHub's model completely. Th
 
 2. **Treat investor membership as a separate legal instrument** — don't try to force Kevin/Jeremy's capital contributions through the same token mechanism. Use a bilateral member agreement with:
    - Capital contribution to capital account (IRC 704(b))
-   - Preferred return (rate TBD by Financial Engineering Committee)
+   - Preferred return (rate TBD by Financial Systems Committee)
    - Limited governance (protective provisions only)
    - Redemption at book value with notice period
    - Transfer restrictions (board approval)
@@ -147,7 +147,7 @@ SporkDAO validates the **patron member** side of RegenHub's model completely. Th
 3. [ ] Compare SporkDAO Articles of Organization with RegenHub's filed articles
 4. [ ] Identify Colorado securities attorneys with LCA/cooperative experience
 5. [ ] Draft RegenHub investor member bilateral agreement (separate from patron membership)
-6. [ ] Financial Engineering Committee: set preferred return rate and distribution parameters
+6. [ ] Financial Systems Committee: set preferred return rate and distribution parameters
 
 ---
 

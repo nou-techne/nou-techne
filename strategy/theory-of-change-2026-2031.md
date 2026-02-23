@@ -55,7 +55,7 @@ Five years from now:
 - **Techne has supported 15–20 ventures**, several of which are self-sustaining and contributing back through the 1% reciprocity commitment. The pattern library is rich, well-documented, and used by studios beyond Boulder.
 - **The cooperative has 50+ cooperative members** with functioning democratic governance, transparent patronage distributions, and a track record of fair surplus allocation.
 - **LearnVibe.Build has graduated 500+ students** across all three levels, with a measurable pipeline from education to membership to venture creation.
-- **$CLOUD credits are a functioning internal economy**, with the Financial Engineering Committee having parameterized staking curves and patronage distributions that other cooperatives study and adapt.
+- **$CLOUD credits are a functioning internal economy**, with the Financial Systems Committee having parameterized staking curves and patronage distributions that other cooperatives study and adapt.
 - **The physical space has expanded** from the third floor to a vertical ecosystem spanning multiple floors, with the roof as a community gathering commons.
 - **commons.id is the knowledge infrastructure** for a network of convergence events and cooperative ventures, demonstrating that knowledge graphs can be governed as commons.
 - **The model has been forked.** At least 3 other cities have adapted the RegenHub structure — not because we franchised it, but because the pattern library and legal templates made it possible.
@@ -108,7 +108,7 @@ Techne is not an accelerator. We don't take equity in the conventional sense. We
 The financial infrastructure is where RegenHub's unique contribution lives. Combining Colorado LCA law, IRC 704(b) patronage accounting, REA event-sourcing, and $CLOUD credits into a coherent system that other cooperatives can learn from.
 
 **Objectives:**
-- Stand up the Financial Engineering Committee post-ETHBoulder (Feb 2026)
+- Stand up the Financial Systems Committee post-ETHBoulder (Feb 2026)
 - Parameterize the patronage allocation formula and publish methodology
 - Implement $CLOUD credit minting and staking along the compounding curve
 - Achieve first patronage distribution by end of Year 1
@@ -136,7 +136,7 @@ The physical space is not incidental. Boulder — where the Great Plains meet th
 - Complete third-floor buildout (commons, teaching space, studio, quiet room, sauna/cold plunge)
 - Run LVB Cohorts 2–4 across all levels
 - Host ETHBoulder (Feb 2026) and establish it as recurring
-- Stand up Financial Engineering Committee
+- Stand up Financial Systems Committee
 - Formalize pattern library v1.0
 - First patronage allocation (even if small — the precedent matters)
 - Implement $CLOUD credit system (Mercury integration, minting, basic staking)
@@ -298,7 +298,7 @@ Cooperatives are slow. Startups are fast. Techne lives in the tension. Governanc
 | Date | Milestone |
 |------|-----------|
 | Feb 2026 | ETHBoulder hosted, LVB Cohort 1 complete |
-| Jun 2026 | Financial Engineering Committee operational |
+| Jun 2026 | Financial Systems Committee operational |
 | Sep 2026 | Pattern library v1.0 published |
 | Dec 2026 | First patronage distribution |
 | Jun 2027 | 100th LVB graduate |

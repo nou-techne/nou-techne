@@ -130,7 +130,7 @@ This section addresses how the structure protects the cooperative's mission from
 - **Reinvestment priority:** surplus goes to community first, via community grants over individual profit distributions
 
 ### Governance Protections
-- **Financial Engineering Committee** (post-ETHBoulder priority) — a human governance layer that parameterizes the patronage system:
+- **Financial Systems Committee** (post-ETHBoulder priority) — a human governance layer that parameterizes the patronage system:
   - Allocation formulas
   - Contribution weights
   - Investor-member terms

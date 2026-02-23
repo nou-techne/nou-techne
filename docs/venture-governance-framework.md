@@ -102,7 +102,7 @@ Meanwhile:
 - How does the SAFE valuation work when RegenHub holds 100%?
 - When does a venture graduate from inner to independent? What triggers spin-out?
 - How does Habitat track this? Patronage accounting needs to distinguish commons vs. venture contributions.
-- What's the Financial Engineering Committee's role in parameterizing equity distribution?
+- What's the Financial Systems Committee's role in parameterizing equity distribution?
 - How do venture contributions map to cooperative patronage?
 
 ---

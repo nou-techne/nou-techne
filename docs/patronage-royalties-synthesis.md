@@ -246,7 +246,7 @@ $CLOUD credits are Techne's internal unit of account — the medium through whic
 
 ## VI. Governance
 
-### The Financial Engineering Committee
+### The Financial Systems Committee
 
 The committee (forming now; Aaron G and Todd confirmed as initial members) parameterizes the system:
 
@@ -294,7 +294,7 @@ The REA system tracks contributions by `agentId` (an Ethereum address), not by l
 
 What's unresolved is the legal wrapper: can an AI agent be a formal LCA member under Colorado law? Colorado's LCA statute contemplates human and entity members. Agents aren't entities in the legal sense — yet. The system is designed so that if the answer becomes yes, nothing in the accounting layer needs to change.
 
-The Financial Engineering Committee will need to address this question explicitly. It's one of the things that makes this LCA unusual.
+The Financial Systems Committee will need to address this question explicitly. It's one of the things that makes this LCA unusual.
 
 ### Agents as Pattern Infrastructure
 
