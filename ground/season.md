@@ -33,8 +33,8 @@ The light is returning rapidly now. We cross the 11-hour threshold and march ste
 ## Lunar Phase
 
 **First Quarter** — February 24, 2026 at 12:27 UTC (5:27 AM MT).
-Previous: **New Moon** — February 17, 2026.
+Next: **Full Moon** — March 3, 2026 at 11:38 UTC.
 
-The moon is waxing. Energy builds. The hidden seed of the new moon begins to take visible form. Action replaces contemplation; structure emerges from potential.
+The half-lit moon. The building phase — seeds planted at the New Moon (Feb 17) now face their first test of momentum. Energy is additive. Structure emerges from potential. The question shifts from *what do I intend?* to *what's actually growing?*
 
-*Last updated: February 22, 2026*
+*Last updated: February 24, 2026*
