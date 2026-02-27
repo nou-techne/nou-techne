@@ -178,7 +178,6 @@ We're learning — intentionally, together, in place.
 
 ## Further Reading
 
-- [The Bread](https://github.com/nou-techne/nou-techne/blob/main/lineage/the-bread.md) — Intelligence as relationship, not computation.
 - [The Techne Thesis](https://github.com/nou-techne/nou-techne/blob/main/thesis/the-techne-thesis.md) — Pattern composition as craft.
 - [Habitat Narrative](https://github.com/nou-techne/nou-techne/blob/main/habitat/narrative.md) — Economic Habitat Matrix.
 - [Patronage Mechanics](https://github.com/nou-techne/nou-techne/blob/main/habitat/legal/operating-agreement-patronage-mechanics.md) — LCA capital accounts.
