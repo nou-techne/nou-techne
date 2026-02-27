@@ -32,7 +32,7 @@ Techne's answer is a three-tier economic memory stack, where each tier operates 
 
 **Patronage — shortest memory.** Current-period contribution, calculated fresh each accounting cycle based on what you did this period. Patronage says: *we believe in what you're building before it proves itself.* It sustains genuinely generative work, not just market-validated work. It resets each period.
 
-Together, these three tiers form a complete attribution system. A member who built a foundational tool, formalized its patterns for others, and continues active contributions would receive all three flows simultaneously — equity in the cooperative, royalties from the tool's licensing, and patronage from current-period work. The system sees the whole arc, not just the present moment.
+Together, these three tiers form a complete attribution system. A member who built a foundational tool, formalized its patterns for others, and continues active contributions would receive all three flows simultaneously — equity in the cooperative, royalties from the tool or service's ongoing revenue stream, and patronage from current-period work. The system sees the whole arc, not just the present moment.
 
 This is what makes the economic memory stack the cooperative's central nervous system. It's not accounting infrastructure bolted onto the governance structure — it's the mechanism that makes the governance structure meaningful. One-member-one-vote only works as a principle if members can actually see and trust how value is being distributed. The economic memory system is what makes that visible.
 
@@ -77,6 +77,18 @@ The bylaws establish that the cooperative allocates surplus through patronage, m
 This is the highest-energy gap — the layer with the most near-term implementation potential and the most conceptual work already done in the Habitat spec.
 
 The core problem royalties solve is **attribution decay**: in knowledge organizations, value flows forward but credit doesn't. A tool built in Year 1 might underpin a venture generating revenue in Year 5, but patronage only sees what you're doing now. Without a medium-memory mechanism, the cooperative gradually becomes unable to recognize its own compounding contributions.
+
+**The primary model: technology service revenue, not IP licensing**
+
+Most ventures incubated within Techne will be tool and technology services — software systems, data infrastructure, coordination platforms, economic networks — generating recurring monthly or annual revenue as operating services. This is the primary royalty distribution model: when a service generates revenue, a pool of that revenue flows proportionally to the royalty unit holders who built it.
+
+This is meaningfully different from IP licensing. An IP licensing model asks: did someone pay to use this pattern or specification? A technology service revenue model asks: is the service that this work made possible generating revenue? The distinction matters for two reasons. First, most valuable technical contributions are infrastructure — database schemas, API layers, processing engines, data pipelines — that don't get "licensed" in any conventional sense but become load-bearing components of revenue-generating systems. Second, the lag between contribution and revenue generation is often substantial: 12-24 months or more between when a system is built and when the venture it underpins reaches commercial scale.
+
+A concrete illustration: an engineer builds a backend database system for a tool early in the cooperative's life. They receive patronage units for their hours and royalty units for the durable technical contribution. Eighteen months later, that database system has become a critical engine in an economic network that is now generating significant recurring revenue. The engineer's retained royalty units entitle them to a proportional share of that revenue — reflecting not just the hours they worked, but the multi-capital contribution (architectural decisions, expertise, relationships, and domain knowledge) that made the system possible. The economic memory of their contribution persists across the 18-month gap, through the transition from tool to network, and into the revenue-generating phase they may never have directly participated in.
+
+This model makes the cooperative structurally distinct from every employment relationship, consulting arrangement, and traditional equity structure: it is the only mechanism that says *what you built still matters when it starts to work*, not just when you were working on it.
+
+The `pattern.adopted` vesting trigger (described below in the builder/formalizer model) is most relevant for formalizers — people who abstract and document patterns that others adopt across different contexts. For builders of production technology, the vesting trigger is simpler and more direct: **revenue generation by the service or system the work underpins.** When the tool goes live and generates its first revenue event, the builder's royalty units begin distributing.
 
 **What earns royalties vs. what earns patronage only**
 
@@ -294,7 +306,7 @@ A preamble explainer showing where the cooperative sits on the governance/system
 
 **$CLOUD / Service Credits**
 
-A "future state" section connecting all three memory tiers to the $CLOUD micro-economy. Show that the parameters the FSC is setting today determine how value flows through the entire system — from a 30-minute contribution to a venture licensing a pattern five years from now.
+A "future state" section connecting all three memory tiers to the $CLOUD micro-economy. Show that the parameters the FSC is setting today determine how value flows through the entire system — from a 30-minute contribution to a venture's tool or service generating revenue years from now.
 
 ---
 
