@@ -6,6 +6,82 @@
 
 ---
 
+## Architecture: Habitat as Tool Augmentation
+
+The economic memory system is not a separate application. It is built as the **Habitat layer** — a new audience group and set of components — augmenting the existing RegenHub Bylaws and Operations Tool at `roots-trust-lca.github.io/regenhub`.
+
+### What Already Exists (Do Not Rebuild)
+
+| Asset | Description | Relevance |
+|-------|-------------|-----------|
+| **React + Vite frontend** | `regenhub/app/src/` — tab navigation, DocumentViewer, BylawsTree | All Habitat UI is new React components in this tree |
+| **Supabase project** | Auth + `signals` table — magic link auth, organizer allowlist, session management | All economic tables extend the same Supabase project |
+| **Member identity** | `useAuth` hook — Supabase user session, profile (name, declared_role) | Capital account ownership = `user.id` in the existing auth system |
+| **Signal layer** | `useSignals` hook — per-item Support/Oppose/Note/Concern | FSC Decision Dashboard reuses signal pattern for parameter ratification |
+| **GitHub Pages deployment** | `npm run build` → `docs/` → pushed to `main` → live in minutes | All Habitat features deploy through the same pipeline |
+| **Audience group nav** | `baseGroups` in App.jsx — Organizers / Investors+Partners | Habitat becomes a third audience group (or extends Organizers) |
+
+### What the Habitat Layer Adds
+
+```
+Existing Tool                    +  Habitat Augmentation
+─────────────────────────────────────────────────────────────
+Governance layer (bylaws,        +  Economic layer (patronage,
+  articles, member agreement,    +    royalties, capital accounts,
+  signal layer, data room)       +    period close, member dashboard)
+                                 +
+Tab groups:                      +  New tab group:
+  Organizers                     +    Habitat (auth-gated, all members)
+  Investors / Partners           +
+                                 +
+Supabase tables:                 +  New Supabase tables:
+  signals                        +    members, contributions_economic,
+  profiles                       +    royalty_assets, royalty_units,
+                                 +    capital_accounts, revenue_events,
+                                 +    patronage_periods, event_chain
+                                 +
+Components:                      +  New components:
+  BylawsTree                     +    HabitatNav, FscDashboard,
+  DocumentViewer                 +    PatronageCalculator, RoyaltyRegistry,
+  SignalPanel                    +    CapitalAccountView, MemberEconomicDash,
+  SignalsAggregate                +    PeriodClosePanel, QwnDelivery
+```
+
+### Navigation Architecture
+
+The Habitat group surfaces once a user is authenticated (any role). FSC-specific views are gated to `declared_role === "fsc_member"` or `"organizer"`. The full member economic dashboard is available to all authenticated members.
+
+```javascript
+// App.jsx addition (schematic)
+{
+  id: "habitat",
+  label: "Habitat",
+  tabIds: ["fsc", "patronage", "royalties", "capital", "member-dash", "period-close"],
+}
+```
+
+### Data Flow
+
+```
+commons.id contributions  ──►  economic contributions table (Supabase)
+                                         │
+                          ┌──────────────┼──────────────┐
+                          ▼              ▼              ▼
+                   Patronage Engine  Royalty Engine  Capital Accounts
+                          │              │              │
+                          └──────────────┴──────────────┘
+                                         │
+                                  event_chain table
+                                  (append-only, hashed)
+                                         │
+                          ┌──────────────┼──────────────┐
+                          ▼              ▼              ▼
+                   FscDashboard  MemberEconomicDash  PeriodClosePanel
+                   (React)       (React)             (React)
+```
+
+---
+
 ## Planning Model
 
 **Development Mode:** Agent-Driven (Dependency-Based) with Human-Coordination Anchors
@@ -165,30 +241,34 @@ These are current sprint queue blockers that must clear before Phase 1 technical
 
 | Item | Status | Owner | Unblocks |
 |------|--------|-------|---------|
-| S32: Supabase admin access | BLOCKED | Todd (admin creds) | All database migrations |
-| S125: Chain integrity at seq 1 | ACTIVE | Event Systems Eng | Audit trail credibility |
-| S127: Artifact navigation fix | ACTIVE | Backend Engineer | Contribution ingestion |
-| S128: Contribution processing edge fn | ACTIVE | Backend Engineer | Patronage ingestion |
-| S129: NLP extraction speed | ACTIVE | Backend Engineer | Throughput at scale |
+| S32: Supabase admin access (regenhub project) | BLOCKED | Todd (admin creds) | All Habitat table migrations |
+| S125: Chain integrity at seq 1 (commons.id) | ACTIVE | Event Systems Eng | Event chain audit credibility |
+| S127: Artifact navigation fix (commons.id) | ACTIVE | Backend Engineer | Contribution ingestion from commons.id |
+| S128: Contribution processing edge fn | ACTIVE | Backend Engineer | Patronage ingestion pipeline |
+| S129: NLP extraction speed | ACTIVE | Backend Engineer | Throughput at contribution scale |
+
+**Note on Supabase:** The regenhub tool's Supabase project is separate from commons.id's. The Habitat schema migrations extend the regenhub Supabase project (which already has `signals` and `profiles` tables). Admin access to this project is the primary gate for all schema work.
 
 ### Sprint F-1: Schema Design
 
 **TIO Role:** Schema Architect  
-**Prerequisites:** Supabase access, FSC parameters (or proposed values as placeholders)  
+**Prerequisites:** Supabase access (regenhub project), FSC parameters (or proposed values as placeholders)  
 **Runs in parallel with:** F-2 (Event Grammar design)  
+**Build target:** Supabase migrations in `regenhub/supabase/migrations/`
 
 **Deliverables:**
-- DDL migrations for all six schema domains (A–F above)
-- ER diagram (Mermaid) showing entity relationships across bounded contexts
+- DDL migration files for all six schema domains (A–F), extending the existing regenhub Supabase project alongside `signals` and `profiles`
+- Tables: `members`, `contributions_economic`, `royalty_assets`, `royalty_units`, `capital_accounts`, `revenue_events`, `patronage_periods`, `economic_events`
+- ER diagram (Mermaid) showing relationships and foreign keys
 - Data dictionary: field definitions, constraints, enum values
-- REA ontology mapping: which tables are Resources, Events, Agents
-- RLS policy stubs (completed in Compliance sprint)
+- RLS policy stubs — members see own rows; board sees all; anon sees nothing (completed in Compliance sprint A-3)
+- `regenhub/app/src/lib/habitat.js` — Supabase client query helpers for all new tables (mirrors pattern of existing `supabase.js`)
 
 **Completion criteria:**
-- All tables created in staging environment
-- Foreign key constraints validated
+- All tables created in regenhub Supabase project (staging/preview branch)
+- Foreign key constraints validated, no naming conflicts with `signals` / `profiles`
 - Schema reviewed and approved by Technical Lead
-- No naming conflicts with existing commons.id tables
+- Query helpers tested against live Supabase instance
 
 ---
 
@@ -196,45 +276,52 @@ These are current sprint queue blockers that must clear before Phase 1 technical
 
 **TIO Role:** Event Systems Engineer  
 **Prerequisites:** Schema design complete (F-1)  
-**Runs in parallel with:** F-3 (FSC Dashboard)
+**Runs in parallel with:** F-3 (FSC Dashboard)  
+**Build target:** `regenhub/supabase/functions/economic-events/` (Supabase Edge Function) + `economic_events` table
 
 **Deliverables:**
-- Event type registry (all EVENT-A through I defined)
-- Event schema: `{event_type, agent_id, resource_id, quantity, metadata, timestamp, chain_seq}`
-- Event sourcing pattern: append-only log with hash-chain integrity
-- Extension of existing commons.id chain infrastructure for economic events
-- Onchain anchoring strategy: which events get Base L2 anchoring (issuance, distribution, period close)
+- Event type registry in `regenhub/app/src/lib/eventTypes.js` — all EVENT-A through I as typed constants
+- Event schema: `{ event_type, actor_id, resource_id, resource_type, quantity, metadata, chain_seq, prev_hash, hash, anchored_at }`
+- `emit_economic_event()` Supabase function: appends to `economic_events`, computes hash, maintains chain integrity
+- Append-only constraint: no UPDATE or DELETE on `economic_events` (enforced at RLS + DB level)
+- Onchain anchoring strategy document: period close events and distribution events queued for Base L2 anchoring; contribution events remain off-chain for cost reasons
+- Integration note: commons.id contributes contribution records via API pull; economic events live in regenhub Supabase, not commons.id
 
 **Completion criteria:**
-- All nine event types processable by the event bus
-- Chain integrity maintained (no gaps, no reordering)
-- Test suite: emit each event type, verify chain state
+- All nine event types emit correctly and appear in `economic_events` table
+- Chain integrity: each event's `prev_hash` matches previous event's `hash`
+- Append-only: attempt to delete or update a row → fails at DB level
+- Test suite: emit each event type in sequence, verify chain state is intact
 
 ---
 
 ### Sprint F-3: FSC Decision Dashboard (bylaws tool)
 
 **TIO Role:** Frontend/DevOps  
-**Prerequisites:** None (reads proposed parameters only)  
+**Prerequisites:** None (reads proposed parameters only — no schema dependency)  
 **Runs in parallel with:** F-1, F-2  
-**TIME-BOUND:** Must be live before March 2, 2026 FSC meeting
+**TIME-BOUND:** Must be live before March 2, 2026 FSC meeting  
+**Build target:** `regenhub/app/src/components/FscDashboard.jsx` + new `"fsc"` tab in `App.jsx`
 
 **Deliverables:**
-- New section in the RegenHub Bylaws and Ops tool: "FSC Decision Space"
-- Eight decisions surfaced with current proposed values, IRC constraints, and space for FSC vote
-- Patronage decisions: weight sliders (must sum to 1.0), minimum threshold, maximum cap, class tiers
-- Royalty decisions: pool percentage, builder/formalizer default split, vesting trigger, decay function
-- Distribution decisions: cash vs. retained ratio (≥20% cash required per §1385), period frequency
-- Policy decisions: redemption policy, surplus/loss symmetry
-- Impact calculator: change a weight → see how it shifts allocation across member classes
-- Signal layer: FSC members can mark each decision Proposed/Accepted/Needs Discussion
-- Export: produce a ratification document from completed signals
+- `FscDashboard.jsx` — new React component added to `regenhub/app/src/components/`
+- New `"fsc"` tab entry in `tabsMap` in `App.jsx`: `{ id: "fsc", label: "FSC · Decisions", color: "#d4b08a" }`
+- Added to Organizers tab group (gated to `declared_role === "organizer"`)
+- Eight decision panels, each showing: proposed value, IRC constraint note, rationale field, signal buttons reusing existing `SignalPanel` pattern
+- Patronage weight panel: four sliders (Labor / Revenue / Cash / Community) that must sum to 1.0, live validation, 704(b) rationale required field
+- Allocation impact calculator: enter a hypothetical surplus and three member profiles → see how weight changes shift allocations in real time (pure client-side, no Supabase dependency)
+- Royalty parameter panel: pool percentage, default builder/formalizer split, vesting trigger type selector, decay toggle
+- Distribution mechanics panel: cash ratio slider (hard floor at 20% with §1385 warning), period frequency selector
+- Export button: generates a markdown ratification document from current values (downloads as file)
+- Signals reuse existing `useSignals` hook with new item IDs prefixed `fsc-*`
 
 **Completion criteria:**
-- All eight decision categories displayed with proposed values
-- Calculator shows live impact when parameters change
-- Signal layer functional for FSC members
-- Exports ratification document in markdown
+- Component renders in the Organizers tab group as "FSC · Decisions"
+- Weight sliders enforce sum-to-1.0 with live feedback
+- §1385 warning fires when cash ratio drops below 20%
+- Allocation calculator produces correct weighted-sum output
+- Export generates valid markdown ratification document
+- Existing signal layer works for FSC decision items
 
 ---
 
@@ -267,23 +354,24 @@ These are current sprint queue blockers that must clear before Phase 1 technical
 
 **TIO Role:** Backend Engineer  
 **Prerequisites:** F-1 (schema), F-2 (event grammar), FSC parameters ratified  
-**Runs in parallel with:** A-2 (Royalty Engine skeleton), A-3 (Compliance audit)
+**Runs in parallel with:** A-2 (Royalty Engine skeleton), A-3 (Compliance audit)  
+**Build target:** `regenhub/supabase/functions/patronage-engine/` (Edge Function) + `regenhub/app/src/lib/patronage.js` (client query helpers)
 
 **Deliverables:**
-- Formula calculator: weighted-sum across all four categories per member per period
-- Period management: `open_period()`, `snapshot_period()`, `close_period()`
-- Contribution ingestion pipeline: pull from commons.id contributions table, map to patronage categories
-- Allocation calculator: per-member allocation as percentage of period surplus
-- 704(b) rationale store: attach business rationale to each weight configuration
-- Surplus computation: net patronage income for the period (revenue - deductible expenses)
-- Minimum threshold enforcement: zero allocation below participation floor
-- Maximum cap enforcement: concentration ceiling per member
+- Supabase Edge Function `patronage-engine`: invocable by board-role users to open, snapshot, and close periods
+- `open_period(weights, rationale)` — creates a `patronage_periods` row, records weights + 704(b) rationale, emits EVENT-H
+- `snapshot_period(period_id)` — pulls contribution records from commons.id API for the period window, maps to the four economic categories (Labor / Revenue / Cash / Community), stores in `contributions_economic`
+- `close_period(period_id, surplus)` — runs weighted-sum calculation, writes per-member allocations to `contributions_economic`, credits `capital_accounts`, emits EVENT-F per member, emits EVENT-I (QWN trigger)
+- Contribution ingestion: authenticated pull from `api.commons.id/contributions?period=...`, mapping contribution `title`/`category` fields to patronage category via configurable keyword map
+- Formula calculator: pure function `calculateAllocations(members, contributions, weights, surplus)` — unit-testable, exported from `patronage.js` for use in the FSC Dashboard calculator
+- Minimum threshold and cap enforcement applied before allocation write
 
 **Completion criteria:**
-- Given: three test members with defined contributions across four categories and a period surplus
-- Expected: correct weighted-sum allocation, summing to 100% of distributable surplus
-- Audit trail: every allocation event is logged as EVENT-F in the event chain
-- Edge cases: member with zero contributions, member who joined mid-period, loss period
+- Given: three test members, synthetic contribution records, $10,000 surplus, 40/30/20/10 weights
+- Expected: correct per-member allocation percentages, summing to 100%
+- Audit trail: EVENT-F logged per member in `economic_events` with chain integrity maintained
+- Edge cases tested: member with zero contributions receives zero allocation; member who joined mid-period has contributions prorated; loss period emits zero-distribution event
+- `calculateAllocations` pure function matches Edge Function output on identical input
 
 ---
 
@@ -447,21 +535,27 @@ These are current sprint queue blockers that must clear before Phase 1 technical
 
 **TIO Role:** Frontend/DevOps  
 **Prerequisites:** B-1, B-2, B-3 complete  
+**Build target:** `regenhub/app/src/components/habitat/` — new subdirectory for all Habitat React components; new `"habitat"` audience group in `App.jsx`
 
 **Deliverables:**
-- Member-authenticated view of the complete economic arc:
-  - Contribution history (with multi-capital category breakdown)
-  - Capital account balance (book + tax, current + per-period history)
-  - Patronage allocation history (per period: how much, why)
-  - Royalty position (which assets, how many units, vesting status, distributions received)
-  - K-1 preview (current period data before year-end)
-- Period close notification: member receives QWN with consent required to include retained allocation in income
-- Public royalty asset registry: open view of royalty-eligible IP in the cooperative, builder/formalizer attribution
+- New `"habitat"` audience group in `App.jsx` `baseGroups`: visible to all authenticated members (not gated to organizer role)
+- `HabitatNav.jsx` — audience group entry point with tabs: Member Dashboard / Royalty Registry / Capital Account / Period History
+- `MemberEconomicDash.jsx` — authenticated member's full economic arc:
+  - Contribution history pulled from `contributions_economic` with multi-capital category breakdown
+  - Capital account balance (book basis, current + per-period sparkline)
+  - Patronage allocation history: per period — surplus, member %, amount credited
+  - Royalty positions: asset name, units held, vesting status (PENDING / VESTED), distributions received to date
+  - K-1 preview panel: current period data rendered as a pre-K-1 statement (not legal K-1, clearly labeled as preview)
+- `RoyaltyRegistry.jsx` — public (no auth required) view of all registered royalty-bearing assets: asset name, category (tool / service / pattern / framework), builder attribution (by role, not name — public version), formalizer attribution, vesting status, revenue events received
+- `QwnPanel.jsx` — period close notification component: when a period closes, QWN delivered in-tool with consent toggle ("I consent to include the retained allocation in my gross income for this tax year")
+- `CapitalAccountView.jsx` — book capital account detail: opening balance, credits by type, debits, closing balance per period; tax basis shown as "coming soon" until B-2 complete
 
 **Completion criteria:**
-- Member logs in, sees complete economic history from admission
-- Period close triggers QWN delivery and consent capture
-- Royalty asset registry shows all registered assets with attribution
+- Authenticated member sees their full economic history from admission date
+- Royalty Registry renders without auth and shows at least one registered asset
+- Period close triggers QWN display with consent capture recorded to Supabase
+- All Habitat components adapt to existing dark/light theme via `useTheme()` hook
+- No regressions in existing Organizers or Investors/Partners tab groups
 
 ---
 
@@ -586,6 +680,9 @@ This roadmap is operationalized from:
 - **TIO Roles:** Schema Architect, Backend Engineer, Event Systems Engineer, Integration Engineer, Frontend/DevOps, Compliance/Security, QA/Test, Technical Writer, Technical Lead, Product Engineer
 - **Existing Spec:** `coop-us-review/spec/` (patronage-formula, capital-accounts, rea-event-grammar, service-credits, distribution-mechanics, k1-data-assembly, period-close)
 - **Current Sprint State:** SPRINT_QUEUE.md (S32-S129 status)
+- **Build target:** `github.com/Roots-Trust-LCA/regenhub` — Habitat is an augmentation layer on the existing Bylaws and Ops tool, not a new repository
+- **Deployment:** GitHub Pages via `regenhub/docs/` — same pipeline as today; Habitat features deploy with `npm run build && git push`
+- **Backend:** Regenhub Supabase project — new tables alongside existing `signals` and `profiles`
 
 ---
 
