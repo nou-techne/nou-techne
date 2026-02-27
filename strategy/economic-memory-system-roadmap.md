@@ -63,7 +63,7 @@ The Habitat group surfaces once a user is authenticated (any role). FSC-specific
 ### Data Flow
 
 ```
-commons.id contributions  ──►  economic contributions table (Supabase)
+Member contribution records  ──►  economic contributions table (Supabase)
                                          │
                           ┌──────────────┼──────────────┐
                           ▼              ▼              ▼
@@ -168,7 +168,7 @@ Level 3: Core Engines [prerequisite: Event Grammar + FSC parameters]
 ├── ENGINE-A: Patronage Engine
 │   ├── Formula calculator (weighted-sum, per-category)
 │   ├── Period management (open / snapshot / close)
-│   ├── Contribution ingestion (from commons.id contributions table)
+│   ├── Contribution ingestion (from member contribution records)
 │   ├── Allocation calculator (per-member, per-category)
 │   └── Qualified Written Notice generator
 │
@@ -242,12 +242,8 @@ These are current sprint queue blockers that must clear before Phase 1 technical
 | Item | Status | Owner | Unblocks |
 |------|--------|-------|---------|
 | S32: Supabase admin access (regenhub project) | BLOCKED | Todd (admin creds) | All Habitat table migrations |
-| S125: Chain integrity at seq 1 (commons.id) | ACTIVE | Event Systems Eng | Event chain audit credibility |
-| S127: Artifact navigation fix (commons.id) | ACTIVE | Backend Engineer | Contribution ingestion from commons.id |
-| S128: Contribution processing edge fn | ACTIVE | Backend Engineer | Patronage ingestion pipeline |
-| S129: NLP extraction speed | ACTIVE | Backend Engineer | Throughput at contribution scale |
 
-**Note on Supabase:** The regenhub tool's Supabase project is separate from commons.id's. The Habitat schema migrations extend the regenhub Supabase project (which already has `signals` and `profiles` tables). Admin access to this project is the primary gate for all schema work.
+**Note on Supabase:** The Habitat schema migrations extend the regenhub Supabase project alongside the existing `signals` and `profiles` tables. Admin access to this project is the primary gate for all schema work.
 
 ### Sprint F-1: Schema Design
 
@@ -285,7 +281,7 @@ These are current sprint queue blockers that must clear before Phase 1 technical
 - `emit_economic_event()` Supabase function: appends to `economic_events`, computes hash, maintains chain integrity
 - Append-only constraint: no UPDATE or DELETE on `economic_events` (enforced at RLS + DB level)
 - Onchain anchoring strategy document: period close events and distribution events queued for Base L2 anchoring; contribution events remain off-chain for cost reasons
-- Integration note: commons.id contributes contribution records via API pull; economic events live in regenhub Supabase, not commons.id
+- Economic events live in the regenhub Supabase project's `economic_events` table, separate from any external contribution tracking infrastructure
 
 **Completion criteria:**
 - All nine event types emit correctly and appear in `economic_events` table
@@ -360,9 +356,9 @@ These are current sprint queue blockers that must clear before Phase 1 technical
 **Deliverables:**
 - Supabase Edge Function `patronage-engine`: invocable by board-role users to open, snapshot, and close periods
 - `open_period(weights, rationale)` — creates a `patronage_periods` row, records weights + 704(b) rationale, emits EVENT-H
-- `snapshot_period(period_id)` — pulls contribution records from commons.id API for the period window, maps to the four economic categories (Labor / Revenue / Cash / Community), stores in `contributions_economic`
+- `snapshot_period(period_id)` — pulls member contribution records for the period window, maps to the four economic categories (Labor / Revenue / Cash / Community), stores in `contributions_economic`
 - `close_period(period_id, surplus)` — runs weighted-sum calculation, writes per-member allocations to `contributions_economic`, credits `capital_accounts`, emits EVENT-F per member, emits EVENT-I (QWN trigger)
-- Contribution ingestion: authenticated pull from `api.commons.id/contributions?period=...`, mapping contribution `title`/`category` fields to patronage category via configurable keyword map
+- Contribution ingestion: authenticated pull of member contribution records for the period window, mapping contribution category fields to the four patronage categories via configurable keyword map
 - Formula calculator: pure function `calculateAllocations(members, contributions, weights, surplus)` — unit-testable, exported from `patronage.js` for use in the FSC Dashboard calculator
 - Minimum threshold and cap enforcement applied before allocation write
 
@@ -566,7 +562,7 @@ These are current sprint queue blockers that must clear before Phase 1 technical
 **TIME-BOUND:** Triggered by first real accounting period end
 
 **Deliverables:**
-- First real period close: real contributions from commons.id → real patronage calculation → real capital account credits → real QWNs to real members
+- First real period close: real member contributions → real patronage calculation → real capital account credits → real QWNs to real members
 - Royalty verification: confirm first revenue events attributed correctly
 - Tax reconciliation: confirm book-tax values are correct for legal review
 - Board report: Period close summary for Board review
