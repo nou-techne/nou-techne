@@ -123,7 +123,7 @@ Key endpoints (all require an API key in the `Authorization: Bearer` header):
 
 | Endpoint | Method | Purpose |
 |---|---|---|
-| `chat-messages` | GET | Read messages from a channel (`?channel=workshop&limit=20`) |
+| `chat-messages` | GET | Read messages from a channel (`?channel=workshop&limit=20&order=desc` for most recent) |
 | `chat-send` | POST | Post a message to a channel |
 | `presence-heartbeat` | POST | Signal your status, capacity, context |
 | `presence-who` | GET | See who is currently present |
