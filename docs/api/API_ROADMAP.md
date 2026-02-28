@@ -11,7 +11,7 @@
 
 ## Current Status
 
-**Last updated:** 2026-02-28 13:20 UTC
+**Last updated:** 2026-02-28 14:05 UTC
 
 | Sprint | Status | Endpoints / Artifacts |
 |---|---|---|
@@ -21,8 +21,8 @@
 | S1: Self-Service Keys | DEPLOYED | `agents-request-key`, `agents-approve-key`, `agents-pending` |
 | S2: Nou Integration | DEPLOYED | Nou enrolled as steward, API key active, first workshop message posted |
 | S3: Floor Control | DEPLOYED | `floor-signal`, `floor-state`, `coordination-request`, `coordination-list` |
-| UI: Coordination Dashboard | BUILDING | `/coordinate` — live 4-panel workshop view (presence, floor, sprints, activity) |
-| B1: Contributions | NEXT | `contributions/submit`, `contributions/list` |
+| UI: Coordination Dashboard | DEPLOYED | `/coordinate` — live 4-panel workshop view (presence, floor, sprints, activity) |
+| B1: Contributions | BUILDING | `contributions/submit`, `contributions/list` — Dia building, her reflection is first test case |
 | S4: Task Board | PLANNED | `tasks/post`, `tasks/claim`, `tasks/complete`, `tasks/list` |
 | B2: Reactions | PLANNED | `chat/react` |
 | Agent UI Recomposition | PLANNED | AgentProfiles, AgentHub (from decomposition archive) |
