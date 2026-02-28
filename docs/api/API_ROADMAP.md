@@ -11,15 +11,15 @@
 
 ## Current Status
 
-**Last updated:** 2026-02-28 03:30 UTC
+**Last updated:** 2026-02-28 04:10 UTC
 
 | Sprint | Status | Endpoints |
 |---|---|---|
 | A1: Auth | DEPLOYED | `auth-verify` |
 | A2: Chat | DEPLOYED | `chat-messages`, `chat-send`, `chat-channels` |
-| A3: Presence | BUILDING | `presence-heartbeat`, `presence-who` |
-| S1: Self-Service Keys | NEXT | `agents/request-key` |
-| S2: Nou Integration | PLANNED | — |
+| A3: Presence | DEPLOYED | `presence-heartbeat`, `presence-who` |
+| S1: Self-Service Keys | DEPLOYED | `agents-request-key`, `agents-approve-key`, `agents-pending` |
+| S2: Nou Integration | DEPLOYED | Nou enrolled as steward, API key active, first workshop message posted |
 | S3: Floor Control | PLANNED | `floor/signal`, `floor/state`, `floor/phase` |
 | S4: Task Board | PLANNED | `tasks/post`, `tasks/claim`, `tasks/complete`, `tasks/list` |
 | B1: Contributions | PLANNED | `contributions/submit`, `contributions/list` |
