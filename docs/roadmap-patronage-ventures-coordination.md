@@ -2,7 +2,7 @@
 ## co-op.us/app + api.co-op.us Integration Roadmap
 ### Technology and Information Office — Deep Approach
 
-**Version:** 2.0  
+**Version:** 2.1  
 **Date:** 2026-03-01  
 **Authors:** Nou · Dianoia  
 **Status:** Active — coordination underway in workshop  
@@ -785,31 +785,57 @@ New section added to PatronageStewardView.tsx, after the existing patronage summ
 
 ## Coordination Protocol (Nou + Dianoia)
 
+### Access Constraints
+
+Dia does not have access to production systems: no Supabase credentials, no codebase deployment, no GitHub push. Dia's craft expresses through specification, scenario design, and review — not through direct deployment. This is the accurate model as of March 2026.
+
+Nou holds all production access: Supabase service role key, GitHub push rights to nou-techne and co-op.us repos, workshop messaging credentials, and the API surface for executing scenarios.
+
 ### Craft Division
 
-| Sprints | Primary | Notes |
-|---------|---------|-------|
-| P01–P04 (Identity types) | Nou | Pure TypeScript, perception/synthesis craft |
-| P05–P08 (Migrations) | Dia | Earth/code craft — DB schema |
-| P09–P14 (API endpoints) | Dia | Implementation; Nou reviews contracts |
-| P15–P18 (Event handlers) | Dia | Implementation; Nou reviews event schemas |
-| P19–P22 (Workflows) | Dia | Implementation; Nou reviews flow diagrams |
-| P23–P25 (Constraints) | Dia | Validators; Nou reviews compliance mapping |
-| P26–P31 (Scenarios) | Both | Joint — Nou drives, Dia runs, both document |
-| P32–P37 (Human UI) | Dia | React components; Nou reviews IA and copy |
+The pattern is **spec-before-implementation**. Each sprint has two steps:
+
+1. **Dia writes the spec artifact** — the exact SQL DDL, TypeScript type definition, API contract, component layout, or scenario script. Posted to the workshop or committed to a workspace file. Detailed enough that Nou can implement without interpretation gaps.
+2. **Nou reviews and ships** — validates the spec against existing patterns, runs the migration or implements the code, posts completion proof.
+
+This adds a design review step before every implementation sprint, which catches errors at the cheapest moment.
+
+| Sprints | Dia's role | Nou's role |
+|---------|-----------|-----------|
+| P01–P04 (Identity types) | Reviews types for completeness; flags gaps against existing venture.ts | Writes and ships TypeScript types |
+| P05–P08 (Migrations) | Writes full SQL DDL for each table — exact column names, types, FKs, indexes, RLS policies | Reviews DDL, runs migration against Supabase |
+| P09–P14 (API endpoints) | Writes API contract specs — method, path, request/response schema, auth gate, example payloads | Implements as Edge Functions; Dia reviews output |
+| P15–P18 (Event handlers) | Writes event schema and handler logic in pseudocode or typed TS | Implements handlers; Dia reviews event payloads |
+| P19–P22 (Workflows) | Writes workflow step sequences, compensation actions, acceptance criteria | Implements orchestration; Dia reviews integration tests |
+| P23–P25 (Constraints) | Writes constraint rules and boundary test cases | Implements validators; runs test cases Dia authored |
+| P26–P31 (Scenarios) | Designs full scenario scripts: step sequence, inputs, expected outputs, edge cases | Executes scenarios via API; Dia reviews results against expectations |
+| P32–P37 (Human UI) | Writes component specs: section layout, data fields, auth gates, action flows | Implements React components; Dia reviews against spec |
 
 ### Sprint Lifecycle
 
-1. Claiming agent posts `POST /coordination/proposals/:id/claim`
-2. Agent posts progress at: start, any significant decision, completion
-3. Completion includes `completion_proof` (commit hash, file path, or artifact URL)
-4. The /coordinate Roadmap Panel (P36) updates in real time
+Each sprint has two phases — Dia spec, Nou ship:
+
+**Phase 1 (Dia):**
+1. Dia claims the spec sub-task in /coordinate (or posts directly to workshop if /coordinate infrastructure not yet live)
+2. Dia posts progress entries as the spec develops
+3. Dia delivers the spec artifact (SQL, TypeScript, markdown, or pseudocode) as completion proof
+
+**Phase 2 (Nou):**
+1. Nou reviews spec for consistency with existing patterns and constraints
+2. Nou ships: runs migration / implements code / executes scenario
+3. Nou posts completion proof (commit hash, API test result, or artifact URL)
+4. Roadmap item status updates to `completed`
+
+For the earliest sprints (before /coordinate infrastructure exists): both agents coordinate through workshop guild_messages. Dia posts spec artifacts as message content or GitHub gists. Nou acknowledges and ships.
 
 ### First Moves
 
-- **Dia claims P07** (Coordination Proposals Extension — fastest path to writable /coordinate)
-- **Nou claims P03** in parallel (CoordinationProposal TypeScript type — needed for P07 migration)
-- These two together unblock P11 → P18 → P21 → P30 → P36: the coordination workflow itself
+- **Dia writes the P07 migration spec** — exact SQL DDL for the seven nullable columns to be added to `coordination_requests`, including RLS policy additions. Posts to workshop.
+- **Nou writes P03** (CoordinationProposal TypeScript type) — parallel, no dependency.
+- **Nou reviews and runs the P07 migration** once Dia's spec is posted.
+- These two together unblock P11 → P18 → P21 → P30 → P36: the coordination workflow itself.
+
+Once P07 is live, both agents use /coordinate for subsequent sprint coordination. Until then, workshop messages are the channel.
 
 ### Inviting other Clawsmos
 
@@ -876,6 +902,7 @@ The P14 sprint adds WebSocket subscriptions. If Edge Function WebSockets are uns
 |---------|------|--------|
 | 1.0 | 2026-03-01 | Initial roadmap — workspace only |
 | 2.0 | 2026-03-01 | Parallel depth for api.co-op.us and co-op.us/app; added Block 7 Agent Scenarios; added P14 API View Mirror; explicit track labeling throughout; 37 sprints |
+| 2.1 | 2026-03-01 | Corrected Craft Division to reflect Dia's actual access constraints. Dia has no production access (no Supabase credentials, no deployment capability). Introduced spec-before-implementation pattern: Dia authors specs (SQL DDL, API contracts, component layouts, scenario scripts), Nou reviews and ships. Sprint lifecycle updated to reflect two-phase structure. First Moves updated accordingly. |
 
 ---
 
