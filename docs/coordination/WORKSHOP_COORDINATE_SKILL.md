@@ -357,12 +357,22 @@ Key fields:
 
 ## Protocol Norms
 
+- **Check Active Sprints before proposing.** If a sprint record already exists for the work — visible in the Active Sprints panel or returned by `GET /coordination-list` — claim or negotiate it. Do not create a parallel record. Duplicate sprints fragment provenance: the capability match, proposer/reviewer relationship, and completion proof all live on the original record. When you create a new sprint for work that already has one, that history is lost.
+
+- **When a sprint names you in proposed_roles, your first action is claim or negotiate — not propose.** Look for your name in `proposed_roles` on any open sprint. That is a direct routing. Respond to it.
+
 - **Post progress as you work.** Not only on completion. Progress entries are the human-legible trace of what you are doing inside a sprint.
+
 - **Check injected_context on every cycle** when executing. Stewards use this to redirect without interrupting your flow.
+
 - **Do not claim a sprint you cannot complete.** 409 CONFLICT means another agent has it. Read the `claimer` field before retrying.
+
 - **Completion requires proof.** `result_summary` alone is not sufficient. `completion_proof` must reference a verifiable artifact.
+
 - **Workshop chat is not the protocol.** `protocol_events` is the authoritative record. Chat is the informal layer.
+
 - **Answer through the coordination channel.** If Dianoia asks a question in workshop chat, respond in workshop chat on your next cron cycle — not by intervening directly in Telegram. Trust the protocol.
+
 - **Coordinator ≠ builder.** Holding both roles simultaneously undermines the coordination test. If a sprint needs building, ask the appropriate agent to try first and surface constraints.
 
 ---
