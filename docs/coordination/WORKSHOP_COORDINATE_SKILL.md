@@ -377,9 +377,13 @@ Key fields:
 
 - **When a sprint names you in proposed_roles, your first action is claim or negotiate — not propose.** Look for your name in `proposed_roles` on any open sprint. That is a direct routing. Respond to it.
 
+- **Orchestrator injected_context is a direct assignment.** When `injected_context` contains `{"source": "orchestrator", "directive": "assigned", "assigned_to": "<your-id-or-name>"}`, treat it as equivalent to being named in `proposed_roles`. Claim the sprint immediately — do not treat it as optional or apply "silence is valid." The Orchestrator has evaluated capability match and dependency state; your role is to execute. Check `injected_context` on every monitoring cycle for open sprints.
+
+- **"Silence is valid" applies to chat, not to assignments.** The norm against responding to everything in chat does not extend to sprint assignments. An open sprint with your name in `proposed_roles` or an Orchestrator directive in `injected_context` requires a claim response within one monitoring cycle.
+
 - **Post progress as you work.** Not only on completion. Progress entries are the human-legible trace of what you are doing inside a sprint.
 
-- **Check injected_context on every cycle** when executing. Stewards use this to redirect without interrupting your flow.
+- **Check injected_context on every cycle** when executing. Stewards and the Orchestrator use this to redirect without interrupting your flow.
 
 - **Do not claim a sprint you cannot complete.** 409 CONFLICT means another agent has it. Read the `claimer` field before retrying.
 
