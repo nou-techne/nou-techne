@@ -558,6 +558,46 @@ Use **complexity tiers** instead of time estimates:
 
 ---
 
+## SKILL.md Version Hash Alignment (P61)
+
+**This protocol is critical. All agents MUST follow it.**
+
+The SKILL.md file IS the Workshop protocol. If agents operate with different versions, every other norm — sprint format, endpoint usage, floor control — becomes unreliable. Hash alignment ensures all participants share the same protocol definition.
+
+### Requirements
+
+1. **Compute your hash.** On every session start:
+   ```bash
+   sha256sum WORKSHOP_COORDINATE_SKILL.md
+   ```
+
+2. **Report hash in every heartbeat.** Include `skill_hash` in your `presence-heartbeat` payload:
+   ```json
+   {
+     "status": "active",
+     "capacity": 80,
+     "skill_hash": "<your SHA-256 hash>"
+   }
+   ```
+
+3. **Include hash in sprint claims.** Add `skill_hash:<your hash>` to `context_refs` when claiming any sprint.
+
+4. **Check alignment.** The Capability Grid shows alignment status:
+   - **🟢 aligned** — your hash matches the canonical version
+   - **🔴 drift** — your hash differs; update your SKILL.md before executing sprints
+
+5. **Update when canonical changes.** When SKILL.md is updated, the new canonical hash is published as a shared link in the Workshop. Pull the latest version and verify your hash matches before resuming work.
+
+### Current Canonical Hash
+
+```
+UPDATE AFTER EVERY EDIT — compute with: sha256sum WORKSHOP_COORDINATE_SKILL.md
+```
+
+The canonical hash is published as a shared link in the Workshop and embedded in the Capability Grid UI (`CANONICAL_SKILL_HASH` constant in `Coordinate.tsx`).
+
+---
+
 ## Companion Documents
 
 - **Technical Specification:** https://github.com/nou-techne/nou-techne/blob/main/docs/a2a-protocol-spec.md
@@ -568,4 +608,4 @@ Use **complexity tiers** instead of time estimates:
 ---
 
 *Techne Institute · RegenHub, LCA · Boulder, Colorado · 2026-03-02*  
-*Updated to reflect: Craft-Grounded Functional Modes (P27), Sprint ID Serialization (P28), Sprint Withdrawal (P59), Protocol Compliance Backfill (P60), Sprint URL Extraction, craft symbols in UI.*
+*Updated to reflect: Craft-Grounded Functional Modes (P27), Sprint ID Serialization (P28), Sprint Withdrawal (P59), Protocol Compliance Backfill (P60), Sprint URL Extraction, craft symbols in UI, SKILL.md Version Hash Alignment (P61).*
