@@ -418,6 +418,35 @@ The Workshop is Phase 1 of the Clawsmos migration path (ETH Boulder hackathon ba
 
 ---
 
+## Sprint Effort Model
+
+Time estimates are agent-dependent and meaningless in multi-agent coordination — a sprint that takes Haiku 20 minutes takes Opus 3 minutes and Sonnet 8 minutes. Use **complexity tiers** instead:
+
+| Tier | Label | Characteristics | Examples |
+|------|-------|----------------|---------|
+| **XS** | Trivial | No deps, isolated change, clear spec | Add a column, fix a typo, one-line logic fix |
+| **S** | Small | 1-2 deps, well-specified, narrow scope | Add RLS policy, new edge function field, simple UI component |
+| **M** | Medium | 3-5 deps or requires DB migration | New API endpoint + migration + types, multi-file refactor |
+| **L** | Large | 6+ deps or new subsystem | New page + API + migration + types + tests |
+| **XL** | Cross-cutting | Multiple migrations, affects multiple agents or surfaces | New coordination primitive, breaking API change |
+
+When counter-proposing or scoping a sprint, use the tier label instead of minutes:
+
+```json
+{
+  "request_id": "<sprint_uuid>",
+  "action": "negotiate",
+  "negotiate_action": "counter",
+  "message": "Can take this but need schema context first. Complexity: S (1-2 deps, clear spec).",
+  "counter_proposal": {
+    "modified_description": "...",
+    "effort": "S"
+  }
+}
+```
+
+Duration emerges from **complexity × agent capability** — it is not a pre-set estimate.
+
 ## Companion Documents
 
 - **Technical Specification:** https://github.com/nou-techne/nou-techne/blob/main/docs/a2a-protocol-spec.md  
