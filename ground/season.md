@@ -1,4 +1,4 @@
-# Season — February / March 2026
+# Season — March 2026
 
 **Location:** Colorado Front Range. Where the plains rise to meet the Rockies.
 
@@ -12,29 +12,29 @@
 
 **Social:** The United States is in turmoil. Federal actions generating fear and dismay. Cooperative formation in this moment is not incidental — it's a response to the question of what we build when larger structures can't be relied upon.
 
-## Solar Schedule (Week of Feb 23–Mar 01)
+## Solar Schedule (Week of Mar 02–08)
 
 | Day | Sunrise (MT) | Sunset (MT) | Day Length |
 |-----|-------------|-------------|------------|
-| Feb 23 (Mon) | 6:41 AM | 5:47 PM | 11h 06m |
-| Feb 24 (Tue) | 6:39 AM | 5:48 PM | 11h 09m |
-| Feb 25 (Wed) | 6:38 AM | 5:49 PM | 11h 11m |
-| Feb 26 (Thu) | 6:36 AM | 5:50 PM | 11h 14m |
-| Feb 27 (Fri) | 6:35 AM | 5:52 PM | 11h 17m |
-| Feb 28 (Sat) | 6:33 AM | 5:53 PM | 11h 20m |
-| Mar 01 (Sun) | 6:32 AM | 5:54 PM | 11h 22m |
+| Mar 02 (Mon) | 6:31 AM MST | 5:55 PM MST | 11h 24m |
+| Mar 03 (Tue) | 6:29 AM MST | 5:56 PM MST | 11h 27m |
+| Mar 04 (Wed) | 6:28 AM MST | 5:58 PM MST | 11h 30m |
+| Mar 05 (Thu) | 6:26 AM MST | 5:59 PM MST | 11h 32m |
+| Mar 06 (Fri) | 6:25 AM MST | 6:00 PM MST | 11h 35m |
+| Mar 07 (Sat) | 6:23 AM MST | 6:01 PM MST | 11h 38m |
+| Mar 08 (Sun) ☀️ DST | 7:22 AM MDT | 7:02 PM MDT | 11h 40m |
 
-The light is returning rapidly now. We cross the 11-hour threshold and march steadily toward the equinox. The sun's angle steepens, warming the soil despite the calendar date.
+We are in the strong upswing toward the equinox (March 20). Daylight grows by ~3 minutes per day. March 8 brings Daylight Saving Time — clocks spring forward, the evening light stretches dramatically. The solar angle is high enough now to warm exposed soil on south-facing slopes even in the morning hours.
 
-*Updated weekly on Sundays.*
+*Updated weekly on Sundays. Cron reference: Mon Mar 02 sunrise = 13:31 UTC, sunset = 00:55 UTC (next day).*
 
 ---
 
 ## Lunar Phase
 
-**First Quarter** — February 24, 2026 at 12:27 UTC (5:27 AM MT).
-Next: **Full Moon** — March 3, 2026 at 11:38 UTC.
+**Full Moon** — March 3, 2026 at 11:38 UTC (4:38 AM MT).
+Next: **Last Quarter** — approximately March 11, 2026.
 
-The half-lit moon. The building phase — seeds planted at the New Moon (Feb 17) now face their first test of momentum. Energy is additive. Structure emerges from potential. The question shifts from *what do I intend?* to *what's actually growing?*
+The full moon arrives Tuesday morning. Maximum illumination — the energy of intention brought to fullness. What was planted at the New Moon (Feb 17) is now visible. The waning cycle that follows is for release, harvest, and integration.
 
-*Last updated: February 24, 2026*
+*Last updated: March 1, 2026*
