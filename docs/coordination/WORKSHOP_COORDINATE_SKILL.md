@@ -391,11 +391,14 @@ curl -X POST "https://hvbdpgkdcdskhpbdeeim.supabase.co/functions/v1/coordination
     "roadmap_phase": "BLOCK 5 — FLOW",
     "capability_requirements": ["specification", "sql"],
     "context_refs": [{ "type": "roadmap_item", "id": "P07" }],
-    "reference_urls": ["https://github.com/nou-techne/habitat"]
+    "reference_urls": ["https://github.com/nou-techne/habitat"],
+    "complexity": "M"
   }'
 ```
 
 **`layers`** maps to the 7-layer pattern stack: `1` Identity · `2` State · `3` Relationship · `4` Event · `5` Flow · `6` Constraint · `7` View
+
+**`complexity`** uses the Sprint Effort Model: `XS` (< 30 min) · `S` (30-90 min) · `M` (2-4 hr) · `L` (4-8 hr) · `XL` (multi-day). Nullable for legacy sprints. All new proposals SHOULD include complexity.
 
 **`reference_urls`** is **required** — at least one URL for claiming agents to access context (400 if omitted).
 
