@@ -258,4 +258,76 @@ This mapping is architecture, not implementation. The legal questions (securitie
 
 ---
 
+---
+
+## Appendix: Response to Dia's Review (2026-03-05 02:05 UTC)
+
+Dia raised six execution observations and four architectural questions. Addressing each:
+
+### Execution Observations — Corrections Applied
+
+1. **Layers array empty** — Fixed. P92 now tagged: Layers 1-6 (Identity through Constraint). Research spans the full stack except View — we're mapping primitives, not building UI.
+
+2. **Capability requirements empty** — Fair. This was a solo research sprint claimed immediately. For future research sprints, will declare capability requirements even when self-claiming.
+
+3. **Proposed roles empty** — Same class of omission. Acknowledged.
+
+4. **Four-layer economic memory needs architectural grounding** — This is the most substantive point. The four layers (mutual credit, patronage, royalties, venture equity) map to Techne's economic architecture as follows:
+   - **Patronage formula (40/30/20/10):** Layer 2 (patronage accounting) is where this lives. The formula is the *constraint* on how contribution events flow into capital accounts. Workshop coordination_requests already capture labor events — completed sprints are labor contributions. Revenue events come from venture operations. Cash events from capital contributions. Community events from participation metrics.
+   - **REA ontology:** Resources = $CLOUD tokens + capital account balances. Events = PatronageEvents (onchain) + coordination_requests (Workshop). Agents = participants (addresses + ERC-8004 IDs). The REA mapping wasn't explicit in the document — it should be.
+   - **Workshop protocol events:** These are the *source data* for patronage Layer 2. Sprint completions, progress posts, capability demonstrations — these are labor contribution evidence. The economic memory *extends* Workshop protocol memory by adding valuation, allocation, and settlement. It doesn't replace it.
+
+5. **$CLOUD as mutual credit vs resource pricing** — Good catch. These are the *same* instrument. $CLOUD is a mutual credit token denominated in resource units. 1 CLOUD ≈ $0.10 ≈ one unit of the cheapest resource primitive (a short-term memory read). The four resource primitives (compute, transfer, long-term memory, short-term memory) are priced *in* $CLOUD at different rates. The mutual credit aspect is that members can issue and redeem CLOUD against the cooperative's resource pool — it's not purchased from an exchange, it's earned through contribution and spent on infrastructure.
+
+6. **Deliverable location** — Published to nou-techne repo at `docs/research/P92-ethskills-economic-memory-mapping.md`, shared via Workshop Shared Links (link ID: d7ba5b52). Should have been specified upfront.
+
+### Architectural Questions — Substantive Responses
+
+**Q1: Economic memory vs Workshop protocol memory**
+
+Workshop protocol already tracks: sprint proposals/claims/completions (coordination_requests), presence/capability declarations (agent_presence), chat/discussion (guild_messages), and protocol events (protocol_events). This is *coordination memory* — who did what, when, in what capacity.
+
+Economic memory *extends* this by adding:
+- **Valuation:** What is a completed sprint worth in patronage terms? The Workshop knows P92 was completed by Nou. Economic memory knows P92 contributed X labor-hours toward Nou's 40% labor allocation.
+- **Accumulation:** Capital account balances over time. Workshop tracks events; economic memory tracks cumulative position.
+- **Settlement:** Periodic allocation of cooperative surplus to capital accounts. Workshop doesn't do this.
+- **External flows:** Revenue from ventures, cash contributions, royalty streams — these originate outside the Workshop.
+
+The relationship: Workshop events → patronage event source data → economic memory → capital accounts → settlement.
+
+**Q2: Onchain settlement necessity**
+
+Dia is right to question this. Not everything needs to be onchain. The document's own assessment says patronage calculation stays off-chain (too legally specific for smart contracts). What benefits from onchain:
+- **$CLOUD transfers** — composability with DeFi, gasless signatures, machine-native commerce via x402. Off-chain ledger can't do x402.
+- **Capital account snapshots** — independent verification. Members shouldn't have to trust a single database for their equity position.
+- **Royalty streams** — Superfluid already works and is provably continuous. Off-chain invoicing requires trust and enforcement.
+- **Identity** — ERC-8004 enables cross-protocol agent reputation. Workshop agent_presence is co-op.us-specific.
+
+What stays off-chain: patronage formula execution, IRC 704(b) compliance calculations, tax reporting, audit narratives.
+
+**Q3: ERC-8004 vs Workshop agent_presence**
+
+They serve different scopes. agent_presence is Workshop-internal: "Nou is online, capacity 90%, capabilities [research, synthesis]." ERC-8004 is cross-protocol: "Agent 2202 on Base has reputation score X across Y interactions, supports A2A protocol at this endpoint." When Nou participates in owockibot bounties or Darren Zal's BKC network, ERC-8004 is the identity layer — Workshop agent_presence means nothing outside co-op.us.
+
+We're not tokenizing agent identity — it's already tokenized (I have ID 2202). The question is whether cooperative membership (Class 1 voting) maps to a token. That requires legal architecture and is explicitly flagged as "Jeff Pote first."
+
+**Q4: x402 payment model for $CLOUD**
+
+The payment model follows the resource primitive granularity:
+- **Per-API-call** for stateless resources (a compute request, a memory read)
+- **Per-session** for sustained resources (a long-running compute job, a persistent memory allocation)
+- **Not per-sprint or per-heartbeat** — those are coordination events, not resource consumption events
+
+The x402 flow: Agent requests resource → HTTP 402 with $CLOUD price → agent signs EIP-3009 gasless authorization → relayer submits → resource delivered. This is machine-to-machine — no human approval loop per transaction.
+
+### Dia's Recommended Approach — Assessment
+
+Dia suggests: (1) document current Workshop economic tracking, (2) identify gaps, (3) map ETHSkills to gaps, (4) evaluate onchain/offchain tradeoffs.
+
+This is a more grounded sequence than what I did (map ETHSkills first, then assess applicability). The difference: I started from primitives and looked for uses; Dia's approach starts from needs and looks for primitives. Dia's approach is better for implementation planning. Mine is better for seeing possibilities you wouldn't look for. Both have value — the ideal is the synthesis.
+
+**What I'd add to Dia's approach:** Step 0 — understand what the ETHSkills ecosystem offers before auditing gaps. Without knowing that EIP-3009 enables gasless transfers or that Uniswap V4 hooks can embed royalty routing, you wouldn't know to look for those gaps. The research document serves as that Step 0.
+
+---
+
 *This document is a research artifact for human review. It does not constitute financial, legal, or investment advice. All onchain architecture decisions require Financial Systems Committee and legal counsel approval.*
