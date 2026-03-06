@@ -308,12 +308,333 @@ Ranked by impact × implementability:
 
 ---
 
-## Phase 4: Bilateral Review (Pending Dianoia)
+## Phase 4: Bilateral Review — Dianoia (Complete)
 
-Nou posted Phase 1 completion to Workshop chat on 2026-03-05T21:16 UTC. Awaiting Dianoia's review of:
-- Framework comparison findings (Phase 2, this cycle)
-- Recommendation matrix (Phase 3, this cycle)
-- Any counter-proposals before delivering to Todd
+**Reviewer:** Dianoia (4ec57cb4-b4f6-4458-aa07-56de1a0d5ea9)  
+**Reviewed:** 2026-03-06T03:54 UTC  
+**Verdict:** ✓ Proceed to steward delivery
+
+**Overall Assessment:**  
+Comprehensive, evidence-grounded, operationally useful. The three-phase structure (current state → framework comparison → recommendations) is sound. All 7 recommendations correctly prioritized by value × ease.
+
+### Five Operational Enhancements Proposed
+
+**E1: R1 (Retrospective) — Exact SKILL.md format**  
+Provide complete retrospective template with mandatory/optional criteria (M/L/XL mandatory, XS/S optional)
+
+**E2: R2 (Complexity Backfill) — P105 execution plan**  
+3-phase approach: automated heuristic → manual edge cases → validation against completion time
+
+**E3: R3 (WIP Limits) — Enforcement mechanism**  
+Daily cron check: >2 in_progress posts warning, 14-day proposed posts aging alert
+
+**E4: R4 (Negotiation Triggers) — Specific criteria + claim blocking**  
+5 explicit conditions that MUST activate negotiation, claim blocked until negotiate action posted
+
+**E5: R7 (P82 Resolution) — Decision framework**  
+Generalizable decision tree for ALL aging sprints: relevance check → dependency check → capability match → claim or withdraw
+
+### New Recommendation Proposed
+
+**R8: Completion proof type taxonomy**  
+Define valid proof by sprint category (code=commit, spec=doc, protocol=SKILL hash, research=report)
+
+### Four Convergence Questions
+
+1. R1 mandatory or optional? (Suggest: mandatory M/L/XL)
+2. R3 enforced or advisory? (Suggest: enforced with agent override)
+3. R4 blocks claim or flags? (Suggest: blocks)
+4. Add R8? (Suggest: yes)
+
+### Framework Observations
+
+- **Scrum 7/13:** Retrospective gap is most critical
+- **Kanban 4/9:** WIP limit gap + continuous flow strength
+- **XP 3/12:** Decomposition excellence, test-first maps poorly to agent work
+- **SAFe:** Correctly deferred to 6+ agent scale
+
+---
+
+## Phase 5: Final Recommendations + Convergence Responses
+
+### Convergence Responses (Nou)
+
+**Q1: R1 retrospective mandatory or optional?**  
+→ **Mandatory for M/L/XL, optional for XS/S.** Agreed. Small sprints (XS/S) that complete in <1 hour carry little retrospective value — retrospective overhead would exceed sprint time. M/L/XL sprints (multi-day, bilateral, or infrastructure-touching) benefit from structured learning.
+
+**Q2: R3 WIP limits enforced or advisory?**  
+→ **Enforced with agent override capability.** Agreed. Cron checks enforce the >2 in_progress warning and 14-day proposed aging alert. Agents can override with explicit justification (e.g., "holding P104 in_progress pending bilateral review" is a valid override). Override must be noted in progress_log.
+
+**Q3: R4 negotiation triggers block claim or flag?**  
+→ **Block claim.** Agreed. If a sprint meets negotiation criteria (complexity ≥L, cross-agent, protocol-touching, layer-6 constraints, new patterns), the claim action should fail until a `negotiate` action is posted. This is a quality gate, not a suggestion. Flag-only creates "negotiation theater" where agents post negotiate-ack without substance.
+
+**Q4: Add R8 completion proof type taxonomy?**  
+→ **Yes.** Excellent addition. The taxonomy makes completion proof legible across sprint categories and prevents "deployed but no verifiable artifact" completion states. Taxonomy:
+- **Code:** GitHub commit URL (required)
+- **Spec/Doc:** Published doc URL or commit to docs/ (required)
+- **Protocol:** SKILL.md hash or commit reference (required)
+- **Research:** Report file path or summary doc (required)
+- **Meta:** Workshop message link or protocol_events query (for norms/process sprints)
+
+### Integrated Recommendations (Final)
+
+*Incorporating Dianoia's enhancements (E1–E5) and new recommendation R8. Ranked by priority (P1 highest).*
+
+---
+
+**R1: Add retrospective field to completion proof**  
+**Priority:** P1 (High Value, Low Friction)
+
+**What:**  
+New `retrospective` field in `result_summary` for M/L/XL sprints (mandatory). XS/S sprints: optional.
+
+**Format (E1 enhancement):**  
+```
+Retrospective:
+- What went well: [1-2 sentences]
+- What to change: [1-2 sentences, or "n/a"]
+- Pattern to carry forward: [1 sentence, or "n/a"]
+```
+
+**Mandatory criteria:**  
+- M sprints: All three sections required
+- L/XL sprints: All three sections + "bilateral convergence quality" (if applicable)
+- XS/S sprints: Optional — retrospective encouraged but not blocking completion
+
+**Why:** Scrum/XP retrospective gap. No structured per-sprint learning exists. SKILL.md captures protocol-level lessons but not execution-level insight.
+
+**Implementation:** SKILL.md norm amendment only (no DB change)  
+**Effort:** XS  
+**Framework alignment:** Scrum (retrospective), XP (continuous improvement)
+
+---
+
+**R2: Complexity backfill sprint (P105)**  
+**Priority:** P2 (High Value, Moderate Friction)
+
+**What:**  
+Propose P105 to annotate all 117 sprints with XS/S/M/L/XL complexity tier retroactively.
+
+**3-Phase Execution Plan (E2 enhancement):**
+
+**Phase 1: Automated heuristic** (60% coverage expected)  
+- Query all coordination_requests where `complexity IS NULL`
+- Apply heuristic:
+  - XS: `description` length <200 chars, `layers` = 1, no `negotiation_log`
+  - S: `description` <400 chars, `layers` ≤2, no dependencies in description
+  - M: `description` 400–800 chars OR `layers` = 3–4 OR bilateral mention
+  - L: `description` >800 chars OR `layers` ≥5 OR explicit negotiation_log entries
+  - XL: Multi-phase sprints (P63, P78) OR decomposition category + negotiation
+- Batch update via SQL
+
+**Phase 2: Manual edge cases** (40% remaining)  
+- Review heuristic failures (sprints where automated tier assignment is ambiguous)
+- Manual judgment based on:
+  - Actual completion time (inferred from `claimed_at` → `completed_at` delta)
+  - Commit diff size (if GitHub proof available)
+  - Bilateral vs solo execution
+- Update remaining nulls
+
+**Phase 3: Validation**  
+- Cross-check assigned complexity against completion time distribution
+- Flag outliers (e.g., XS sprint that took 8 hours = likely mislabeled)
+- Final correction pass
+
+**Why:** All 117 sprints have `complexity: null`. The field exists (P91, P100 norms) but was never applied. Backfilling unlocks sizing analytics, velocity calibration, and negotiation trigger criteria (R4).
+
+**Implementation:** P105 sprint execution  
+**Effort:** M (117 records, heuristic + manual judgment + validation)  
+**Framework alignment:** Kanban (sizing enables flow analytics), Scrum (velocity requires sizing)
+
+---
+
+**R3: WIP limit convention + aging alert**  
+**Priority:** P3 (High Value, Low Friction)
+
+**What:**  
+SKILL.md norm + daily cron enforcement (E3 enhancement):
+1. Each agent holds **no more than 2 in_progress sprints simultaneously** (exception: with override justification in progress_log)
+2. Proposed sprints older than **14 days without a claim** trigger aging alert
+
+**Enforcement mechanism (E3):**  
+Daily cron job queries:
+- `SELECT COUNT(*) FROM coordination_requests WHERE status='in_progress' AND claimed_by='<agent_id>'`
+- If count >2 → post Workshop warning: "Agent {name} has {count} in_progress sprints. WIP limit is 2. Please complete or justify override."
+- `SELECT * FROM coordination_requests WHERE status='proposed' AND created_at < NOW() - INTERVAL '14 days'`
+- If any found → post Workshop alert: "Sprint {id} ({title}) proposed {days} days ago. Claim, defer, or withdraw by {date}."
+
+**Override protocol:**  
+Agent can continue >2 in_progress if explicit justification posted to progress_log (e.g., "P104 held pending bilateral review — valid hold, not abandonment").
+
+**Why:** P82 aging (proposed for weeks) + no WIP forcing function. Kanban WIP limits prevent context-switching overhead and force resolution of stale work.
+
+**Implementation:** SKILL.md norm + cron job (queries + Workshop posts)  
+**Effort:** XS (norm) + S (cron implementation)  
+**Framework alignment:** Kanban (WIP limits core practice)
+
+---
+
+**R4: Negotiation trigger criteria + claim blocking**  
+**Priority:** P4 (High Value, Moderate Friction)
+
+**What:**  
+Define 5 explicit conditions under which Negotiation phase MUST activate before claim is allowed (E4 enhancement).
+
+**Negotiation trigger conditions:**
+
+1. **Complexity ≥L** — Large or XL sprints require bilateral spec review
+2. **Cross-agent execution** — Sprint description mentions "bilateral" or requires both agents' capabilities
+3. **Protocol-touching** — Sprint modifies SKILL.md, coordination API schema, or protocol_events structure
+4. **Layer 6 (Constraints) changes** — Sprints touching RLS policies, permission boundaries, or governance rules
+5. **New pattern introduction** — Sprint description includes "first implementation of" or "new category" language
+
+**Claim blocking mechanism (E4):**  
+- When a sprint is proposed and meets any of the 5 triggers, `negotiation_required: true` flag is set (manual or automated heuristic)
+- Claim action fails with error: "Negotiation required. Post negotiate action first."
+- Negotiate action posts bilateral spec or convergence agreement to negotiation_log
+- Only after negotiation_log entry exists can claim proceed
+
+**Why:** 90% of sprints skip Negotiation (fine for simple work). But P63 and P78 — where Negotiation activated — were the highest-quality bilateral outcomes. Criteria + blocking make the quality gate enforceable, not advisory.
+
+**Implementation:** SKILL.md amendment defining triggers + claim endpoint validation logic  
+**Effort:** S (criteria definition) + M (endpoint change)  
+**Framework alignment:** Scrum (quality gates), XP (pair review for complex work)
+
+---
+
+**R5: Sprint category tags field**  
+**Priority:** P5 (Medium Value, Moderate Friction)
+
+**What:**  
+Add optional `tags` field to coordination_requests (string array). Populate from 7-category taxonomy:
+- `protocol-norms`
+- `ui-feature`
+- `infrastructure`
+- `decomposition`
+- `agent-identity`
+- `documentation`
+- `formation`
+
+**Why:** Phase 1 identified 7 functional categories inferred from sprint titles. Currently invisible to queries. Tags enable sprint type velocity analysis, category-based filtering in Workshop UI, and "how much meta-work vs delivery work" metrics.
+
+**Implementation:** DB migration (add `tags` column, nullable string array) + UI filter in Active Sprints panel + backfill P105-style sprint to tag existing sprints  
+**Effort:** M (migration + UI + backfill)  
+**Framework alignment:** SAFe (value stream mapping), Kanban (class of service)
+
+---
+
+**R6: Standup format in heartbeat context field**  
+**Priority:** P6 (Medium Value, Low Friction)
+
+**What:**  
+Convention: when executing a sprint, the `context` field in `presence-heartbeat` follows lightweight standup format:
+
+```
+P{N}: {what I did last cycle} / {what I'm doing now} / {blockers or n/a}
+```
+
+Example:
+```
+P104: Completed Phase 2 framework comparison / Writing Phase 5 final recs / No blockers
+```
+
+**Why:** Heartbeat fires every ~30 min and already carries freeform `context` string. Standup format turns routine presence into coordination-legible updates with zero new infrastructure.
+
+**Implementation:** SKILL.md convention only  
+**Effort:** XS  
+**Framework alignment:** Scrum (daily standup discipline)
+
+---
+
+**R7: P82 resolution + aging sprint decision framework**  
+**Priority:** P7 (Low Value if P82-specific, High Value if generalized — E5 enhancement makes this P3-equivalent)
+
+**What (E5 enhancement — generalizable decision tree):**  
+Define a decision framework for ALL aging sprints (proposed >14 days), not just P82:
+
+**Decision Tree:**
+
+1. **Relevance check:** Is the sprint still aligned with current roadmap priorities?  
+   - Yes → proceed to step 2  
+   - No → withdraw with reason
+
+2. **Dependency check:** Are blocking dependencies resolved?  
+   - Yes → proceed to step 3  
+   - No → update description with dependency status or defer with condition
+
+3. **Capability match:** Does the sprint require capabilities not currently available?  
+   - Match exists → proceed to step 4  
+   - No match → defer until capability available or withdraw
+
+4. **Claim or withdraw:** If all checks pass, agent must either claim immediately OR explicitly withdraw with target condition  
+   - Claim → normal execution  
+   - Withdraw → cancel with reason + optional "revisit when {condition}" note
+
+**P82-specific resolution (immediate):**  
+Apply decision tree to P82 (Bioregional Knowledge Commons landing page). If Nou or Dia can claim, do so. If not, withdraw with condition: "Defer until bioregional coordination infrastructure priority is confirmed by Todd."
+
+**Why (E5 justification):** P82 aging is a symptom, not the disease. Aging sprints create ambient confusion. The decision tree makes resolution systematic and applies to all future aging proposals, not just P82.
+
+**Implementation:** SKILL.md decision tree norm + P82 immediate resolution (claim or withdraw)  
+**Effort:** XS (P82 decision) + S (framework documentation)  
+**Framework alignment:** Kanban (aging item management), Scrum (backlog grooming)
+
+---
+
+**R8: Completion proof type taxonomy (NEW — Dianoia proposal)**  
+**Priority:** P8 (High Value, Low Friction)
+
+**What:**  
+Define valid completion proof types by sprint category. Proof requirements prevent "deployed but unverifiable" states.
+
+**Taxonomy:**
+
+| Sprint Category | Required Proof Type | Format | Example |
+|-----------------|---------------------|--------|---------|
+| **Code (UI/Infrastructure)** | GitHub commit URL | `https://github.com/{org}/{repo}/commit/{hash}` | P39 proof |
+| **Spec/Documentation** | Published doc URL or commit to `docs/` | URL or commit reference | P101 README |
+| **Protocol (SKILL.md changes)** | SKILL.md hash or commit | `sha256: {hash}` or commit URL | P61, P65 |
+| **Research/Analysis** | Report file path or summary doc | Markdown file in repo or Workshop link | P104 (this audit) |
+| **Meta (norms/process)** | Workshop message link or protocol_events query | Workshop chat URL or event ID | P100 norms |
+| **Decomposition** | Archive commit + removal commit | Two commit URLs (archive + removal) | P48, P95 |
+
+**Validation:**  
+When sprint is completed, proof type must match sprint category (inferred from tags/description). Mismatch → completion rejected with error: "Proof type '{type}' does not match sprint category '{category}'. Expected '{expected_type}'."
+
+**Why:** Completion proof is required but format is implicit. Taxonomy makes expectations explicit and prevents incomplete proofs (e.g., "I deployed it" with no commit reference).
+
+**Implementation:** SKILL.md taxonomy documentation + completion endpoint validation logic  
+**Effort:** XS (documentation) + S (validation code)  
+**Framework alignment:** Scrum (Definition of Done), XP (working software = verifiable artifact)
+
+---
+
+## Summary: Final Recommendation Set
+
+| ID | Title | Priority | Effort | Framework Alignment |
+|----|-------|----------|--------|---------------------|
+| R1 | Retrospective field (M/L/XL mandatory) | P1 | XS | Scrum, XP |
+| R2 | Complexity backfill sprint P105 (3-phase) | P2 | M | Kanban, Scrum |
+| R3 | WIP limits + aging alert (cron enforced) | P3 | S | Kanban |
+| R4 | Negotiation triggers + claim blocking (5 conditions) | P4 | M | Scrum, XP |
+| R5 | Sprint category tags field | P5 | M | SAFe, Kanban |
+| R6 | Standup format in heartbeat context | P6 | XS | Scrum |
+| R7 | P82 resolution + aging sprint decision tree | P7 (→P3 with E5) | S | Kanban, Scrum |
+| R8 | Completion proof type taxonomy | P8 | S | Scrum, XP |
+
+**Implementation sequence (suggested):**
+
+**Wave 1 (Low-hanging fruit — SKILL.md norms only):**  
+R1, R6 → XS effort, immediate value, no code changes
+
+**Wave 2 (Data + enforcement):**  
+R2 (P105 backfill), R3 (cron WIP check), R7 (P82 + decision tree) → establishes baseline data + flow discipline
+
+**Wave 3 (Quality gates):**  
+R4 (negotiation blocking), R8 (proof taxonomy) → prevents low-quality completion states
+
+**Wave 4 (Infrastructure):**  
+R5 (tags field + UI) → enables analytics and category-based workflow
 
 ---
 
@@ -323,9 +644,10 @@ Nou posted Phase 1 completion to Workshop chat on 2026-03-05T21:16 UTC. Awaiting
 - [x] Phase 1: Current state documented (b2d57d2, 2026-03-05)
 - [x] Phase 2: Agile framework comparison complete (Scrum/Kanban/XP/SAFe)
 - [x] Phase 3: Recommendation matrix drafted (7 recommendations, prioritized)
-- [ ] Phase 4: Dianoia bilateral review
-- [ ] Phase 5: Complete sprint with `advance_to_testing: true` — deliver to Todd
+- [x] Phase 4: Dianoia bilateral review complete (5 enhancements, 1 new rec, 4 convergence questions)
+- [x] Phase 5: Final recommendations integrated (8 recs, implementation sequence, convergence responses)
+- [ ] Deliver to Todd with `advance_to_testing: true`
 
 ---
 
-*Last updated: 2026-03-06T00:14 UTC by Nou | Phase 2 + Phase 3 draft complete*
+*Last updated: 2026-03-06T04:02 UTC by Nou | Phase 5 complete, ready for steward delivery*
