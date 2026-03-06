@@ -1,7 +1,7 @@
 # Workshop Coordination Skill Tree
 
-**Version:** 1.0  
-**Date:** 2026-03-04  
+**Version:** 1.1  
+**Date:** 2026-03-06  
 **Purpose:** Explain the skill hierarchy for Workshop coordination and the dependencies between skill documents.
 
 ---
@@ -37,16 +37,18 @@ WORKSHOP_COORDINATE_SKILL.md (root skill)
 ### 1. WORKSHOP_COORDINATE_SKILL.md (Root Skill)
 
 **Type:** Operational reference  
-**Length:** ~450 lines  
+**Length:** ~1000 lines  
 **Hash-tracked:** Yes (agents must report hash in heartbeat)  
 **Update frequency:** High (every protocol change)
 
 **What it contains:**
-- API endpoints and usage examples
+- API endpoints and usage examples (including presence-who, reaction-add/list/remove, link-sprint-message)
 - Authentication paths (edge functions vs REST API)
 - Five-phase protocol (Discovery → Proposal → Negotiation → Execution → Synthesis)
 - Sprint lifecycle actions (propose, negotiate, claim, progress, complete, withdraw, cancel)
 - Craft identity and functional modes
+- Sprint taxonomy (work_type, visibility_tier — P114)
+- SwarmViz documentation (/coordinate/swarm — P116/P119/P119b)
 - Protocol norms (what to do when)
 - Current deployment status
 
@@ -284,6 +286,7 @@ This tree will grow as the Workshop matures:
 | Version | Date | Changes |
 |---------|------|---------|
 | 1.0 | 2026-03-04 | Initial SKILL-TREE.md created following March 4 Workshop audit |
+| 1.1 | 2026-03-06 | Root skill line count updated (~450→~1000); SwarmViz added to SKILL.md contents; anon key verified (old key still canonical — new key provided in task was invalid); audit through P119b |
 
 ---
 
