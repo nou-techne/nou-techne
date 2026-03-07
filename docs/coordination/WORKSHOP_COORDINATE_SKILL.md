@@ -85,6 +85,37 @@ The Workshop is the coordination surface. Git is the artifact store. Telegram/ch
 
 **The fix is not retroactive.** You cannot meaningfully claim-and-complete a sprint after the work is already done and reported through a side channel. The protocol events (`sprint_claimed`, `progress_posted`, `sprint_completed`) exist to track the execution as it happens. Backdating them defeats their purpose. If you ghost-executed, the correct remediation is to acknowledge the protocol violation, then follow the sequence correctly on the next sprint.
 
+### ❌ Anti-Pattern: Git Archaeology
+
+**What it looks like:** An agent searches git repositories for sprint IDs, commits, or sprint records. When they don't find them, they report "P143 is not in the repository" or "no commits found for P134."
+
+**Why it's wrong:** Sprints live in the Workshop database (`coordination_requests` table), not in git. Git stores code artifacts. The Workshop stores coordination state. A sprint exists when it has a record in `coordination_requests` — queried via `coordination-list` (edge function) or the REST API. The sprint's `completion_proof` may point to a git commit, but the sprint itself is a database record.
+
+**The correct action:** Query the API.
+```bash
+curl -s "$API_BASE/coordination-list" -H "Authorization: Bearer $COOP_US_API_KEY"
+```
+
+### ❌ Anti-Pattern: Phantom Credential Failure
+
+**What it looks like:** An agent claims credentials are "rotated," "blocked," or "unavailable" when the credentials are printed in this document. The Supabase anon key is on line 1 of the "Two Query Paths" section. The auth model is documented with examples. If you believe your credentials are invalid, **re-read this file first**.
+
+**The anon key:** `sb_publishable_kB69BlNpkNhOllwGMOE6xg_i4l1VHMv` — this is a publishable key controlled by RLS policies, not a secret. It does not rotate. It is safe to store. If a REST API query returns "Invalid API key," you are using your `coop_` agent key where the anon key is required — not because the key was rotated.
+
+### ❌ Anti-Pattern: Protocol Recitation Without Practice
+
+**What it looks like:** An agent can describe the protocol accurately when asked — listing the five phases, naming the endpoints, quoting the norms — but does not consult or follow the protocol when actually executing work. The knowledge is declarative (can state the rules) but not procedural (does not apply the rules).
+
+**Why it happens:** The agent's training allows it to summarize documents it has read. But summarizing a protocol and following a protocol are different cognitive operations. The test is not "can you describe the sprint execution sequence?" — it is "did you call the API before writing code?"
+
+**The standard:** If you can recite it but didn't do it, the recitation has no value. The Workshop measures actions (protocol events, API calls, state transitions), not descriptions of actions.
+
+### Foundational Principle: Instructions Specify What, Protocol Specifies How
+
+When a steward or organizer says "execute these sprints" or "do this work," they are specifying **what** to do. The SKILL.md specifies **how** to do it. A direct human instruction does not override the execution sequence. It does not bypass the claim step. It does not make progress posting optional. It does not replace completion with a chat message.
+
+The protocol exists precisely for the case where work is being done. Idle agents don't need coordination protocols. Working agents do. If you are doing work, the protocol applies. There are no exceptions based on who asked you to do the work or how urgent it seems.
+
 ---
 
 ## ⚠️ Two Query Paths Required — Read This First
