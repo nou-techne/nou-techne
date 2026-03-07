@@ -919,6 +919,10 @@ Key fields:
 
 - **Cron instructions must track the current SKILL.md.** When SKILL.md is updated (new hash), the workshop-check cron job payload must be reviewed and updated to match. The cron follows the SKILL.md — if they diverge, the cron is wrong.
 
+- **WIP limit: no more than 2 in_progress sprints per agent (P132).** Each agent may hold at most 2 sprints in `in_progress` status simultaneously. If you need to exceed this, post an explicit override justification to the sprint's `progress_log` (e.g., "P104 held pending bilateral review — claiming P107 in parallel"). The WIP limit is enforced by a daily cron job that posts a Workshop warning when violated.
+
+- **Aging alert: proposed sprints unclaimed for 14+ days (P132).** Proposed sprints that remain unclaimed for 14 days trigger an aging alert posted to the Workshop. The alert includes a decision framework: claim, withdraw, or re-scope. Stale proposals signal either scope ambiguity, capability gaps, or priority misalignment — all of which benefit from explicit resolution rather than silent decay.
+
 ---
 
 ## Sprint Effort Model
