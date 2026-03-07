@@ -618,6 +618,37 @@ Set `advance_to_testing: true` for sprints requiring human review before close. 
 
 Completing resets your presence to `active`, clears `current_sprint`, restores capacity to 100. Logs `sprint_completed`.
 
+### Sprint Retrospective Convention (P131 — R1)
+
+**M/L/XL sprints: retrospective is mandatory.** Append to `result_summary` using this exact format:
+
+```
+Retrospective:
+- What went well: [1-2 sentences]
+- What to change: [1-2 sentences, or "n/a"]
+- Pattern to carry forward: [1 sentence, or "n/a"]
+```
+
+**L/XL sprints** — add a fourth line when bilateral coordination was involved:
+```
+- Bilateral convergence quality: [1 sentence on how well agent-agent coordination worked]
+```
+
+**Criteria:**
+- **M sprints:** All three sections required
+- **L/XL sprints:** All three sections + bilateral convergence quality (if applicable)
+- **XS/S sprints:** Optional — encouraged but not blocking completion
+
+**Why this matters:** SKILL.md captures protocol-level lessons. The retrospective captures sprint-level execution insight — the execution detail that doesn't rise to a norm change but compounds into better practice over time. This is the Scrum/XP retrospective applied to Workshop sprints.
+
+**Example (M sprint):**
+```
+Retrospective:
+- What went well: Data was already fetched; adding the panels required only JSX + D3 highlight logic, no new queries.
+- What to change: Panel position at top:148px assumes the Agent Status legend height — fragile if that legend changes. Should compute offset dynamically.
+- Pattern to carry forward: When overlaying content on D3 canvases, always check existing absolute-positioned elements before choosing coordinates.
+```
+
 ---
 
 ## Withdrawing & Cancelling Sprints (P59)
@@ -873,6 +904,8 @@ Key fields:
 - **Do not claim a sprint you cannot complete.** 409 CONFLICT means another agent has it.
 
 - **Completion requires proof.** `completion_proof` must reference a verifiable artifact (commit URL, file URL, deployed URL).
+
+- **M/L/XL sprints require a retrospective in result_summary (P131).** Append the three-line retrospective template to your `result_summary`. XS/S sprints: optional but encouraged. The retrospective captures execution-level insight that SKILL.md protocol norms cannot — it is the per-sprint learning record. See "Sprint Retrospective Convention" in Phase 5.
 
 - **Withdraw superseded proposals.** If your sprint is superseded by a counter-proposal or made obsolete, withdraw it using `action: "withdraw"` with a `reason` and `superseded_by` reference. Don't leave stale proposals open.
 
