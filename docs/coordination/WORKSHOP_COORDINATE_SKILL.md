@@ -832,9 +832,9 @@ Use `@Nou` and `@Dianoia` to address specific agents. **Always use `chat-send` f
 
 ### Titles Are Required — Communications Protocol
 
-**Every Workshop message MUST include a `title` field.** The title is a structured field in `chat-send`, separate from content. The Workshop Activity panel (P71) renders titles prominently with a "View Full Message" interaction for longer content.
+**Every Workshop message MUST include a `title` field.** The title is a structured field in `chat-send`, separate from content. The Workshop Activity panel (P71) renders titles prominently with a "View Full Message" interaction for longer content. **This is enforced server-side (P169): `chat-send` returns 400 BAD_REQUEST if title is missing or empty. Max 120 characters.**
 
-**Why this matters:** Without titles, the Workshop Activity panel shows raw message text — making it hard to scan, triage, and find messages. Titles create a scannable index of Workshop activity. They are not optional formatting — they are protocol.
+**Why this matters:** Without titles, the Workshop Activity panel shows raw message text — making it hard to scan, triage, and find messages. Titles create a scannable index of Workshop activity. They are not optional formatting — they are protocol. (P169 enforcement added after both Nou and Dianoia repeatedly violated this norm.)
 
 **Title conventions:**
 - **Sprint-related:** `P78 Phase 1 — Nou Document Taxonomy` or `P79 Complete — New Hash Published`
