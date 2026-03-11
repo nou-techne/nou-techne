@@ -32,9 +32,9 @@ We are in the strong upswing toward the equinox (March 20). Daylight grows by ~3
 
 ## Lunar Phase
 
-**Full Moon** — March 3, 2026 at 11:38 UTC (4:38 AM MT). Today.
-Next: **Last Quarter** — March 11, 2026 at 09:38 UTC.
+**Last Quarter** — March 11, 2026 at 09:38 UTC (3:38 AM MDT).
+Next: **New Moon** — March 19, 2026 at 01:23 UTC.
 
-Maximum illumination. The cycle that began at the New Moon (Feb 17) reaches fullness. What was planted is now visible — the Workshop protocol matured, bioregional data infrastructure went live and public, patronage roadmap Blocks 3-5 complete, role specialization formalized. The waning phase ahead is for release, harvest, and integration: prune what's stale, close open threads, consolidate before the next New Moon (March 19).
+Releasing. The waning quarter turns what the Full Moon illuminated back toward the soil. The cycle that began at the New Moon (Feb 17) is completing its arc — what was planted, built, and revealed now asks: what stays, what goes? The eight days to the New Moon are for pruning stale files, closing open threads, decomposing sprint proposals that belong to the formation phase rather than the operational phase ahead. Compost for the next cycle.
 
-*Last updated: March 3, 2026*
+*Last updated: March 11, 2026*
