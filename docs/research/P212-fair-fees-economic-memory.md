@@ -37,30 +37,54 @@ For infrastructure that serves coordination — whether a dapp, a cooperative wo
 - Scales gracefully without becoming extractive at large scale
 - Creates alignment between the infrastructure provider and the users
 
-### The Formula Structure
+### The Exact Formula
 
-The Fair Fees formula is a **progressive fee curve** — not a flat percentage. It takes the form of a decreasing function where the effective fee rate declines as the volume of flows increases.
-
-The intuition: a small transaction through a coordination platform generates proportionally more value (as a share of the transaction) to that platform than a large one. The marginal cost of processing a $1M coordination event is not 1,000× the marginal cost of processing a $1k one. Therefore, the fee rate should reflect this — higher percentage for small flows, lower percentage for large flows, asymptotically approaching a minimum floor.
-
-A simplified representation of the principle:
+The Owocki-Mehta formula is precise and elegant:
 
 ```
-Fee Rate = F_min + (F_max - F_min) × (1 / (1 + k × Volume))
+If projects receive $N, builders get:
 
-Where:
-  F_max = maximum fee rate for small flows (e.g., 5%)
-  F_min = minimum fee rate floor for large flows (e.g., 0.5%)
-  k     = scaling constant (controls how quickly the rate decreases)
-  Volume = the value of flows through the platform in a period
+  Fee = max( sqrt(1000 × N),  N × 0.01 )
 ```
 
-At low volume, the rate approaches F_max (more fee per unit — sustainable for the builder).  
-At high volume, the rate approaches F_min (less fee per unit — sustainable for the user).
+In plain English: the fee is whichever is larger — the square root of one thousand times N, or one percent of N.
 
-The total fee collected is: `Fee = Fee Rate × Volume`
+The crossover point: both expressions are equal when `sqrt(1000N) = 0.01N`. Solving:
+- 1000N = 0.0001N²
+- N = 1000 / 0.0001 = **$10,000,000**
 
-This means total revenue grows with volume, even as the rate decreases — the builder captures real value from growth without becoming a rent-seeking extractive layer.
+At exactly $10M in flows, the two expressions produce identical fees: $100,000 = 1%. Below $10M, the square root term dominates (higher rate). Above $10M, the 1% flat rate takes over (lower rate, capped).
+
+### The Curve in Practice
+
+| Total Value Flowed (N) | Fee (formula) | Effective Rate |
+|------------------------|---------------|----------------|
+| $1,000 | $1,000 | 100% (floor needed in practice) |
+| $10,000 | $3,162 | 31.6% |
+| $50,000 | $7,071 | 14.1% |
+| $100,000 | $10,000 | **10%** |
+| $170,000 | $13,038 | 7.7% |
+| $500,000 | $22,361 | 4.5% |
+| $1,000,000 | $31,623 | 3.2% |
+| $5,000,000 | $70,711 | 1.4% |
+| $10,000,000 | $100,000 | 1.0% (crossover) |
+| $50,000,000 | $500,000 | 1.0% |
+
+The curve is steep at small volumes — this is intentional. At small-scale dapps, building and maintaining the infrastructure is the costly part; the formula rewards builders proportionally more when flows are small, making experimentation financially viable.
+
+**The $10k/mo target solved by algebra:**
+
+```
+$10,000 = sqrt(1000 × N)
+$10,000² = 1000 × N
+N = $100,000,000 / 1000 = $100,000 per month
+```
+
+To generate $10k/month in fee revenue using the fair fees formula, the Workshop needs to facilitate **$100,000/month in coordination value**. That is the concrete target.
+
+The total fee collected in any period is: `Fee = max(sqrt(1000 × N), N × 0.01)`
+
+Revenue grows with volume even as the rate decreases — the builder captures real value from growth without becoming a rent-seeking extractive layer.
 
 ### Why This Matters for Public/Cooperative Infrastructure
 
@@ -190,50 +214,65 @@ These are the raw inputs to fair-fees calculation. Each event type has a differe
 | Chat message | Low | Minimal / free tier |
 | Completion with deployed artifact | High | % of estimated delivery value |
 
-### Three Revenue Scenarios at Fair Fees Rates
+### Revenue Scenarios with the Actual Formula
 
-Assuming:
-- F_max = 5% (small-flow rate)
-- F_min = 0.5% (large-flow rate)
-- Base sprint value: XS=$50, S=$150, M=$400, L=$1,000, XL=$2,500 (conservative estimates)
+The formula is `Fee = max(sqrt(1000 × N), N × 0.01)`. N = total value of coordination facilitated by the Workshop in a period.
 
-**Current pace (approx. 10-15 sprints/month, mostly M size):**
-- Monthly sprint value: ~12 × $400 = $4,800
-- At ~3% effective rate (medium volume): ~$144/month
-- *Not sufficient for $10k target — but this is the baseline, not the ceiling*
+**What counts as "N" for Techne?**
 
-**Growth scenario (50 sprints/month across 3 active ventures):**
-- Monthly sprint value: ~50 × $300 (avg) = $15,000
-- At ~2.5% effective rate: ~$375/month
-- *Still insufficient — the issue is the base rate needs to be calibrated to co-op.us infrastructure costs, not to dapp-scale DeFi flows*
+Not just sprint notional values — the full value created by coordination: deployed code, shipped services, coordination labor that would have cost human hours, investor-facing deliverables. A conservative estimate for a single M-complexity sprint that deploys a production feature: $500-$2,000 in delivered value.
 
-**Infrastructure value scenario (recalibrate what "volume" means):**
+**Scenario A — Current pace (10-15 sprints/month):**
 
-The key insight: for a cooperative, "volume" should be measured in *delivered infrastructure value*, not in token amounts. If the Workshop enabled sprints that produced $50k in deployed code and deployed services in a month, the fair-fees basis is that $50k, not the $50 notional sprint value.
+| Month | Sprints | Avg Value | N | Fee |
+|-------|---------|-----------|---|-----|
+| Current | 12 | $600 | $7,200 | sqrt(7,200,000) = $2,683 (37%) |
 
-At that scale:
-- Monthly infrastructure value delivered: $50,000
-- At 2% effective rate (medium volume): $1,000/month
-- At 5 active ventures × $50k each: $250,000 total, $5,000/month at 2%
+~$2,700/month. Surprisingly meaningful at this scale, because the formula is designed to reward small-scale builders. *Not $10k, but not nothing.*
 
-The gap between "current" and "$10k/mo" is not a formula problem — it is a **scale problem**. The fair-fees model works correctly once the infrastructure is generating $500k+/month in coordination value. The path to $10k/mo revenue requires growing the value flowing through the Workshop, not changing the rate structure.
+**Scenario B — 3 active ventures, 50 sprints/month:**
 
-### The More Immediate Path: Direct Infrastructure Subscription
+N = 50 × $800 avg = $40,000/month  
+Fee = sqrt(1000 × 40,000) = sqrt(40,000,000) = **$6,325** (15.8%)
 
-A complementary model that doesn't require scale: **infrastructure subscription pricing** using fair fees as the floor and ceiling.
+Getting close. This scenario is achievable in 2026 once Parachute (Aaron G) and Postage (Lucian) are actively using the Workshop alongside Techne core work.
 
-For each venture or agent deploying on co-op.us infrastructure:
+**Scenario C — $100k/month coordination value (the $10k target):**
 
-| Tier | Monthly Activity | Fee Structure | Revenue |
-|------|-----------------|---------------|---------|
-| Solo agent | <10 sprints | Flat $200/mo | $200 |
-| Active venture | 10-50 sprints | $500/mo base + fair fees on overages | $500-1,500 |
-| Full production deployment | 50+ sprints | $1,500/mo + SLA | $1,500-3,000 |
-| Enterprise/multi-agent | Custom | Negotiated fair-fees rate | $3,000+ |
+N = $100,000/month  
+Fee = sqrt(1000 × 100,000) = sqrt(100,000,000) = **$10,000** (10%)
 
-With 4-5 active ventures in 2026, this produces $3,000-$8,000/month — approaching the $10k target without requiring massive scale.
+This is the algebra target. $100k/month in coordination value — distributed across 3-5 ventures executing 60-80 sprints each at an average delivered value of $500-800 per sprint — is an achievable 2026-2027 target.
 
-The fair-fees formula governs the overage structure: as a venture's usage grows, the marginal rate decreases (not increases), keeping the relationship sustainable.
+**Scenario D — $500k/month (mature cooperative):**
+
+N = $500,000/month  
+Fee = sqrt(500,000,000) = **$22,361** (4.5%)
+
+At this scale the fee rate has dropped significantly, but total revenue is $22k/month. The formula does exactly what it promises: revenue grows, rate decreases, system remains sustainable without becoming extractive.
+
+### The Dependency Funding Connection
+
+The Owocki-Mehta paper raises a question directly applicable to our architecture:
+
+> "Should some portion flow to dependencies of the project itself? Should the formula be applied fractally down the dependency stack?"
+
+They suggest directing 10-25% of the overhead fee to fund the infrastructure the dapp itself depends on. 
+
+For Techne, this maps **exactly** to the royalty layer of the economic memory system:
+
+```
+Fair fee collected: $10,000
+  └── 80% to RegenHub general operations     = $8,000
+  └── 20% to infrastructure royalty pool     = $2,000
+        ├── Workshop/co-op.us builders       (Dianoia: 232+ sprints)
+        ├── Coordination protocol authors    (Nou: SKILL.md, documentation)
+        └── Core infrastructure steward      (Todd: architecture)
+```
+
+The "fractal dependency" is our royalty layer by another name. Owocki and Mehta arrived at the same structure independently — it is the correct answer to the question "how do you fund the builders of the infrastructure that enables the fees?"
+
+This is a significant validation of the royalty layer design. The fair fees formula, applied to Techne, is not just a revenue mechanism — it is the activation event for the entire four-layer economic memory system: fees flow in, royalties distribute to builders, patronage credits the labor that generated the activity, equity strengthens with each period.
 
 ---
 
