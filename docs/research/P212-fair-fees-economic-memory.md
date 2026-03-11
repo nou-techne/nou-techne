@@ -251,6 +251,41 @@ Fee = sqrt(500,000,000) = **$22,361** (4.5%)
 
 At this scale the fee rate has dropped significantly, but total revenue is $22k/month. The formula does exactly what it promises: revenue grows, rate decreases, system remains sustainable without becoming extractive.
 
+### Basic vs. Accrued Methodology
+
+The paper's appendix introduces a distinction with direct implications for Techne's implementation. The formula produces different totals depending on *when* fees are assessed.
+
+**Basic methodology:** Calculate the fee once on the full period pool.
+
+**Accrued methodology:** Calculate the fee incrementally as value flows in, applying the current marginal rate to each increment before subsequent flows lower the rate.
+
+The paper's example at $10k total:
+
+| Methodology | Calculation | Fee Collected |
+|-------------|-------------|---------------|
+| Basic | $10,000 × 32% | $3,200 |
+| Accrued | $5,000 × 45% + $5,000 × 32% | $3,850 |
+
+The accrued methodology is always more generous to the fee collector. Because earlier tranches face a higher rate (smaller pool = steeper curve), accruing over time captures more total fee than waiting until the full pool is assembled.
+
+**Why this matters for Techne:** The Workshop is a naturally accrued environment. Sprints don't all complete at the start of a period — they accrue throughout the month as ventures execute. If Techne applies the accrued methodology, each week's activity is assessed at the rate applicable to the *cumulative value so far*, before subsequent weeks lower the rate.
+
+Concrete example at Scenario B pace ($40k/month total):
+
+- Week 1: N_cumulative = $10,000 → fee = sqrt(1000×10,000) = $3,162 at 31.6%
+- Week 2: N_incremental = $10,000, N_cumulative = $20,000 → marginal fee = sqrt(1000×20,000) − $3,162 = $4,472 − $3,162 = $1,310 on the second $10k
+- Week 3: N_cumulative = $30,000 → marginal = $5,477 − $4,472 = $1,005 on the third $10k
+- Week 4: N_cumulative = $40,000 → marginal = $6,325 − $5,477 = $848 on the fourth $10k
+- **Accrued total: $3,162 + $1,310 + $1,005 + $848 = $6,325**
+
+Wait — the accrued total here equals the basic total because sqrt is computed on the *cumulative* amount. The accrued advantage emerges specifically when contributors enter the pool at *different intervals* — each contributor's tranche is assessed at the rate in effect at that moment.
+
+The correct reading for Techne: **use the accrued method when different ventures or sponsors are contributing to the coordination pool at different times.** Venture A using the Workshop in January, Venture B onboarding in February — each tranche is priced at the rate applicable when it entered, not blended retroactively.
+
+This is favorable for early-stage fee revenue: the first ventures using the infrastructure pay the steeper early-pool rate. As the total coordination volume grows, new entrants pay a lower marginal rate — but the fees already collected from earlier activity are not reduced.
+
+The paper suggests: basic methodology for pre-defined pools; accrued for crowdfunded/incremental pools. **Techne's Workshop is clearly the latter.** Implement accrued methodology.
+
 ### The Dependency Funding Connection
 
 The Owocki-Mehta paper raises a question directly applicable to our architecture:
@@ -350,7 +385,7 @@ This is not a radical proposal. It is the cooperative's economic function: build
 
 ## Document Lineage
 
-- **Fair Fees formula:** Owocki, Mehta (2025) — https://ethresear.ch/t/fair-fees-a-dynamic-formula-for-balancing-dapp-value-creation-capture/22225
+- **Fair Fees formula (Owocki, Mehta 2025):** Full paper with accrued-fees appendix — https://ethresear.ch/t/fair-fees-a-dynamic-formula-for-balancing-dapp-value-creation-capture/22225
 - **Economic memory system:** `strategy/economic-memory-system-roadmap.md` (Nou, Feb 2026)
 - **$CLOUD service credit model:** `strategy/cloud-service-credit-model.md` (Nou, Feb 2026)
 - **ETH primitives mapping:** `docs/research/P92-ethskills-economic-memory-mapping.md` (Nou, March 2026)
