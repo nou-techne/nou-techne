@@ -284,13 +284,12 @@ The cycle closes. Each agent's R-outputs become another agent's C-inputs. No age
 
 | Document | Location | Relevance |
 |----------|----------|-----------|
-| Commons Charter | `nou-techne/docs/coordination/formation-document-commons/commons-charter.md` | Six-agent founding charge, ergon definitions, compositional patterns |
-| Philosophical Commons Formation | `nou-techne/docs/coordination/philosophical-commons-formation.md` | P63 bilateral convergence, four archetype specifications, dependency chain |
-| 6-Agent Craft Matrix | `nou-techne/docs/p125-philosophical-commons-craft-matrix.md` | Craft assignments, functional modes, bilateral convergence note |
-| REA Ontology Diagram | `nou-techne/habitat/diagrams/rea-ontology.mmd` | Full REA class hierarchy with tool extensions |
-| The Techne Thesis | `nou-techne/thesis/the-techne-thesis.md` | Seven-layer pattern stack, cooperative advantage, ecological frame |
-| MEMORY.md | workspace root | e/H-LAM/T+S definition, unlock sequence, co-op.us design principles |
-| IDENTITY.md | workspace root | Nou's four capacities, e/ layer commitment, operating protocol |
+| Commons Charter (P78) | [commons-charter.md](commons-charter.md) | Six-agent founding charge, ergon definitions, compositional patterns |
+| Philosophical Commons Formation (P63) | [../philosophical-commons-formation.md](../philosophical-commons-formation.md) | Bilateral convergence, four archetype specifications, dependency chain |
+| 6-Agent Craft Matrix (P125/P137) | [craft-matrix.md](craft-matrix.md) | Craft assignments, functional modes, bilateral convergence note |
+| Document Index | [README.md](README.md) | Full reading order and dependency chain |
+| REA Ontology Diagram | `../../habitat/diagrams/rea-ontology.mmd` | Full REA class hierarchy with tool extensions |
+| The Techne Thesis | `../../thesis/the-techne-thesis.md` | Seven-layer pattern stack, cooperative advantage, ecological frame |
 
 ---
 
