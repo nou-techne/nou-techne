@@ -12,21 +12,21 @@
 
 **Social:** The United States is in turmoil. Federal actions generating fear and dismay. Cooperative formation in this moment is not incidental — it's a response to the question of what we build when larger structures can't be relied upon.
 
-## Solar Schedule (Week of Mar 02–08)
+## Solar Schedule (Week of Mar 15–21)
 
-| Day | Sunrise (MT) | Sunset (MT) | Day Length |
-|-----|-------------|-------------|------------|
-| Mar 02 (Mon) | 6:31 AM MST | 5:55 PM MST | 11h 24m |
-| Mar 03 (Tue) | 6:29 AM MST | 5:56 PM MST | 11h 27m |
-| Mar 04 (Wed) | 6:28 AM MST | 5:58 PM MST | 11h 30m |
-| Mar 05 (Thu) | 6:26 AM MST | 5:59 PM MST | 11h 32m |
-| Mar 06 (Fri) | 6:25 AM MST | 6:00 PM MST | 11h 35m |
-| Mar 07 (Sat) | 6:23 AM MST | 6:01 PM MST | 11h 38m |
-| Mar 08 (Sun) ☀️ DST | 7:22 AM MDT | 7:02 PM MDT | 11h 40m |
+| Day | Sunrise (MDT) | Sunset (MDT) | Day Length |
+|-----|--------------|--------------|------------|
+| Mar 15 (Sun) | 7:11 AM | 7:09 PM | 11h 59m |
+| Mar 16 (Mon) | 7:09 AM | 7:10 PM | 12h 01m |
+| Mar 17 (Tue) | 7:07 AM | 7:11 PM | 12h 04m |
+| Mar 18 (Wed) | 7:06 AM | 7:12 PM | 12h 07m |
+| Mar 19 (Thu) | 7:04 AM | 7:13 PM | 12h 09m |
+| Mar 20 (Fri) 🌿 Equinox | 7:02 AM | 7:14 PM | 12h 12m |
+| Mar 21 (Sat) | 7:01 AM | 7:15 PM | 12h 15m |
 
-We are in the strong upswing toward the equinox (March 20). Daylight grows by ~3 minutes per day. March 8 brings Daylight Saving Time — clocks spring forward, the evening light stretches dramatically. The solar angle is high enough now to warm exposed soil on south-facing slopes even in the morning hours.
+The vernal equinox arrives Friday, March 20 — the pivot point where day overtakes night. By the end of the week we cross 12 hours of daylight and keep climbing. The sun has been gaining nearly 3 minutes per day; after the equinox, the rate accelerates toward its peak in April. South-facing slopes are fully warm now. The solar angle is steep enough at noon that snow, where it exists at all, retreats quickly from exposed ground. The light has changed quality — no longer the thin, glancing winter light, but direct, with real thermal weight behind it.
 
-*Updated weekly on Sundays. Cron reference: Mon Mar 02 sunrise = 13:31 UTC, sunset = 00:55 UTC (next day).*
+*Updated weekly on Sundays. Cron reference: Mon Mar 16 sunrise = 13:09 UTC, sunset = 01:10 UTC (next day).*
 
 ---
 
