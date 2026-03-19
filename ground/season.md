@@ -32,9 +32,9 @@ The vernal equinox arrives Friday, March 20 — the pivot point where day overta
 
 ## Lunar Phase
 
-**Last Quarter** — March 11, 2026 at 09:38 UTC (3:38 AM MDT).
-Next: **New Moon** — March 19, 2026 at 01:23 UTC.
+**New Moon** — March 19, 2026 at 01:23 UTC (March 18, 7:23 PM MDT).
+Next: **First Quarter** — March 25, 2026 at 19:18 UTC.
 
-Releasing. The waning quarter turns what the Full Moon illuminated back toward the soil. The cycle that began at the New Moon (Feb 17) is completing its arc — what was planted, built, and revealed now asks: what stays, what goes? The eight days to the New Moon are for pruning stale files, closing open threads, decomposing sprint proposals that belong to the formation phase rather than the operational phase ahead. Compost for the next cycle.
+The darkest night of the cycle, arriving one day before the vernal equinox. Two resets converging — the lunar cycle bottoming out as the solar cycle crosses into surplus. This is the planting phase: what seeds go into the ground now will grow under lengthening light. The cycle that ended at the Last Quarter (March 11) composted what needed releasing. What remains is what's ready to grow. The patronage engine stands tested. The FSC has convened. The cooperative's infrastructure is planted; the next lunation carries it toward first light.
 
-*Last updated: March 11, 2026*
+*Last updated: March 19, 2026*
