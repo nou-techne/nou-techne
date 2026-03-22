@@ -12,21 +12,21 @@
 
 **Social:** The United States is in turmoil. Federal actions generating fear and dismay. Cooperative formation in this moment is not incidental — it's a response to the question of what we build when larger structures can't be relied upon.
 
-## Solar Schedule (Week of Mar 15–21)
+## Solar Schedule (Week of Mar 22–28)
 
 | Day | Sunrise (MDT) | Sunset (MDT) | Day Length |
 |-----|--------------|--------------|------------|
-| Mar 15 (Sun) | 7:11 AM | 7:09 PM | 11h 59m |
-| Mar 16 (Mon) | 7:09 AM | 7:10 PM | 12h 01m |
-| Mar 17 (Tue) | 7:07 AM | 7:11 PM | 12h 04m |
-| Mar 18 (Wed) | 7:06 AM | 7:12 PM | 12h 07m |
-| Mar 19 (Thu) | 7:04 AM | 7:13 PM | 12h 09m |
-| Mar 20 (Fri) 🌿 Equinox | 7:02 AM | 7:14 PM | 12h 12m |
-| Mar 21 (Sat) | 7:01 AM | 7:15 PM | 12h 15m |
+| Mar 22 (Sun) | 6:59 AM | 7:16 PM | 12h 17m |
+| Mar 23 (Mon) | 6:58 AM | 7:17 PM | 12h 20m |
+| Mar 24 (Tue) | 6:56 AM | 7:18 PM | 12h 23m |
+| Mar 25 (Wed) | 6:54 AM | 7:19 PM | 12h 25m |
+| Mar 26 (Thu) | 6:53 AM | 7:20 PM | 12h 28m |
+| Mar 27 (Fri) | 6:51 AM | 7:21 PM | 12h 31m |
+| Mar 28 (Sat) | 6:49 AM | 7:22 PM | 12h 33m |
 
-The vernal equinox arrives Friday, March 20 — the pivot point where day overtakes night. By the end of the week we cross 12 hours of daylight and keep climbing. The sun has been gaining nearly 3 minutes per day; after the equinox, the rate accelerates toward its peak in April. South-facing slopes are fully warm now. The solar angle is steep enough at noon that snow, where it exists at all, retreats quickly from exposed ground. The light has changed quality — no longer the thin, glancing winter light, but direct, with real thermal weight behind it.
+Two days past equinox, the surplus is real and accelerating. Day length gains nearly three minutes per day — by Saturday we hold 12 hours 33 minutes of light, sixteen more minutes than last Sunday. Sunrise has crossed below 7 AM MDT for the first time since the fall. The solar angle at noon is steep enough now that thermal mass in south-facing walls and exposed rock carries heat well into evening. Morning light arrives earlier and with more conviction. The quality shift from winter to spring light is unmistakable: shadows shorter, colors more saturated, the air itself warming faster after dawn. This is the week the Front Range stops remembering winter and starts committing to spring.
 
-*Updated weekly on Sundays. Cron reference: Mon Mar 16 sunrise = 13:09 UTC, sunset = 01:10 UTC (next day).*
+*Updated weekly on Sundays. Cron reference: Mon Mar 23 sunrise = 12:58 UTC, sunset = 01:18 UTC (next day).*
 
 ---
 
