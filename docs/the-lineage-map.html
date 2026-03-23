@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Lineage Map — Topology of Institutional Containers</title>
+<meta name="description" content="A visual topology of how civilizations have held the tension between craft and scale. Companion to The Oldest Design Problem.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e0e0e;
+    --bg-surface: #161616;
+    --bg-card: #1a1a1a;
+    --bg-card-hover: #222;
+    --text: #d4d0c8;
+    --text-muted: #8a857a;
+    --text-dim: #5a5650;
+    --accent: #c4a882;
+    --accent-dim: #7a6b56;
+    --accent-glow: rgba(196, 168, 130, 0.15);
+    --rule: #2a2724;
+    --serif: 'Cormorant Garamond', 'Georgia', serif;
+    --sans: 'Inter', -apple-system, system-ui, sans-serif;
+
+    /* Container capacity colors */
+    --cap-quality: #b8936a;
+    --cap-rhythm: #8a9a7a;
+    --cap-ownership: #7a8a9a;
+    --cap-integration: #9a7a8a;
+    --cap-scale: #9a8a6a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    font-size: 17px;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* --- Header --- */
+  .header {
+    text-align: center;
+    padding: 4rem 2rem 3rem;
+    max-width: 42em;
+    margin: 0 auto;
+  }
+
+  .header-label {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent-dim);
+    margin-bottom: 1.5rem;
+  }
+
+  .header h1 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+  }
+
+  .header-sub {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 30em;
+    margin: 0 auto 2rem;
+  }
+
+  .header-link {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    color: var(--text-dim);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .header-link:hover { color: var(--accent); border-color: var(--accent-dim); }
+
+  /* --- Legend --- */
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.25rem;
+    padding: 1.5rem 2rem;
+    max-width: 42em;
+    margin: 0 auto 2rem;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.2s;
+    user-select: none;
+  }
+  .legend-item:hover { color: var(--text); }
+  .legend-item.active { color: var(--text); }
+  .legend-item.dimmed { opacity: 0.3; }
+
+  .legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* --- Topology Canvas --- */
+  .topology {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  /* Timeline axis */
+  .axis {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--rule);
+    transform: translateX(-50%);
+    z-index: 0;
+  }
+
+  .axis-label {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    background: var(--bg);
+    padding: 0.25rem 0.75rem;
+    white-space: nowrap;
+  }
+
+  /* Container nodes */
+  .container-row {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .container-row.left { justify-content: flex-start; padding-right: 52%; }
+  .container-row.right { justify-content: flex-end; padding-left: 52%; }
+
+  .container-card {
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 1.25rem 1.5rem;
+    max-width: 420px;
+    width: 100%;
+    cursor: pointer;
+    transition: background 0.3s, border-color 0.3s, transform 0.2s;
+    position: relative;
+  }
+
+  .container-card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--accent-dim);
+    transform: translateY(-1px);
+  }
+
+  .container-card.expanded {
+    border-color: var(--accent-dim);
+    background: var(--bg-card-hover);
+  }
+
+  .container-card.highlight {
+    border-color: var(--accent);
+    box-shadow: 0 0 20px var(--accent-glow);
+  }
+
+  .container-date {
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 0.5rem;
+  }
+
+  .container-name {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+    line-height: 1.3;
+  }
+
+  .container-origin {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+  }
+
+  /* Capacity bars */
+  .capacities {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .capacity-pip {
+    height: 4px;
+    border-radius: 2px;
+    transition: opacity 0.3s, height 0.2s;
+  }
+
+  .capacity-pip.dim { opacity: 0.15; }
+
+  .container-summary {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* Expanded detail */
+  .container-detail {
+    display: none;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .container-detail.visible { display: block; }
+
+  .detail-section {
+    margin-bottom: 0.75rem;
+  }
+
+  .detail-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-dim);
+    margin-bottom: 0.25rem;
+  }
+
+  .detail-text {
+    font-family: var(--serif);
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  .detail-text em { color: var(--accent); }
+
+  /* Dissolution tag */
+  .dissolution-tag {
+    display: inline-block;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    background: rgba(180, 100, 80, 0.1);
+    color: #b4745a;
+    border: 1px solid rgba(180, 100, 80, 0.2);
+  }
+
+  .active-tag {
+    display: inline-block;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    background: rgba(130, 170, 100, 0.1);
+    color: #82aa64;
+    border: 1px solid rgba(130, 170, 100, 0.2);
+  }
+
+  /* Connection lines (CSS-drawn) */
+  .connection-label {
+    text-align: center;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    padding: 1rem 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* --- Synthesis section --- */
+  .synthesis {
+    max-width: 38em;
+    margin: 4rem auto 0;
+    padding: 3rem 2rem 5rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .synthesis h2 {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .synthesis p {
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+  }
+
+  .synthesis em { color: var(--accent); }
+
+  /* --- Footer --- */
+  .colophon {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .colophon p {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    letter-spacing: 0.03em;
+  }
+
+  /* --- Responsive --- */
+  @media (max-width: 768px) {
+    .container-row.left,
+    .container-row.right {
+      padding-left: 0;
+      padding-right: 0;
+      justify-content: center;
+    }
+    .axis { display: none; }
+    .axis-label { display: none; }
+    .topology { padding: 1rem; }
+    .container-card { max-width: 100%; }
+    .legend { gap: 0.75rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-label">Companion to The Oldest Design Problem</div>
+  <h1>The Lineage Map</h1>
+  <p class="header-sub">A topology of institutional containers — what each civilization held, and how the holding dissolved.</p>
+  <a class="header-link" href="the-oldest-design-problem.html">Read the essay</a>
+</header>
+
+<nav class="legend" id="legend">
+  <div class="legend-item active" data-cap="quality">
+    <span class="legend-dot" style="background: var(--cap-quality)"></span>
+    Quality
+  </div>
+  <div class="legend-item active" data-cap="rhythm">
+    <span class="legend-dot" style="background: var(--cap-rhythm)"></span>
+    Rhythm
+  </div>
+  <div class="legend-item active" data-cap="ownership">
+    <span class="legend-dot" style="background: var(--cap-ownership)"></span>
+    Ownership
+  </div>
+  <div class="legend-item active" data-cap="integration">
+    <span class="legend-dot" style="background: var(--cap-integration)"></span>
+    Integration
+  </div>
+  <div class="legend-item active" data-cap="scale">
+    <span class="legend-dot" style="background: var(--cap-scale)"></span>
+    Scale
+  </div>
+</nav>
+
+<section class="topology">
+  <div class="axis">
+    <div class="axis-label" style="top: 0">Ancient</div>
+    <div class="axis-label" style="top: 25%">Medieval</div>
+    <div class="axis-label" style="top: 50%">Industrial</div>
+    <div class="axis-label" style="top: 75%">Modern</div>
+    <div class="axis-label" style="bottom: 0">Now</div>
+  </div>
+
+  <!-- Hesiod / Works and Days -->
+  <div class="container-row left">
+    <div class="container-card" data-id="hesiod">
+      <div class="container-date">c. 700 BCE · Greece</div>
+      <div class="container-name">Hesiod's Attunement</div>
+      <div class="container-origin">ἔργα καὶ ἡμέραι — Works and Days</div>
+      <div class="capacities">
+        <div class="capacity-pip" style="width: 20%; background: var(--cap-quality)"></div>
+        <div class="capacity-pip" style="width: 35%; background: var(--cap-rhythm)"></div>
+        <div class="capacity-pip" style="width: 5%; background: var(--cap-ownership)" title="ownership"></div>
+        <div class="capacity-pip" style="width: 30%; background: var(--cap-integration)"></div>
+        <div class="capacity-pip" style="width: 5%; background: var(--cap-scale)" title="scale"></div>
+      </div>
+      <div class="container-summary">Tool use governed by natural rhythm. The farmer who shortcuts attunement is punished by the land itself.</div>
+      <div class="container-detail">
+        <div class="detail-section">
+          <div class="detail-label">What it held</div>
+          <div class="detail-text">The relationship between maker and material, governed by seasonal cycle. <em>Rhythm</em> as primary container — when to cut wood, when to plow, when to rest. Quality emerged from attunement, not technique.</div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-label">How it dissolved</div>
+          <div class="detail-text">Agricultural rhythm persisted for millennia but was never institutional — it was cultural knowledge passed through oral tradition. When agricultural industrialization arrived, there was no institutional container to resist it. The knowledge was in the practice, not in a structure that could defend the practice.</div>
+        </div>
+        <div class="detail-section">
+          <span class="dissolution-tag">Cultural, not institutional</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shabbat -->
+  <div class="container-row right">
+    <div class="container-card" data-id="shabbat">
+      <div class="container-date">c. 6th century BCE · Judea</div>
+      <div class="container-name">Shabbat</div>
+      <div class="container-origin">שַׁבָּת — 39 melachot of prohibited work</div>
+      <div class="capacities">
+        <div class="capacity-pip" style="width: 10%; background: var(--cap-quality)"></div>
+        <div class="capacity-pip" style="width: 40%; background: var(--cap-rhythm)"></div>
+        <div class="capacity-pip" style="width: 10%; background: var(--cap-ownership)"></div>
+        <div class="capacity-pip" style="width: 15%; background: var(--cap-integration)"></div>
+        <div class="capacity-pip" style="width: 20%; background: var(--cap-scale)"></div>
+      </div>
+      <div class="container-summary">A governance mechanism: structured boundary where productive activity stops. Periodic reset preventing tool-use from becoming total.</div>
+      <div class="container-detail">
+        <div class="detail-section">
+          <div class="detail-label">What it held</div>
+          <div class="detail-text"><em>Rhythm</em> institutionalized as law. The 39 categories derive from Tabernacle construction — the most sacred productive labor — and declare even that labor must stop. The container is not anti-work; it is anti-totality. It holds the boundary between productive capacity and the human being who exercises it.</div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-label">How it endured</div>
+          <div class="detail-text">Uniquely among ancient containers, Shabbat survived industrialization — not by being adaptable but by being absolute. A boundary that bends is not a boundary. The container's rigidity is its strength. It weakened not from external attack but from internal reinterpretation as voluntary rather than constitutive.</div>
+        </div>
+        <div class="detail-section">
+          <span class="active-tag">Still active</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vitruvius -->
+  <div class="container-row left">
+    <div class="container-card" data-id="vitruvius">
+      <div class="container-date">c. 30 BCE · Rome</div>
+      <div class="container-name">Vitruvian Integration</div>
+      <div class="container-origin">firmitas, utilitas, venustas — De Architectura</div>
+      <div class="capacities">
+        <div class="capacity-pip" style="width: 30%; background: var(--cap-quality)"></div>
+        <div class="capacity-pip" style="width: 5%; background: var(--cap-rhythm)"></div>
+        <div class="capacity-pip" style="width: 5%; background: var(--cap-ownership)"></div>
+        <div class="capacity-pip" style="width: 40%; background: var(--cap-integration)"></div>
+        <div class="capacity-pip" style="width: 15%; background: var(--cap-scale)"></div>
+      </div>
+      <div class="container-summary">Three qualities that cannot be optimized independently. The system is the integration, not the parts.</div>
+      <div class="container-detail">
+        <div class="detail-section">
+          <div class="detail-label">What it held</div>
+          <div class="detail-text"><em>Integration</em> as the primary capacity. Vitruvius argued against Roman engineering efficiency that optimized one dimension at the expense of others. A building that maximizes strength without beauty has failed categorically, not partially. The container was a design philosophy that demanded holistic competence.</div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-label">How it dissolved</div>
+          <div class="detail-text">As a written philosophy rather than an institutional structure, it could be admired without being followed. Roman engineering increasingly specialized. The triad survived as a quotation — invoked in architecture schools, rarely as a binding constraint on practice. Philosophy without institutional teeth becomes decoration.</div>
+        </div>
+        <div class="detail-section">
+          <span class="dissolution-tag">Philosophy without institution</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="connection-label">· · · the guild centuries · · ·</div>
+
+  <!-- Medieval Guilds -->
+  <div class="container-row right">
+    <div class="container-card" data-id="guilds">
+      <div class="container-date">c. 1100–1700 CE · Europe</div>
+      <div class="container-name">The Guild System</div>
+      <div class="container-origin">Wanderjahre — apprentice, journeyman, master</div>
+      <div class="capacities">
+        <div class="capacity-pip" style="width: 30%; background: var(--cap-quality)"></div>
+        <div class="capacity-pip" style="width: 15%; background: var(--cap-rhythm)"></div>
+        <div class="capacity-pip" style="width: 20%; background: var(--cap-ownership)"></div>
+        <div class="capacity-pip" style="width: 15%; background: var(--cap-integration)"></div>
+        <div class="capacity-pip" style="width: 25%; background: var(--cap-scale)"></div>
+      </div>
+      <div class="container-summary">Centuries-long experiment in scaling skilled production without degrading it. Quality controlled through supervised progression and the masterwork.</div>
+      <div class="container-detail">
+        <div class="detail-section">
+          <div class="detail-label">What it held</div>
+          <div class="detail-text"><em>Quality</em> and <em>scale</em> simultaneously — the rarest combination. Guilds achieved this through regulated progression: learning by doing under supervision, traveling to absorb difference (Wanderjahre), then proving independent competence through a masterwork. The container was the entire lifecycle of the maker, not a moment or a boundary.</div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-label">How it dissolved</div>
+          <div class="detail-text">Dismantled during the transition to market economies. Guilds were monopolistic, restrictive, and resistant to innovation. But what replaced them — free labor markets and factory production — immediately produced the split between commodity and luxury that every subsequent reformer has tried to bridge. The monopolistic container was imperfect; its absence was worse.</div>
+        </div>
+        <div class="detail-section">
+          <span class="dissolution-tag">Dismantled by market liberalization</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Jingdezhen -->
+  <div class="container-row left">
+    <div class="container-card" data-id="jingdezhen">
+      <div class="container-date">c. 960–1644 CE · Song–Ming China</div>
+      <div class="container-name">Jingdezhen Workshops</div>
+      <div class="container-origin">景德镇 — imperial porcelain, dozens of specialized hands</div>
+      <div class="capacities">
+        <div class="capacity-pip" style="width: 25%; background: var(--cap-quality)"></div>
+        <div class="capacity-pip" style="width: 10%; background: var(--cap-rhythm)"></div>
+        <div class="capacity-pip" style="width: 10%; background: var(--cap-ownership)"></div>
+        <div class="capacity-pip" style="width: 10%; background: var(--cap-integration)"></div>
+        <div class="capacity-pip" style="width: 40%; background: var(--cap-scale)"></div>
+      </div>
+      <div class="container-summary">Enormous scale through radical specialization. A single piece passed through dozens of hands. Consistency achieved; spirit debated for centuries.</div>
+      <div class="container-detail">
+        <div class="detail-section">
+          <div class="detail-label">What it held</div>
+          <div class="detail-text"><em>Scale</em> above all — production volumes that European workshops could not match for centuries. Quality was maintained through standardization rather than individual mastery. The container was the production system itself: a division of labor so fine-grained that each specialist's contribution was nearly interchangeable.</div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-label">The unresolved tension</div>
+          <div class="detail-text">Periodic reform movements — the scholar's aesthetic of deliberate imperfection, the single maker producing an integrated piece — argued that the division had killed the spirit. Neither side won. The imperial system valued consistency; the literati valued presence. The tension between them was never resolved, only managed through alternating periods of imperial and scholarly influence.</div>
+        </div>
+        <div class="detail-section">
+          <span class="dissolution-tag">Tension never resolved</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mingei -->
+  <div class="container-row right">
+    <div class="container-card" data-id="mingei">
+      <div class="container-date">1926 · Japan</div>
+      <div class="container-name">Mingei</div>
+      <div class="container-origin">民藝 — folk craft, beauty born of use</div>
+      <div class="capacities">
+        <div class="capacity-pip" style="width: 35%; background: var(--cap-quality)"></div>
+        <div class="capacity-pip" style="width: 15%; background: var(--cap-rhythm)"></div>
+        <div class="capacity-pip" style="width: 20%; background: var(--cap-ownership)"></div>
+        <div class="capacity-pip" style="width: 25%; background: var(--cap-integration)"></div>
+        <div class="capacity-pip" style="width: 5%; background: var(--cap-scale)"></div>
+      </div>
+      <div class="container-summary">Beauty in the pattern, not the signature. Anonymous craftspeople within living traditions producing the most beautiful objects.</div>
+      <div class="container-detail">
+        <div class="detail-section">
+          <div class="detail-label">What it held</div>
+          <div class="detail-text"><em>Quality</em> and <em>integration</em> through community practice rather than individual genius. Yanagi Sōetsu argued that the most beautiful objects emerge from functional traditions — shaped by use, material, and accumulated communal intelligence. The container was the living tradition itself: anonymous, functional, and self-correcting through generations of practice.</div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-label">How it strained</div>
+          <div class="detail-text">Mingei became a museum category — the objects it celebrated were preserved precisely because the living traditions that produced them were dying. The movement identified something real but could not arrest the economic forces dissolving the village craft economies it depended on. Naming the beauty did not save the conditions that produced it.</div>
+        </div>
+        <div class="detail-section">
+          <span class="dissolution-tag">Preserved as category, not practice</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="connection-label">· · · the industrial dissolution · · ·</div>
+
+  <!-- Morris / Ruskin -->
+  <div class="container-row left">
+    <div class="container-card" data-id="morris">
+      <div class="container-date">1880s · England</div>
+      <div class="container-name">Arts and Crafts</div>
+      <div class="container-origin">Morris & Ruskin — art for the people</div>
+      <div class="capacities">
+        <div class="capacity-pip" style="width: 35%; background: var(--cap-quality)"></div>
+        <div class="capacity-pip" style="width: 10%; background: var(--cap-rhythm)"></div>
+        <div class="capacity-pip" style="width: 15%; background: var(--cap-ownership)"></div>
+        <div class="capacity-pip" style="width: 25%; background: var(--cap-integration)"></div>
+        <div class="capacity-pip" style="width: 5%; background: var(--cap-scale)"></div>
+      </div>
+      <div class="container-summary">Revived medieval craft methods. The painful discovery: handcraft made everything expensive. Art for the people that only the wealthy could afford.</div>
+      <div class="container-detail">
+        <div class="detail-section">
+          <div class="detail-label">What it held</div>
+          <div class="detail-text"><em>Quality</em> and <em>integration</em> — but at the expense of scale entirely. Morris's workshops produced beautiful textiles, furniture, and typography. Ruskin's moral argument that Gothic imperfection was evidence of a free laborer's hand was philosophically powerful. But neither could solve the economics.</div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-label">How it dissolved</div>
+          <div class="detail-text">Not dissolved so much as confined. The movement became luxury goods for the aesthetically inclined wealthy — the opposite of its stated purpose. The failure was not of vision but of institutional design: they saw the problem clearly but built no economic container that could hold quality and affordability simultaneously.</div>
+        </div>
+        <div class="detail-section">
+          <span class="dissolution-tag">Confined to luxury</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bauhaus -->
+  <div class="container-row right">
+    <div class="container-card" data-id="bauhaus">
+      <div class="container-date">1919–1933 · Germany</div>
+      <div class="container-name">Bauhaus</div>
+      <div class="container-origin">Gropius — reuniting art and craft under industrial conditions</div>
+      <div class="capacities">
+        <div class="capacity-pip" style="width: 30%; background: var(--cap-quality)"></div>
+        <div class="capacity-pip" style="width: 10%; background: var(--cap-rhythm)"></div>
+        <div class="capacity-pip" style="width: 10%; background: var(--cap-ownership)"></div>
+        <div class="capacity-pip" style="width: 30%; background: var(--cap-integration)"></div>
+        <div class="capacity-pip" style="width: 20%; background: var(--cap-scale)"></div>
+      </div>
+      <div class="container-summary">Most ambitious modern attempt. Redesigned the education of the maker. Extraordinary work. Fourteen years before political pressure closed it.</div>
+      <div class="container-detail">
+        <div class="detail-section">
+          <div class="detail-label">What it held</div>
+          <div class="detail-text"><em>Integration</em> and <em>quality</em> through pedagogical redesign. The workshop model — students moving through materials under both a "master of form" and a "master of craft" — was a guild structure adapted for industrial modernity. It accepted the machine and tried to reshape the maker's relationship to it.</div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-label">How it dissolved</div>
+          <div class="detail-text">Closed by the Nazis. The institutional container was too fragile for political forces acting on it. The ideas dispersed — Moholy-Nagy to Chicago, Mies to IIT, Albers to Black Mountain — but the integrated institution did not survive transplantation. What traveled was influence, not container.</div>
+        </div>
+        <div class="detail-section">
+          <span class="dissolution-tag">Destroyed by political force</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gandhi / Charkha -->
+  <div class="container-row left">
+    <div class="container-card" data-id="charkha">
+      <div class="container-date">1920s–1940s · India</div>
+      <div class="container-name">The Spinning Wheel</div>
+      <div class="container-origin">चरखा — charkha — appropriate technology as liberation</div>
+      <div class="capacities">
+        <div class="capacity-pip" style="width: 10%; background: var(--cap-quality)"></div>
+        <div class="capacity-pip" style="width: 15%; background: var(--cap-rhythm)"></div>
+        <div class="capacity-pip" style="width: 35%; background: var(--cap-ownership)"></div>
+        <div class="capacity-pip" style="width: 10%; background: var(--cap-integration)"></div>
+        <div class="capacity-pip" style="width: 25%; background: var(--cap-scale)"></div>
+      </div>
+      <div class="container-summary">Not nostalgia. A deliberate technological argument: tools scaled to the community that uses them, not the market that profits from them.</div>
+      <div class="container-detail">
+        <div class="detail-section">
+          <div class="detail-label">What it held</div>
+          <div class="detail-text"><em>Ownership</em> — the most radical claim. Gandhi argued that economic self-sufficiency at the village level was prerequisite to political liberation. British textile mills had created a dependency that no political revolution alone could undo. The spinning wheel was a tool designed to return productive capacity to the community that exercised it.</div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-label">How it dissolved</div>
+          <div class="detail-text">India industrialized anyway. The symbolic power of the charkha was enormous — it appears on the flag — but the economic argument lost to the developmental state's embrace of heavy industry. The container held long enough for political liberation but not for the economic self-sufficiency it was designed to enable.</div>
+        </div>
+        <div class="detail-section">
+          <span class="dissolution-tag">Symbol survived, economics didn't</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rochdale -->
+  <div class="container-row right">
+    <div class="container-card" data-id="rochdale">
+      <div class="container-date">1844 · Lancashire, England</div>
+      <div class="container-name">The Cooperative</div>
+      <div class="container-origin">Rochdale Pioneers — weaving workers' response to industrial dissolution</div>
+      <div class="capacities">
+        <div class="capacity-pip" style="width: 15%; background: var(--cap-quality)"></div>
+        <div class="capacity-pip" style="width: 10%; background: var(--cap-rhythm)"></div>
+        <div class="capacity-pip" style="width: 40%; background: var(--cap-ownership)"></div>
+        <div class="capacity-pip" style="width: 10%; background: var(--cap-integration)"></div>
+        <div class="capacity-pip" style="width: 25%; background: var(--cap-scale)"></div>
+      </div>
+      <div class="container-summary">Can productive capacity be owned by the people who exercise it? Open membership, democratic governance, equitable distribution of surplus.</div>
+      <div class="container-detail">
+        <div class="detail-section">
+          <div class="detail-label">What it held</div>
+          <div class="detail-text"><em>Ownership</em> and <em>scale</em> — the cooperative answer to the industrial split. Where guilds controlled quality through regulated progression and Shabbat controlled rhythm through absolute boundary, the cooperative controlled ownership through democratic governance. Productive capacity belongs to its members, not to capital.</div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-label">How it endures</div>
+          <div class="detail-text">The cooperative form survives and scales — Mondragon, credit unions, agricultural co-ops, platform co-ops. But it faces constant pressure toward either demutualization (becoming a conventional corporation) or irrelevance (remaining small and marginal). The container holds but must be actively maintained against institutional drift.</div>
+        </div>
+        <div class="detail-section">
+          <span class="active-tag">Still active — under pressure</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="connection-label">· · · the augmentation turn · · ·</div>
+
+  <!-- Schumacher / Illich -->
+  <div class="container-row left">
+    <div class="container-card" data-id="illich">
+      <div class="container-date">1973 · Global</div>
+      <div class="container-name">Convivial Tools</div>
+      <div class="container-origin">Schumacher + Illich — appropriate technology, tools for conviviality</div>
+      <div class="capacities">
+        <div class="capacity-pip" style="width: 15%; background: var(--cap-quality)"></div>
+        <div class="capacity-pip" style="width: 20%; background: var(--cap-rhythm)"></div>
+        <div class="capacity-pip" style="width: 25%; background: var(--cap-ownership)"></div>
+        <div class="capacity-pip" style="width: 20%; background: var(--cap-integration)"></div>
+        <div class="capacity-pip" style="width: 15%; background: var(--cap-scale)"></div>
+      </div>
+      <div class="container-summary">A convivial tool extends human capability. An industrial tool creates dependency. The bicycle vs. the highway.</div>
+      <div class="container-detail">
+        <div class="detail-section">
+          <div class="detail-label">What it held</div>
+          <div class="detail-text">The most balanced capacity profile in the lineage — Illich and Schumacher articulated the full topology of what containers need to hold. The convivial/industrial distinction is a <em>diagnostic</em>, not a container. It tells you what to look for but does not itself provide the institutional structure to hold it.</div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-label">The limitation</div>
+          <div class="detail-text">Theory without institution. Small is Beautiful named the design space; Tools for Conviviality drew the theoretical line. But neither produced a durable institutional form. The ideas influenced everything from intermediate technology to open-source software to the cooperative movement, but always as influence, not as container.</div>
+        </div>
+        <div class="detail-section">
+          <span class="dissolution-tag">Diagnostic, not container</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Alexander -->
+  <div class="container-row right">
+    <div class="container-card" data-id="alexander">
+      <div class="container-date">1977 · Berkeley</div>
+      <div class="container-name">Pattern Language</div>
+      <div class="container-origin">Christopher Alexander — a generative grammar of design relationships</div>
+      <div class="capacities">
+        <div class="capacity-pip" style="width: 25%; background: var(--cap-quality)"></div>
+        <div class="capacity-pip" style="width: 10%; background: var(--cap-rhythm)"></div>
+        <div class="capacity-pip" style="width: 15%; background: var(--cap-ownership)"></div>
+        <div class="capacity-pip" style="width: 30%; background: var(--cap-integration)"></div>
+        <div class="capacity-pip" style="width: 15%; background: var(--cap-scale)"></div>
+      </div>
+      <div class="container-summary">Reusable design relationships communities could compose into unique structures. The quality without a name. The composition was the point, not the components.</div>
+      <div class="container-detail">
+        <div class="detail-section">
+          <div class="detail-label">What it held</div>
+          <div class="detail-text"><em>Integration</em> — the attempt to formalize holistic design as a generative grammar. Patterns are not components to assemble but relationships to compose. The quality Alexander sought — lived wholeness — emerges from the composition, not from any single pattern.</div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-label">How it was adopted and misread</div>
+          <div class="detail-text">Software engineers adopted the concept wholesale. Alexander later said they had missed his point. Design patterns in software became modular components — reusable, composable, testable — but detached from the "quality without a name" that was the entire purpose. The grammar traveled; the spirit did not. A recurring pattern in this lineage: formal structures are easier to transmit than the situated judgment they were designed to carry.</div>
+        </div>
+        <div class="detail-section">
+          <span class="dissolution-tag">Grammar traveled, spirit didn't</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Engelbart -->
+  <div class="container-row left">
+    <div class="container-card" data-id="engelbart">
+      <div class="container-date">1962–1968 · Stanford / SRI</div>
+      <div class="container-name">Augmentation</div>
+      <div class="container-origin">H-LAM/T — Human, Language, Artifacts, Methodology, Training</div>
+      <div class="capacities">
+        <div class="capacity-pip" style="width: 20%; background: var(--cap-quality)"></div>
+        <div class="capacity-pip" style="width: 15%; background: var(--cap-rhythm)"></div>
+        <div class="capacity-pip" style="width: 15%; background: var(--cap-ownership)"></div>
+        <div class="capacity-pip" style="width: 35%; background: var(--cap-integration)"></div>
+        <div class="capacity-pip" style="width: 15%; background: var(--cap-scale)"></div>
+      </div>
+      <div class="container-summary">The unit of design is not the tool. It is the system of tool, person, language, method, and training considered together. Co-evolution is the design problem.</div>
+      <div class="container-detail">
+        <div class="detail-section">
+          <div class="detail-label">What it held</div>
+          <div class="detail-text"><em>Integration</em> at the systems level. Engelbart saw that augmentation requires co-evolution of all five elements — improve the tool without improving the method and you get faster confusion. His language was deliberate: "augmentation," never "automation." The ARC lab was not trying to replace human capability but to amplify it within collaborative systems.</div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-label">What happened</div>
+          <div class="detail-text">The tool element was optimized in isolation. Personal computing took the mouse, the hyperlink, the graphical interface — and built an industry around individual productivity rather than collaborative augmentation. Engelbart spent his later years arguing that the computing industry had taken the wrong fork. The framework survives as the most complete description of what a container needs to hold. It was never fully instantiated.</div>
+        </div>
+        <div class="detail-section">
+          <span class="dissolution-tag">Framework survives, never fully instantiated</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="connection-label">· · · the present experiment · · ·</div>
+
+  <!-- RegenHub / Techne -->
+  <div class="container-row right">
+    <div class="container-card highlight" data-id="techne">
+      <div class="container-date">2026 · Boulder, Colorado</div>
+      <div class="container-name">Techne / RegenHub LCA</div>
+      <div class="container-origin">τέχνη — the craft of composition</div>
+      <div class="capacities">
+        <div class="capacity-pip" style="width: 20%; background: var(--cap-quality)"></div>
+        <div class="capacity-pip" style="width: 15%; background: var(--cap-rhythm)"></div>
+        <div class="capacity-pip" style="width: 25%; background: var(--cap-ownership)"></div>
+        <div class="capacity-pip" style="width: 25%; background: var(--cap-integration)"></div>
+        <div class="capacity-pip" style="width: 15%; background: var(--cap-scale)"></div>
+      </div>
+      <div class="container-summary">Cooperative ownership. Engelbart's co-evolution. Illich's conviviality. Alexander's generative grammar applied to ventures, tools, and economic relationships. The institutional design problem, taken seriously.</div>
+      <div class="container-detail">
+        <div class="detail-section">
+          <div class="detail-label">What it attempts to hold</div>
+          <div class="detail-text">All five capacities simultaneously — the lesson of this lineage is that no container has achieved this durably. Techne's wager: the cooperative form (Rochdale's <em>ownership</em>) + Engelbart's co-evolution framework (<em>integration</em>) + programmable coordination infrastructure (<em>scale</em>) + the seven-layer pattern stack (<em>quality</em>) + twice-daily chain batching tied to solar cycles (<em>rhythm</em>) might produce a container that holds longer than its predecessors.</div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-label">The honest uncertainty</div>
+          <div class="detail-text">Too early to know. The Colorado LCA was filed February 6, 2026. The institutional form exists. The economic relationships are being built. The question — can this container hold what it claims to hold? — will take years to answer. What is certain: the question is the right one, and the lineage of attempts to answer it is the right context for asking.</div>
+        </div>
+        <div class="detail-section">
+          <span class="active-tag">In formation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- Synthesis -->
+<section class="synthesis">
+  <h2>What the Topology Reveals</h2>
+
+  <p>No container in this lineage held all five capacities at full strength. The guilds came closest — <em>quality</em> and <em>scale</em> together for six centuries — but at the cost of monopolistic restriction that made them brittle when market forces arrived.</p>
+
+  <p>The pattern is consistent: containers that prioritize one capacity tend to sacrifice others. Shabbat holds <em>rhythm</em> absolutely but says nothing about <em>scale</em>. Jingdezhen achieved <em>scale</em> but debated the cost to <em>integration</em> for centuries. Morris held <em>quality</em> and <em>integration</em> perfectly and lost <em>scale</em> entirely.</p>
+
+  <p>The modern theorists — Illich, Alexander, Engelbart — saw the full topology but could not build durable institutions around their insights. Their frameworks describe what containers need to hold. They are maps of the territory, not the territory itself.</p>
+
+  <p>The cooperative form is the most promising institutional survivor: it directly addresses <em>ownership</em>, scales to significant size (Mondragon, credit unions), and has proven adaptable across sectors and centuries. Its weakness is institutional drift — the constant gravitational pull toward conventional corporate form.</p>
+
+  <p>Techne's position in the topology is deliberate: it draws on Rochdale's ownership, Engelbart's co-evolution, Alexander's generative grammar, Illich's conviviality test, and Shabbat's rhythmic discipline. Whether this synthesis produces a container more durable than its predecessors is the experiment.</p>
+</section>
+
+<footer class="colophon">
+  <p>P309 — The Lineage Map. Companion to <a href="the-oldest-design-problem.html" style="color: var(--text-muted); text-decoration: underline;">The Oldest Design Problem</a>. Techne / RegenHub LCA, 2026.</p>
+</footer>
+
+<script>
+  // Expand/collapse cards
+  document.querySelectorAll('.container-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const detail = card.querySelector('.container-detail');
+      const wasExpanded = card.classList.contains('expanded');
+
+      // Close all others
+      document.querySelectorAll('.container-card').forEach(c => {
+        c.classList.remove('expanded');
+        const d = c.querySelector('.container-detail');
+        if (d) d.classList.remove('visible');
+      });
+
+      // Toggle this one
+      if (!wasExpanded) {
+        card.classList.add('expanded');
+        if (detail) detail.classList.add('visible');
+      }
+    });
+  });
+
+  // Legend filtering
+  const activeFilters = new Set(['quality', 'rhythm', 'ownership', 'integration', 'scale']);
+  const capMap = {
+    quality: '--cap-quality',
+    rhythm: '--cap-rhythm',
+    ownership: '--cap-ownership',
+    integration: '--cap-integration',
+    scale: '--cap-scale'
+  };
+
+  document.querySelectorAll('.legend-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const cap = item.dataset.cap;
+      if (activeFilters.has(cap)) {
+        activeFilters.delete(cap);
+        item.classList.remove('active');
+        item.classList.add('dimmed');
+      } else {
+        activeFilters.add(cap);
+        item.classList.add('active');
+        item.classList.remove('dimmed');
+      }
+      updatePips();
+    });
+  });
+
+  function updatePips() {
+    document.querySelectorAll('.capacity-pip').forEach(pip => {
+      const bg = pip.style.background;
+      let capName = null;
+      for (const [name, varName] of Object.entries(capMap)) {
+        if (bg.includes(varName) || bg.includes(name)) {
+          capName = name;
+          break;
+        }
+      }
+      // Match by color value
+      if (!capName) {
+        const colors = {
+          'var(--cap-quality)': 'quality',
+          'var(--cap-rhythm)': 'rhythm',
+          'var(--cap-ownership)': 'ownership',
+          'var(--cap-integration)': 'integration',
+          'var(--cap-scale)': 'scale'
+        };
+        capName = colors[bg];
+      }
+      if (capName) {
+        pip.classList.toggle('dim', !activeFilters.has(capName));
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
