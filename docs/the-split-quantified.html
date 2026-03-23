@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Split, Quantified — Techne / RegenHub LCA</title>
+<meta name="description" content="Empirical evidence for the craft/scale divide. Software developer compensation, open-source maintenance concentration, AI code compression.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e0e0e; --bg-surface: #161616; --bg-card: #1a1a1a;
+    --text: #d4d0c8; --text-muted: #8a857a; --text-dim: #5a5650;
+    --accent: #c4a882; --accent-dim: #7a6b56; --rule: #2a2724;
+    --serif: 'Cormorant Garamond', 'Georgia', serif;
+    --sans: 'Inter', -apple-system, system-ui, sans-serif;
+    --commodity: #9a6a6a; --craft: #6a8a9a; --middle: #8a8a6a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-size: 18px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body { background: var(--bg); color: var(--text); font-family: var(--serif); line-height: 1.8; min-height: 100vh; }
+
+  .hero {
+    min-height: 70vh; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; text-align: center; padding: 4rem 2rem;
+  }
+  .hero-label { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent-dim); margin-bottom: 2rem; }
+  .hero h1 { font-family: var(--serif); font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 400; color: var(--text); line-height: 1.2; margin-bottom: 1rem; }
+  .hero-sub { font-family: var(--serif); font-style: italic; font-size: 1.15rem; color: var(--text-muted); max-width: 28em; margin-bottom: 3rem; }
+
+  /* Bimodal visualization */
+  .bimodal-viz {
+    display: flex; align-items: flex-end; justify-content: center;
+    gap: 2px; height: 100px; width: clamp(280px, 50vw, 480px); margin-bottom: 1rem;
+  }
+  .bm-bar {
+    flex: 1; border-radius: 2px 2px 0 0;
+    transition: opacity 0.3s;
+  }
+  .bimodal-labels {
+    display: flex; justify-content: space-between; width: clamp(280px, 50vw, 480px);
+    font-family: var(--sans); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim);
+  }
+
+  .content { max-width: 38em; margin: 0 auto; padding: 0 2rem 4rem; }
+  .section { margin-bottom: 4rem; }
+  .section-num { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent-dim); margin-bottom: 0.75rem; display: block; }
+  h2 { font-family: var(--serif); font-size: 1.7rem; font-weight: 400; color: var(--accent); margin-bottom: 1.5rem; line-height: 1.3; }
+  p { margin-bottom: 1.25rem; hyphens: auto; }
+  em { font-style: italic; color: var(--accent); }
+  strong { font-weight: 500; color: var(--text); }
+
+  .data-card {
+    background: var(--bg-card); border: 1px solid var(--rule); border-radius: 6px;
+    padding: 1.5rem; margin: 1.5rem 0;
+  }
+  .data-label { font-family: var(--sans); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent-dim); margin-bottom: 0.75rem; }
+  .data-stat { font-family: var(--serif); font-size: 2rem; font-weight: 600; color: var(--accent); margin-bottom: 0.25rem; }
+  .data-context { font-family: var(--serif); font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+
+  .source-note {
+    font-family: var(--sans); font-size: 0.68rem; color: var(--text-dim);
+    padding: 0.75rem 0; border-top: 1px solid var(--rule); margin-top: 1.5rem; line-height: 1.6;
+  }
+
+  .pull-quote { margin: 3rem 0; padding: 2rem 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); text-align: center; }
+  .pull-quote p { font-family: var(--serif); font-style: italic; font-size: 1.25rem; color: var(--accent); text-align: center; margin: 0; max-width: 26em; margin-left: auto; margin-right: auto; line-height: 1.6; }
+
+  .section-divider { text-align: center; margin: 3rem 0; color: var(--text-dim); font-size: 0.8rem; letter-spacing: 1em; }
+
+  /* Summary grid */
+  .summary-grid {
+    display: grid; grid-template-columns: auto 1fr 1fr 1fr;
+    gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 6px;
+    overflow: hidden; margin: 2rem 0; font-family: var(--sans); font-size: 0.75rem;
+  }
+  .sg-cell { background: var(--bg-card); padding: 0.75rem; color: var(--text-muted); }
+  .sg-header { background: var(--bg-surface); font-weight: 600; color: var(--text); font-size: 0.65rem; letter-spacing: 0.05em; text-transform: uppercase; }
+  .sg-commodity { border-left: 3px solid var(--commodity); }
+  .sg-craft { border-left: 3px solid var(--craft); }
+  .sg-middle { border-left: 3px solid var(--middle); }
+
+  .colophon { max-width: 38em; margin: 0 auto; padding: 3rem 2rem 5rem; border-top: 1px solid var(--rule); text-align: center; }
+  .colophon p { font-family: var(--serif); font-size: 0.85rem; color: var(--text-dim); font-style: italic; line-height: 1.8; }
+
+  @media (max-width: 640px) {
+    html { font-size: 16px; }
+    .hero { min-height: 60vh; padding: 3rem 1.5rem; }
+    .content { padding: 0 1.5rem 3rem; }
+    .summary-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-label">Companion to The Oldest Design Problem</div>
+  <h1>The Split, Quantified</h1>
+  <p class="hero-sub">Empirical evidence that we are living in the split now. Three data points from software development — the clearest contemporary case.</p>
+
+  <!-- Bimodal distribution visualization -->
+  <div class="bimodal-viz" aria-label="Bimodal distribution showing commodity and luxury peaks with thinning middle">
+    <div class="bm-bar" style="height: 25%; background: var(--commodity)"></div>
+    <div class="bm-bar" style="height: 40%; background: var(--commodity)"></div>
+    <div class="bm-bar" style="height: 60%; background: var(--commodity)"></div>
+    <div class="bm-bar" style="height: 75%; background: var(--commodity)"></div>
+    <div class="bm-bar" style="height: 85%; background: var(--commodity)"></div>
+    <div class="bm-bar" style="height: 78%; background: var(--commodity)"></div>
+    <div class="bm-bar" style="height: 65%; background: var(--commodity)"></div>
+    <div class="bm-bar" style="height: 48%; background: var(--middle)"></div>
+    <div class="bm-bar" style="height: 35%; background: var(--middle)"></div>
+    <div class="bm-bar" style="height: 25%; background: var(--middle)"></div>
+    <div class="bm-bar" style="height: 18%; background: var(--middle)"></div>
+    <div class="bm-bar" style="height: 15%; background: var(--middle)"></div>
+    <div class="bm-bar" style="height: 18%; background: var(--middle)"></div>
+    <div class="bm-bar" style="height: 22%; background: var(--middle)"></div>
+    <div class="bm-bar" style="height: 28%; background: var(--craft)"></div>
+    <div class="bm-bar" style="height: 38%; background: var(--craft)"></div>
+    <div class="bm-bar" style="height: 52%; background: var(--craft)"></div>
+    <div class="bm-bar" style="height: 65%; background: var(--craft)"></div>
+    <div class="bm-bar" style="height: 58%; background: var(--craft)"></div>
+    <div class="bm-bar" style="height: 42%; background: var(--craft)"></div>
+    <div class="bm-bar" style="height: 28%; background: var(--craft)"></div>
+    <div class="bm-bar" style="height: 15%; background: var(--craft)"></div>
+  </div>
+  <div class="bimodal-labels">
+    <span style="color: var(--commodity)">Commodity</span>
+    <span style="color: var(--middle)">The Middle</span>
+    <span style="color: var(--craft)">Luxury</span>
+  </div>
+</header>
+
+<main class="content">
+
+  <!-- I. Compensation -->
+  <section class="section">
+    <span class="section-num">I</span>
+    <h2>The Compensation Bimodal</h2>
+
+    <p>Software developer compensation in 2025–2026 is not normally distributed. It is bimodal — two peaks with a thinning middle.</p>
+
+    <div class="data-card">
+      <div class="data-label" style="color: var(--commodity)">Commodity Peak</div>
+      <div class="data-stat">$25–50/hr</div>
+      <div class="data-context">Median gig platform rates. 30% of professional developers worldwide earn under $35K/year. Competition on cost and availability.</div>
+    </div>
+
+    <div class="data-card">
+      <div class="data-label" style="color: var(--craft)">Luxury Peak</div>
+      <div class="data-stat">$400K+</div>
+      <div class="data-context">Median L5/E5 total compensation at FAANG-tier firms. Equity-heavy packages creating an effective wealth class within the profession.</div>
+    </div>
+
+    <div class="data-card">
+      <div class="data-label" style="color: var(--middle)">The Thinning Middle</div>
+      <div class="data-stat">$75K–180K</div>
+      <div class="data-context">Independent consultants, agency developers, small-company engineers. Squeezed from both ends: AI compresses the commodity floor, stock appreciation inflates the luxury ceiling.</div>
+    </div>
+
+    <div class="source-note">Sources: Stack Overflow Developer Survey 2024; Levels.fyi; Bureau of Labor Statistics OES 15-1252; Upwork marketplace data.</div>
+  </section>
+
+  <div class="section-divider">· · ·</div>
+
+  <!-- II. Maintenance -->
+  <section class="section">
+    <span class="section-num">II</span>
+    <h2>The Maintenance Bottleneck</h2>
+
+    <p>Open-source software is the infrastructure of the digital economy. It is also one of the clearest examples of the craft/scale split operating in real time.</p>
+
+    <div class="data-card">
+      <div class="data-label">Consumption Scale</div>
+      <div class="data-stat">2.1M+</div>
+      <div class="data-context">Packages in npm alone. Billions of downloads. Industrial-scale consumption of open-source infrastructure.</div>
+    </div>
+
+    <div class="data-card">
+      <div class="data-label">Production Scale</div>
+      <div class="data-stat">60% unpaid</div>
+      <div class="data-context">Of open-source maintainers are volunteers. Among those paid, median maintenance income: under $1,000/year. Artisanal production supporting industrial consumption.</div>
+    </div>
+
+    <p>The Log4Shell vulnerability (December 2021) demonstrated the consequences: a critical logging library used by virtually every Java application, maintained by a handful of volunteers. The vulnerability cost billions to remediate. The maintainers were still unpaid.</p>
+
+    <p>No institutional container bridges this gap at scale. GitHub Sponsors, Open Collective, and Tidelift are attempts — but collectively they reach only a fraction of the ecosystem.</p>
+
+    <div class="source-note">Sources: Libraries.io; Tidelift State of the Open Source Maintainer 2024; GitHub Octoverse 2024; "Roads and Bridges" (Nadia Eghbal, Ford Foundation, 2016).</div>
+  </section>
+
+  <div class="pull-quote">
+    <p>The tool is the same. The container is not.</p>
+  </div>
+
+  <!-- III. AI Compression -->
+  <section class="section">
+    <span class="section-num">III</span>
+    <h2>The AI Compression</h2>
+
+    <p>AI code generation is compressing the craft/scale divide faster than any previous technology.</p>
+
+    <div class="data-card">
+      <div class="data-label">Automation Rate</div>
+      <div class="data-stat">46%</div>
+      <div class="data-context">Of code in Copilot-enabled files is AI-generated (GitHub, 2024). Google: 25%+ of new code AI-assisted. By some estimates, majority of new code by 2027.</div>
+    </div>
+
+    <p><strong>The commodity layer expands.</strong> Tasks that previously required a junior developer — boilerplate, CRUD, standard patterns, test generation — are increasingly automated. The economic value of writing standard code is declining toward zero.</p>
+
+    <p><strong>The craft layer persists but changes shape.</strong> Architecture, system design, debugging novel failures, understanding user needs — these remain stubbornly human. Senior engineers who direct AI systems effectively become more productive. Junior engineers who competed on code volume become less differentiated.</p>
+
+    <p><strong>The middle is where the compression hurts most.</strong> A developer whose value proposition was "I can write competent code at a reasonable rate" faces the same squeeze as Morris's craftsmen facing the factory.</p>
+
+    <p>Engelbart's test applies: is the AI system co-evolving with the human who uses it (augmentation), or is it being optimized in isolation (automation)? A developer using AI within a cooperative structure might experience augmentation. The same developer on an extractive platform experiences dependency.</p>
+
+    <div class="source-note">Sources: GitHub Copilot research blog 2024; Google DeepMind reports; Stack Overflow Developer Survey AI section 2024.</div>
+  </section>
+
+  <div class="section-divider">· · ·</div>
+
+  <!-- Synthesis -->
+  <section class="section">
+    <span class="section-num">Synthesis</span>
+    <h2>What the Data Shows</h2>
+
+    <div class="summary-grid">
+      <div class="sg-cell sg-header"></div>
+      <div class="sg-cell sg-header sg-commodity">Commodity</div>
+      <div class="sg-cell sg-header sg-craft">Craft</div>
+      <div class="sg-cell sg-header sg-middle">Middle</div>
+
+      <div class="sg-cell sg-header">Compensation</div>
+      <div class="sg-cell">$25–50/hr gig platforms</div>
+      <div class="sg-cell">$400K+ FAANG total comp</div>
+      <div class="sg-cell">Squeezed from both ends</div>
+
+      <div class="sg-cell sg-header">Open Source</div>
+      <div class="sg-cell">Billions of downloads</div>
+      <div class="sg-cell">Thousands unpaid maintainers</div>
+      <div class="sg-cell">No bridge at scale</div>
+
+      <div class="sg-cell sg-header">AI Generation</div>
+      <div class="sg-cell">46%+ automated</div>
+      <div class="sg-cell">Architecture remains human</div>
+      <div class="sg-cell">"Competent code" value declining</div>
+    </div>
+
+    <p>The split is not a metaphor. It is a measurable distribution with a thinning middle, a fragile craft layer supporting industrial-scale consumption, and a technological compression that accelerates both tendencies simultaneously.</p>
+
+    <p>Building new containers — cooperatives, commons governance, shared ownership of productive infrastructure — is not idealism. It is a response to measurable structural failure. <em>The data is the argument.</em></p>
+  </section>
+</main>
+
+<footer class="colophon">
+  <p>All data points from publicly available sources as of early 2026. Trends and orders of magnitude over decimal points.</p>
+  <p style="font-style: normal; font-family: var(--sans); font-size: 0.7rem; margin-top: 1rem; letter-spacing: 0.05em;">P313 — Techne / RegenHub LCA, Boulder, CO. 2026.</p>
+</footer>
+
+</body>
+</html>
