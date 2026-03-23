@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Seven-Layer Pattern Stack — Techne / RegenHub LCA</title>
+<meta name="description" content="Identity, State, Relationship, Event, Flow, Constraint, View. The grammar is shared. The compositions are particular.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e0e0e;
+    --bg-surface: #161616;
+    --bg-card: #1a1a1a;
+    --bg-card-hover: #222;
+    --text: #d4d0c8;
+    --text-muted: #8a857a;
+    --text-dim: #5a5650;
+    --accent: #c4a882;
+    --accent-dim: #7a6b56;
+    --rule: #2a2724;
+    --serif: 'Cormorant Garamond', 'Georgia', serif;
+    --sans: 'Inter', -apple-system, system-ui, sans-serif;
+    --mono: 'JetBrains Mono', 'Menlo', monospace;
+
+    /* Layer colors */
+    --l1: #c4a882; /* Identity — warm gold */
+    --l2: #b8936a; /* State — amber */
+    --l3: #9a8a6a; /* Relationship — bronze */
+    --l4: #8a9a7a; /* Event — sage */
+    --l5: #7a8a9a; /* Flow — slate blue */
+    --l6: #9a7a8a; /* Constraint — muted plum */
+    --l7: #7a9a8a; /* View — teal */
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    font-size: 18px;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--serif);
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+
+  /* --- Hero --- */
+  .hero {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    position: relative;
+  }
+
+  .hero-label {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent-dim);
+    margin-bottom: 2rem;
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-epigraph {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 28em;
+    margin-bottom: 2.5rem;
+  }
+
+  /* Layer stack visual in hero */
+  .layer-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    width: clamp(200px, 40vw, 320px);
+    margin-bottom: 2.5rem;
+  }
+
+  .layer-bar {
+    height: 6px;
+    border-radius: 3px;
+    opacity: 0.7;
+    transition: opacity 0.3s, transform 0.2s;
+    cursor: default;
+  }
+
+  .layer-bar:hover {
+    opacity: 1;
+    transform: scaleX(1.02);
+  }
+
+  .hero-link {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    color: var(--text-dim);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .hero-link:hover { color: var(--accent); border-color: var(--accent-dim); }
+
+  /* --- Content --- */
+  .content {
+    max-width: 38em;
+    margin: 0 auto;
+    padding: 0 2rem 4rem;
+  }
+
+  .section { margin-bottom: 4rem; }
+
+  .section-number {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent-dim);
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--accent);
+    margin-bottom: 2rem;
+    line-height: 1.3;
+  }
+
+  p { margin-bottom: 1.5rem; hyphens: auto; }
+
+  em { font-style: italic; color: var(--accent); }
+
+  /* --- Layer definition cards --- */
+  .layer-def {
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+    border-left: 3px solid var(--accent-dim);
+    transition: border-color 0.3s;
+  }
+
+  .layer-def:hover { border-left-color: var(--accent); }
+
+  .layer-num {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    margin-bottom: 0.25rem;
+  }
+
+  .layer-name {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+  }
+
+  .layer-question {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 0.88rem;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .layer-desc {
+    font-family: var(--serif);
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  /* --- Domain comparison grid --- */
+  .domain-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 2rem 0;
+    font-family: var(--sans);
+    font-size: 0.72rem;
+  }
+
+  .domain-cell {
+    background: var(--bg-card);
+    padding: 0.75rem 1rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+  }
+
+  .domain-header {
+    background: var(--bg-surface);
+    font-weight: 600;
+    color: var(--text);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .domain-layer-label {
+    background: var(--bg-surface);
+    color: var(--accent-dim);
+    font-weight: 500;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* --- Pull quotes --- */
+  .pull-quote {
+    margin: 3rem 0;
+    padding: 2rem 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    text-align: center;
+  }
+
+  .pull-quote p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--accent);
+    line-height: 1.6;
+    text-align: center;
+    margin-bottom: 0;
+    max-width: 26em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* --- Section divider --- */
+  .section-divider {
+    text-align: center;
+    margin: 3rem 0;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    letter-spacing: 1em;
+  }
+
+  /* --- Colophon --- */
+  .colophon {
+    max-width: 38em;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+    border-top: 1px solid var(--rule);
+    text-align: center;
+  }
+
+  .colophon p {
+    font-family: var(--serif);
+    font-size: 0.88rem;
+    color: var(--text-dim);
+    line-height: 1.8;
+    text-align: center;
+    font-style: italic;
+  }
+
+  .colophon .attr {
+    font-family: var(--sans);
+    font-style: normal;
+    font-size: 0.7rem;
+    margin-top: 1.5rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* --- Responsive --- */
+  @media (max-width: 640px) {
+    html { font-size: 16px; }
+    .hero { min-height: 60vh; padding: 3rem 1.5rem; }
+    .content { padding: 0 1.5rem 3rem; }
+    .domain-grid { grid-template-columns: 1fr; }
+    .domain-header:nth-child(2), .domain-header:nth-child(3) { display: none; }
+  }
+
+  /* --- Print --- */
+  @media print {
+    :root {
+      --bg: #fff; --text: #1a1a1a; --text-muted: #555;
+      --text-dim: #888; --accent: #4a3f30; --rule: #ddd;
+    }
+    .hero { min-height: auto; padding: 2rem 0; }
+    .layer-stack { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-label">Companion to The Oldest Design Problem</div>
+  <h1>The Seven-Layer<br>Pattern Stack</h1>
+  <p class="hero-epigraph">The grammar is shared. The compositions are particular.</p>
+
+  <div class="layer-stack" aria-label="Seven layers visualized as stacked bars">
+    <div class="layer-bar" style="background: var(--l1); width: 60%" title="1 — Identity"></div>
+    <div class="layer-bar" style="background: var(--l2); width: 68%" title="2 — State"></div>
+    <div class="layer-bar" style="background: var(--l3); width: 76%" title="3 — Relationship"></div>
+    <div class="layer-bar" style="background: var(--l4); width: 84%" title="4 — Event"></div>
+    <div class="layer-bar" style="background: var(--l5); width: 92%" title="5 — Flow"></div>
+    <div class="layer-bar" style="background: var(--l6); width: 96%" title="6 — Constraint"></div>
+    <div class="layer-bar" style="background: var(--l7); width: 100%" title="7 — View"></div>
+  </div>
+
+  <a class="hero-link" href="the-oldest-design-problem.html">Read the parent essay</a>
+</header>
+
+<main class="content">
+
+  <!-- I. The Claim -->
+  <section class="section">
+    <span class="section-number">Section I</span>
+    <h2>The Claim</h2>
+
+    <p>The Oldest Design Problem ends with a statement that functions more as assertion than argument: Techne's working thesis is that a seven-layer pattern stack — Identity, State, Relationship, Event, Flow, Constraint, View — constitutes a generative grammar that operates across domains. The same layers that structure a database schema also structure a cooperative agreement or a watershed monitoring system.</p>
+
+    <p>This essay is the proof. Or rather, the demonstration — because the claim is not that these seven layers are the <em>only</em> possible grammar, but that they are <em>a</em> grammar sufficient to compose systems across radically different domains, and that the act of composition reveals both the shared structure and the irreducibly particular context of each system.</p>
+
+    <p>Three domains. Seven layers each. The grammar will either hold or it won't.</p>
+  </section>
+
+  <!-- II. The Seven Layers -->
+  <section class="section">
+    <span class="section-number">Section II</span>
+    <h2>The Seven Layers</h2>
+
+    <p>Before applying them, the layers themselves deserve precise definition. They follow a dependency order: each layer depends on those beneath it. You cannot define State without Identity. You cannot define a Relationship without State to bind. Events require Relationships to act upon. Flows aggregate Events. Constraints govern Flows. Views render the whole visible.</p>
+
+    <div class="layer-def" style="border-left-color: var(--l1)">
+      <div class="layer-num">Layer 1</div>
+      <div class="layer-name">Identity</div>
+      <div class="layer-question">What are the nouns?</div>
+      <div class="layer-desc">What exists. The named entities that can be pointed to, distinguished from one another, and persisted across time. In a database, tables with primary keys. In a cooperative, members, ventures, agreements. In a watershed, gauges, tributaries, snowpack stations.</div>
+    </div>
+
+    <div class="layer-def" style="border-left-color: var(--l2)">
+      <div class="layer-num">Layer 2</div>
+      <div class="layer-name">State</div>
+      <div class="layer-question">What do we know about the nouns, at this moment?</div>
+      <div class="layer-desc">Current attributes, balances, statuses, and conditions of each identity. State is always temporal — a snapshot. A member's capital account balance. A gauge's current streamflow reading. A venture's lifecycle stage.</div>
+    </div>
+
+    <div class="layer-def" style="border-left-color: var(--l3)">
+      <div class="layer-num">Layer 3</div>
+      <div class="layer-name">Relationship</div>
+      <div class="layer-question">What are the connections, and what do they carry?</div>
+      <div class="layer-desc">How identities relate to each other. Membership binds a person to a cooperative. Contribution connects a member to a venture. Confluence joins a tributary to a river. Relationships are first-class entities — not attributes of identities, but connective tissue with their own state.</div>
+    </div>
+
+    <div class="layer-def" style="border-left-color: var(--l4)">
+      <div class="layer-num">Layer 4</div>
+      <div class="layer-name">Event</div>
+      <div class="layer-question">What changed, when, and by whose action?</div>
+      <div class="layer-desc">What happened. A contribution recorded. A distribution calculated. A streamflow measurement taken. Events are immutable — once recorded, part of the system's history. Every state transition is the result of an event.</div>
+    </div>
+
+    <div class="layer-def" style="border-left-color: var(--l5)">
+      <div class="layer-num">Layer 5</div>
+      <div class="layer-name">Flow</div>
+      <div class="layer-question">What patterns emerge when events are viewed over time?</div>
+      <div class="layer-desc">How events aggregate into patterns, trends, and cycles. Patronage allocation aggregates contribution events over a fiscal period. Hydrological flow aggregates gauge readings into discharge patterns. Revenue flow aggregates transactions into fiscal reality.</div>
+    </div>
+
+    <div class="layer-def" style="border-left-color: var(--l6)">
+      <div class="layer-num">Layer 6</div>
+      <div class="layer-name">Constraint</div>
+      <div class="layer-question">What must remain true regardless of what events occur?</div>
+      <div class="layer-desc">What governs the flows. Legal requirements, governance rules, ecological thresholds, technical limits. Constraints are the institutional logic — the rules that prevent the system from operating outside its intended boundaries.</div>
+    </div>
+
+    <div class="layer-def" style="border-left-color: var(--l7)">
+      <div class="layer-num">Layer 7</div>
+      <div class="layer-name">View</div>
+      <div class="layer-question">Who sees what, and how does seeing it enable action?</div>
+      <div class="layer-desc">How the system is rendered legible to its participants. Views do not change the underlying system — they make it visible. But visibility is not neutral: what you can see determines what you can govern.</div>
+    </div>
+  </section>
+
+  <div class="section-divider">· · ·</div>
+
+  <!-- III. The Patronage Engine -->
+  <section class="section">
+    <span class="section-number">Section III</span>
+    <h2>The Patronage Engine</h2>
+
+    <p>RegenHub is a Colorado Limited Cooperative Association. Its members contribute labor, revenue, and capital. Its economic engine — the patronage system — must track those contributions, allocate surplus proportionally, and maintain capital accounts in compliance with Subchapter K of the Internal Revenue Code and IRC 704(b).</p>
+
+    <p>This is a real system. It has been validated through 184 passing tests. Here is how it decomposes.</p>
+
+    <p><strong style="color: var(--l1)">Identity.</strong> Members. Ventures. The cooperative itself. Fiscal periods. Each member has a unique identifier and a membership class (Class 1 through Class 4, only Class 1 voting). Each venture has an owner and a relationship to the cooperative.</p>
+
+    <p><strong style="color: var(--l2)">State.</strong> Each member's capital account balance — the running total of their economic relationship with the cooperative. Each venture's current lifecycle stage. Each fiscal period's status: open, calculating, or finalized.</p>
+
+    <p><strong style="color: var(--l3)">Relationship.</strong> Member-to-cooperative (membership). Member-to-venture (contribution). Venture-to-cooperative (the 1% reciprocity commitment). Investor-to-cooperative (capital contribution, non-voting). These relationships carry their own attributes: class, join date, contribution type.</p>
+
+    <p><strong style="color: var(--l4)">Event.</strong> A labor contribution recorded: who, to which venture, how many hours, what category. A revenue event. A capital call. A distribution event: the patronage engine calculating allocations for a fiscal period. Each event is immutable. The ledger is append-only.</p>
+
+    <p><strong style="color: var(--l5)">Flow.</strong> Patronage allocation — the central flow. Over a fiscal period, contribution events are aggregated according to the allocation formula: 40% labor, 30% revenue, 20% cash, 10% community. The flow transforms raw events into proportional shares — the economic heartbeat of the cooperative.</p>
+
+    <p><strong style="color: var(--l6)">Constraint.</strong> Subchapter K requires "substantial economic effect." IRC 704(b) governs income allocation. Colorado LCA statute imposes its own requirements. Class 1 is the sole voting class. Distributions cannot exceed available surplus. These constraints are not optional; they are the legal boundaries within which the entire flow must operate.</p>
+
+    <p><strong style="color: var(--l7)">View.</strong> A member's capital account statement. A venture's patronage report. A cooperative-wide dashboard showing aggregate flows, per-member distributions, and compliance status. The Financial Systems Committee's view of allocation parameters.</p>
+  </section>
+
+  <!-- IV. The Operating Agreement -->
+  <section class="section">
+    <span class="section-number">Section IV</span>
+    <h2>The Cooperative Operating Agreement</h2>
+
+    <p>The operating agreement is the legal DNA of RegenHub. It defines membership, governance, economic rights, and dissolution procedures. It is not a database — it is a legal document. But the same seven layers structure it.</p>
+
+    <p><strong style="color: var(--l1)">Identity.</strong> The cooperative. Its members (organized by class). Its board of directors. Its committees. Its ventures. Its registered agent. Every entity with legal standing within the cooperative's governance structure.</p>
+
+    <p><strong style="color: var(--l2)">State.</strong> Current membership roster and each member's class. Board composition. Committee assignments. Registered address. Current fiscal year. Good standing with the Colorado Secretary of State.</p>
+
+    <p><strong style="color: var(--l3)">Relationship.</strong> Member-to-cooperative (governed by Member Agreement). Director-to-cooperative (fiduciary duty, term limits). Committee-to-board (advisory or delegated authority). Venture-to-cooperative (reciprocity, shared infrastructure, autonomy). Investor-to-cooperative (return mechanism: revenue share, not equity appreciation).</p>
+
+    <p><strong style="color: var(--l4)">Event.</strong> A member joining. A board vote. A committee recommendation. An annual meeting. A member withdrawal. A venture formation. An amendment to the operating agreement. Each event follows a defined procedure and produces a record.</p>
+
+    <p><strong style="color: var(--l5)">Flow.</strong> Governance flow: proposals move through introduction, committee review, board discussion, member vote. Economic flow: venture revenue → cooperative share → patronage calculation → member distribution. Formation flow: organizer group → filed articles → executed agreement → first members.</p>
+
+    <p><strong style="color: var(--l6)">Constraint.</strong> Colorado LCA statute (Title 7, Article 58). One member, one vote within Class 1. Quorum requirements. Supermajority for amendments. Fiduciary duties. Dissolution priority: debts first, then capital accounts, then surplus by patronage.</p>
+
+    <p><strong style="color: var(--l7)">View.</strong> The bylaws tool renders the agreement as an interactive document. The data room provides investors financial and legal views. Board minutes make governance events visible. The Workshop makes coordination visible to all participants.</p>
+
+    <p>Here the composition differs from the patronage engine despite sharing the grammar. The patronage engine's Identity layer is dominated by economic entities. The operating agreement's Identity layer is dominated by governance entities. Same layer. Same question. Different answers.</p>
+  </section>
+
+  <div class="pull-quote">
+    <p>The seven layers are not imposed on the domain. They are discovered within it.</p>
+  </div>
+
+  <!-- V. The Watershed -->
+  <section class="section">
+    <span class="section-number">Section V</span>
+    <h2>The Watershed Monitoring Schema</h2>
+
+    <p>The Boulder Creek watershed drains from the Continental Divide through Boulder Canyon into the plains east of the Front Range. Monitoring it requires tracking snowpack, streamflow, reservoir levels, and precipitation across dozens of stations operated by multiple agencies.</p>
+
+    <p>This is not a cooperative. It is not a legal entity. It is an ecological system. The seven layers still apply.</p>
+
+    <p><strong style="color: var(--l1)">Identity.</strong> Stream gauges (USGS stations). SNOTEL sites (Niwot Ridge, University Camp). Reservoirs (Barker, Gross, Boulder). Tributaries. Confluence points. The watershed boundary itself as a spatial identity.</p>
+
+    <p><strong style="color: var(--l2)">State.</strong> Current streamflow at each gauge (cubic feet per second). Current snow water equivalent at each SNOTEL site. Current reservoir storage (acre-feet, percent capacity). Precipitation accumulation versus historical average.</p>
+
+    <p><strong style="color: var(--l3)">Relationship.</strong> Tributary-to-mainstem (hydrological connectivity). Gauge-to-reach (which segment a gauge monitors). SNOTEL-to-subwatershed (which snowpack feeds which tributaries). Agency-to-station (who operates each point).</p>
+
+    <p><strong style="color: var(--l4)">Event.</strong> A streamflow measurement. A snow survey. A reservoir release decision. A flood warning. A gauge going offline. Each event is a datum — a fixed observation at a fixed time.</p>
+
+    <p><strong style="color: var(--l5)">Flow.</strong> The actual movement of water through the system: snowmelt → tributary → mainstem → reservoir → release → downstream. Seasonal patterns: spring runoff peak, late summer low flow, monsoon pulse. Flow in this domain is not metaphorical. It is the thing itself.</p>
+
+    <p><strong style="color: var(--l6)">Constraint.</strong> Minimum streamflow for aquatic health. Reservoir operating rules. Prior appropriation doctrine — "first in time, first in right." Endangered species requirements. Agency data quality standards.</p>
+
+    <p><strong style="color: var(--l7)">View.</strong> The watershed dashboard rendering current conditions. A drought monitor view. A flood risk view. A water rights view. Each serves a different audience — irrigator, ecologist, emergency manager — but all derive from the same structure.</p>
+
+    <p>The watershed reveals something the other two don't: the seven layers are not <em>imposed</em> on the domain. They are <em>discovered</em> within it. The grammar is not a framework applied from outside. It is a pattern inherent in systems that persist over time.</p>
+  </section>
+
+  <div class="section-divider">· · ·</div>
+
+  <!-- VI. Synthesis -->
+  <section class="section">
+    <span class="section-number">Section VI</span>
+    <h2>What the Three Compositions Reveal</h2>
+
+    <!-- Comparison grid -->
+    <div class="domain-grid" role="table" aria-label="Layer comparison across three domains">
+      <div class="domain-cell domain-header">Patronage Engine</div>
+      <div class="domain-cell domain-header">Operating Agreement</div>
+      <div class="domain-cell domain-header">Watershed</div>
+
+      <div class="domain-cell domain-layer-label" style="grid-column: 1 / -1; border-left: 3px solid var(--l1)">Layer 1 — Identity</div>
+      <div class="domain-cell">Members, ventures, fiscal periods</div>
+      <div class="domain-cell">Cooperative, members by class, board, committees</div>
+      <div class="domain-cell">Gauges, SNOTEL sites, reservoirs, tributaries</div>
+
+      <div class="domain-cell domain-layer-label" style="grid-column: 1 / -1; border-left: 3px solid var(--l2)">Layer 2 — State</div>
+      <div class="domain-cell">Capital account balances, period status</div>
+      <div class="domain-cell">Membership roster, board composition</div>
+      <div class="domain-cell">Streamflow, SWE, reservoir levels</div>
+
+      <div class="domain-cell domain-layer-label" style="grid-column: 1 / -1; border-left: 3px solid var(--l3)">Layer 3 — Relationship</div>
+      <div class="domain-cell">Member↔venture (contribution type)</div>
+      <div class="domain-cell">Member↔cooperative (Member Agreement)</div>
+      <div class="domain-cell">Tributary↔mainstem (hydrological)</div>
+
+      <div class="domain-cell domain-layer-label" style="grid-column: 1 / -1; border-left: 3px solid var(--l4)">Layer 4 — Event</div>
+      <div class="domain-cell">Labor recorded, revenue booked, distribution calculated</div>
+      <div class="domain-cell">Member joined, board voted, agreement amended</div>
+      <div class="domain-cell">Streamflow measured, flood warning issued</div>
+
+      <div class="domain-cell domain-layer-label" style="grid-column: 1 / -1; border-left: 3px solid var(--l5)">Layer 5 — Flow</div>
+      <div class="domain-cell">Patronage allocation (40/30/20/10)</div>
+      <div class="domain-cell">Governance: proposal → committee → board → vote</div>
+      <div class="domain-cell">Snowmelt → tributary → mainstem → reservoir</div>
+
+      <div class="domain-cell domain-layer-label" style="grid-column: 1 / -1; border-left: 3px solid var(--l6)">Layer 6 — Constraint</div>
+      <div class="domain-cell">Subchapter K, IRC 704(b), surplus limits</div>
+      <div class="domain-cell">CO LCA statute, quorum, supermajority</div>
+      <div class="domain-cell">Instream flow rights, prior appropriation</div>
+
+      <div class="domain-cell domain-layer-label" style="grid-column: 1 / -1; border-left: 3px solid var(--l7)">Layer 7 — View</div>
+      <div class="domain-cell">Capital account statements, patronage reports</div>
+      <div class="domain-cell">Bylaws tool, data room, board minutes</div>
+      <div class="domain-cell">Watershed dashboard, drought monitor</div>
+    </div>
+
+    <p><strong>The grammar is shared.</strong> All three domains decompose into the same seven layers in the same dependency order. This ordering is not arbitrary — it reflects a genuine logical dependency. You cannot define a flow without events to aggregate.</p>
+
+    <p><strong>The compositions are particular.</strong> The patronage engine names economic entities. The operating agreement names governance entities. The watershed names physical and institutional entities. Same question, different answers. Same grammar, different sentences. A generative grammar that produces identical output in every domain is not generative — it is a template.</p>
+
+    <p><strong>The composition is the craft.</strong> Knowing the seven layers is not enough. The layers tell you what questions to ask. The answers come from the domain — from Subchapter K, from the hydrology of Boulder Creek, from the governance aspirations of a cooperative in formation. <em>The craft of composition</em>: recognizing which patterns the domain requires and configuring them with fluency and care.</p>
+
+    <p><strong>Constraints are the institutional logic.</strong> Across all three domains, Layer 6 is where the institution lives. Without constraints, flows are unregulated; events are ungoverned; the system drifts. The Oldest Design Problem is, in layer terms, a history of containers that operate at Layer 6 — and what happens when Layer 6 dissolves.</p>
+
+    <p><strong>Views are not neutral.</strong> What you can see determines what you can govern. A cooperative without a capital account view cannot practice patronage accountability. A watershed without a streamflow dashboard cannot detect drought in time. The View layer is not cosmetic. It is the mechanism through which the system becomes governable by its participants.</p>
+
+    <p>This is what Alexander meant by "the quality without a name" — the lived wholeness that emerges when all layers cohere. And it is what Engelbart meant by co-evolution: the system works when all elements develop together. The seven-layer stack is one way of describing what "together" means structurally.</p>
+  </section>
+
+</main>
+
+<footer class="colophon">
+  <p>The grammar is ancient. Vitruvius had three layers. Aristotle had four causes. Alexander had 253 patterns. The seven-layer stack is Techne's composition — particular to this studio, this moment, these tools. If it proves useful beyond this context, that will be because the pattern was already latent in the domains, waiting for a grammar to name it.</p>
+  <p class="attr">P310 — Techne / RegenHub LCA, Boulder, CO. 2026.</p>
+</footer>
+
+</body>
+</html>
