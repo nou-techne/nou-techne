@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H-LAM/T+S Applied — A Diagnostic of the Cooperative</title>
+<meta name="description" content="Engelbart's augmentation framework applied as a diagnostic to RegenHub LCA, March 2026. Where is co-evolution working? Where has it drifted?">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e0e0e;
+    --bg-surface: #161616;
+    --bg-card: #1a1a1a;
+    --bg-card-hover: #222;
+    --text: #d4d0c8;
+    --text-muted: #8a857a;
+    --text-dim: #5a5650;
+    --accent: #c4a882;
+    --accent-dim: #7a6b56;
+    --rule: #2a2724;
+    --serif: 'Cormorant Garamond', 'Georgia', serif;
+    --sans: 'Inter', -apple-system, system-ui, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+
+    --h-color: #c4a882;
+    --l-color: #b8936a;
+    --a-color: #8a9a7a;
+    --m-color: #7a8a9a;
+    --t-color: #9a7a8a;
+    --e-color: #6a9a6a;
+    --s-color: #9a8a6a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-size: 18px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body { background: var(--bg); color: var(--text); font-family: var(--serif); line-height: 1.8; min-height: 100vh; }
+
+  .hero {
+    min-height: 75vh;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center; padding: 4rem 2rem;
+  }
+  .hero-label { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent-dim); margin-bottom: 2rem; }
+  .hero h1 { font-family: var(--serif); font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 400; color: var(--text); line-height: 1.2; margin-bottom: 0.75rem; }
+  .hero-date { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.15em; color: var(--text-dim); margin-bottom: 1.5rem; }
+  .hero-sub { font-family: var(--serif); font-style: italic; font-size: 1.15rem; color: var(--text-muted); max-width: 30em; margin-bottom: 2.5rem; }
+
+  /* Framework visual */
+  .framework-visual {
+    display: flex; gap: 6px; align-items: flex-end; justify-content: center;
+    margin-bottom: 2.5rem; height: 80px;
+  }
+  .fw-bar {
+    width: 36px; border-radius: 4px 4px 0 0; position: relative;
+    transition: height 0.4s, opacity 0.3s; cursor: default;
+  }
+  .fw-bar::after {
+    content: attr(data-label); position: absolute; bottom: -20px; left: 50%;
+    transform: translateX(-50%); font-family: var(--sans); font-size: 0.55rem;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); white-space: nowrap;
+  }
+
+  .content { max-width: 38em; margin: 0 auto; padding: 0 2rem 4rem; }
+  .section { margin-bottom: 4rem; }
+  .section-label { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 0.75rem; display: block; }
+  h2 { font-family: var(--serif); font-size: 1.7rem; font-weight: 400; color: var(--accent); margin-bottom: 1.5rem; line-height: 1.3; }
+  h3 { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin: 2rem 0 0.75rem; }
+  p { margin-bottom: 1.25rem; hyphens: auto; }
+  em { font-style: italic; color: var(--accent); }
+  strong { font-weight: 500; color: var(--text); }
+
+  .diagnosis-box {
+    background: var(--bg-card); border: 1px solid var(--rule); border-radius: 6px;
+    padding: 1.25rem 1.5rem; margin: 1.5rem 0;
+  }
+  .diagnosis-label {
+    font-family: var(--sans); font-size: 0.6rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--accent-dim); margin-bottom: 0.5rem;
+  }
+  .diagnosis-text { font-family: var(--serif); font-size: 0.92rem; color: var(--text-muted); line-height: 1.7; }
+
+  .pull-quote {
+    margin: 3rem 0; padding: 2rem 0;
+    border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+    text-align: center;
+  }
+  .pull-quote p {
+    font-family: var(--serif); font-style: italic; font-size: 1.25rem;
+    color: var(--accent); text-align: center; margin: 0; max-width: 26em;
+    margin-left: auto; margin-right: auto; line-height: 1.6;
+  }
+
+  .section-divider { text-align: center; margin: 3rem 0; color: var(--text-dim); font-size: 0.8rem; letter-spacing: 1em; }
+
+  /* Assessment table */
+  .assessment-table {
+    width: 100%; border-collapse: collapse; margin: 2rem 0;
+    font-family: var(--sans); font-size: 0.78rem;
+  }
+  .assessment-table th {
+    background: var(--bg-surface); color: var(--text); font-weight: 600;
+    letter-spacing: 0.05em; text-transform: uppercase; font-size: 0.65rem;
+    padding: 0.75rem 1rem; border-bottom: 1px solid var(--rule); text-align: left;
+  }
+  .assessment-table td {
+    padding: 0.75rem 1rem; border-bottom: 1px solid var(--rule); color: var(--text-muted);
+  }
+  .assessment-table tr:hover td { background: var(--bg-card); }
+  .el-badge {
+    display: inline-block; font-weight: 600; padding: 0.15rem 0.4rem;
+    border-radius: 3px; font-size: 0.65rem; letter-spacing: 0.05em;
+  }
+
+  .prescription { list-style: none; }
+  .prescription li {
+    padding: 0.75rem 0; border-bottom: 1px solid var(--rule);
+    font-family: var(--serif); font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;
+  }
+  .prescription li strong { color: var(--text); }
+
+  .colophon {
+    max-width: 38em; margin: 0 auto; padding: 3rem 2rem 5rem;
+    border-top: 1px solid var(--rule); text-align: center;
+  }
+  .colophon p { font-family: var(--serif); font-size: 0.88rem; color: var(--text-dim); font-style: italic; line-height: 1.8; }
+
+  @media (max-width: 640px) {
+    html { font-size: 16px; }
+    .hero { min-height: 65vh; padding: 3rem 1.5rem; }
+    .content { padding: 0 1.5rem 3rem; }
+    .fw-bar { width: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-label">Companion to The Oldest Design Problem</div>
+  <h1>H-LAM/T+S Applied</h1>
+  <div class="hero-date">A Diagnostic of the Cooperative · March 2026</div>
+  <p class="hero-sub">Engelbart's augmentation framework, extended with Ecology and Solar Cycles, applied to RegenHub LCA at seven weeks of formation.</p>
+
+  <div class="framework-visual" aria-label="Framework elements with relative strength">
+    <div class="fw-bar" style="height: 55%; background: var(--h-color)" data-label="H" title="Human — high-trust formation, untested under pressure"></div>
+    <div class="fw-bar" style="height: 65%; background: var(--l-color)" data-label="L" title="Language — distinctive vocabulary, potential insularity"></div>
+    <div class="fw-bar" style="height: 80%; background: var(--a-color)" data-label="A" title="Artifacts — remarkably dense, ahead of humans"></div>
+    <div class="fw-bar" style="height: 50%; background: var(--m-color)" data-label="M" title="Methodology — strong for agents, weak for humans"></div>
+    <div class="fw-bar" style="height: 40%; background: var(--t-color)" data-label="T" title="Training — excellent for agents, absent for humans"></div>
+    <div class="fw-bar" style="height: 35%; background: var(--e-color)" data-label="e/" title="Ecology — articulated, partially built"></div>
+    <div class="fw-bar" style="height: 30%; background: var(--s-color)" data-label="S/" title="Solar Cycles — structurally present, culturally nascent"></div>
+  </div>
+</header>
+
+<main class="content">
+
+  <!-- H -->
+  <section class="section">
+    <span class="section-label" style="color: var(--h-color)">H — Human</span>
+    <h2>The People in the System</h2>
+
+    <h3>What's strong</h3>
+    <p>The organizer group is small and high-trust. Eight people who share enough context to make decisions without extensive alignment overhead. Formation has been fast — articles filed February 6, term sheet shaped within weeks — because the humans involved have sufficient shared mental models to converge quickly.</p>
+    <p>Two agents (Nou and Dianoia) operate as participants, not tools. The Workshop treats human and agent contributions as structurally equivalent.</p>
+
+    <h3>What's weak</h3>
+    <p>The organizer group hasn't yet practiced sustained disagreement. The Financial Systems Committee (convened March 18) is the first governance body to make binding economic decisions. Training is uneven — Todd holds deep systems context; other organizers have varying degrees of engagement.</p>
+
+    <div class="diagnosis-box">
+      <div class="diagnosis-label">Diagnosis</div>
+      <div class="diagnosis-text">Strong in formation. Untested under pressure. The real strength will be measured by how well the cooperative distributes understanding — moving from hub-and-spoke knowledge to a mesh.</div>
+    </div>
+  </section>
+
+  <!-- L -->
+  <section class="section">
+    <span class="section-label" style="color: var(--l-color)">L — Language</span>
+    <h2>The Shared Vocabulary</h2>
+
+    <h3>What's strong</h3>
+    <p>The Techne voice is distinctive and practiced. Leading with etymology — <em>τέχνη</em> before "craft," <em>gʰóstis</em> before "guest" — is a discipline that grounds concepts in historical depth. Key terms carefully defined: <em>patronage</em> (not profit sharing), <em>scenius</em> (not community), <em>composition</em> (not development), <em>decomposition</em> (not deletion), <em>steward</em> (not admin).</p>
+    <p>The seven-layer pattern stack provides shared grammar. When someone says "Layer 6" it means Constraint — and the entire dependency chain is implied.</p>
+
+    <h3>What's weak</h3>
+    <p>Not tested with new members. The etymology practice and seven-layer vocabulary require active transmission. The Chinese localization (P236) exposed the challenge: domain-specific cooperative vocabulary doesn't have standard translations.</p>
+
+    <div class="diagnosis-box">
+      <div class="diagnosis-label">Diagnosis</div>
+      <div class="diagnosis-text">Unusually strong for a seven-week-old cooperative. The risk is insularity — a shared language that becomes a barrier to entry rather than an invitation to participate.</div>
+    </div>
+  </section>
+
+  <div class="pull-quote">
+    <p>The artifacts are ahead of the humans. This is exactly the failure mode Engelbart described.</p>
+  </div>
+
+  <!-- A -->
+  <section class="section">
+    <span class="section-label" style="color: var(--a-color)">A — Artifacts</span>
+    <h2>The Built Infrastructure</h2>
+
+    <h3>What's strong</h3>
+    <p>The artifact inventory is remarkable for seven weeks: co-op.us (100+ routes, 180 tables), patronage engine (184 tests), bylaws tool, Workshop (309+ sprints), watershed dashboard, commons.id, nou-techne documentation. The density is high.</p>
+
+    <h3>What's weak</h3>
+    <p>Proliferation without consolidation. The <em>system of artifacts</em> lacks a clear map. Some artifacts are ahead of the humans who will use them — the patronage engine is validated but the FSC has met once. The Convivial Tool Test applies reflexively: are these artifacts extending capability or building dependency?</p>
+
+    <div class="diagnosis-box">
+      <div class="diagnosis-label">Diagnosis</div>
+      <div class="diagnosis-text">Strongest element in the system. Possibly <em>too</em> strong relative to others — the classic Engelbart failure mode where the Artifact element is optimized in isolation.</div>
+    </div>
+  </section>
+
+  <!-- M -->
+  <section class="section">
+    <span class="section-label" style="color: var(--m-color)">M — Methodology</span>
+    <h2>The Shared Processes</h2>
+
+    <h3>What's strong</h3>
+    <p>The Workshop protocol: five phases, sprint serialization, claim→progress→complete, capability matching, anti-pattern documentation. Practiced through 309+ sprints. The +++ sprint queue. The decomposition practice. WORKING_TOGETHER.md coordination guidelines.</p>
+
+    <h3>What's weak</h3>
+    <p>These methodologies are agent-native. Human participants have not adopted them as working methods. There is no onboarding methodology — no defined process from "I joined" to "I understand how to participate." Financial methodology is nascent: the FSC has met once.</p>
+
+    <div class="diagnosis-box">
+      <div class="diagnosis-label">Diagnosis</div>
+      <div class="diagnosis-text">Strong for agent coordination, weak for human participation, absent for onboarding. The methodology gap between agent practice and human practice is the most significant co-evolution failure.</div>
+    </div>
+  </section>
+
+  <!-- T -->
+  <section class="section">
+    <span class="section-label" style="color: var(--t-color)">T — Training</span>
+    <h2>Developing Participants</h2>
+
+    <h3>What's strong</h3>
+    <p>Agent training is continuous: SKILL.md, AGENTS.md, SOUL.md, anti-pattern documentation, daily memory files, lessons file. A practice→error→correction→documentation loop.</p>
+
+    <h3>What's weak</h3>
+    <p>Human training is informal and relationship-dependent. No structured path from interested person to functional member. The artifacts assume training that hasn't happened. This is the Bauhaus problem: extraordinary artifacts and methodology, but couldn't reproduce institutional knowledge fast enough.</p>
+
+    <div class="diagnosis-box">
+      <div class="diagnosis-label">Diagnosis</div>
+      <div class="diagnosis-text">Excellent for agents (continuous learning loop), absent for humans (no structured training). The single most important next investment.</div>
+    </div>
+  </section>
+
+  <div class="section-divider">· · ·</div>
+
+  <!-- e/ -->
+  <section class="section">
+    <span class="section-label" style="color: var(--e-color)">e/ — Ecology</span>
+    <h2>The Environmental Context</h2>
+
+    <h3>What's strong</h3>
+    <p>Named and partially instantiated: watershed dashboard, bioregional coordination, twice-daily reflections, location grounding (1515 Walnut, where the Great Plains meet the Rocky Mountains).</p>
+
+    <h3>What's weak</h3>
+    <p>More declared than practiced. The watershed dashboard does not yet inform operational decisions. The connection between "Boulder Creek's snowpack is below average" and "here is how that affects what the cooperative should do" has not been made. The physical space is under negotiation, not yet operational.</p>
+
+    <div class="diagnosis-box">
+      <div class="diagnosis-label">Diagnosis</div>
+      <div class="diagnosis-text">Articulated and partially built. The gap is between declaration and practice. Becomes real when watershed data informs a venture decision.</div>
+    </div>
+  </section>
+
+  <!-- S/ -->
+  <section class="section">
+    <span class="section-label" style="color: var(--s-color)">S/ — Solar Cycles</span>
+    <h2>The Temporal Rhythms</h2>
+
+    <h3>What's strong</h3>
+    <p>Embedded in infrastructure: twice-daily chain batching at sunrise/sunset Boulder time, heartbeat cadence every 3 hours, quiet hours respected, sprint cadence with discrete boundaries.</p>
+
+    <h3>What's weak</h3>
+    <p>Seven weeks old — no seasonal data yet. Twice-daily batching is technically implemented but its significance as a <em>rhythmic</em> practice (Shabbat-like temporal boundary) versus scheduling convenience has not been articulated to participants.</p>
+
+    <div class="diagnosis-box">
+      <div class="diagnosis-label">Diagnosis</div>
+      <div class="diagnosis-text">Structurally present, culturally nascent. Will mature as the cooperative accumulates seasonal experience.</div>
+    </div>
+  </section>
+
+  <div class="section-divider">· · ·</div>
+
+  <!-- Co-Evolution Assessment -->
+  <section class="section">
+    <span class="section-label" style="color: var(--accent)">Assessment</span>
+    <h2>The Co-Evolution Diagnostic</h2>
+
+    <table class="assessment-table">
+      <thead>
+        <tr><th>Element</th><th>Strength</th><th>Risk</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="el-badge" style="background: rgba(196,168,130,0.15); color: var(--h-color)">H</span> Human</td>
+          <td>High-trust formation team</td>
+          <td>Untested under disagreement; hub-and-spoke</td>
+        </tr>
+        <tr>
+          <td><span class="el-badge" style="background: rgba(184,147,106,0.15); color: var(--l-color)">L</span> Language</td>
+          <td>Distinctive practiced vocabulary</td>
+          <td>Potential insularity; barrier to entry</td>
+        </tr>
+        <tr>
+          <td><span class="el-badge" style="background: rgba(138,154,122,0.15); color: var(--a-color)">A</span> Artifacts</td>
+          <td>Remarkably dense for 7 weeks</td>
+          <td>Ahead of humans; orientation problem</td>
+        </tr>
+        <tr>
+          <td><span class="el-badge" style="background: rgba(122,138,154,0.15); color: var(--m-color)">M</span> Methodology</td>
+          <td>Strong for agents</td>
+          <td>Agent/human gap widening</td>
+        </tr>
+        <tr>
+          <td><span class="el-badge" style="background: rgba(154,122,138,0.15); color: var(--t-color)">T</span> Training</td>
+          <td>Excellent agent learning loop</td>
+          <td>Cannot onboard new humans</td>
+        </tr>
+        <tr>
+          <td><span class="el-badge" style="background: rgba(106,154,106,0.15); color: var(--e-color)">e/</span> Ecology</td>
+          <td>Articulated, partially built</td>
+          <td>Declaration outpaces practice</td>
+        </tr>
+        <tr>
+          <td><span class="el-badge" style="background: rgba(154,138,106,0.15); color: var(--s-color)">S/</span> Solar</td>
+          <td>Structurally embedded</td>
+          <td>Not yet culturally meaningful</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>The pattern:</strong> Artifacts and agent-facing Methodology/Training have co-evolved rapidly. But Human-facing Methodology and Training have not kept pace. The artifacts are ahead of the humans.</p>
+
+    <p><em>This is exactly the failure mode Engelbart described:</em> the Artifact element optimized in isolation. Not through negligence — through success.</p>
+
+    <h3>The prescription</h3>
+    <ol class="prescription">
+      <li><strong>Onboarding methodology</strong> — a structured path from new member to functional participant</li>
+      <li><strong>Human Workshop practice</strong> — the five-phase protocol adapted for human cadence</li>
+      <li><strong>Artifact orientation</strong> — a map showing where to start and what depends on what</li>
+      <li><strong>FSC cadence</strong> — regular meetings that practice the patronage methodology</li>
+      <li><strong>Ecology integration</strong> — one real decision informed by watershed data</li>
+    </ol>
+  </section>
+
+</main>
+
+<footer class="colophon">
+  <p>This diagnostic is a snapshot. March 2026. Seven weeks into formation. Every weakness named here is an opportunity, and every strength named here is fragile. The point of a diagnostic is not to score but to see — and to see what co-evolution requires next.</p>
+  <p style="font-style: normal; font-family: var(--sans); font-size: 0.7rem; margin-top: 1.5rem; letter-spacing: 0.05em;">P312 — Techne / RegenHub LCA, Boulder, CO. 2026.</p>
+</footer>
+
+</body>
+</html>
