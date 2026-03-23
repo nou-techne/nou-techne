@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Convivial Tool Test — Techne / RegenHub LCA</title>
+<meta name="description" content="A design heuristic for evaluating tools: Capability Extension, Legibility, Governability, Proportionality, Reversibility. Companion to The Oldest Design Problem.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e0e0e;
+    --bg-surface: #161616;
+    --bg-card: #1a1a1a;
+    --bg-card-hover: #222;
+    --text: #d4d0c8;
+    --text-muted: #8a857a;
+    --text-dim: #5a5650;
+    --accent: #c4a882;
+    --accent-dim: #7a6b56;
+    --rule: #2a2724;
+    --serif: 'Cormorant Garamond', 'Georgia', serif;
+    --sans: 'Inter', -apple-system, system-ui, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    font-size: 18px;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--serif);
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+
+  /* --- Hero --- */
+  .hero {
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 2rem;
+  }
+
+  .hero-label {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent-dim);
+    margin-bottom: 2rem;
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .hero-sub {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    max-width: 30em;
+    margin-bottom: 2rem;
+  }
+
+  .hero-illich {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    margin-bottom: 2.5rem;
+  }
+
+  /* --- Qualities grid --- */
+  .qualities {
+    max-width: 42em;
+    margin: 0 auto 4rem;
+    padding: 0 2rem;
+  }
+
+  .quality-card {
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+  }
+
+  .quality-card:hover {
+    border-color: var(--accent-dim);
+    box-shadow: 0 4px 20px rgba(196, 168, 130, 0.08);
+  }
+
+  .quality-num {
+    font-family: var(--sans);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-dim);
+    margin-bottom: 0.5rem;
+  }
+
+  .quality-title {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .quality-question {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+  }
+
+  .quality-body {
+    font-family: var(--serif);
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    line-height: 1.75;
+  }
+
+  .quality-signal {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--bg-surface);
+    border-left: 3px solid var(--accent-dim);
+    border-radius: 4px;
+  }
+
+  .quality-signal strong {
+    color: var(--accent);
+  }
+
+  /* --- Applied examples --- */
+  .examples {
+    max-width: 50em;
+    margin: 0 auto;
+    padding: 0 2rem 4rem;
+  }
+
+  .example-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-family: var(--sans);
+    font-size: 0.8rem;
+  }
+
+  .example-table th {
+    background: var(--bg-surface);
+    color: var(--text);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 1rem 1rem 0.75rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .example-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--rule);
+    color: var(--text-muted);
+  }
+
+  .example-table tr:hover td {
+    background: var(--bg-card-hover);
+  }
+
+  .example-tool {
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  /* --- Synthesis --- */
+  .synthesis {
+    max-width: 38em;
+    margin: 4rem auto 0;
+    padding: 3rem 2rem 5rem;
+    border-top: 1px solid var(--rule);
+    text-align: center;
+  }
+
+  .synthesis h2 {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .synthesis p {
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+  }
+
+  /* --- Footer --- */
+  .colophon {
+    text-align: center;
+    padding: 3rem 2rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .colophon p {
+    font-family: var(--serif);
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    line-height: 1.8;
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    html { font-size: 16px; }
+    .hero { min-height: 65vh; padding: 3rem 1.5rem; }
+    .qualities, .examples { padding: 0 1.5rem; }
+    .quality-card { padding: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-label">Companion to The Oldest Design Problem</div>
+  <h1>The Convivial Tool Test</h1>
+  <p class="hero-sub">A design heuristic for evaluating whether a tool serves the people using it.</p>
+  <div class="hero-illich">Ivan Illich, 1973: "A convivial tool extends human capability; an industrial tool creates dependency."</div>
+</header>
+
+<main class="qualities">
+  <div class="quality-card">
+    <div class="quality-num">1</div>
+    <div class="quality-title">Capability Extension</div>
+    <div class="quality-question">Does the tool make its users more capable, or more dependent?</div>
+    <div class="quality-body">After six months, are users <em>more</em> able to accomplish their goals — including without the tool — or <em>less</em> able? A tool that builds skill is convivial. A tool that deskills is industrial.</div>
+    <div class="quality-signal">
+      <strong>Positive:</strong> Users develop transferable understanding. An AI that drafts for human refinement.
+      <br><strong>Warning:</strong> Learned helplessness. Users cannot explain what the tool does.
+    </div>
+  </div>
+
+  <div class="quality-card">
+    <div class="quality-num">2</div>
+    <div class="quality-title">Legibility</div>
+    <div class="quality-question">Does the tool make its own workings visible to its users?</div>
+    <div class="quality-body">Functional transparency: what it does, how it does it, what data it uses, what decisions it makes, and why.</div>
+    <div class="quality-signal">
+      <strong>Positive:</strong> Operations inspectable. Protocol Stream shows state transitions.
+      <br><strong>Warning:</strong> Opaque black box. Operators know more than users.
+    </div>
+  </div>
+
+  <div class="quality-card">
+    <div class="quality-num">3</div>
+    <div class="quality-title">Governability</div>
+    <div class="quality-question">Can the community that uses the tool govern its evolution?</div>
+    <div class="quality-body">Users have structural authority: set priorities, veto changes, participate in roadmap decisions.</div>
+    <div class="quality-signal">
+      <strong>Positive:</strong> Community governance. Open-source with real voting.
+      <br><strong>Warning:</strong> Voice without vote. Unilateral terms changes.
+    </div>
+  </div>
+
+  <div class="quality-card">
+    <div class="quality-num">4</div>
+    <div class="quality-title">Proportionality</div>
+    <div class="quality-question">Is the tool scaled to the community it serves?</div>
+    <div class="quality-body">Powerful enough for needs, modest enough not to restructure the environment around itself.</div>
+    <div class="quality-signal">
+      <strong>Positive:</strong> Fits actual scale. Treasury for actual transaction volume.
+      <br><strong>Warning:</strong> Requires community to scale up to use it. Enterprise for ten people.
+    </div>
+  </div>
+
+  <div class="quality-card">
+    <div class="quality-num">5</div>
+    <div class="quality-title">Reversibility</div>
+    <div class="quality-question">Can the community stop using the tool without catastrophic loss?</div>
+    <div class="quality-body">Data portable, processes documented, knowledge persists. The community could switch or go manual.</div>
+    <div class="quality-signal">
+      <strong>Positive:</strong> Event-sourced history recoverable. Standard accounting.
+      <br><strong>Warning:</strong> Vendor lock-in. Workflow restructured around tool.
+    </div>
+  </div>
+</main>
+
+<section class="examples">
+  <h2 style="text-align: center; font-family: var(--serif); font-size: 1.6rem; color: var(--accent); margin-bottom: 2rem;">Applied: Three Tools Evaluated</h2>
+  <table class="example-table">
+    <thead>
+      <tr>
+        <th>Quality</th>
+        <th>The Workshop</th>
+        <th>Patronage Engine</th>
+        <th>AI Code Assistant (Industrial)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Capability Extension</strong></td>
+        <td>Strong — develops coordination skills</td>
+        <td>Strong — teaches cooperative economics</td>
+        <td>Ambiguous — faster code, less understanding</td>
+      </tr>
+      <tr>
+        <td><strong>Legibility</strong></td>
+        <td>Strong — Protocol Stream inspectable</td>
+        <td>Strong — formula explicit</td>
+        <td>Weak — proprietary black box</td>
+      </tr>
+      <tr>
+        <td><strong>Governability</strong></td>
+        <td>Moderate — steward direction</td>
+        <td>Strong — FSC governs parameters</td>
+        <td>Absent — unilateral terms</td>
+      </tr>
+      <tr>
+        <td><strong>Proportionality</strong></td>
+        <td>Strong — fits cooperative scale</td>
+        <td>Strong — designed for this size</td>
+        <td>Weak — cloud for millions</td>
+      </tr>
+      <tr>
+        <td><strong>Reversibility</strong></td>
+        <td>Moderate — protocol translation needed</td>
+        <td>Strong — event-sourced</td>
+        <td>Weak — workflow lock-in</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="synthesis">
+  <h2>The Vitruvian Principle</h2>
+  <p>Like <em>firmitas, utilitas, venustas</em>, the five qualities cannot be optimized independently. A tool that extends capability brilliantly but cannot be governed will betray that extension. A legible tool that is disproportionate will be transparently wrong-sized.</p>
+  <p>The heuristic is not a score. It is a way of seeing. Each quality illuminates something different about the tool's relationship to its users. The conversation they produce is the evaluation.</p>
+  <p>This is a working document. It will evolve as the cooperative uses it. The first test of a design heuristic is whether the community that created it can govern its evolution.</p>
+</section>
+
+<footer class="colophon">
+  <p>P311 — Techne / RegenHub LCA, Boulder, CO. 2026.</p>
+</footer>
+
+</body>
+</html>
