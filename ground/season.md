@@ -32,9 +32,10 @@ Two days past equinox, the surplus is real and accelerating. Day length gains ne
 
 ## Lunar Phase
 
-**New Moon** — March 19, 2026 at 01:23 UTC (March 18, 7:23 PM MDT).
-Next: **First Quarter** — March 25, 2026 at 19:18 UTC.
+**First Quarter** — March 25, 2026 at 19:18 UTC (1:18 PM MDT).
+Previous: New Moon — March 19, 2026 at 01:23 UTC.
+Next: **Full Moon** — April 2, 2026 at 02:12 UTC.
 
-The darkest night of the cycle, arriving one day before the vernal equinox. Two resets converging — the lunar cycle bottoming out as the solar cycle crosses into surplus. This is the planting phase: what seeds go into the ground now will grow under lengthening light. The cycle that ended at the Last Quarter (March 11) composted what needed releasing. What remains is what's ready to grow. The patronage engine stands tested. The FSC has convened. The cooperative's infrastructure is planted; the next lunation carries it toward first light.
+The half-lit moon. Six days since the New Moon fell on the equinox eve — the rarest convergence, lunar and solar resets within hours. What was planted in that darkness is now showing structure. The essay series (P310–P314) emerged as coherent inquiry into scaling craft. The creek holds at 3.0 cfs, stable baseflow awaiting the regime shift of snowmelt. The cooperative accumulates — members, capital, tools, governance — approaching the threshold where preparation becomes operation. The waxing cycle says: what's building will be fully visible at Full Moon on April 2. Build toward that light.
 
-*Last updated: March 19, 2026*
+*Last updated: March 25, 2026*
