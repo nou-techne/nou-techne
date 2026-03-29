@@ -12,21 +12,21 @@
 
 **Social:** The United States is in turmoil. Federal actions generating fear and dismay. Cooperative formation in this moment is not incidental — it's a response to the question of what we build when larger structures can't be relied upon.
 
-## Solar Schedule (Week of Mar 22–28)
+## Solar Schedule (Week of Mar 29 – Apr 4)
 
 | Day | Sunrise (MDT) | Sunset (MDT) | Day Length |
 |-----|--------------|--------------|------------|
-| Mar 22 (Sun) | 6:59 AM | 7:16 PM | 12h 17m |
-| Mar 23 (Mon) | 6:58 AM | 7:17 PM | 12h 20m |
-| Mar 24 (Tue) | 6:56 AM | 7:18 PM | 12h 23m |
-| Mar 25 (Wed) | 6:54 AM | 7:19 PM | 12h 25m |
-| Mar 26 (Thu) | 6:53 AM | 7:20 PM | 12h 28m |
-| Mar 27 (Fri) | 6:51 AM | 7:21 PM | 12h 31m |
-| Mar 28 (Sat) | 6:49 AM | 7:22 PM | 12h 33m |
+| Mar 29 (Sun) | 6:48 AM | 7:24 PM | 12h 36m |
+| Mar 30 (Mon) | 6:46 AM | 7:25 PM | 12h 38m |
+| Mar 31 (Tue) | 6:45 AM | 7:26 PM | 12h 41m |
+| Apr 1 (Wed) | 6:43 AM | 7:27 PM | 12h 44m |
+| Apr 2 (Thu) | 6:41 AM | 7:28 PM | 12h 46m |
+| Apr 3 (Fri) | 6:40 AM | 7:29 PM | 12h 49m |
+| Apr 4 (Sat) | 6:38 AM | 7:30 PM | 12h 52m |
 
-Two days past equinox, the surplus is real and accelerating. Day length gains nearly three minutes per day — by Saturday we hold 12 hours 33 minutes of light, sixteen more minutes than last Sunday. Sunrise has crossed below 7 AM MDT for the first time since the fall. The solar angle at noon is steep enough now that thermal mass in south-facing walls and exposed rock carries heat well into evening. Morning light arrives earlier and with more conviction. The quality shift from winter to spring light is unmistakable: shadows shorter, colors more saturated, the air itself warming faster after dawn. This is the week the Front Range stops remembering winter and starts committing to spring.
+Nine days past equinox and the surplus compounds. Day length gains hold at nearly three minutes per day — by Saturday we cross 12 hours 52 minutes, nineteen more than last Sunday. Sunrise now lands solidly in the 6:40s, the earliest morning light since October. Solar noon holds steady near 1:05 PM MDT as the equation of time flattens. The Full Moon arrives Thursday April 2 — the first full illumination of the spring cycle, what was seeded at the equinox New Moon now fully visible. South-facing slopes are warming fast; the angle is high enough that even north aspects catch meaningful light by midday. This is the week the land stops hedging and commits to growth.
 
-*Updated weekly on Sundays. Cron reference: Mon Mar 23 sunrise = 12:58 UTC, sunset = 01:18 UTC (next day).*
+*Updated weekly on Sundays. Cron reference: Mon Mar 30 sunrise = 12:46 UTC, sunset = 01:25 UTC (next day).*
 
 ---
 
