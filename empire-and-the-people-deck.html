@@ -303,9 +303,23 @@
     .cover { min-height: auto; page-break-after: always; }
     section { page-break-inside: avoid; }
   }
+  /* --- SERIES NAV --- */
+  .series-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(10,10,10,0.92); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule); padding: 0.6rem 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.1em;
+  }
+  .series-nav a { color: var(--text-dim); text-decoration: none; transition: color 0.2s; }
+  .series-nav a:hover { color: var(--accent); }
+  .series-nav .nav-center { color: var(--text-faint); letter-spacing: 0.2em; text-transform: uppercase; }
+  .series-nav .nav-disabled { color: var(--text-faint); opacity: 0.3; }
+  body { padding-top: 2.5rem; }
 </style>
 </head>
 <body>
+<nav class="series-nav"><span class="nav-disabled">Series Index</span><a href="index.html" class="nav-center">Techne Introduction</a><a href="the-oldest-design-problem-deck.html">Essay Two →</a></nav>
 
 <!-- ============ COVER ============ -->
 <div class="cover">
