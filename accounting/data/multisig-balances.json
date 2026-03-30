@@ -1,0 +1,380 @@
+{
+  "safe": "0xA594263e0449A28eAEf5BA6420E81cC1996b7782",
+  "chain": "oeth",
+  "last_sync": "2026-03-30T20:34:08Z",
+  "cycle": "manual",
+  "current": {
+    "balances": [
+      {
+        "token": "ETH",
+        "name": "Ether",
+        "address": "native",
+        "decimals": 18,
+        "raw_balance": "22000000000000000",
+        "balance": 0.022
+      },
+      {
+        "token": "DAI",
+        "name": "Dai Stablecoin",
+        "address": "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1",
+        "decimals": 18,
+        "raw_balance": "1000000000000000000000",
+        "balance": 1000
+      },
+      {
+        "token": "USDC",
+        "name": "USD Coin",
+        "address": "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+        "decimals": 6,
+        "raw_balance": "2808411728",
+        "balance": 2808.411728
+      }
+    ],
+    "eth_price_usd": 2023.87,
+    "eth_price_source": "coingecko",
+    "eth_value_usd": 44.53,
+    "dai_balance": 1000,
+    "usdc_balance": 2808.411728,
+    "total_usd": 3852.94,
+    "previous_total_usd": 0.00,
+    "change_usd": 3852.94
+  },
+  "recent_transactions": [
+    {
+      "tx_hash": "0x1fa06afe32ede0f9d76887a276bd7a469432fad97a67c65935ce76828cb854f6",
+      "timestamp": "2026-03-27T21:39:09Z",
+      "type": "transfer",
+      "to": "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+      "value": "0",
+      "transfers": [
+        {
+          "token": "USDC",
+          "from": "0xA594263e0449A28eAEf5BA6420E81cC1996b7782",
+          "to": "0x292ff025168D2B51f0Ef49f164D281c36761BA2b",
+          "value": "2063000000",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "tx_hash": "pending",
+      "timestamp": "2026-03-27T21:37:09Z",
+      "type": "transfer",
+      "to": "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+      "value": "0",
+      "transfers": [
+        {
+          "token": "USDC",
+          "from": "0xa6Cf44ec56BaD8288Ee4559098c48b8D78C05468",
+          "to": "0xA594263e0449A28eAEf5BA6420E81cC1996b7782",
+          "value": "150000000",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "tx_hash": "pending",
+      "timestamp": "2026-03-12T01:09:07Z",
+      "type": "transfer",
+      "to": "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+      "value": "0",
+      "transfers": [
+        {
+          "token": "USDC",
+          "from": "0xaf5bB2151Fd61a69A0F1F56ee6A2eAE2b48e47CB",
+          "to": "0xA594263e0449A28eAEf5BA6420E81cC1996b7782",
+          "value": "250000000",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "tx_hash": "pending",
+      "timestamp": "2026-03-08T00:08:19Z",
+      "type": "transfer",
+      "to": "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+      "value": "0",
+      "transfers": [
+        {
+          "token": "USDC",
+          "from": "0xC8373EDFaD6d5C5f600b6b2507F78431C5271fF5",
+          "to": "0xA594263e0449A28eAEf5BA6420E81cC1996b7782",
+          "value": "190000000",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "tx_hash": "0xa2db991302fe8318b4231c04ecb6ab432fb3a72edd8a801d0817f611d8fe1a07",
+      "timestamp": "2026-02-11T02:58:13Z",
+      "type": "transfer",
+      "to": "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+      "value": "0",
+      "transfers": [
+        {
+          "token": "USDC",
+          "from": "0xA594263e0449A28eAEf5BA6420E81cC1996b7782",
+          "to": "0xa53D1eED800BD55d15C01733C2647AC77017aaA8",
+          "value": "2770720000",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "tx_hash": "0x66a465ac302336827884110667526f324c9528fa7ffc0a75aec9b2de971439f9",
+      "timestamp": "2026-02-10T03:25:17Z",
+      "type": "transfer",
+      "to": "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+      "value": "0",
+      "transfers": [
+        {
+          "token": "USDC",
+          "from": "0xA594263e0449A28eAEf5BA6420E81cC1996b7782",
+          "to": "0x4AafdA0C2c23017ED7033077511f841368cbeA8e",
+          "value": "316090000",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "tx_hash": "pending",
+      "timestamp": "2026-02-09T19:53:11Z",
+      "type": "transfer",
+      "to": "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+      "value": "0",
+      "transfers": [
+        {
+          "token": "USDC",
+          "from": "0xD839C179a4606F46abD7A757f7Bb77D7593aE249",
+          "to": "0xA594263e0449A28eAEf5BA6420E81cC1996b7782",
+          "value": "155000000",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "tx_hash": "pending",
+      "timestamp": "2026-02-06T22:50:53Z",
+      "type": "transfer",
+      "to": "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+      "value": "0",
+      "transfers": [
+        {
+          "token": "USDC",
+          "from": "0x0cF3F75eB40e76973bA4d08ed0e58db0045EaB5b",
+          "to": "0xA594263e0449A28eAEf5BA6420E81cC1996b7782",
+          "value": "500000000",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "tx_hash": "pending",
+      "timestamp": "2026-02-06T22:47:41Z",
+      "type": "transfer",
+      "to": "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+      "value": "0",
+      "transfers": [
+        {
+          "token": "USDC",
+          "from": "0x7d03C5c37f77Fd01211334B9115CA108C84E8f3B",
+          "to": "0xA594263e0449A28eAEf5BA6420E81cC1996b7782",
+          "value": "250000000",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "tx_hash": "pending",
+      "timestamp": "2026-02-06T16:06:21Z",
+      "type": "transfer",
+      "to": "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+      "value": "0",
+      "transfers": [
+        {
+          "token": "USDC",
+          "from": "0xaf5bB2151Fd61a69A0F1F56ee6A2eAE2b48e47CB",
+          "to": "0xA594263e0449A28eAEf5BA6420E81cC1996b7782",
+          "value": "250000000",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "tx_hash": "pending",
+      "timestamp": "2026-01-30T16:21:21Z",
+      "type": "transfer",
+      "to": "0x0000000071727De22E5E9d8BAf0edAc6f37da032",
+      "value": "0",
+      "transfers": [
+        {
+          "token": "USDC",
+          "from": "0xCdB6a7920b4562616438606fB645AeDB8a3B8c99",
+          "to": "0xA594263e0449A28eAEf5BA6420E81cC1996b7782",
+          "value": "250000000",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "tx_hash": "pending",
+      "timestamp": "2026-01-22T19:31:47Z",
+      "type": "transfer",
+      "to": "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+      "value": "0",
+      "transfers": [
+        {
+          "token": "USDC",
+          "from": "0xa6Cf44ec56BaD8288Ee4559098c48b8D78C05468",
+          "to": "0xA594263e0449A28eAEf5BA6420E81cC1996b7782",
+          "value": "150000000",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "tx_hash": "pending",
+      "timestamp": "2026-01-16T21:50:29Z",
+      "type": "transfer",
+      "to": "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+      "value": "0",
+      "transfers": [
+        {
+          "token": "USDC",
+          "from": "0x7d03C5c37f77Fd01211334B9115CA108C84E8f3B",
+          "to": "0xA594263e0449A28eAEf5BA6420E81cC1996b7782",
+          "value": "250000000",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "tx_hash": "pending",
+      "timestamp": "2026-01-15T01:38:21Z",
+      "type": "transfer",
+      "to": "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+      "value": "0",
+      "transfers": [
+        {
+          "token": "USDC",
+          "from": "0xf491d040110384DBcf7F241fFE2A546513fD873d",
+          "to": "0xA594263e0449A28eAEf5BA6420E81cC1996b7782",
+          "value": "130000000",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "tx_hash": "pending",
+      "timestamp": "2026-01-09T20:47:21Z",
+      "type": "transfer",
+      "to": "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+      "value": "0",
+      "transfers": [
+        {
+          "token": "USDC",
+          "from": "0x8dABc053C7Fda425826d913a58C0DC4C2a0B36d7",
+          "to": "0xA594263e0449A28eAEf5BA6420E81cC1996b7782",
+          "value": "250000000",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "tx_hash": "pending",
+      "timestamp": "2025-12-31T00:09:41Z",
+      "type": "transfer",
+      "to": "0xBBbfD134E9b44BfB5123898BA36b01dE7ab93d98",
+      "value": "0",
+      "transfers": [
+        {
+          "token": "USDC",
+          "from": "0xF5042e6ffaC5a625D4E7848e0b01373D8eB9e222",
+          "to": "0xA594263e0449A28eAEf5BA6420E81cC1996b7782",
+          "value": "250000000",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "tx_hash": "pending",
+      "timestamp": "2025-12-30T18:36:09Z",
+      "type": "transfer",
+      "to": "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+      "value": "0",
+      "transfers": [
+        {
+          "token": "USDC",
+          "from": "0x0cF3F75eB40e76973bA4d08ed0e58db0045EaB5b",
+          "to": "0xA594263e0449A28eAEf5BA6420E81cC1996b7782",
+          "value": "500000000",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "tx_hash": "0x6203eaa28416345508f1e6b21ab86899b87bd0593b17ee37b1e254a2b6962687",
+      "timestamp": "2025-12-17T16:02:09Z",
+      "type": "transfer",
+      "to": "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+      "value": "0",
+      "transfers": [
+        {
+          "token": "USDC",
+          "from": "0xA594263e0449A28eAEf5BA6420E81cC1996b7782",
+          "to": "0xa53D1eED800BD55d15C01733C2647AC77017aaA8",
+          "value": "4483060000",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "tx_hash": "0xa53445383dc8b2e76763472d816802f3e306a6e9d7f05261b3d6a35c8f020496",
+      "timestamp": "2025-12-16T22:31:17Z",
+      "type": "transfer",
+      "to": "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+      "value": "0",
+      "transfers": [
+        {
+          "token": "USDC",
+          "from": "0xA594263e0449A28eAEf5BA6420E81cC1996b7782",
+          "to": "0xa53D1eED800BD55d15C01733C2647AC77017aaA8",
+          "value": "1000000",
+          "decimals": 6
+        }
+      ]
+    },
+    {
+      "tx_hash": "pending",
+      "timestamp": "2025-12-16T21:47:13Z",
+      "type": "transfer",
+      "to": "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+      "value": "0",
+      "transfers": [
+        {
+          "token": "USDC",
+          "from": "0x8dABc053C7Fda425826d913a58C0DC4C2a0B36d7",
+          "to": "0xA594263e0449A28eAEf5BA6420E81cC1996b7782",
+          "value": "250010000",
+          "decimals": 6
+        }
+      ]
+    }
+  ],
+  "history": [
+    {
+      "timestamp": "2026-03-30T20:34:08Z",
+      "cycle": "manual",
+      "total_usd": 3852.94,
+      "eth": 0.022,
+      "dai": 1000,
+      "usdc": 2808.411728
+    }
+  ],
+  "_meta": {
+    "generated": "2026-03-30T20:34:08Z",
+    "script": "sync-multisig-balances.sh",
+    "sprint": "P326",
+    "habitat_account": "1120 — Crypto Holdings (Multisig)"
+  }
+}
