@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accounting — RegenHub LCA Open Accounting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --bg-card: #1a1a1a;
+      --text: #e8e4df;
+      --text-dim: #9a9590;
+      --accent: #c4956a;
+      --accent-dim: rgba(196, 149, 106, 0.12);
+      --border: rgba(232, 228, 223, 0.08);
+      --border-accent: rgba(196, 149, 106, 0.3);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    body {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 4rem 2rem 8rem;
+    }
+
+    /* ---- Header ---- */
+    .site-mark {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 3rem;
+    }
+
+    .site-mark a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .site-mark a:hover {
+      text-decoration: underline;
+    }
+
+    .page-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border-accent);
+    }
+
+    .page-meta {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.6rem;
+    }
+
+    .page-lede {
+      font-size: 1.15rem;
+      color: var(--text-dim);
+      font-style: italic;
+      max-width: 560px;
+    }
+
+    /* ---- Body copy ---- */
+    .prose {
+      margin-bottom: 3rem;
+    }
+
+    .prose p {
+      margin-bottom: 1.1rem;
+      font-size: 1.05rem;
+    }
+
+    .prose p:last-child {
+      margin-bottom: 0;
+    }
+
+    .prose strong {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    /* ---- Principle Cards ---- */
+    .principles {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      margin: 2rem 0;
+      border: 1px solid var(--border);
+    }
+
+    .principle {
+      background: var(--bg-card);
+      padding: 1.5rem;
+    }
+
+    .principle-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .principle-title {
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+    }
+
+    .principle-body {
+      font-size: 0.88rem;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+
+    /* ---- Packages List ---- */
+    .packages-header {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .package-list {
+      list-style: none;
+    }
+
+    .package-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .package-link {
+      display: flex;
+      align-items: baseline;
+      gap: 1.5rem;
+      padding: 1rem 0;
+      text-decoration: none;
+      color: var(--text);
+      transition: color 0.15s;
+    }
+
+    .package-link:hover {
+      color: var(--accent);
+    }
+
+    .package-link:hover .package-arrow {
+      transform: translateX(3px);
+    }
+
+    .package-id {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      flex-shrink: 0;
+      width: 80px;
+    }
+
+    .package-title {
+      font-size: 1.05rem;
+      flex: 1;
+    }
+
+    .package-date {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      flex-shrink: 0;
+    }
+
+    .package-arrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      flex-shrink: 0;
+      transition: transform 0.15s;
+    }
+
+    .package-badge {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.15rem 0.45rem;
+      border-radius: 2px;
+      background: var(--accent-dim);
+      color: var(--accent);
+      border: 1px solid var(--border-accent);
+      flex-shrink: 0;
+    }
+
+    /* ---- Standard Description ---- */
+    .standard-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 2rem 2.5rem;
+      margin: 3rem 0;
+    }
+
+    .standard-block h2 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .standard-block p {
+      font-size: 0.95rem;
+      color: var(--text-dim);
+      margin-bottom: 0.8rem;
+      line-height: 1.6;
+    }
+
+    .standard-block p:last-child {
+      margin-bottom: 0;
+    }
+
+    .standard-block code {
+      font-family: 'Inter', monospace;
+      font-size: 0.8rem;
+      background: rgba(232, 228, 223, 0.06);
+      padding: 0.1rem 0.4rem;
+      border-radius: 2px;
+      color: var(--text);
+    }
+
+    /* ---- Footer ---- */
+    footer {
+      margin-top: 5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 2rem 1rem 5rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .principles {
+        grid-template-columns: 1fr;
+      }
+
+      .package-date {
+        display: none;
+      }
+    }
+
+    @media print {
+      :root {
+        --bg: #ffffff;
+        --bg-card: #f5f5f5;
+        --text: #1a1a1a;
+        --text-dim: #555555;
+        --accent: #8b5e3c;
+        --accent-dim: rgba(139, 94, 60, 0.08);
+        --border: rgba(0, 0, 0, 0.12);
+        --border-accent: rgba(139, 94, 60, 0.3);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="site-mark">
+    <a href="../index.html">nou-techne</a> &nbsp;/&nbsp; Accounting
+  </div>
+
+  <header class="page-header">
+    <div class="page-meta">RegenHub, LCA &mdash; Open Accounting</div>
+    <h1>Financial Transparency</h1>
+    <p class="page-lede">Monthly financial packages issued under the Habitat open accounting standard.</p>
+  </header>
+
+  <!-- Prose Introduction -->
+  <div class="prose">
+    <p>RegenHub operates as a Colorado Limited Cooperative Association, which means its economic life is structured around <strong>patronage</strong> &mdash; the principle that economic benefit flows to members in proportion to their contribution to the cooperative, not just their capital. These financial packages are how that principle is made legible, month by month.</p>
+
+    <p>Each W1 package (issued in the first week of the month for the prior month&rsquo;s close) follows the <strong>Habitat open accounting standard</strong>: a chart of accounts, reporting format, and allocation methodology that can be adopted by any organization seeking to make its economic relationships transparent and replicable.</p>
+
+    <p>The long-term vision is REA (Resource, Event, Agent) &mdash; a transaction grammar that records economic exchanges as events transforming resource balances between agents, rather than debits and credits against categories. These documents are the current approximation: familiar financial structure that will become REA-native views as the tooling matures.</p>
+  </div>
+
+  <!-- Principles Grid -->
+  <div class="principles">
+    <div class="principle">
+      <div class="principle-label">Standard</div>
+      <div class="principle-title">Habitat Chart of Accounts</div>
+      <div class="principle-body">1000&ndash;5999 series. Assets, liabilities, equity, revenue, and expenses structured for cooperative and commons-based organizations.</div>
+    </div>
+    <div class="principle">
+      <div class="principle-label">Methodology</div>
+      <div class="principle-title">Patronage Allocation</div>
+      <div class="principle-body">Net income available for allocation distributed to members: 40% labor, 30% revenue, 20% cash, 10% community. FSC to finalize weights.</div>
+    </div>
+    <div class="principle">
+      <div class="principle-label">Long-term Grammar</div>
+      <div class="principle-title">REA Event Ontology</div>
+      <div class="principle-body">Resource, Event, Agent. Every economic exchange as an event. Financial statements as views projected over the event ledger, not the ledger itself.</div>
+    </div>
+    <div class="principle">
+      <div class="principle-label">Infrastructure</div>
+      <div class="principle-title">$CLOUD Service Credits</div>
+      <div class="principle-body">Four resource primitives: compute, transfer, long-term memory, short-term memory. Cooperative infrastructure denominated in credits, not dollars.</div>
+    </div>
+  </div>
+
+  <!-- Packages Index -->
+  <div class="packages-header">Financial Packages &mdash; W1 Series</div>
+  <ul class="package-list">
+    <li class="package-item">
+      <a class="package-link" href="w1-april-2026.html">
+        <span class="package-id">W1-2026-04</span>
+        <span class="package-title">April 2026 Package &mdash; March Close</span>
+        <span class="package-badge">First Issue</span>
+        <span class="package-date">March 30, 2026</span>
+        <span class="package-arrow">&rarr;</span>
+      </a>
+    </li>
+  </ul>
+
+  <!-- Standard Block -->
+  <div class="standard-block">
+    <h2>The Open Accounting Standard</h2>
+    <p>The Habitat standard is designed to be adopted, not just observed. Any cooperative or commons-based organization can fork the chart of accounts, adopt the W1 package format, and issue monthly financial packages that are legible to members and the public alike.</p>
+    <p>Each package contains four sections: a cash reconciliation (Section I), an income statement (Section II), a balance sheet (Section III), and an outstanding payments tracker (Section IV). Together they answer the questions any member or observer should be able to ask: <em>Where did the money come from? Where did it go? What do we own and owe? What is still unresolved?</em></p>
+    <p>The source for this standard lives in the <code>nou-techne</code> repository under <code>docs/accounting/</code>. Contributions and forks are welcome.</p>
+  </div>
+
+  <footer>
+    <span>RegenHub, LCA &mdash; 1515 Walnut St, Boulder, CO</span>
+    <span>
+      <a href="https://github.com/nou-techne/nou-techne">github.com/nou-techne/nou-techne</a>
+    </span>
+  </footer>
+
+</body>
+</html>

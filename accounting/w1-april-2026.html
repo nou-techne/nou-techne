@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>W1 April 2026 — RegenHub LCA Financial Package</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --bg-card: #1a1a1a;
+      --bg-row: #141414;
+      --text: #e8e4df;
+      --text-dim: #9a9590;
+      --accent: #c4956a;
+      --accent-dim: rgba(196, 149, 106, 0.15);
+      --border: rgba(232, 228, 223, 0.08);
+      --border-accent: rgba(196, 149, 106, 0.3);
+      --positive: #6a9e7a;
+      --negative: #9e6a6a;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    body {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 3rem 2rem 6rem;
+    }
+
+    /* ---- Header ---- */
+    .doc-header {
+      border-bottom: 1px solid var(--border-accent);
+      padding-bottom: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .doc-meta {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .doc-title {
+      font-size: 2.4rem;
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.5rem;
+    }
+
+    .doc-subtitle {
+      font-style: italic;
+      color: var(--text-dim);
+      font-size: 1.1rem;
+    }
+
+    .doc-date-row {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .doc-date-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .doc-date-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    .doc-date-value {
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    /* ---- Context Block ---- */
+    .context-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      padding: 1.5rem 2rem;
+      margin-bottom: 3rem;
+      border-radius: 2px;
+    }
+
+    .context-block p {
+      margin-bottom: 0.9rem;
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    .context-block p:last-child {
+      margin-bottom: 0;
+    }
+
+    .context-block .primitives {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      margin-top: 0.5rem;
+    }
+
+    .context-block .primitives span {
+      display: inline-block;
+      background: rgba(196, 149, 106, 0.1);
+      border: 1px solid var(--border-accent);
+      color: var(--accent);
+      padding: 0.15rem 0.55rem;
+      border-radius: 2px;
+      margin: 0.15rem 0.2rem 0.15rem 0;
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* ---- Section Headings ---- */
+    .section {
+      margin-bottom: 4rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-number {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-size: 1.45rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+
+    .section-period {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      margin-left: auto;
+    }
+
+    /* ---- Tables ---- */
+    .fin-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+
+    .fin-table th {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      padding: 0.6rem 1rem;
+      text-align: right;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-card);
+    }
+
+    .fin-table th:first-child {
+      text-align: left;
+    }
+
+    .fin-table td {
+      padding: 0.55rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      text-align: right;
+      vertical-align: middle;
+    }
+
+    .fin-table td:first-child {
+      text-align: left;
+    }
+
+    .fin-table tr:hover td {
+      background: rgba(232, 228, 223, 0.02);
+    }
+
+    .fin-table .group-header td {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--bg-card);
+      padding-top: 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: none;
+    }
+
+    .fin-table .group-header td:first-child {
+      padding-left: 1rem;
+    }
+
+    .fin-table .subtotal td {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      font-weight: 500;
+      background: rgba(196, 149, 106, 0.04);
+    }
+
+    .fin-table .total td {
+      border-top: 2px solid var(--border-accent);
+      border-bottom: 2px solid var(--border-accent);
+      font-weight: 600;
+      font-size: 1.05rem;
+      background: var(--bg-card);
+    }
+
+    .fin-table .net-income td {
+      border-top: 2px solid var(--accent);
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--accent);
+      background: var(--accent-dim);
+    }
+
+    .fin-table .verify td {
+      border-top: 1px solid var(--border-accent);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      background: rgba(196, 149, 106, 0.04);
+      font-style: italic;
+    }
+
+    .acct-code {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      color: var(--text-dim);
+      margin-left: 0.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .line-indent {
+      padding-left: 2.5rem !important;
+    }
+
+    .placeholder {
+      color: var(--text-dim);
+      font-style: italic;
+    }
+
+    /* ---- Cash Balance Cards ---- */
+    .cash-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .cash-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 1.25rem 1.5rem;
+      border-radius: 2px;
+    }
+
+    .cash-card-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 0.4rem;
+    }
+
+    .cash-card-code {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6rem;
+      color: var(--accent);
+      opacity: 0.7;
+      margin-bottom: 0.5rem;
+    }
+
+    .cash-card-value {
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--placeholder-color, var(--text-dim));
+      font-style: italic;
+    }
+
+    /* ---- Action Items Table ---- */
+    .status-badge {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+
+    .status-signed {
+      background: rgba(106, 158, 122, 0.15);
+      color: var(--positive);
+      border: 1px solid rgba(106, 158, 122, 0.3);
+    }
+
+    .status-pending {
+      background: rgba(196, 149, 106, 0.1);
+      color: var(--accent);
+      border: 1px solid var(--border-accent);
+    }
+
+    .status-invoiced {
+      background: rgba(232, 228, 223, 0.05);
+      color: var(--text-dim);
+      border: 1px solid var(--border);
+    }
+
+    .status-tbd {
+      background: transparent;
+      color: var(--text-dim);
+      border: 1px solid var(--border);
+    }
+
+    .aging-high {
+      color: var(--negative);
+      font-weight: 500;
+    }
+
+    .aging-mid {
+      color: var(--accent);
+    }
+
+    .aging-low {
+      color: var(--text-dim);
+    }
+
+    .action-table td {
+      text-align: left !important;
+      vertical-align: top;
+    }
+
+    .action-table .col-amount {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+
+    .action-table .col-aging {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      text-align: center !important;
+    }
+
+    .action-table .col-status {
+      text-align: center !important;
+    }
+
+    .action-note {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      font-style: italic;
+      display: block;
+      margin-top: 0.15rem;
+    }
+
+    /* ---- Footnotes ---- */
+    .footnotes {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .footnotes-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 1rem;
+    }
+
+    .footnote {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 0.7rem;
+      font-size: 0.88rem;
+      color: var(--text-dim);
+    }
+
+    .footnote-num {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      color: var(--accent);
+      flex-shrink: 0;
+      padding-top: 0.1rem;
+    }
+
+    .footnote a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border-accent);
+    }
+
+    .footnote a:hover {
+      border-bottom-color: var(--accent);
+    }
+
+    /* ---- Footer ---- */
+    .doc-footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: gap;
+      gap: 1rem;
+    }
+
+    .doc-footer-left {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      letter-spacing: 0.04em;
+    }
+
+    .doc-footer-right {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      text-align: right;
+    }
+
+    .habitat-mark {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* ---- Balance Sheet ---- */
+    .bs-section-label td {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      padding-top: 1.2rem !important;
+      padding-bottom: 0.3rem !important;
+      border-bottom: none !important;
+      background: transparent !important;
+    }
+
+    /* ---- Print ---- */
+    @media print {
+      :root {
+        --bg: #ffffff;
+        --bg-card: #f5f5f5;
+        --bg-row: #fafafa;
+        --text: #1a1a1a;
+        --text-dim: #555555;
+        --accent: #8b5e3c;
+        --accent-dim: rgba(139, 94, 60, 0.08);
+        --border: rgba(0, 0, 0, 0.12);
+        --border-accent: rgba(139, 94, 60, 0.3);
+        --positive: #2d6b40;
+        --negative: #8b2d2d;
+      }
+
+      body {
+        max-width: 100%;
+        padding: 1.5cm 2cm;
+        font-size: 10pt;
+      }
+
+      .context-block {
+        break-inside: avoid;
+      }
+
+      .section {
+        break-inside: avoid;
+      }
+
+      .fin-table {
+        font-size: 9pt;
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 1.5rem 1rem 4rem;
+      }
+
+      .doc-title {
+        font-size: 1.8rem;
+      }
+
+      .cash-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .fin-table th,
+      .fin-table td {
+        padding: 0.45rem 0.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Document Header -->
+  <header class="doc-header">
+    <div class="doc-meta">RegenHub, LCA &mdash; Habitat Open Accounting &mdash; W1 Series</div>
+    <h1 class="doc-title">April 2026 Financial Package</h1>
+    <p class="doc-subtitle">Week One Report &mdash; March 2026 Close</p>
+    <div class="doc-date-row">
+      <div class="doc-date-item">
+        <span class="doc-date-label">Report Period</span>
+        <span class="doc-date-value">March 1 &ndash; March 31, 2026</span>
+      </div>
+      <div class="doc-date-item">
+        <span class="doc-date-label">Issued</span>
+        <span class="doc-date-value">March 30, 2026</span>
+      </div>
+      <div class="doc-date-item">
+        <span class="doc-date-label">Prepared by</span>
+        <span class="doc-date-value">Todd Youngblood, Operations Steward</span>
+      </div>
+      <div class="doc-date-item">
+        <span class="doc-date-label">Document</span>
+        <span class="doc-date-value">W1-2026-04</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Context Block -->
+  <div class="context-block">
+    <p>This is the first W1 financial package issued under the <strong>Habitat open accounting standard</strong> &mdash; the inaugural instantiation of the patronage accounting system against live cooperative operations at RegenHub, LCA. Every subsequent W1 package will follow this structure, building a longitudinal record of the cooperative&rsquo;s economic life.</p>
+
+    <p>The Habitat system frames financial documents not as static reports but as <em>views</em> &mdash; legibility layers projected over a shared event ledger. The underlying grammar is REA (Resource, Event, Agent), where every economic exchange is an event that transforms resource balances between agents. This document is the current approximation: familiar financial structure now, REA-native views as the tooling matures.</p>
+
+    <p>Patronage allocation &mdash; the cooperative&rsquo;s mechanism for distributing economic benefit to members in proportion to contribution &mdash; follows a proposed four-factor formula: <strong>40% labor</strong> (hours and guaranteed payments), <strong>30% revenue</strong> (deals originated or managed), <strong>20% cash</strong> (capital contributed and at risk), <strong>10% community</strong> (governance participation, knowledge sharing). Weights are proposed; the Financial Systems Committee (FSC) retains authority to finalize.<sup>2</sup></p>
+
+    <p>Infrastructure services within the cooperative are denominated in <strong>$CLOUD credits</strong>, redeemable against four resource primitives:</p>
+    <div class="primitives">
+      <span>Compute</span>
+      <span>Transfer</span>
+      <span>Long-term Memory</span>
+      <span>Short-term Memory</span>
+    </div>
+  </div>
+
+  <!-- Section I: Monthly Reconciliation -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-number">I</span>
+      <h2 class="section-title">Monthly Reconciliation</h2>
+      <span class="section-period">March 2026 &mdash; Cash Basis</span>
+    </div>
+
+    <!-- Cash Position Cards -->
+    <div class="cash-cards">
+      <div class="cash-card">
+        <div class="cash-card-label">Operating Checking</div>
+        <div class="cash-card-code">1110 &mdash; Mercury</div>
+        <div class="cash-card-value">&mdash;</div>
+      </div>
+      <div class="cash-card">
+        <div class="cash-card-label">Crypto Holdings</div>
+        <div class="cash-card-code">1120 &mdash; Multisig</div>
+        <div class="cash-card-value">&mdash;</div>
+      </div>
+      <div class="cash-card">
+        <div class="cash-card-label">Streaming Tokens</div>
+        <div class="cash-card-code">1130 &mdash; $CLOUD / $OP</div>
+        <div class="cash-card-value">&mdash;</div>
+      </div>
+      <div class="cash-card">
+        <div class="cash-card-label">Total Cash &amp; Equivalents</div>
+        <div class="cash-card-code">1100</div>
+        <div class="cash-card-value">&mdash;</div>
+      </div>
+    </div>
+
+    <!-- Reconciliation Table -->
+    <table class="fin-table">
+      <thead>
+        <tr>
+          <th style="width:45%">Account</th>
+          <th>February 2026</th>
+          <th>March 2026</th>
+          <th>Change</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Revenue Group -->
+        <tr class="group-header">
+          <td colspan="4">Revenue &mdash; Cash Received</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Memberships<span class="acct-code">4110</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Day Passes<span class="acct-code">4120</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Event Rental<span class="acct-code">4130</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Service Revenue<span class="acct-code">4200</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Venture Revenue<span class="acct-code">4300</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Streaming / Staking<span class="acct-code">4510&ndash;4520</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Grant Income<span class="acct-code">4930</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Other Income<span class="acct-code">4990</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr class="subtotal">
+          <td><strong>Total Cash In</strong></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+
+        <!-- Expense Group -->
+        <tr class="group-header">
+          <td colspan="4">Expenses &mdash; Cash Disbursed</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Rent<span class="acct-code">5110</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Utilities<span class="acct-code">5120</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Internet<span class="acct-code">5130</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Guaranteed Payments<span class="acct-code">5210</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Contractors<span class="acct-code">5220</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Operations<span class="acct-code">5300</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Professional Services<span class="acct-code">5400</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Infrastructure<span class="acct-code">5500</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr class="subtotal">
+          <td><strong>Total Cash Out</strong></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+
+        <!-- Net -->
+        <tr class="total">
+          <td><strong>Net Cash Movement</strong></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Section II: Income Statement -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-number">II</span>
+      <h2 class="section-title">Income Statement</h2>
+      <span class="section-period">Q1 2026 / March Standalone &mdash; Accrual Basis</span>
+    </div>
+
+    <table class="fin-table">
+      <thead>
+        <tr>
+          <th style="width:45%">Account</th>
+          <th>March 2026</th>
+          <th>Q1 2026</th>
+          <th>Q1 Budget</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Revenue -->
+        <tr class="group-header">
+          <td colspan="4">Revenue</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Memberships<span class="acct-code">4110</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Day Passes<span class="acct-code">4120</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Event Rental<span class="acct-code">4130</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Hot Desk Memberships<span class="acct-code">4115</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Service Revenue<span class="acct-code">4200</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Venture Revenue<span class="acct-code">4300</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Digital Asset Income &mdash; Streaming<span class="acct-code">4510</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Digital Asset Income &mdash; Staking<span class="acct-code">4520</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Grant Income<span class="acct-code">4930</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Other Income<span class="acct-code">4990</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr class="subtotal">
+          <td><strong>Total Revenue</strong></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+
+        <!-- Expenses -->
+        <tr class="group-header">
+          <td colspan="4">Expenses</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Rent<span class="acct-code">5110</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Utilities<span class="acct-code">5120</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Internet &amp; Telecom<span class="acct-code">5130</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Guaranteed Payments to Members<span class="acct-code">5210</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Contractor Payments<span class="acct-code">5220</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Operations &amp; Supplies<span class="acct-code">5310</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Makerspace Equipment<span class="acct-code">5320</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Marketing &amp; Events<span class="acct-code">5330</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Legal &amp; Compliance<span class="acct-code">5410</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Accounting &amp; Audit<span class="acct-code">5420</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Software &amp; Subscriptions<span class="acct-code">5510</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Compute &amp; Hosting<span class="acct-code">5520</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr class="subtotal">
+          <td><strong>Total Expenses</strong></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+
+        <!-- Net Income -->
+        <tr class="net-income">
+          <td><strong>Net Income &mdash; Available for Patronage Allocation</strong></td>
+          <td>&mdash;</td>
+          <td>&mdash;</td>
+          <td>&mdash;</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Section III: Balance Sheet -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-number">III</span>
+      <h2 class="section-title">Balance Sheet</h2>
+      <span class="section-period">As of March 31, 2026</span>
+    </div>
+
+    <table class="fin-table">
+      <thead>
+        <tr>
+          <th style="width:55%">Account</th>
+          <th>March 31, 2026</th>
+          <th>Dec 31, 2025</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Assets -->
+        <tr class="bs-section-label">
+          <td colspan="3">Assets</td>
+        </tr>
+        <tr class="group-header">
+          <td colspan="3">Current Assets</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Operating Checking &mdash; Mercury<span class="acct-code">1110</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Multisig Treasury (Optimism)<span class="acct-code">1120</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Crypto Holdings (other)<span class="acct-code">1125</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Streaming Token Balance<span class="acct-code">1130</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Accounts Receivable<span class="acct-code">1210</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Member Reimbursements Receivable<span class="acct-code">1220</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Prepaid Expenses &mdash; Lease Deposits<span class="acct-code">1310</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr class="subtotal">
+          <td><strong>Total Current Assets</strong></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+
+        <tr class="group-header">
+          <td colspan="3">Fixed &amp; Digital Assets</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Equipment &amp; Fixtures<span class="acct-code">1510</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Makerspace Acquisitions (2026)<span class="acct-code">1520</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Digital Assets &mdash; Market Value<span class="acct-code">1610</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr class="subtotal">
+          <td><strong>Total Fixed &amp; Digital Assets</strong></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+
+        <tr class="total">
+          <td><strong>Total Assets</strong></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+
+        <!-- Liabilities -->
+        <tr class="bs-section-label">
+          <td colspan="3">Liabilities</td>
+        </tr>
+        <tr class="group-header">
+          <td colspan="3">Current Liabilities</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Accounts Payable<span class="acct-code">2110</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Accrued Expenses<span class="acct-code">2120</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Deferred Revenue &mdash; Prepaid Memberships<span class="acct-code">2210</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Member Reimbursements Payable<span class="acct-code">2310</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Member Obligations &mdash; Other<span class="acct-code">2320</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr class="subtotal">
+          <td><strong>Total Liabilities</strong></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+
+        <!-- Equity -->
+        <tr class="bs-section-label">
+          <td colspan="3">Members&rsquo; Equity</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Member Capital Accounts (book basis)<span class="acct-code">3100</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Committed Capital &mdash; Pending Disbursement<span class="acct-code">3110</span><sup>3</sup></td>
+          <td style="text-align:right; font-style:italic; color:var(--text-dim)">$120,000 committed</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Retained Patronage Allocations<span class="acct-code">3200</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr>
+          <td class="line-indent">Current Year Net Income<span class="acct-code">3300</span></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr class="subtotal">
+          <td><strong>Total Members&rsquo; Equity</strong></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+
+        <tr class="total">
+          <td><strong>Total Liabilities + Equity</strong></td>
+          <td class="placeholder">&mdash;</td>
+          <td class="placeholder">&mdash;</td>
+        </tr>
+        <tr class="verify">
+          <td colspan="3">Verification: Assets = Liabilities + Equity &nbsp;&mdash;&nbsp; Confirm balance before publishing</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Section IV: Action Items -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-number">IV</span>
+      <h2 class="section-title">Action Items &mdash; Outstanding Payments</h2>
+      <span class="section-period">As of March 30, 2026</span>
+    </div>
+
+    <table class="fin-table action-table">
+      <thead>
+        <tr>
+          <th style="width:16%; text-align:left">Who</th>
+          <th style="width:30%; text-align:left">What</th>
+          <th style="width:13%; text-align:left">Amount</th>
+          <th style="width:16%; text-align:center">Status</th>
+          <th style="width:10%; text-align:center">Aging</th>
+          <th style="width:15%; text-align:left">Owner</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Savannah Kruger &amp; Jon Borichevskiy</td>
+          <td>
+            Member reimbursements via Optimism multisig
+            <span class="action-note">Signed March 25; awaiting execution</span>
+          </td>
+          <td class="col-amount">~$2,063</td>
+          <td class="col-status"><span class="status-badge status-signed">Signed</span></td>
+          <td class="col-aging"><span class="aging-mid">5</span></td>
+          <td>Jon B.</td>
+        </tr>
+        <tr>
+          <td>West Software</td>
+          <td>
+            February rent payment
+            <span class="action-note">Jon confirmed handling</span>
+          </td>
+          <td class="col-amount">&mdash;</td>
+          <td class="col-status"><span class="status-badge status-pending">In Progress</span></td>
+          <td class="col-aging"><span class="aging-high">28+</span></td>
+          <td>Jon B.</td>
+        </tr>
+        <tr>
+          <td>Todd Youngblood</td>
+          <td>
+            Operations retainer &mdash; Invoice #3
+            <span class="action-note">Issued March 30, 2026</span>
+          </td>
+          <td class="col-amount">$1,330</td>
+          <td class="col-status"><span class="status-badge status-invoiced">Invoiced</span></td>
+          <td class="col-aging"><span class="aging-low">0</span></td>
+          <td>Todd Y.</td>
+        </tr>
+        <tr>
+          <td>Gitcoin Contributors</td>
+          <td>
+            Contributor invoices &mdash; multiple
+            <span class="action-note">Deadline March 30; collect and batch</span>
+          </td>
+          <td class="col-amount">&mdash;</td>
+          <td class="col-status"><span class="status-badge status-pending">Due Today</span></td>
+          <td class="col-aging"><span class="aging-high">0</span></td>
+          <td>Kevin O.</td>
+        </tr>
+        <tr>
+          <td>Michael (Hot Desk)</td>
+          <td>
+            Hot desk subsidy
+            <span class="action-note">Terms confirmed; amount TBD</span>
+          </td>
+          <td class="col-amount">TBD</td>
+          <td class="col-status"><span class="status-badge status-tbd">Terms Set</span></td>
+          <td class="col-aging"><span class="aging-low">&mdash;</span></td>
+          <td>Jon B.</td>
+        </tr>
+        <tr>
+          <td>Patrick McHeyser</td>
+          <td>
+            5-pack membership
+            <span class="action-note">Jon invoicing</span>
+          </td>
+          <td class="col-amount">&mdash;</td>
+          <td class="col-status"><span class="status-badge status-invoiced">Invoicing</span></td>
+          <td class="col-aging"><span class="aging-low">&mdash;</span></td>
+          <td>Jon B.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Footnotes -->
+  <div class="footnotes">
+    <div class="footnotes-title">Notes</div>
+    <div class="footnote">
+      <span class="footnote-num">1</span>
+      <span>Chart of accounts follows the Habitat standard 1000&ndash;5999 series. Full specification: <a href="https://github.com/nou-techne/nou-techne/blob/main/docs/accounting/chart-of-accounts.md">nou-techne / docs / accounting / chart-of-accounts.md</a></span>
+    </div>
+    <div class="footnote">
+      <span class="footnote-num">2</span>
+      <span>Patronage formula weights (40% labor / 30% revenue / 20% cash / 10% community) are <em>proposed</em>. The Financial Systems Committee (FSC) retains authority to revise before the first allocation event.</span>
+    </div>
+    <div class="footnote">
+      <span class="footnote-num">3</span>
+      <span>Committed capital: Kevin Owocki ($50k), Jeremy (name TBC, $50k confirmed), plus $20k other &mdash; totaling $120k. Capital is committed; disbursement terms and timing vary by commitment. Not yet reflected in operating cash figures. Shown as a memo item pending formal capital account treatment.</span>
+    </div>
+    <div class="footnote">
+      <span class="footnote-num">4</span>
+      <span>EF (Ethereum Foundation) grant of $20&ndash;25k is under consideration. Not included in any figures in this package. Will appear in the W1 package for the month of receipt upon confirmation.</span>
+    </div>
+    <div class="footnote">
+      <span class="footnote-num">5</span>
+      <span>Revenue context: current MRR is approximately $5,000. Cooperative target is $10,000&ndash;$11,000 MRR by June 2027. The income statement structure in Section II is designed to make the path from current run rate to target legible at each monthly close.</span>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="doc-footer">
+    <div class="doc-footer-left">
+      <span class="habitat-mark">Habitat</span> Open Accounting Standard &mdash; W1-2026-04<br>
+      RegenHub, LCA &mdash; 1515 Walnut St, Boulder, CO
+    </div>
+    <div class="doc-footer-right">
+      All values are placeholders pending Todd&rsquo;s entry from Mercury / Xero.<br>
+      Structure is the deliverable. Fill actuals by W1 close.
+    </div>
+  </footer>
+
+</body>
+</html>
