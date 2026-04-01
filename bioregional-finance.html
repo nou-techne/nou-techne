@@ -1139,7 +1139,7 @@
         }
       }
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.1, rootMargin: '-40% 0px -40% 0px' });
 
   slides.forEach(s => observer.observe(s));
 
