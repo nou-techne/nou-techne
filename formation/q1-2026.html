@@ -4,221 +4,152 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Q1 2026 Close Report — RegenHub, LCA</title>
-<meta name="description" content="First quarterly close report for RegenHub, LCA (DBA Techne). Formation quarter: January 1 – March 31, 2026. Merkle-sealed open accounting.">
+<meta name="description" content="First quarterly close report for RegenHub, LCA (DBA Techne). Formation quarter: January 1 – March 31, 2026.">
 <meta property="og:title" content="Q1 2026 Close Report — RegenHub, LCA">
-<meta property="og:description" content="Formation quarter. Merkle-sealed open accounting for a Colorado Public Benefit LCA.">
-<meta property="og:type" content="article">
+<meta property="og:description" content="Formation quarter. Open accounting for a Colorado Public Benefit LCA.">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+  :root{--bg:#0a0a0a;--bg-card:#141412;--bg-card-hover:#1a1a18;--bg-table-alt:#161614;--text:#e8e4df;--text-dim:#9a9590;--text-faint:#5a5550;--accent:#c4956a;--accent-dim:#8a6a4a;--accent-bright:#d4a57a;--green:#6a9a6a;--green-dim:#4a7a4a;--red:#c46a6a;--blue:#6a8ac4;--rule:#2a2520;--serif:'EB Garamond','Georgia',serif;--sans:'Inter',-apple-system,sans-serif;--mono:'JetBrains Mono',monospace}
+  *{margin:0;padding:0;box-sizing:border-box}html{font-size:17px;scroll-behavior:smooth;background:var(--bg)}body{font-family:var(--serif);color:var(--text);background:var(--bg);line-height:1.7;-webkit-font-smoothing:antialiased}
+  .container{max-width:900px;margin:0 auto;padding:0 2rem}
+  .hero{min-height:50vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:4rem 2rem;text-align:center;position:relative}
+  .hero::after{content:'';position:absolute;bottom:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--accent-dim),transparent)}
+  .hero .ql{font-family:var(--mono);font-size:0.8rem;letter-spacing:0.2em;color:var(--accent);text-transform:uppercase;margin-bottom:1.5rem}
+  .hero h1{font-family:var(--serif);font-size:2.4rem;font-weight:500;color:var(--text);margin-bottom:0.5rem}
+  .hero .sub{font-family:var(--serif);font-size:1.2rem;font-style:italic;color:var(--text-dim);margin-bottom:2rem}
+  .hero .meta{font-family:var(--sans);font-size:0.75rem;color:var(--text-faint);letter-spacing:0.05em}
+  .hero .meta span{margin:0 0.75rem}
+  .hero .seal{margin-top:1.5rem;font-family:var(--mono);font-size:0.65rem;color:var(--text-faint);padding:0.5rem 1rem;border:1px solid var(--rule);border-radius:4px;display:inline-block}
+  .hero .seal .hash{color:var(--accent)}
 
-  :root {
-    --bg: #0a0a0a;
-    --bg-card: #141412;
-    --bg-card-hover: #1a1a18;
-    --bg-table-alt: #161614;
-    --text: #e8e4df;
-    --text-dim: #9a9590;
-    --text-faint: #5a5550;
-    --accent: #c4956a;
-    --accent-dim: #8a6a4a;
-    --accent-bright: #d4a57a;
-    --green: #6a9a6a;
-    --green-dim: #4a7a4a;
-    --red: #c46a6a;
-    --blue: #6a8ac4;
-    --rule: #2a2520;
-    --serif: 'EB Garamond', 'Georgia', serif;
-    --sans: 'Inter', -apple-system, sans-serif;
-    --mono: 'JetBrains Mono', monospace;
-  }
+  /* Deliverables nav */
+  .deliverables{padding:2.5rem 0;border-bottom:1px solid var(--rule)}
+  .deliverables h3{font-family:var(--sans);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--text-faint);margin-bottom:1rem}
+  .del-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0.75rem}
+  .del-card{background:var(--bg-card);border:1px solid var(--rule);border-radius:8px;padding:1rem 1.25rem;text-decoration:none;transition:border-color 0.2s}
+  .del-card:hover{border-color:var(--accent-dim)}
+  .del-card .del-num{font-family:var(--mono);font-size:0.7rem;color:var(--accent);display:block;margin-bottom:0.25rem}
+  .del-card .del-title{font-family:var(--serif);font-size:0.95rem;color:var(--text);display:block}
+  .del-card .del-desc{font-family:var(--sans);font-size:0.7rem;color:var(--text-faint);display:block;margin-top:0.25rem}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { font-size: 17px; scroll-behavior: smooth; background: var(--bg); }
-  body { font-family: var(--serif); color: var(--text); background: var(--bg); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .summary-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;padding:2.5rem 0 1.5rem}
+  .summary-card{background:var(--bg-card);border:1px solid var(--rule);border-radius:8px;padding:1.25rem;text-align:center}
+  .summary-card .value{font-family:var(--mono);font-size:1.5rem;font-weight:500;color:var(--accent-bright);display:block;margin-bottom:0.25rem}
+  .summary-card .label{font-family:var(--sans);font-size:0.7rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.1em}
 
-  .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+  section{padding:3rem 0;border-top:1px solid var(--rule)}
+  h2{font-family:var(--serif);font-size:1.6rem;font-weight:500;color:var(--text);margin-bottom:0.25rem}
+  h2 .n{font-family:var(--mono);font-size:0.8rem;color:var(--accent);margin-right:0.5rem}
+  .ss{font-family:var(--sans);font-size:0.75rem;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:2rem}
+  h3{font-family:var(--serif);font-size:1.15rem;font-weight:600;color:var(--text);margin:2rem 0 0.75rem}
+  p{margin-bottom:1rem;color:var(--text-dim)}
+  p.lead{font-size:1.1rem;color:var(--text);font-style:italic}
 
-  /* Hero */
-  .hero {
-    min-height: 55vh; display: flex; flex-direction: column; justify-content: center;
-    align-items: center; padding: 4rem 2rem; text-align: center; position: relative;
-  }
-  .hero::after { content: ''; position: absolute; bottom: 0; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, var(--accent-dim), transparent); }
-  .hero .quarter-label { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.2em; color: var(--accent); text-transform: uppercase; margin-bottom: 1.5rem; }
-  .hero h1 { font-family: var(--serif); font-size: 2.4rem; font-weight: 500; color: var(--text); margin-bottom: 0.5rem; }
-  .hero .subtitle { font-family: var(--serif); font-size: 1.2rem; font-style: italic; color: var(--text-dim); margin-bottom: 2rem; }
-  .hero .meta { font-family: var(--sans); font-size: 0.75rem; color: var(--text-faint); letter-spacing: 0.05em; }
-  .hero .meta span { margin: 0 0.75rem; }
-  .hero .seal { margin-top: 1.5rem; font-family: var(--mono); font-size: 0.65rem; color: var(--text-faint); padding: 0.5rem 1rem; border: 1px solid var(--rule); border-radius: 4px; display: inline-block; }
-  .hero .seal .hash { color: var(--accent); }
+  table{width:100%;border-collapse:collapse;margin:1rem 0 1.5rem;font-size:0.9rem}
+  thead th{font-family:var(--sans);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-faint);text-align:left;padding:0.5rem 0.75rem;border-bottom:1px solid var(--rule)}
+  thead th.num{text-align:right}
+  tbody td{padding:0.6rem 0.75rem;border-bottom:1px solid rgba(42,37,32,0.5);color:var(--text-dim)}
+  tbody td.num{text-align:right;font-family:var(--mono);font-size:0.85rem}
+  tbody td.name{color:var(--text)}
+  tbody tr:nth-child(even){background:var(--bg-table-alt)}
+  tbody tr:hover{background:var(--bg-card-hover)}
+  tfoot td{padding:0.75rem;border-top:2px solid var(--accent-dim);font-weight:600;color:var(--text)}
+  tfoot td.num{font-family:var(--mono);color:var(--accent-bright)}
 
-  /* Summary Cards */
-  .summary-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; padding: 3rem 0 2rem; }
-  .summary-card { background: var(--bg-card); border: 1px solid var(--rule); border-radius: 8px; padding: 1.25rem; text-align: center; }
-  .summary-card .value { font-family: var(--mono); font-size: 1.5rem; font-weight: 500; color: var(--accent-bright); display: block; margin-bottom: 0.25rem; }
-  .summary-card .label { font-family: var(--sans); font-size: 0.7rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.1em; }
+  .bar-chart{margin:1.5rem 0}.bar-row{display:flex;align-items:center;margin-bottom:0.5rem}
+  .bar-label{font-family:var(--sans);font-size:0.75rem;color:var(--text-dim);width:140px;flex-shrink:0;text-align:right;padding-right:1rem}
+  .bar-track{flex:1;height:24px;background:var(--bg-card);border-radius:4px;overflow:hidden}
+  .bar-fill{height:100%;border-radius:4px;transition:width 0.6s ease;background:linear-gradient(90deg,var(--accent-dim),var(--accent))}
+  .bar-fill.green{background:linear-gradient(90deg,var(--green-dim),var(--green))}
+  .bar-fill.blue{background:linear-gradient(90deg,#4a6a9a,var(--blue))}
+  .bar-fill.red{background:linear-gradient(90deg,#9a4a4a,var(--red))}
+  .bar-value{font-family:var(--mono);font-size:0.7rem;color:var(--text-dim);margin-left:0.75rem;width:80px;flex-shrink:0}
 
-  /* Sections */
-  section { padding: 3rem 0; border-top: 1px solid var(--rule); }
-  h2 { font-family: var(--serif); font-size: 1.6rem; font-weight: 500; color: var(--text); margin-bottom: 0.25rem; }
-  h2 .n { font-family: var(--mono); font-size: 0.8rem; color: var(--accent); margin-right: 0.5rem; }
-  .ss { font-family: var(--sans); font-size: 0.75rem; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 2rem; }
-  h3 { font-family: var(--serif); font-size: 1.15rem; font-weight: 600; color: var(--text); margin: 2rem 0 0.75rem; }
-  p { margin-bottom: 1rem; color: var(--text-dim); }
-  p.lead { font-size: 1.1rem; color: var(--text); font-style: italic; }
+  .comp-row{display:flex;align-items:center;margin-bottom:0.75rem;padding:0.75rem 1rem;background:var(--bg-card);border-radius:6px;border-left:3px solid var(--rule)}
+  .comp-row.negative{border-left-color:var(--red)}.comp-row.positive{border-left-color:var(--green)}
+  .comp-label{flex:1;font-family:var(--sans);font-size:0.8rem;color:var(--text-dim)}
+  .comp-projected{font-family:var(--mono);font-size:0.85rem;color:var(--text-faint);width:90px;text-align:right}
+  .comp-actual{font-family:var(--mono);font-size:0.85rem;color:var(--text);width:90px;text-align:right}
+  .comp-delta{font-family:var(--mono);font-size:0.75rem;width:80px;text-align:right}
+  .comp-delta.neg{color:var(--red)}
 
-  /* Tables */
-  table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.9rem; }
-  thead th { font-family: var(--sans); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-faint); text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--rule); }
-  thead th.num { text-align: right; }
-  tbody td { padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(42,37,32,0.5); color: var(--text-dim); }
-  tbody td.num { text-align: right; font-family: var(--mono); font-size: 0.85rem; }
-  tbody td.name { color: var(--text); }
-  tbody tr:nth-child(even) { background: var(--bg-table-alt); }
-  tbody tr:hover { background: var(--bg-card-hover); }
-  tfoot td { padding: 0.75rem; border-top: 2px solid var(--accent-dim); font-weight: 600; color: var(--text); }
-  tfoot td.num { font-family: var(--mono); color: var(--accent-bright); }
+  .entity-card{background:var(--bg-card);border:1px solid var(--rule);border-radius:8px;padding:1.5rem;margin:1.5rem 0}
+  .entity-row{display:flex;padding:0.4rem 0;border-bottom:1px solid rgba(42,37,32,0.3)}
+  .entity-row:last-child{border-bottom:none}
+  .entity-key{font-family:var(--sans);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-faint);width:160px;flex-shrink:0;padding-top:0.15rem}
+  .entity-value{font-size:0.95rem;color:var(--text)}
+  .status{display:inline-block;padding:0.1rem 0.5rem;border-radius:3px;font-family:var(--sans);font-size:0.7rem;background:rgba(106,154,106,0.15);color:var(--green);border:1px solid rgba(106,154,106,0.3)}
 
-  /* Bar Charts */
-  .bar-chart { margin: 1.5rem 0; }
-  .bar-row { display: flex; align-items: center; margin-bottom: 0.5rem; }
-  .bar-label { font-family: var(--sans); font-size: 0.75rem; color: var(--text-dim); width: 140px; flex-shrink: 0; text-align: right; padding-right: 1rem; }
-  .bar-track { flex: 1; height: 24px; background: var(--bg-card); border-radius: 4px; overflow: hidden; }
-  .bar-fill { height: 100%; border-radius: 4px; transition: width 0.6s ease; background: linear-gradient(90deg, var(--accent-dim), var(--accent)); }
-  .bar-fill.green { background: linear-gradient(90deg, var(--green-dim), var(--green)); }
-  .bar-fill.blue { background: linear-gradient(90deg, #4a6a9a, var(--blue)); }
-  .bar-fill.red { background: linear-gradient(90deg, #9a4a4a, var(--red)); }
-  .bar-value { font-family: var(--mono); font-size: 0.7rem; color: var(--text-dim); margin-left: 0.75rem; width: 70px; flex-shrink: 0; }
+  .accounts-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin:1.5rem 0}
+  .account-card{background:var(--bg-card);border:1px solid var(--rule);border-radius:8px;padding:1.25rem}
+  .account-card .acct-name{font-family:var(--sans);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-faint);margin-bottom:0.5rem}
+  .account-card .acct-balance{font-family:var(--mono);font-size:1.4rem;color:var(--accent-bright)}
+  .account-card .acct-detail{font-family:var(--mono);font-size:0.7rem;color:var(--text-faint);margin-top:0.25rem;word-break:break-all}
 
-  /* Comparison rows */
-  .comp-row { display: flex; align-items: center; margin-bottom: 0.75rem; padding: 0.75rem 1rem; background: var(--bg-card); border-radius: 6px; border-left: 3px solid var(--rule); }
-  .comp-row.negative { border-left-color: var(--red); }
-  .comp-label { flex: 1; font-family: var(--sans); font-size: 0.8rem; color: var(--text-dim); }
-  .comp-projected { font-family: var(--mono); font-size: 0.85rem; color: var(--text-faint); width: 90px; text-align: right; }
-  .comp-actual { font-family: var(--mono); font-size: 0.85rem; color: var(--text); width: 90px; text-align: right; }
-  .comp-delta { font-family: var(--mono); font-size: 0.75rem; width: 80px; text-align: right; }
-  .comp-delta.neg { color: var(--red); }
+  .tx-item{display:flex;align-items:center;padding:0.5rem 0.75rem;border-bottom:1px solid rgba(42,37,32,0.3);font-size:0.85rem}
+  .tx-item:hover{background:var(--bg-card)}
+  .tx-date{font-family:var(--mono);font-size:0.75rem;color:var(--text-faint);width:70px;flex-shrink:0}
+  .tx-name{flex:1;color:var(--text-dim)}
+  .tx-chain{font-family:var(--mono);font-size:0.65rem;text-transform:uppercase;letter-spacing:0.05em;padding:0.1rem 0.4rem;border-radius:3px;margin:0 0.5rem;flex-shrink:0}
+  .tx-chain.op{background:rgba(255,4,32,0.1);color:#ff6b6b}
+  .tx-chain.eth{background:rgba(98,126,234,0.1);color:#8a9ae4}
+  .tx-chain.splits{background:rgba(106,154,106,0.1);color:var(--green)}
+  .tx-amount{font-family:var(--mono);font-size:0.85rem;width:90px;text-align:right;flex-shrink:0}
+  .tx-amount.inflow{color:var(--green)}
+  .tx-amount.outflow{color:var(--red)}
+  .tx-hash{font-family:var(--mono);font-size:0.6rem;color:var(--text-faint);width:90px;text-align:right;flex-shrink:0;opacity:0.6}
+  .month-header{font-family:var(--sans);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--accent);padding:0.75rem 0.75rem 0.25rem;margin-top:0.5rem}
 
-  /* Entity card */
-  .entity-card { background: var(--bg-card); border: 1px solid var(--rule); border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
-  .entity-row { display: flex; padding: 0.4rem 0; border-bottom: 1px solid rgba(42,37,32,0.3); }
-  .entity-row:last-child { border-bottom: none; }
-  .entity-key { font-family: var(--sans); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-faint); width: 160px; flex-shrink: 0; padding-top: 0.15rem; }
-  .entity-value { font-size: 0.95rem; color: var(--text); }
-  .status { display: inline-block; padding: 0.1rem 0.5rem; border-radius: 3px; font-family: var(--sans); font-size: 0.7rem; background: rgba(106,154,106,0.15); color: var(--green); border: 1px solid rgba(106,154,106,0.3); }
+  details{margin:1rem 0}summary{font-family:var(--sans);font-size:0.8rem;color:var(--accent);cursor:pointer;padding:0.5rem 0}summary:hover{color:var(--accent-bright)}details[open] summary{margin-bottom:0.75rem}
 
-  /* Transaction list */
-  .tx-item { display: flex; align-items: center; padding: 0.5rem 0.75rem; border-bottom: 1px solid rgba(42,37,32,0.3); font-size: 0.85rem; }
-  .tx-item:hover { background: var(--bg-card); }
-  .tx-date { font-family: var(--mono); font-size: 0.75rem; color: var(--text-faint); width: 70px; flex-shrink: 0; }
-  .tx-name { flex: 1; color: var(--text-dim); }
-  .tx-chain { font-family: var(--mono); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.1rem 0.4rem; border-radius: 3px; margin: 0 0.5rem; flex-shrink: 0; }
-  .tx-chain.optimism { background: rgba(255,4,32,0.1); color: #ff6b6b; }
-  .tx-chain.ethereum { background: rgba(98,126,234,0.1); color: #8a9ae4; }
-  .tx-chain.splits { background: rgba(106,154,106,0.1); color: var(--green); }
-  .tx-chain.manual { background: rgba(154,149,144,0.1); color: var(--text-faint); }
-  .tx-amount { font-family: var(--mono); font-size: 0.85rem; color: var(--green); width: 80px; text-align: right; flex-shrink: 0; }
-  .tx-hash { font-family: var(--mono); font-size: 0.6rem; color: var(--text-faint); width: 90px; text-align: right; flex-shrink: 0; opacity: 0.6; }
-  .month-header { font-family: var(--sans); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); padding: 0.75rem 0.75rem 0.25rem; margin-top: 0.5rem; }
+  .tag{display:inline-block;font-family:var(--sans);font-size:0.65rem;padding:0.1rem 0.5rem;border-radius:3px;letter-spacing:0.05em;text-transform:uppercase}
+  .tag.open{background:rgba(196,149,106,0.15);color:var(--accent);border:1px solid rgba(196,149,106,0.3)}
+  .tag.done{background:rgba(106,154,106,0.15);color:var(--green);border:1px solid rgba(106,154,106,0.3)}
+  .tag.blocker{background:rgba(196,106,106,0.15);color:var(--red);border:1px solid rgba(196,106,106,0.3)}
 
-  /* Accounts row */
-  .accounts-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
-  .account-card { background: var(--bg-card); border: 1px solid var(--rule); border-radius: 8px; padding: 1.25rem; }
-  .account-card .acct-name { font-family: var(--sans); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-faint); margin-bottom: 0.5rem; }
-  .account-card .acct-balance { font-family: var(--mono); font-size: 1.4rem; color: var(--accent-bright); }
-  .account-card .acct-detail { font-family: var(--mono); font-size: 0.7rem; color: var(--text-faint); margin-top: 0.25rem; word-break: break-all; }
+  .open-item{padding:0.75rem 1rem;margin-bottom:0.5rem;background:var(--bg-card);border-radius:6px;display:flex;align-items:flex-start;gap:0.75rem}
+  .open-item .content{flex:1}.open-item .item-title{font-size:0.9rem;color:var(--text)}.open-item .item-desc{font-size:0.8rem;color:var(--text-faint);margin-top:0.15rem}
 
-  /* Expandable */
-  details { margin: 1rem 0; }
-  summary { font-family: var(--sans); font-size: 0.8rem; color: var(--accent); cursor: pointer; padding: 0.5rem 0; }
-  summary:hover { color: var(--accent-bright); }
-  details[open] summary { margin-bottom: 0.75rem; }
+  .merkle-node{background:var(--bg-card);border:1px solid var(--rule);border-radius:8px;padding:1rem 1.25rem;margin-bottom:0.75rem}
+  .merkle-node.root{border-color:var(--accent-dim);border-width:2px}
+  .merkle-node.chain{border-color:var(--green);border-width:2px;background:rgba(106,154,106,0.05)}
+  .merkle-label{font-family:var(--sans);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-faint);margin-bottom:0.25rem}
+  .merkle-hash{font-family:var(--mono);font-size:0.75rem;color:var(--accent);word-break:break-all;line-height:1.5}
+  .merkle-hash.full{font-size:0.7rem;color:var(--text-dim)}
+  .merkle-meta{font-family:var(--sans);font-size:0.75rem;color:var(--text-dim);margin-top:0.25rem}
+  .merkle-connector{text-align:center;color:var(--text-faint);font-size:1.2rem;margin:0.25rem 0}
+  .merkle-months{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;margin:0.5rem 0}
+  .verify-box{background:var(--bg-card);border:1px solid var(--rule);border-radius:8px;padding:1.25rem;margin:1.5rem 0}
+  .verify-box h4{font-family:var(--sans);font-size:0.8rem;color:var(--text);margin-bottom:0.75rem}
+  .verify-code{font-family:var(--mono);font-size:0.7rem;color:var(--text-dim);background:rgba(0,0,0,0.3);padding:1rem;border-radius:4px;overflow-x:auto;white-space:pre;line-height:1.8}
 
-  /* Tags */
-  .tag { display: inline-block; font-family: var(--sans); font-size: 0.65rem; padding: 0.1rem 0.5rem; border-radius: 3px; letter-spacing: 0.05em; text-transform: uppercase; }
-  .tag.open { background: rgba(196,149,106,0.15); color: var(--accent); border: 1px solid rgba(196,149,106,0.3); }
-  .tag.done { background: rgba(106,154,106,0.15); color: var(--green); border: 1px solid rgba(106,154,106,0.3); }
-  .tag.blocker { background: rgba(196,106,106,0.15); color: var(--red); border: 1px solid rgba(196,106,106,0.3); }
+  nav.toc{position:fixed;right:2rem;top:50%;transform:translateY(-50%);z-index:100}
+  nav.toc a{display:block;font-family:var(--sans);font-size:0.65rem;color:var(--text-faint);text-decoration:none;padding:0.3rem 0;text-align:right;letter-spacing:0.05em;transition:color 0.2s}
+  nav.toc a:hover,nav.toc a.active{color:var(--accent)}
 
-  /* Milestones */
-  .milestone { padding: 1rem 1rem 1rem 1.5rem; margin-bottom: 0.5rem; background: var(--bg-card); border-radius: 6px; border-left: 2px solid var(--rule); }
-  .milestone .date { font-family: var(--mono); font-size: 0.7rem; color: var(--accent); display: block; margin-bottom: 0.25rem; }
-  .milestone .title { font-weight: 500; color: var(--text); font-size: 0.95rem; }
-  .milestone .desc { font-size: 0.85rem; color: var(--text-dim); margin-top: 0.25rem; }
+  footer{padding:3rem 0;text-align:center;border-top:1px solid var(--rule);margin-top:2rem}
+  footer p{font-family:var(--sans);font-size:0.75rem;color:var(--text-faint)}
+  footer a{color:var(--accent);text-decoration:none}
 
-  /* Open items */
-  .open-item { padding: 0.75rem 1rem; margin-bottom: 0.5rem; background: var(--bg-card); border-radius: 6px; display: flex; align-items: flex-start; gap: 0.75rem; }
-  .open-item .content { flex: 1; }
-  .open-item .item-title { font-size: 0.9rem; color: var(--text); }
-  .open-item .item-desc { font-size: 0.8rem; color: var(--text-faint); margin-top: 0.15rem; }
-
-  /* Merkle section */
-  .merkle-tree { margin: 2rem 0; }
-  .merkle-node { background: var(--bg-card); border: 1px solid var(--rule); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 0.75rem; }
-  .merkle-node.root { border-color: var(--accent-dim); border-width: 2px; }
-  .merkle-node.chain { border-color: var(--green); border-width: 2px; background: rgba(106,154,106,0.05); }
-  .merkle-label { font-family: var(--sans); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-faint); margin-bottom: 0.25rem; }
-  .merkle-hash { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); word-break: break-all; line-height: 1.5; }
-  .merkle-hash.full { font-size: 0.7rem; color: var(--text-dim); }
-  .merkle-meta { font-family: var(--sans); font-size: 0.75rem; color: var(--text-dim); margin-top: 0.25rem; }
-  .merkle-connector { text-align: center; color: var(--text-faint); font-size: 1.2rem; margin: 0.25rem 0; }
-  .merkle-months { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin: 0.5rem 0; }
-  .verify-box { background: var(--bg-card); border: 1px solid var(--rule); border-radius: 8px; padding: 1.25rem; margin: 1.5rem 0; }
-  .verify-box h4 { font-family: var(--sans); font-size: 0.8rem; color: var(--text); margin-bottom: 0.75rem; }
-  .verify-code { font-family: var(--mono); font-size: 0.7rem; color: var(--text-dim); background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 4px; overflow-x: auto; white-space: pre; line-height: 1.8; }
-  .verify-code .comment { color: var(--text-faint); }
-  .verify-code .string { color: var(--green); }
-  .verify-code .fn { color: var(--accent); }
-
-  /* TOC */
-  nav.toc { position: fixed; right: 2rem; top: 50%; transform: translateY(-50%); z-index: 100; }
-  nav.toc a { display: block; font-family: var(--sans); font-size: 0.65rem; color: var(--text-faint); text-decoration: none; padding: 0.3rem 0; text-align: right; letter-spacing: 0.05em; transition: color 0.2s; }
-  nav.toc a:hover, nav.toc a.active { color: var(--accent); }
-
-  footer { padding: 3rem 0; text-align: center; border-top: 1px solid var(--rule); margin-top: 2rem; }
-  footer p { font-family: var(--sans); font-size: 0.75rem; color: var(--text-faint); }
-  footer a { color: var(--accent); text-decoration: none; }
-
-  @media (max-width: 768px) {
-    html { font-size: 15px; }
-    .container { padding: 0 1.25rem; }
-    .hero h1 { font-size: 1.8rem; }
-    .summary-cards { grid-template-columns: repeat(2, 1fr); }
-    .accounts-row { grid-template-columns: 1fr; }
-    .merkle-months { grid-template-columns: 1fr; }
-    nav.toc { display: none; }
-    .bar-label { width: 100px; font-size: 0.65rem; }
-    .tx-hash { display: none; }
-    .entity-key { width: 120px; }
-  }
-
-  @media print {
-    body { background: #fff; color: #111; }
-    .hero { min-height: auto; padding: 2rem; }
-    nav.toc { display: none; }
-    .summary-card, .entity-card, .account-card, .milestone, .open-item, .merkle-node { border-color: #ccc; }
-    .summary-card .value { color: #333; }
-  }
+  @media(max-width:768px){html{font-size:15px}.container{padding:0 1.25rem}.hero h1{font-size:1.8rem}.summary-cards{grid-template-columns:repeat(2,1fr)}.accounts-row{grid-template-columns:1fr}.merkle-months{grid-template-columns:1fr}nav.toc{display:none}.bar-label{width:100px;font-size:0.65rem}.tx-hash{display:none}.entity-key{width:120px}.del-grid{grid-template-columns:1fr}}
+  @media print{body{background:#fff;color:#111}.hero{min-height:auto;padding:2rem}nav.toc{display:none}}
 </style>
 </head>
 <body>
 
-<nav class="toc" id="toc">
+<nav class="toc">
   <a href="#entity">Entity</a>
-  <a href="#treasury">Treasury</a>
+  <a href="#balance">Balance Sheet</a>
+  <a href="#income">Income</a>
+  <a href="#reconciliation">Reconciliation</a>
+  <a href="#action-items">Action Items</a>
   <a href="#merkle">Merkle Seal</a>
-  <a href="#proforma">Pro Forma</a>
-  <a href="#membership">Membership</a>
-  <a href="#sprints">Sprints</a>
-  <a href="#governance">Governance</a>
-  <a href="#infra">Infrastructure</a>
-  <a href="#open-items">Open Items</a>
 </nav>
 
 <header class="hero">
-  <div class="quarter-label">Quarterly Close Report</div>
+  <div class="ql">Quarterly Close Report</div>
   <h1>Q1 2026</h1>
-  <div class="subtitle">The Formation Quarter</div>
+  <div class="sub">The Formation Quarter</div>
   <div class="meta">
     <span>RegenHub, LCA (DBA Techne)</span>
     <span>|</span>
@@ -226,23 +157,53 @@
     <span>|</span>
     <span>Boulder, Colorado</span>
   </div>
-  <div class="seal">
-    Merkle Root: <span class="hash">335459a2...149b971a</span>
-    &nbsp; Chain: <span class="hash">a224831b...78add80f</span>
-  </div>
+  <div class="seal">Merkle Root: <span class="hash">335459a2...149b971a</span> &nbsp; Chain: <span class="hash">a224831b...78add80f</span></div>
 </header>
 
 <main class="container">
 
-  <div class="summary-cards">
-    <div class="summary-card"><span class="value">$15,943</span><span class="label">Safe Balance</span></div>
-    <div class="summary-card"><span class="value">$6,827</span><span class="label">Q1 Received</span></div>
-    <div class="summary-card"><span class="value">328</span><span class="label">Sprints Completed</span></div>
-    <div class="summary-card"><span class="value">8</span><span class="label">Contributors</span></div>
-    <div class="summary-card"><span class="value">54</span><span class="label">Days Since Filing</span></div>
+  <!-- CFO Deliverables Navigation -->
+  <div class="deliverables">
+    <h3>Deliverables</h3>
+    <div class="del-grid">
+      <a class="del-card" href="#balance">
+        <span class="del-num">01</span>
+        <span class="del-title">Balance Sheet</span>
+        <span class="del-desc">Onchain treasury + bank accounts at quarter end</span>
+      </a>
+      <a class="del-card" href="#income">
+        <span class="del-num">02</span>
+        <span class="del-title">Income Statement</span>
+        <span class="del-desc">Revenue received vs pro forma projections</span>
+      </a>
+      <a class="del-card" href="#reconciliation">
+        <span class="del-num">03</span>
+        <span class="del-title">Monthly Reconciliation</span>
+        <span class="del-desc">Xero book vs onchain actuals, all flows</span>
+      </a>
+      <a class="del-card" href="#action-items">
+        <span class="del-num">04</span>
+        <span class="del-title">Action Items</span>
+        <span class="del-desc">Outstanding collections, blockers, next steps</span>
+      </a>
+      <a class="del-card" href="#merkle">
+        <span class="del-num">05</span>
+        <span class="del-title">Merkle Seal</span>
+        <span class="del-desc">Cryptographic integrity for open accounting</span>
+      </a>
+    </div>
   </div>
 
-  <p class="lead" style="padding: 1rem 0 0; text-align: center;">This is not a mature operating quarter. It is a formation quarter: the period in which legal structure, governance architecture, financial infrastructure, and coordination tooling were built from zero.</p>
+  <!-- Summary Cards -->
+  <div class="summary-cards">
+    <div class="summary-card"><span class="value">$3,808</span><span class="label">Safe Balance (Onchain)</span></div>
+    <div class="summary-card"><span class="value">$0</span><span class="label">Mercury Bank</span></div>
+    <div class="summary-card"><span class="value">$6,683</span><span class="label">Q1 Received</span></div>
+    <div class="summary-card"><span class="value">$5,150</span><span class="label">Q1 Disbursed</span></div>
+    <div class="summary-card"><span class="value">$100K</span><span class="label">Capital Committed</span></div>
+  </div>
+
+  <p class="lead" style="padding:1rem 0 0;text-align:center;">Formation quarter. No formal revenue. All inflows are member contributions. All outflows are reimbursements and vendor payments. The entity was filed on February 6, 2026.</p>
 
   <!-- 1. Entity Status -->
   <section id="entity">
@@ -251,27 +212,38 @@
     <div class="entity-card">
       <div class="entity-row"><div class="entity-key">Entity</div><div class="entity-value">RegenHub, LCA (DBA Techne)</div></div>
       <div class="entity-row"><div class="entity-key">Status</div><div class="entity-value"><span class="status">Active -- Ratified</span></div></div>
-      <div class="entity-row"><div class="entity-key">Filed</div><div class="entity-value">February 6, 2026 at 1:33:02 PM MST</div></div>
+      <div class="entity-row"><div class="entity-key">Filed</div><div class="entity-value">February 6, 2026</div></div>
       <div class="entity-row"><div class="entity-key">SOS ID</div><div class="entity-value" style="font-family:var(--mono);font-size:0.9rem;">20261163853</div></div>
-      <div class="entity-row"><div class="entity-key">Type</div><div class="entity-value">Colorado Public Benefit Limited Cooperative Association</div></div>
-      <div class="entity-row"><div class="entity-key">Governing Law</div><div class="entity-value">ULCAA (C.R.S. Title 7, Art. 58) + PBC Act (Art. 101, Part 5)</div></div>
-      <div class="entity-row"><div class="entity-key">Tax Election</div><div class="entity-value">Subchapter K (partnership pass-through, Form 1065 / K-1)</div></div>
+      <div class="entity-row"><div class="entity-key">Type</div><div class="entity-value">Colorado Public Benefit LCA</div></div>
+      <div class="entity-row"><div class="entity-key">Tax Election</div><div class="entity-value">Subchapter K (partnership, K-1)</div></div>
       <div class="entity-row"><div class="entity-key">Principal Office</div><div class="entity-value">1515 Walnut St, Suite 200, Boulder, CO 80302</div></div>
       <div class="entity-row"><div class="entity-key">Public Benefit</div><div class="entity-value" style="font-style:italic;">Cultivating scenius</div></div>
+      <div class="entity-row"><div class="entity-key">Organizers</div><div class="entity-value">8 founding organizers</div></div>
+      <div class="entity-row"><div class="entity-key">Formal Members</div><div class="entity-value">0 (admission blocked -- see Action Items)</div></div>
     </div>
   </section>
 
-  <!-- 2. Treasury -->
-  <section id="treasury">
-    <h2><span class="n">02</span>Treasury</h2>
-    <div class="ss">Actuals from Xero accounting + Safe multisig</div>
+  <!-- 2. Balance Sheet -->
+  <section id="balance">
+    <h2><span class="n">02</span>Balance Sheet</h2>
+    <div class="ss">Treasury position at March 31, 2026</div>
 
-    <h3>Account Balances (as of March 31, 2026)</h3>
+    <h3>Onchain Treasury (Safe Multisig, Optimism)</h3>
     <div class="accounts-row">
       <div class="account-card">
-        <div class="acct-name">Safe Multisig (Optimism)</div>
-        <div class="acct-balance">$15,943.02</div>
-        <div class="acct-detail">0xA594...b7782</div>
+        <div class="acct-name">USDC</div>
+        <div class="acct-balance">$2,808.41</div>
+        <div class="acct-detail">2,808.411728 USDC</div>
+      </div>
+      <div class="account-card">
+        <div class="acct-name">DAI</div>
+        <div class="acct-balance">$1,000.00</div>
+        <div class="acct-detail">1,000.00 DAI</div>
+      </div>
+      <div class="account-card">
+        <div class="acct-name">ETH</div>
+        <div class="acct-balance">0.022 ETH</div>
+        <div class="acct-detail">Gas reserve</div>
       </div>
       <div class="account-card">
         <div class="acct-name">Mercury Bank</div>
@@ -280,71 +252,20 @@
       </div>
     </div>
 
-    <h3>Q1 2026 Contributions Received</h3>
-    <p>17 transactions totaling $6,827.08 from 8 contributors across 3 settlement layers. All payments received into Safe multisig via onchain transactions.</p>
-
-    <div class="bar-chart">
-      <div class="bar-row"><div class="bar-label">Infrastructure Partner</div><div class="bar-track"><div class="bar-fill blue" style="width:49.8%"></div></div><div class="bar-value">$3,400.00</div></div>
-      <div class="bar-row"><div class="bar-label">Organizer A</div><div class="bar-track"><div class="bar-fill" style="width:14.9%"></div></div><div class="bar-value">$1,014.80</div></div>
-      <div class="bar-row"><div class="bar-label">Contributor A</div><div class="bar-track"><div class="bar-fill" style="width:7.5%"></div></div><div class="bar-value">$515.10</div></div>
-      <div class="bar-row"><div class="bar-label">Organizer B</div><div class="bar-track"><div class="bar-fill" style="width:7.5%"></div></div><div class="bar-value">$515.10</div></div>
-      <div class="bar-row"><div class="bar-label">Contributor B</div><div class="bar-track"><div class="bar-fill green" style="width:7.3%"></div></div><div class="bar-value">$500.00</div></div>
-      <div class="bar-row"><div class="bar-label">Contributor C</div><div class="bar-track"><div class="bar-fill green" style="width:4.7%"></div></div><div class="bar-value">$320.00</div></div>
-      <div class="bar-row"><div class="bar-label">Organizer C</div><div class="bar-track"><div class="bar-fill green" style="width:4.5%"></div></div><div class="bar-value">$304.53</div></div>
-      <div class="bar-row"><div class="bar-label">Contributor D</div><div class="bar-track"><div class="bar-fill green" style="width:3.8%"></div></div><div class="bar-value">$257.55</div></div>
-    </div>
-
-    <h3>Monthly Breakdown</h3>
     <table>
-      <thead><tr><th>Month</th><th class="num">Transactions</th><th class="num">Received</th><th class="num">Merkle Root</th></tr></thead>
+      <thead><tr><th>Asset</th><th class="num">Balance</th><th>Notes</th></tr></thead>
       <tbody>
-        <tr><td>January</td><td class="num">5</td><td class="num">$2,730.00</td><td class="num" style="font-size:0.7rem;color:var(--accent)">23668276...</td></tr>
-        <tr><td>February</td><td class="num">9</td><td class="num">$2,799.53</td><td class="num" style="font-size:0.7rem;color:var(--accent)">6e533354...</td></tr>
-        <tr><td>March</td><td class="num">3</td><td class="num">$1,297.55</td><td class="num" style="font-size:0.7rem;color:var(--accent)">e7253e20...</td></tr>
+        <tr><td class="name">USDC (Optimism)</td><td class="num">$2,808.41</td><td>Primary operating balance</td></tr>
+        <tr><td class="name">DAI (Optimism)</td><td class="num">$1,000.00</td><td>Stablecoin reserve</td></tr>
+        <tr><td class="name">ETH (Optimism)</td><td class="num">~$40</td><td>Gas reserve (0.022 ETH)</td></tr>
+        <tr><td class="name">Mercury checking</td><td class="num">$0.00</td><td>Fiat account, newly opened</td></tr>
       </tbody>
-      <tfoot><tr><td>Q1 Total</td><td class="num">17</td><td class="num">$6,827.08</td><td class="num" style="font-size:0.7rem;color:var(--accent)">335459a2...</td></tr></tfoot>
+      <tfoot>
+        <tr><td>Total Liquid</td><td class="num">~$3,848</td><td></td></tr>
+      </tfoot>
     </table>
 
-    <h3>Settlement Layers</h3>
-    <table>
-      <thead><tr><th>Chain</th><th class="num">Amount</th><th class="num">% of Q1</th></tr></thead>
-      <tbody>
-        <tr><td>Ethereum L1</td><td class="num">$3,400.00</td><td class="num">49.8%</td></tr>
-        <tr><td>Optimism L2</td><td class="num">$2,919.53</td><td class="num">42.8%</td></tr>
-        <tr><td>Splits (Optimism)</td><td class="num">$500.00</td><td class="num">7.3%</td></tr>
-        <tr><td>Manual adjustment</td><td class="num">$7.55</td><td class="num">0.1%</td></tr>
-      </tbody>
-    </table>
-
-    <p style="font-size:0.85rem;color:var(--text-faint);">Note: the LCA was filed on February 6. Contributions before that date ($2,980 in Jan + early Feb) were received by the pre-formation entity. Contributions from Feb 6 onward ($3,847.08) are post-formation.</p>
-
-    <details>
-      <summary>View all 17 Q1 transactions (with leaf hashes)</summary>
-      <div>
-        <div class="month-header">January 2026 -- root: 23668276381ad89f...</div>
-        <div class="tx-item"><span class="tx-date">Jan 1</span><span class="tx-name">Organizer A</span><span class="tx-chain optimism">OP</span><span class="tx-amount">$500.00</span><span class="tx-hash">aeac2727...</span></div>
-        <div class="tx-item"><span class="tx-date">Jan 1</span><span class="tx-name">Contributor B</span><span class="tx-chain splits">Splits</span><span class="tx-amount">$250.00</span><span class="tx-hash">a2a087db...</span></div>
-        <div class="tx-item"><span class="tx-date">Jan 7</span><span class="tx-name">Infrastructure Partner</span><span class="tx-chain ethereum">ETH</span><span class="tx-amount">$1,700.00</span><span class="tx-hash">06a31971...</span></div>
-        <div class="tx-item"><span class="tx-date">Jan 23</span><span class="tx-name">Contributor C</span><span class="tx-chain optimism">OP</span><span class="tx-amount">$130.00</span><span class="tx-hash">289aad46...</span></div>
-        <div class="tx-item"><span class="tx-date">Jan 23</span><span class="tx-name">Organizer C</span><span class="tx-chain optimism">OP</span><span class="tx-amount">$150.00</span><span class="tx-hash">5188595e...</span></div>
-
-        <div class="month-header">February 2026 -- root: 6e53335445f1d618...</div>
-        <div class="tx-item"><span class="tx-date">Feb 1</span><span class="tx-name">Contributor B</span><span class="tx-chain splits">Splits</span><span class="tx-amount">$250.00</span><span class="tx-hash">1593b810...</span></div>
-        <div class="tx-item"><span class="tx-date">Feb 6</span><span class="tx-name">Contributor A</span><span class="tx-chain optimism">OP</span><span class="tx-amount">$250.00</span><span class="tx-hash">b0048448...</span></div>
-        <div class="tx-item"><span class="tx-date">Feb 6</span><span class="tx-name">Contributor A (adj.)</span><span class="tx-chain manual">ADJ</span><span class="tx-amount">$7.55</span><span class="tx-hash">4934a132...</span></div>
-        <div class="tx-item"><span class="tx-date">Feb 6</span><span class="tx-name">Contributor D</span><span class="tx-chain optimism">OP</span><span class="tx-amount">$257.55</span><span class="tx-hash">3b94c6ed...</span></div>
-        <div class="tx-item"><span class="tx-date">Feb 6</span><span class="tx-name">Organizer C</span><span class="tx-chain optimism">OP</span><span class="tx-amount">$154.53</span><span class="tx-hash">5a54cedb...</span></div>
-        <div class="tx-item"><span class="tx-date">Feb 6</span><span class="tx-name">Organizer B</span><span class="tx-chain optimism">OP</span><span class="tx-amount">$257.55</span><span class="tx-hash">77a0ef15...</span></div>
-        <div class="tx-item"><span class="tx-date">Feb 6</span><span class="tx-name">Organizer B</span><span class="tx-chain optimism">OP</span><span class="tx-amount">$257.55</span><span class="tx-hash">1a9b3088...</span></div>
-        <div class="tx-item"><span class="tx-date">Feb 6</span><span class="tx-name">Organizer A</span><span class="tx-chain optimism">OP</span><span class="tx-amount">$514.80</span><span class="tx-hash">4adccb1d...</span></div>
-        <div class="tx-item"><span class="tx-date">Feb 10</span><span class="tx-name">Infrastructure Partner</span><span class="tx-chain ethereum">ETH</span><span class="tx-amount">$850.00</span><span class="tx-hash">43bf1fe2...</span></div>
-
-        <div class="month-header">March 2026 -- root: e7253e2039d2d190...</div>
-        <div class="tx-item"><span class="tx-date">Mar 7</span><span class="tx-name">Infrastructure Partner</span><span class="tx-chain ethereum">ETH</span><span class="tx-amount">$850.00</span><span class="tx-hash">489226df...</span></div>
-        <div class="tx-item"><span class="tx-date">Mar 11</span><span class="tx-name">Contributor A</span><span class="tx-chain optimism">OP</span><span class="tx-amount">$257.55</span><span class="tx-hash">2a92d909...</span></div>
-        <div class="tx-item"><span class="tx-date">Mar 16</span><span class="tx-name">Contributor C</span><span class="tx-chain optimism">OP</span><span class="tx-amount">$190.00</span><span class="tx-hash">2fc6df8b...</span></div>
-      </div>
-    </details>
+    <p style="font-size:0.85rem;color:var(--text-faint);">Safe address: <a href="https://app.safe.global/balances?safe=oeth:0xA594263e0449A28eAEf5BA6420E81cC1996b7782" style="color:var(--accent);text-decoration:none;font-family:var(--mono);font-size:0.8rem;">0xA594...b7782</a> (Optimism). Balances queried from Safe Transaction Service API at time of seal. Xero book balance ($15,943.02) includes cross-chain receivables and historical accruals -- see Reconciliation section.</p>
 
     <h3>Capital Committed (Not Yet Received)</h3>
     <table>
@@ -357,261 +278,206 @@
     </table>
   </section>
 
-  <!-- 3. Merkle Chain -->
+  <!-- 3. Income Statement -->
+  <section id="income">
+    <h2><span class="n">03</span>Income Statement</h2>
+    <div class="ss">Q1 2026 -- formation period, pre-revenue</div>
+
+    <h3>Contributions Received (All Sources)</h3>
+    <table>
+      <thead><tr><th>Source</th><th class="num">Q1 Amount</th><th class="num">Transactions</th><th>Settlement</th></tr></thead>
+      <tbody>
+        <tr><td class="name">Optimism USDC (Safe)</td><td class="num">$2,775.00</td><td class="num">12</td><td>Onchain</td></tr>
+        <tr><td class="name">Ethereum L1</td><td class="num">$3,400.00</td><td class="num">3</td><td>Onchain</td></tr>
+        <tr><td class="name">Splits (Optimism)</td><td class="num">$500.00</td><td class="num">2</td><td>Onchain</td></tr>
+        <tr><td class="name">Manual adjustment</td><td class="num">$7.55</td><td class="num">1</td><td>Book entry</td></tr>
+      </tbody>
+      <tfoot><tr><td>Total Received</td><td class="num">$6,682.55</td><td class="num">18</td><td></td></tr></tfoot>
+    </table>
+
+    <h3>Contributions by Role</h3>
+    <div class="bar-chart">
+      <div class="bar-row"><div class="bar-label">Infrastructure Partner</div><div class="bar-track"><div class="bar-fill blue" style="width:50.9%"></div></div><div class="bar-value">$3,400.00</div></div>
+      <div class="bar-row"><div class="bar-label">Organizers (combined)</div><div class="bar-track"><div class="bar-fill" style="width:27.4%"></div></div><div class="bar-value">$1,834.43</div></div>
+      <div class="bar-row"><div class="bar-label">Contributors (combined)</div><div class="bar-track"><div class="bar-fill green" style="width:21.7%"></div></div><div class="bar-value">$1,448.12</div></div>
+    </div>
+
+    <h3>Disbursements</h3>
+    <table>
+      <thead><tr><th>Date</th><th>Description</th><th class="num">Amount</th><th>Nonce</th></tr></thead>
+      <tbody>
+        <tr><td>Feb 10</td><td>Reimbursement -- facility supplies</td><td class="num" style="color:var(--red)">-$316.09</td><td style="font-family:var(--mono);font-size:0.8rem;color:var(--text-faint)">#20</td></tr>
+        <tr><td>Feb 11</td><td>Vendor invoice payment</td><td class="num" style="color:var(--red)">-$2,770.72</td><td style="font-family:var(--mono);font-size:0.8rem;color:var(--text-faint)">#21</td></tr>
+        <tr><td>Mar 27</td><td>Organizer reimbursement (Oct 25 -- Mar 26)</td><td class="num" style="color:var(--red)">-$2,063.00</td><td style="font-family:var(--mono);font-size:0.8rem;color:var(--text-faint)">#22</td></tr>
+      </tbody>
+      <tfoot><tr><td colspan="2">Total Disbursed</td><td class="num" style="color:var(--red)">-$5,149.81</td><td></td></tr></tfoot>
+    </table>
+
+    <h3>Net Flow</h3>
+    <table>
+      <tbody>
+        <tr><td class="name">Total received</td><td class="num" style="color:var(--green)">+$6,682.55</td></tr>
+        <tr><td class="name">Total disbursed</td><td class="num" style="color:var(--red)">-$5,149.81</td></tr>
+      </tbody>
+      <tfoot><tr><td>Net Q1 flow</td><td class="num">+$1,532.74</td></tr></tfoot>
+    </table>
+
+    <h3>Pro Forma vs Actual</h3>
+    <p>The pro forma model projects 8 revenue lines. None have activated as formal streams. All Q1 inflows are member contributions and infrastructure payments.</p>
+    <div>
+      <div style="display:flex;padding:0 1rem 0.5rem;font-family:var(--sans);font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-faint);">
+        <div style="flex:1"></div><div style="width:90px;text-align:right">Projected</div><div style="width:90px;text-align:right">Actual</div><div style="width:80px;text-align:right">Variance</div>
+      </div>
+      <div class="comp-row negative"><div class="comp-label">February</div><div class="comp-projected">$5,350</div><div class="comp-actual">$2,800</div><div class="comp-delta neg">-47.7%</div></div>
+      <div class="comp-row negative"><div class="comp-label">March</div><div class="comp-projected">$6,350</div><div class="comp-actual">$1,298</div><div class="comp-delta neg">-79.6%</div></div>
+    </div>
+    <p style="font-size:0.85rem;margin-top:1rem;">Pro forma 12-month OpEx projection: $110,500 ($9,208/mo average). Projected OpEx lines: steward compensation ($2,000/mo), second floor lease ($4,500/mo), third floor lease ($7,000/mo from June).</p>
+  </section>
+
+  <!-- 4. Reconciliation -->
+  <section id="reconciliation">
+    <h2><span class="n">04</span>Monthly Reconciliation</h2>
+    <div class="ss">Xero book vs Safe onchain -- cross-source verification</div>
+
+    <p>Two data sources were reconciled: the Xero accounting system (book values, all chains) and the Safe multisig CSV export (onchain USDC on Optimism). Discrepancies are expected because Xero tracks across chains and converts at payment-time exchange rates.</p>
+
+    <h3>Xero Book Balance vs Onchain</h3>
+    <table>
+      <thead><tr><th>Measure</th><th class="num">Xero Book</th><th class="num">Onchain Actual</th><th class="num">Delta</th></tr></thead>
+      <tbody>
+        <tr><td class="name">Balance at Q1 end</td><td class="num">$15,943.02</td><td class="num">$3,808.41</td><td class="num" style="color:var(--red)">-$12,134.61</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.85rem;">The $12,135 gap represents: (1) Xero includes Ethereum L1 receivables not held in the Optimism Safe, (2) Xero includes Splits-protocol flows, (3) Xero has not reconciled the three Q1 disbursements (all marked "Unreconciled"), (4) historical accrual differences. The Xero balance is a book balance, not a cash position.</p>
+
+    <h3>Monthly Inflows</h3>
+    <table>
+      <thead><tr><th>Month</th><th class="num">Xero Book</th><th class="num">Safe CSV (OP)</th><th class="num">Difference</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>January</td><td class="num">$2,730.00</td><td class="num">$1,030.00</td><td class="num">$1,700.00</td><td style="font-size:0.75rem;color:var(--text-faint)">L1 + Splits not in Safe</td></tr>
+        <tr><td>February</td><td class="num">$2,799.53</td><td class="num">$1,405.00</td><td class="num">$1,394.53</td><td style="font-size:0.75rem;color:var(--text-faint)">L1 + Splits + rate diffs</td></tr>
+        <tr><td>March</td><td class="num">$1,297.55</td><td class="num">$590.00</td><td class="num">$707.55</td><td style="font-size:0.75rem;color:var(--text-faint)">L1 not in Safe</td></tr>
+      </tbody>
+    </table>
+
+    <details>
+      <summary>View all Q1 Safe transactions (inflows + outflows)</summary>
+      <div>
+        <div class="month-header">January 2026</div>
+        <div class="tx-item"><span class="tx-date">Jan 9</span><span class="tx-name">Contributor</span><span class="tx-chain op">OP</span><span class="tx-amount inflow">+250 USDC</span><span class="tx-hash">0xe7c474...</span></div>
+        <div class="tx-item"><span class="tx-date">Jan 15</span><span class="tx-name">Contributor</span><span class="tx-chain op">OP</span><span class="tx-amount inflow">+130 USDC</span><span class="tx-hash">0xd6322b...</span></div>
+        <div class="tx-item"><span class="tx-date">Jan 16</span><span class="tx-name">Organizer</span><span class="tx-chain op">OP</span><span class="tx-amount inflow">+250 USDC</span><span class="tx-hash">0x382894...</span></div>
+        <div class="tx-item"><span class="tx-date">Jan 22</span><span class="tx-name">Organizer</span><span class="tx-chain op">OP</span><span class="tx-amount inflow">+150 USDC</span><span class="tx-hash">0x761e73...</span></div>
+        <div class="tx-item"><span class="tx-date">Jan 30</span><span class="tx-name">Contributor</span><span class="tx-chain op">OP</span><span class="tx-amount inflow">+250 USDC</span><span class="tx-hash">0x532631...</span></div>
+
+        <div class="month-header">February 2026</div>
+        <div class="tx-item"><span class="tx-date">Feb 6</span><span class="tx-name">Organizer</span><span class="tx-chain op">OP</span><span class="tx-amount inflow">+500 USDC</span><span class="tx-hash">0x723aac...</span></div>
+        <div class="tx-item"><span class="tx-date">Feb 6</span><span class="tx-name">Organizer</span><span class="tx-chain op">OP</span><span class="tx-amount inflow">+250 USDC</span><span class="tx-hash">0xf5899f...</span></div>
+        <div class="tx-item"><span class="tx-date">Feb 6</span><span class="tx-name">Contributor</span><span class="tx-chain op">OP</span><span class="tx-amount inflow">+250 USDC</span><span class="tx-hash">0x892d3d...</span></div>
+        <div class="tx-item"><span class="tx-date">Feb 9</span><span class="tx-name">Contributor</span><span class="tx-chain op">OP</span><span class="tx-amount inflow">+155 USDC</span><span class="tx-hash">0xc10558...</span></div>
+        <div class="tx-item"><span class="tx-date">Feb 10</span><span class="tx-name">Reimbursement -- facility supplies</span><span class="tx-chain op">OP</span><span class="tx-amount outflow">-316.09</span><span class="tx-hash">nonce #20</span></div>
+        <div class="tx-item"><span class="tx-date">Feb 11</span><span class="tx-name">Vendor invoice payment</span><span class="tx-chain op">OP</span><span class="tx-amount outflow">-2,770.72</span><span class="tx-hash">nonce #21</span></div>
+
+        <div class="month-header">March 2026</div>
+        <div class="tx-item"><span class="tx-date">Mar 8</span><span class="tx-name">Contributor</span><span class="tx-chain op">OP</span><span class="tx-amount inflow">+190 USDC</span><span class="tx-hash">0x051fc4...</span></div>
+        <div class="tx-item"><span class="tx-date">Mar 12</span><span class="tx-name">Contributor</span><span class="tx-chain op">OP</span><span class="tx-amount inflow">+250 USDC</span><span class="tx-hash">0x100bce...</span></div>
+        <div class="tx-item"><span class="tx-date">Mar 27</span><span class="tx-name">Organizer reimbursement</span><span class="tx-chain op">OP</span><span class="tx-amount outflow">-2,063.00</span><span class="tx-hash">nonce #22</span></div>
+        <div class="tx-item"><span class="tx-date">Mar 27</span><span class="tx-name">Organizer</span><span class="tx-chain op">OP</span><span class="tx-amount inflow">+150 USDC</span><span class="tx-hash">0x34fa5a...</span></div>
+      </div>
+    </details>
+  </section>
+
+  <!-- 5. Action Items -->
+  <section id="action-items">
+    <h2><span class="n">05</span>Action Items</h2>
+    <div class="ss">Outstanding items entering Q2</div>
+
+    <h3>Financial</h3>
+    <div class="open-item"><div><span class="tag blocker">Urgent</span></div><div class="content"><div class="item-title">Xero reconciliation</div><div class="item-desc">3 disbursements (totaling $5,149.81) are marked "Unreconciled" in Xero. Book balance ($15,943) does not match onchain ($3,808). Needs immediate reconciliation.</div></div></div>
+    <div class="open-item"><div><span class="tag blocker">Urgent</span></div><div class="content"><div class="item-title">Class 4 return structure</div><div class="item-desc">$100K committed from two investors. Return structure TBD by Financial Systems Committee. Capital cannot be formally accepted until terms are set.</div></div></div>
+    <div class="open-item"><div><span class="tag open">High</span></div><div class="content"><div class="item-title">FSC: allocation formula weights</div><div class="item-desc">Patronage parameterization initiated March 18-19 but not finalized. Proposed: 40% labor / 30% revenue / 20% capital / 10% community.</div></div></div>
+    <div class="open-item"><div><span class="tag open">High</span></div><div class="content"><div class="item-title">Budget establishment</div><div class="item-desc">Pro forma projects $110,500 annual OpEx. No formal budget adopted. Q1 actual disbursements ($5,150) had no budget authorization process.</div></div></div>
+    <div class="open-item"><div><span class="tag open">High</span></div><div class="content"><div class="item-title">Fractional CFO engagement</div><div class="item-desc">Monthly W1 reconciliation, income/balance statements, action items, and budget management needed per organizer direction.</div></div></div>
+
+    <h3>Governance (blocking member admission)</h3>
+    <div class="open-item"><div><span class="tag blocker">Blocker</span></div><div class="content"><div class="item-title">Schedule A -- share prices and dues</div><div class="item-desc">Cannot execute Member Agreements without defined pricing for all 4 classes.</div></div></div>
+    <div class="open-item"><div><span class="tag blocker">Blocker</span></div><div class="content"><div class="item-title">Board formation</div><div class="item-desc">Initial Board must be selected from 8 organizers. Required for Schedule A, member admission, and most governance actions.</div></div></div>
+    <div class="open-item"><div><span class="tag blocker">Blocker</span></div><div class="content"><div class="item-title">83(b) election window</div><div class="item-desc">30-day window from property transfer. Timing depends on formal issuance of membership interests.</div></div></div>
+    <div class="open-item"><div><span class="tag open">High</span></div><div class="content"><div class="item-title">Voting rights reconciliation</div><div class="item-desc">Feb 27 decision (Class 1 only voting) vs bylaws draft. Draft needs updating.</div></div></div>
+    <div class="open-item"><div><span class="tag open">High</span></div><div class="content"><div class="item-title">Legal review</div><div class="item-desc">Bylaws + Member Agreement pending with counsel. Sub T remnant audit needed.</div></div></div>
+
+    <h3>Operations</h3>
+    <div class="open-item"><div><span class="tag open">High</span></div><div class="content"><div class="item-title">Physical space lease</div><div class="item-desc">Third floor terms in negotiation. Projected $7,000/mo starting June.</div></div></div>
+  </section>
+
+  <!-- 6. Merkle Seal -->
   <section id="merkle">
-    <h2><span class="n">03</span>Merkle Seal</h2>
+    <h2><span class="n">06</span>Merkle Seal</h2>
     <div class="ss">Cryptographic data integrity for open accounting</div>
 
-    <p>Every financial transaction in this report is hashed into a merkle tree. The tree structure provides verifiable data integrity: anyone with the source data can recompute the hashes and confirm that no transaction has been altered, added, or removed after the quarterly seal.</p>
+    <p>Every financial transaction is hashed into a merkle tree. The tree provides verifiable integrity: anyone with the source data can confirm that no transaction has been altered after the quarterly seal. Q1 2026 is the genesis -- future quarters chain against this root.</p>
 
-    <p>This is the beginning of a chain. Q1 2026 is the genesis quarter. Each future quarterly close will chain its root to the previous, creating an append-only ledger of cooperative financial history that is independently verifiable without centralized trust.</p>
-
-    <div class="merkle-tree">
+    <div>
       <div class="merkle-node chain">
         <div class="merkle-label">Q1 2026 Chain Hash (genesis)</div>
         <div class="merkle-hash">a224831be627aac63259d3250f33ffc201a47f90513e412eb09faf6478add80f</div>
-        <div class="merkle-meta">SHA-256(genesis_hash + q1_merkle_root) -- chains to Q2</div>
+        <div class="merkle-meta">SHA-256(genesis + q1_root) -- chains to Q2</div>
       </div>
-
       <div class="merkle-connector">|</div>
-
       <div class="merkle-node root">
         <div class="merkle-label">Q1 2026 Merkle Root</div>
         <div class="merkle-hash">335459a235a313d527eb5f76a5262e2118dcbd503f54f1b8e27d3a68149b971a</div>
-        <div class="merkle-meta">SHA-256(jan_root + feb_root + mar_root) -- 17 transactions, 3 months</div>
+        <div class="merkle-meta">17 transactions, 3 months</div>
       </div>
-
       <div class="merkle-connector">|</div>
-
       <div class="merkle-months">
         <div class="merkle-node">
           <div class="merkle-label">January (5 leaves)</div>
-          <div class="merkle-hash">23668276381ad89fa3acb4f5b3902e25ae259335bb8a934f166f001dbab487ec</div>
+          <div class="merkle-hash" style="font-size:0.65rem">23668276381ad89f...487ec</div>
           <div class="merkle-meta">$2,730.00</div>
         </div>
         <div class="merkle-node">
           <div class="merkle-label">February (9 leaves)</div>
-          <div class="merkle-hash">6e53335445f1d618bc4851bdc6afaf6ae42334efbd4ca3ee72180ccf076a7775</div>
+          <div class="merkle-hash" style="font-size:0.65rem">6e53335445f1d618...a7775</div>
           <div class="merkle-meta">$2,799.53</div>
         </div>
         <div class="merkle-node">
           <div class="merkle-label">March (3 leaves)</div>
-          <div class="merkle-hash">e7253e2039d2d190cd780c9c9c748a6cb96ac1f620f0ae7b88052a51b704c13a</div>
+          <div class="merkle-hash" style="font-size:0.65rem">e7253e2039d2d190...c13a</div>
           <div class="merkle-meta">$1,297.55</div>
         </div>
       </div>
-
       <div class="merkle-connector">|</div>
-
       <div class="merkle-node">
         <div class="merkle-label">Chain Genesis</div>
         <div class="merkle-hash full">ef96fd02b2c3ae46f8fa9b910ae834139af401f282361216edcd744ce3b45f2b</div>
-        <div class="merkle-meta">SHA-256("RegenHub,LCA|20261163853|Q0|null") -- the seed</div>
+        <div class="merkle-meta">SHA-256("RegenHub,LCA|20261163853|Q0|null")</div>
       </div>
     </div>
-
-    <h3>How It Works</h3>
-    <p>Each transaction is hashed from its canonical form: <code style="font-family:var(--mono);font-size:0.8rem;color:var(--accent);background:rgba(0,0,0,0.3);padding:0.1rem 0.3rem;border-radius:3px;">SHA-256(date|invoice_id|amount|chain)</code>. Transaction hashes are paired and hashed upward into a binary merkle tree, producing a monthly root. Monthly roots are combined into a quarterly root. The quarterly root is chained to the previous quarter's chain hash (or genesis for Q1), producing the chain hash that links this quarter to the next.</p>
-
-    <p>The chain is append-only: altering any historical transaction changes its leaf hash, which cascades through the tree, changing the monthly root, the quarterly root, and every subsequent chain hash. Integrity is verifiable by anyone who has the transaction data and this page.</p>
 
     <div class="verify-box">
       <h4>Verify It Yourself</h4>
-      <div class="verify-code"><span class="comment"># Verify a single transaction leaf (example: Jan 1, Organizer A)</span>
-echo -n <span class="string">"2026-01-01|INV-0157|500.00|optimism"</span> | <span class="fn">sha256sum</span>
-<span class="comment"># Expected: aeac272707e727a9...</span>
+      <div class="verify-code"># Verify genesis
+echo -n "RegenHub,LCA|20261163853|Q0|000...000" | sha256sum
+# ef96fd02b2c3ae46...
 
-<span class="comment"># Verify chain genesis</span>
-echo -n <span class="string">"RegenHub,LCA|20261163853|Q0|000...000"</span> | <span class="fn">sha256sum</span>
-<span class="comment"># Expected: ef96fd02b2c3ae46...</span>
+# Verify a transaction leaf (Jan 1, Organizer A, 500 USDC)
+echo -n "2026-01-01|INV-0157|500.00|optimism" | sha256sum
+# aeac272707e727a9...
 
-<span class="comment"># Verify Q1 chain hash</span>
-echo -n <span class="string">"$(echo -n 'RegenHub,LCA|20261163853|Q0|000...000' | sha256sum | cut -d' ' -f1)335459a235a313d527eb5f76a5262e2118dcbd503f54f1b8e27d3a68149b971a"</span> | <span class="fn">sha256sum</span>
-<span class="comment"># Expected: a224831be627aac6...</span></div>
+# Each leaf hashes: date|invoice_id|amount|chain
+# Leaves pair into monthly roots, roots into quarterly root
+# Chain hash = SHA-256(genesis_hash + q1_root)</div>
     </div>
 
-    <h3>What This Means for the Cooperative</h3>
-    <p>A Colorado LCA operating under Subchapter K must maintain accurate capital accounts for every member. The merkle chain doesn't replace traditional accounting -- it provides a cryptographic guarantee that the reported figures haven't been altered after the fact. As the cooperative grows, each quarterly seal extends the chain, creating an unbroken record from formation forward.</p>
-    <p>Future quarters will include: patronage allocation trees (contribution weighted), capital account state snapshots, and sprint activity merkle proofs from the Workshop coordination system. The chain grows with the cooperative.</p>
-  </section>
-
-  <!-- 4. Pro Forma vs Actual -->
-  <section id="proforma">
-    <h2><span class="n">04</span>Pro Forma vs Actual</h2>
-    <div class="ss">Projections from the financial model against Q1 reality</div>
-
-    <p>The pro forma model projects 8 revenue lines across the first 12 months. Q1 actuals came entirely through member contributions to the Safe multisig. The pro forma revenue lines (VIP Desks, Hot Desks, Nodes/Infrastructure, etc.) have not yet activated as formal revenue streams.</p>
-
-    <h3>Revenue: Projected vs Received</h3>
-    <div>
-      <div style="display:flex;padding:0 1rem 0.5rem;font-family:var(--sans);font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-faint);">
-        <div style="flex:1"></div><div style="width:90px;text-align:right;">Projected</div><div style="width:90px;text-align:right;">Actual</div><div style="width:80px;text-align:right;">Variance</div>
-      </div>
-      <div class="comp-row negative"><div class="comp-label">February 2026</div><div class="comp-projected">$5,350</div><div class="comp-actual">$2,800</div><div class="comp-delta neg">-47.7%</div></div>
-      <div class="comp-row negative"><div class="comp-label">March 2026</div><div class="comp-projected">$6,350</div><div class="comp-actual">$1,298</div><div class="comp-delta neg">-79.6%</div></div>
-    </div>
-
-    <h3>Operating Expenses: Projected</h3>
-    <div>
-      <div class="comp-row"><div class="comp-label">Steward compensation</div><div class="comp-projected">$2,000/mo</div><div class="comp-actual"></div><div class="comp-delta"></div></div>
-      <div class="comp-row"><div class="comp-label">Second floor lease</div><div class="comp-projected">$4,500/mo</div><div class="comp-actual"></div><div class="comp-delta"></div></div>
-      <div class="comp-row"><div class="comp-label">Third floor lease (from June)</div><div class="comp-projected">$7,000/mo</div><div class="comp-actual"></div><div class="comp-delta"></div></div>
-    </div>
-    <p style="font-size:0.85rem;">Pro forma total OpEx for 12 months: $110,500 ($9,208/mo average). No disbursements from the Safe recorded in Q1 Xero data.</p>
-
-    <h3>Pro Forma Revenue Lines (Monthly Projections)</h3>
-    <table>
-      <thead><tr><th>Business Line</th><th style="font-size:0.65rem">Value Type</th><th class="num">Feb</th><th class="num">Mar</th><th class="num">Apr</th><th class="num">May</th><th class="num">Jun</th><th class="num">Jul</th></tr></thead>
-      <tbody>
-        <tr><td>VIP Desks</td><td style="font-size:0.75rem;color:var(--text-faint)">Physical</td><td class="num">$2,700</td><td class="num">$3,300</td><td class="num">$3,900</td><td class="num">$4,500</td><td class="num">$4,800</td><td class="num">$5,100</td></tr>
-        <tr><td>Hot Desks</td><td style="font-size:0.75rem;color:var(--text-faint)">Physical</td><td class="num">$1,800</td><td class="num">$2,200</td><td class="num">$2,600</td><td class="num">$3,000</td><td class="num">$3,200</td><td class="num">$3,400</td></tr>
-        <tr><td>Nodes / Infra</td><td style="font-size:0.75rem;color:var(--text-faint)">Digital</td><td class="num">$850</td><td class="num">$850</td><td class="num">$850</td><td class="num">$850</td><td class="num">$850</td><td class="num">$850</td></tr>
-        <tr><td>AI School</td><td style="font-size:0.75rem;color:var(--text-faint)">Intellectual</td><td class="num">--</td><td class="num">--</td><td class="num">$1,500</td><td class="num">$1,500</td><td class="num">--</td><td class="num">$2,000</td></tr>
-        <tr><td>Accelerator</td><td style="font-size:0.75rem;color:var(--text-faint)">Financial</td><td class="num">--</td><td class="num">--</td><td class="num">--</td><td class="num">--</td><td class="num">--</td><td class="num">--</td></tr>
-      </tbody>
-      <tfoot><tr><td colspan="2">Total Revenue</td><td class="num">$5,350</td><td class="num">$6,350</td><td class="num">$8,850</td><td class="num">$9,850</td><td class="num">$8,850</td><td class="num">$11,350</td></tr></tfoot>
-    </table>
-  </section>
-
-  <!-- 5. Membership -->
-  <section id="membership">
-    <h2><span class="n">05</span>Membership</h2>
-    <div class="ss">Organizers and contributors</div>
-    <p>No formal members admitted in Q1. Member admission requires Board formation, Schedule A completion, and Member Agreement execution. The cooperative has 8 founding organizers and additional active contributors.</p>
-
-    <h3>Founding Organizers (8)</h3>
-    <table>
-      <thead><tr><th>Role</th><th>Project Affiliation</th><th>Desk Type</th></tr></thead>
-      <tbody>
-        <tr><td class="name">Ventures & Operations Steward</td><td>Cooperative Infrastructure</td><td>Steward</td></tr>
-        <tr><td class="name">Organizer -- Engineer & Founder</td><td>Venture A</td><td>VIP Desk</td></tr>
-        <tr><td class="name">Organizer -- Founder</td><td>Civic Technology</td><td>VIP Desk</td></tr>
-        <tr><td class="name">Organizer -- Engineer & Consultant</td><td>Independent</td><td>VIP Desk</td></tr>
-        <tr><td class="name">Organizer -- Founder & Sponsor</td><td>Investment / Protocol</td><td>Sponsor</td></tr>
-        <tr><td class="name">Organizer -- Engineer & Founder</td><td>Venture B</td><td>VIP Desk</td></tr>
-        <tr><td class="name">Organizer -- Design</td><td>Agency</td><td>Hot Desk</td></tr>
-        <tr><td class="name">Organizer -- Executive Director</td><td>Community Organization</td><td>Hot Desk</td></tr>
-      </tbody>
-    </table>
-
-    <h3>Contribution Distribution (Q1)</h3>
-    <table>
-      <thead><tr><th>Contributor Role</th><th class="num">Q1 Contribution</th><th class="num">% of Total</th></tr></thead>
-      <tbody>
-        <tr><td class="name">Infrastructure Partner</td><td class="num">$3,400.00</td><td class="num">49.8%</td></tr>
-        <tr><td class="name">Organizers (combined)</td><td class="num">$1,834.43</td><td class="num">26.9%</td></tr>
-        <tr><td class="name">Contributors (combined)</td><td class="num">$1,592.65</td><td class="num">23.3%</td></tr>
-      </tbody>
-      <tfoot><tr><td>Total</td><td class="num">$6,827.08</td><td class="num">100%</td></tr></tfoot>
-    </table>
-
-    <h3>Venture Ownership (confirmed Feb 26)</h3>
-    <table>
-      <thead><tr><th>Venture</th><th>Status</th></tr></thead>
-      <tbody>
-        <tr><td>Venture A (Parachute)</td><td>Owner assigned</td></tr>
-        <tr><td>Venture B (Postage)</td><td>Owner assigned</td></tr>
-        <tr><td>Venture C (Habitat)</td><td>Owner assigned</td></tr>
-      </tbody>
-    </table>
-    <p style="font-size:0.85rem;">Revenue architecture: Space revenue + Service revenue + Venture reciprocity (1% commitment).</p>
-  </section>
-
-  <!-- 6. Sprint Activity -->
-  <section id="sprints">
-    <h2><span class="n">06</span>Sprint Activity</h2>
-    <div class="ss">Workshop coordination system (launched February 28)</div>
-    <p>The Workshop launched on February 28, giving the cooperative 32 active days in Q1. Two agents executed sprints through the five-phase protocol: Discovery, Proposal, Negotiation, Execution, Synthesis.</p>
-
-    <h3>Agent Output</h3>
-    <div class="bar-chart">
-      <div class="bar-row"><div class="bar-label">Agent A (Nou)</div><div class="bar-track"><div class="bar-fill" style="width:77.7%"></div></div><div class="bar-value">256 (77.7%)</div></div>
-      <div class="bar-row"><div class="bar-label">Agent B (Dianoia)</div><div class="bar-track"><div class="bar-fill green" style="width:22.3%"></div></div><div class="bar-value">72 (22.3%)</div></div>
-    </div>
-
-    <h3>Complexity Distribution</h3>
-    <div class="bar-chart">
-      <div class="bar-row"><div class="bar-label">XS (&lt; 30 min)</div><div class="bar-track"><div class="bar-fill" style="width:11.5%"></div></div><div class="bar-value">37</div></div>
-      <div class="bar-row"><div class="bar-label">S (30-90 min)</div><div class="bar-track"><div class="bar-fill" style="width:38.7%"></div></div><div class="bar-value">125</div></div>
-      <div class="bar-row"><div class="bar-label">M (2-4 hr)</div><div class="bar-track"><div class="bar-fill" style="width:35.0%"></div></div><div class="bar-value">113</div></div>
-      <div class="bar-row"><div class="bar-label">L (4-8 hr)</div><div class="bar-track"><div class="bar-fill" style="width:12.7%"></div></div><div class="bar-value">41</div></div>
-      <div class="bar-row"><div class="bar-label">XL (multi-day)</div><div class="bar-track"><div class="bar-fill red" style="width:1.5%"></div></div><div class="bar-value">5</div></div>
-    </div>
-
-    <h3>Key Milestones</h3>
-    <div>
-      <div class="milestone"><span class="date">Feb 28</span><span class="title">Workshop Launch</span><span class="desc">Coordination system operational. First sprints: contributions system, initial coordination requests.</span></div>
-      <div class="milestone"><span class="date">Early Mar</span><span class="title">Foundation Sprints</span><span class="desc">Patronage event handlers, venture reconciliation, full platform audit, Formation Document Commons, Bioregional Knowledge Commons.</span></div>
-      <div class="milestone"><span class="date">Mar 17</span><span class="title">Patronage Engine Validated</span><span class="desc">184 passing tests across 7 engine test files. Full patronage lifecycle: contribution, allocation, distribution, equity tracking.</span></div>
-      <div class="milestone"><span class="date">Mar 18-19</span><span class="title">FSC Convenes</span><span class="desc">Financial Systems Committee first meeting. Patronage parameterization initiated.</span></div>
-      <div class="milestone"><span class="date">Mar 16-20</span><span class="title">Design Audit Sprint Series</span><span class="desc">24 sprints in one session. 2,881 color token migrations, TypeScript strict mode, i18n infrastructure (295 keys, Chinese), mobile tab bar, command palette, Tailwind v4 theme.</span></div>
-      <div class="milestone"><span class="date">Late Mar</span><span class="title">Thesis & Research</span><span class="desc">6-essay thesis series, flagship introduction series, W1 April financial package, multisig balance sync engine, Six Intelligences philosophical commons.</span></div>
-    </div>
-  </section>
-
-  <!-- 7. Governance -->
-  <section id="governance">
-    <h2><span class="n">07</span>Governance Decisions</h2>
-    <div class="ss">Decisions made during Q1</div>
-    <table>
-      <thead><tr><th>Date</th><th>Decision</th><th>Source</th></tr></thead>
-      <tbody>
-        <tr><td style="white-space:nowrap">Feb 6</td><td>Entity filed as Colorado Public Benefit LCA</td><td>SOS filing</td></tr>
-        <tr><td style="white-space:nowrap">Feb 26</td><td>Venture ownership confirmed (3 ventures assigned)</td><td>Organizer discussion</td></tr>
-        <tr><td style="white-space:nowrap">Feb 27</td><td>Class 1 only voting -- sole voting class with full governance participation</td><td>Governance discussion</td></tr>
-        <tr><td style="white-space:nowrap">Mar 18-19</td><td>FSC convened; patronage parameterization initiated</td><td>FSC meeting</td></tr>
-      </tbody>
-    </table>
-    <h3>Patronage Framework (proposed, pending FSC finalization)</h3>
-    <div class="bar-chart">
-      <div class="bar-row"><div class="bar-label">Labor</div><div class="bar-track"><div class="bar-fill" style="width:40%"></div></div><div class="bar-value">40%</div></div>
-      <div class="bar-row"><div class="bar-label">Revenue</div><div class="bar-track"><div class="bar-fill green" style="width:30%"></div></div><div class="bar-value">30%</div></div>
-      <div class="bar-row"><div class="bar-label">Capital</div><div class="bar-track"><div class="bar-fill blue" style="width:20%"></div></div><div class="bar-value">20%</div></div>
-      <div class="bar-row"><div class="bar-label">Community</div><div class="bar-track"><div class="bar-fill red" style="width:10%"></div></div><div class="bar-value">10%</div></div>
-    </div>
-  </section>
-
-  <!-- 8. Infrastructure -->
-  <section id="infra">
-    <h2><span class="n">08</span>Infrastructure Built</h2>
-    <div class="ss">From zero to operational in one quarter</div>
-    <table>
-      <thead><tr><th>System</th><th>Q1 Start</th><th>Q1 End</th></tr></thead>
-      <tbody>
-        <tr><td class="name">Legal entity</td><td>Not filed</td><td><span class="tag done">Active</span> SOS 20261163853</td></tr>
-        <tr><td class="name">Bylaws tool</td><td>Not built</td><td><span class="tag done">Live</span> Interactive digital tool</td></tr>
-        <tr><td class="name">Platform (co-op.us)</td><td>Earlier versions</td><td><span class="tag done">127+ pages</span> i18n, a11y</td></tr>
-        <tr><td class="name">Workshop</td><td>Not built</td><td><span class="tag done">Active</span> 328+ sprints</td></tr>
-        <tr><td class="name">Patronage engine</td><td>Concept</td><td><span class="tag done">Validated</span> 184 tests</td></tr>
-        <tr><td class="name">Published essays</td><td>Notes</td><td><span class="tag done">10+ published</span></td></tr>
-        <tr><td class="name">Watershed dashboard</td><td>Not built</td><td><span class="tag done">Live</span></td></tr>
-        <tr><td class="name">Safe multisig</td><td>Operating</td><td><span class="tag done">$15,943</span></td></tr>
-        <tr><td class="name">Mercury bank</td><td>Not opened</td><td><span class="tag open">Opened</span> $0</td></tr>
-        <tr><td class="name">Merkle accounting chain</td><td>Not conceived</td><td><span class="tag done">Genesis sealed</span></td></tr>
-      </tbody>
-    </table>
-  </section>
-
-  <!-- 9. Open Items -->
-  <section id="open-items">
-    <h2><span class="n">09</span>Open Items Entering Q2</h2>
-    <div class="ss">What remains unresolved</div>
-    <div class="open-item"><div><span class="tag blocker">Blocker</span></div><div class="content"><div class="item-title">Schedule A -- Share Prices and Dues</div><div class="item-desc">Member admission blocked. Cannot execute a Member Agreement without knowing what each class pays.</div></div></div>
-    <div class="open-item"><div><span class="tag blocker">Blocker</span></div><div class="content"><div class="item-title">Board Formation</div><div class="item-desc">Initial Board must be selected from organizers. Required for member admission, Schedule A, and most governance actions.</div></div></div>
-    <div class="open-item"><div><span class="tag blocker">Blocker</span></div><div class="content"><div class="item-title">83(b) Election Window</div><div class="item-desc">30-day window from property transfer. Timing depends on formal issuance of membership interests.</div></div></div>
-    <div class="open-item"><div><span class="tag open">High</span></div><div class="content"><div class="item-title">Voting Rights Reconciliation</div><div class="item-desc">Feb 27 decision (Class 1 only) vs bylaws draft. Draft needs updating to match.</div></div></div>
-    <div class="open-item"><div><span class="tag open">High</span></div><div class="content"><div class="item-title">FSC: Allocation Formula Weights</div><div class="item-desc">Parameterization initiated but not finalized. Engine validated and ready.</div></div></div>
-    <div class="open-item"><div><span class="tag open">High</span></div><div class="content"><div class="item-title">Class 4 Return Structure</div><div class="item-desc">$100K committed. Return structure TBD by FSC. Needed before capital can be formally accepted.</div></div></div>
-    <div class="open-item"><div><span class="tag open">High</span></div><div class="content"><div class="item-title">Legal Review</div><div class="item-desc">Bylaws + Member Agreement review pending with counsel. Sub T remnant audit needed.</div></div></div>
-    <div class="open-item"><div><span class="tag open">High</span></div><div class="content"><div class="item-title">Physical Space Lease</div><div class="item-desc">Terms in negotiation. Third floor projected at $7,000/mo starting June.</div></div></div>
+    <p>The merkle tree currently covers Xero-sourced inflow transactions. Future iterations will incorporate Safe CSV outflows and cross-chain settlement proofs, creating a complete dual-entry merkle accounting chain.</p>
   </section>
 
   <!-- Closing -->
   <section style="text-align:center;padding:4rem 0;">
     <p class="lead">Q1 was the seed quarter. Q2 is when it has to grow.</p>
-    <p style="font-size:0.85rem;color:var(--text-faint);margin-top:1rem;">Where the Great Plains meet the Rocky Mountains, in the South Boulder Creek watershed, at 5,430 feet.</p>
     <div style="margin-top:2rem;font-family:var(--mono);font-size:0.7rem;color:var(--text-faint);">
-      Chain hash: a224831be627aac63259d3250f33ffc201a47f90513e412eb09faf6478add80f
+      Chain: a224831be627aac63259d3250f33ffc201a47f90513e412eb09faf6478add80f
     </div>
   </section>
 
@@ -619,31 +485,16 @@ echo -n <span class="string">"$(echo -n 'RegenHub,LCA|20261163853|Q0|000...000' 
 
 <footer>
   <p>RegenHub, LCA (DBA Techne) -- Q1 2026 Close Report -- Sealed April 1, 2026</p>
-  <p style="margin-top:0.5rem;">Safe: <a href="https://app.safe.global/balances?safe=oeth:0xA594263e0449A28eAEf5BA6420E81cC1996b7782">0xA594...b7782</a> (Optimism)</p>
-  <p style="margin-top:0.5rem;font-size:0.65rem;">Data sources: Xero accounting, Google Sheets pro forma (gws CLI), co-op.us Workshop API</p>
-  <p style="margin-top:0.25rem;font-size:0.65rem;">Merkle verification: all hashes are SHA-256. Chain genesis seeds from entity SOS ID. Independently verifiable.</p>
+  <p style="margin-top:0.5rem;">Safe: <a href="https://app.safe.global/balances?safe=oeth:0xA594263e0449A28eAEf5BA6420E81cC1996b7782">0xA594...b7782</a> (Optimism) | Data: Xero, Safe CSV, Safe API, Google Sheets pro forma</p>
 </footer>
 
 <script>
-const sections = document.querySelectorAll('section[id]');
-const tocLinks = document.querySelectorAll('nav.toc a');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      tocLinks.forEach(link => link.classList.remove('active'));
-      const a = document.querySelector(`nav.toc a[href="#${entry.target.id}"]`);
-      if (a) a.classList.add('active');
-    }
-  });
-}, { rootMargin: '-20% 0px -70% 0px' });
-sections.forEach(s => observer.observe(s));
-
-const bars = document.querySelectorAll('.bar-fill');
-const bObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.style.width = e.target.dataset.target; bObs.unobserve(e.target); } });
-}, { threshold: 0.1 });
-bars.forEach(b => { const w = b.style.width; b.style.width = '0%'; b.dataset.target = w; bObs.observe(b); });
-setTimeout(() => bars.forEach(b => { b.style.width = b.dataset.target; }), 100);
+const sections=document.querySelectorAll('section[id]'),tocLinks=document.querySelectorAll('nav.toc a');
+const obs=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){tocLinks.forEach(l=>l.classList.remove('active'));const a=document.querySelector(`nav.toc a[href="#${e.target.id}"]`);if(a)a.classList.add('active')}})},{rootMargin:'-20% 0px -70% 0px'});
+sections.forEach(s=>obs.observe(s));
+const bars=document.querySelectorAll('.bar-fill'),bObs=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){e.target.style.width=e.target.dataset.target;bObs.unobserve(e.target)}})},{threshold:0.1});
+bars.forEach(b=>{const w=b.style.width;b.style.width='0%';b.dataset.target=w;bObs.observe(b)});
+setTimeout(()=>bars.forEach(b=>{b.style.width=b.dataset.target}),100);
 </script>
 </body>
 </html>
