@@ -138,11 +138,11 @@
 <body>
 
 <nav class="toc">
-  <a href="#entity">Entity</a>
   <a href="#balance">Balance Sheet</a>
   <a href="#income">Income</a>
   <a href="#reconciliation">Reconciliation</a>
   <a href="#action-items">Action Items</a>
+  <a href="#entity">Entity</a>
   <a href="#merkle">Merkle Seal</a>
 </nav>
 
@@ -162,39 +162,7 @@
 
 <main class="container">
 
-  <!-- CFO Deliverables Navigation -->
-  <div class="deliverables">
-    <h3>Deliverables</h3>
-    <div class="del-grid">
-      <a class="del-card" href="#balance">
-        <span class="del-num">01</span>
-        <span class="del-title">Balance Sheet</span>
-        <span class="del-desc">Onchain treasury + bank accounts at quarter end</span>
-      </a>
-      <a class="del-card" href="#income">
-        <span class="del-num">02</span>
-        <span class="del-title">Income Statement</span>
-        <span class="del-desc">Revenue received vs pro forma projections</span>
-      </a>
-      <a class="del-card" href="#reconciliation">
-        <span class="del-num">03</span>
-        <span class="del-title">Monthly Reconciliation</span>
-        <span class="del-desc">Xero book vs onchain actuals, all flows</span>
-      </a>
-      <a class="del-card" href="#action-items">
-        <span class="del-num">04</span>
-        <span class="del-title">Action Items</span>
-        <span class="del-desc">Outstanding collections, blockers, next steps</span>
-      </a>
-      <a class="del-card" href="#merkle">
-        <span class="del-num">05</span>
-        <span class="del-title">Merkle Seal</span>
-        <span class="del-desc">Cryptographic integrity for open accounting</span>
-      </a>
-    </div>
-  </div>
-
-  <!-- Summary Cards -->
+  <!-- Summary Cards FIRST -->
   <div class="summary-cards">
     <div class="summary-card"><span class="value">$3,808</span><span class="label">Safe Balance (Onchain)</span></div>
     <div class="summary-card"><span class="value">$0</span><span class="label">Mercury Bank</span></div>
@@ -203,30 +171,39 @@
     <div class="summary-card"><span class="value">$100K</span><span class="label">Capital Committed</span></div>
   </div>
 
+  <!-- CFO Deliverables Navigation -->
+  <div class="deliverables">
+    <h3>Financial Deliverables</h3>
+    <div class="del-grid">
+      <a class="del-card" href="#balance">
+        <span class="del-num">01</span>
+        <span class="del-title">Balance Sheet</span>
+        <span class="del-desc">Onchain treasury + bank accounts</span>
+      </a>
+      <a class="del-card" href="#income">
+        <span class="del-num">02</span>
+        <span class="del-title">Income Statement</span>
+        <span class="del-desc">Inflows, disbursements, net flow</span>
+      </a>
+      <a class="del-card" href="#reconciliation">
+        <span class="del-num">03</span>
+        <span class="del-title">Monthly Reconciliation</span>
+        <span class="del-desc">Xero book vs onchain actuals</span>
+      </a>
+      <a class="del-card" href="#action-items">
+        <span class="del-num">04</span>
+        <span class="del-title">Action Items</span>
+        <span class="del-desc">Collections, blockers, next steps</span>
+      </a>
+    </div>
+  </div>
+
   <p class="lead" style="padding:1rem 0 0;text-align:center;">Formation quarter. No formal revenue. All inflows are member contributions. All outflows are reimbursements and vendor payments. The entity was filed on February 6, 2026.</p>
 
-  <!-- 1. Entity Status -->
-  <section id="entity">
-    <h2><span class="n">01</span>Entity Status</h2>
-    <div class="ss">Legal foundation</div>
-    <div class="entity-card">
-      <div class="entity-row"><div class="entity-key">Entity</div><div class="entity-value">RegenHub, LCA (DBA Techne)</div></div>
-      <div class="entity-row"><div class="entity-key">Status</div><div class="entity-value"><span class="status">Active -- Ratified</span></div></div>
-      <div class="entity-row"><div class="entity-key">Filed</div><div class="entity-value">February 6, 2026</div></div>
-      <div class="entity-row"><div class="entity-key">SOS ID</div><div class="entity-value" style="font-family:var(--mono);font-size:0.9rem;">20261163853</div></div>
-      <div class="entity-row"><div class="entity-key">Type</div><div class="entity-value">Colorado Public Benefit LCA</div></div>
-      <div class="entity-row"><div class="entity-key">Tax Election</div><div class="entity-value">Subchapter K (partnership, K-1)</div></div>
-      <div class="entity-row"><div class="entity-key">Principal Office</div><div class="entity-value">1515 Walnut St, Suite 200, Boulder, CO 80302</div></div>
-      <div class="entity-row"><div class="entity-key">Public Benefit</div><div class="entity-value" style="font-style:italic;">Cultivating scenius</div></div>
-      <div class="entity-row"><div class="entity-key">Organizers</div><div class="entity-value">8 founding organizers</div></div>
-      <div class="entity-row"><div class="entity-key">Formal Members</div><div class="entity-value">0 (admission blocked -- see Action Items)</div></div>
-    </div>
-  </section>
-
-  <!-- 2. Balance Sheet -->
+  <!-- 1. Balance Sheet -->
   <section id="balance">
-    <h2><span class="n">02</span>Balance Sheet</h2>
-    <div class="ss">Treasury position at March 31, 2026</div>
+    <h2><span class="n">01</span>Balance Sheet</h2>
+    <div class="ss">Treasury position at March 31, 2026 -- onchain verified</div>
 
     <h3>Onchain Treasury (Safe Multisig, Optimism)</h3>
     <div class="accounts-row">
@@ -278,9 +255,9 @@
     </table>
   </section>
 
-  <!-- 3. Income Statement -->
+  <!-- 2. Income Statement -->
   <section id="income">
-    <h2><span class="n">03</span>Income Statement</h2>
+    <h2><span class="n">02</span>Income Statement</h2>
     <div class="ss">Q1 2026 -- formation period, pre-revenue</div>
 
     <h3>Contributions Received (All Sources)</h3>
@@ -322,21 +299,32 @@
       <tfoot><tr><td>Net Q1 flow</td><td class="num">+$1,532.74</td></tr></tfoot>
     </table>
 
-    <h3>Pro Forma vs Actual</h3>
-    <p>The pro forma model projects 8 revenue lines. None have activated as formal streams. All Q1 inflows are member contributions and infrastructure payments.</p>
-    <div>
-      <div style="display:flex;padding:0 1rem 0.5rem;font-family:var(--sans);font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-faint);">
-        <div style="flex:1"></div><div style="width:90px;text-align:right">Projected</div><div style="width:90px;text-align:right">Actual</div><div style="width:80px;text-align:right">Variance</div>
-      </div>
-      <div class="comp-row negative"><div class="comp-label">February</div><div class="comp-projected">$5,350</div><div class="comp-actual">$2,800</div><div class="comp-delta neg">-47.7%</div></div>
-      <div class="comp-row negative"><div class="comp-label">March</div><div class="comp-projected">$6,350</div><div class="comp-actual">$1,298</div><div class="comp-delta neg">-79.6%</div></div>
-    </div>
-    <p style="font-size:0.85rem;margin-top:1rem;">Pro forma 12-month OpEx projection: $110,500 ($9,208/mo average). Projected OpEx lines: steward compensation ($2,000/mo), second floor lease ($4,500/mo), third floor lease ($7,000/mo from June).</p>
+    <h3>Forward Projections (Q2+ Pro Forma)</h3>
+    <p>Revenue lines projected to activate in Q2 and beyond.</p>
+    <table>
+      <thead><tr><th>Revenue Line</th><th style="font-size:0.65rem">Value Type</th><th class="num">Apr</th><th class="num">May</th><th class="num">Jun</th><th class="num">Jul</th></tr></thead>
+      <tbody>
+        <tr><td>VIP Desks</td><td style="font-size:0.75rem;color:var(--text-faint)">Physical</td><td class="num">$3,900</td><td class="num">$4,500</td><td class="num">$4,800</td><td class="num">$5,100</td></tr>
+        <tr><td>Hot Desks</td><td style="font-size:0.75rem;color:var(--text-faint)">Physical</td><td class="num">$2,600</td><td class="num">$3,000</td><td class="num">$3,200</td><td class="num">$3,400</td></tr>
+        <tr><td>Nodes / Infra</td><td style="font-size:0.75rem;color:var(--text-faint)">Digital</td><td class="num">$850</td><td class="num">$850</td><td class="num">$850</td><td class="num">$850</td></tr>
+        <tr><td>LearnVibe.Build</td><td style="font-size:0.75rem;color:var(--text-faint)">Intellectual</td><td class="num">$1,500</td><td class="num">$1,500</td><td class="num">--</td><td class="num">$2,000</td></tr>
+      </tbody>
+      <tfoot><tr><td colspan="2">Projected Revenue</td><td class="num">$8,850</td><td class="num">$9,850</td><td class="num">$8,850</td><td class="num">$11,350</td></tr></tfoot>
+    </table>
+    <table>
+      <thead><tr><th>Operating Expense</th><th class="num">Apr</th><th class="num">May</th><th class="num">Jun</th><th class="num">Jul</th></tr></thead>
+      <tbody>
+        <tr><td>Steward compensation</td><td class="num">$2,000</td><td class="num">$2,000</td><td class="num">$2,000</td><td class="num">$2,000</td></tr>
+        <tr><td>Second floor lease</td><td class="num">$4,500</td><td class="num">$4,500</td><td class="num">$4,500</td><td class="num">$4,500</td></tr>
+        <tr><td>Third floor lease</td><td class="num">--</td><td class="num">--</td><td class="num">$7,000</td><td class="num">$7,000</td></tr>
+      </tbody>
+      <tfoot><tr><td>Total OpEx</td><td class="num">$6,500</td><td class="num">$6,500</td><td class="num">$13,500</td><td class="num">$13,500</td></tr></tfoot>
+    </table>
   </section>
 
-  <!-- 4. Reconciliation -->
+  <!-- 3. Reconciliation -->
   <section id="reconciliation">
-    <h2><span class="n">04</span>Monthly Reconciliation</h2>
+    <h2><span class="n">03</span>Monthly Reconciliation</h2>
     <div class="ss">Xero book vs Safe onchain -- cross-source verification</div>
 
     <p>Two data sources were reconciled: the Xero accounting system (book values, all chains) and the Safe multisig CSV export (onchain USDC on Optimism). Discrepancies are expected because Xero tracks across chains and converts at payment-time exchange rates.</p>
@@ -387,9 +375,9 @@
     </details>
   </section>
 
-  <!-- 5. Action Items -->
+  <!-- 4. Action Items -->
   <section id="action-items">
-    <h2><span class="n">05</span>Action Items</h2>
+    <h2><span class="n">04</span>Action Items</h2>
     <div class="ss">Outstanding items entering Q2</div>
 
     <h3>Financial</h3>
@@ -408,6 +396,24 @@
 
     <h3>Operations</h3>
     <div class="open-item"><div><span class="tag open">High</span></div><div class="content"><div class="item-title">Physical space lease</div><div class="item-desc">Third floor terms in negotiation. Projected $7,000/mo starting June.</div></div></div>
+  </section>
+
+  <!-- 5. Entity Status -->
+  <section id="entity">
+    <h2><span class="n">05</span>Entity Status</h2>
+    <div class="ss">Legal foundation</div>
+    <div class="entity-card">
+      <div class="entity-row"><div class="entity-key">Entity</div><div class="entity-value">RegenHub, LCA (DBA Techne)</div></div>
+      <div class="entity-row"><div class="entity-key">Status</div><div class="entity-value"><span class="status">Active -- Ratified</span></div></div>
+      <div class="entity-row"><div class="entity-key">Filed</div><div class="entity-value">February 6, 2026</div></div>
+      <div class="entity-row"><div class="entity-key">SOS ID</div><div class="entity-value" style="font-family:var(--mono);font-size:0.9rem;">20261163853</div></div>
+      <div class="entity-row"><div class="entity-key">Type</div><div class="entity-value">Colorado Public Benefit LCA</div></div>
+      <div class="entity-row"><div class="entity-key">Tax Election</div><div class="entity-value">Subchapter K (partnership, K-1)</div></div>
+      <div class="entity-row"><div class="entity-key">Principal Office</div><div class="entity-value">1515 Walnut St, Suite 200, Boulder, CO 80302</div></div>
+      <div class="entity-row"><div class="entity-key">Public Benefit</div><div class="entity-value" style="font-style:italic;">Cultivating scenius</div></div>
+      <div class="entity-row"><div class="entity-key">Organizers</div><div class="entity-value">8 founding organizers</div></div>
+      <div class="entity-row"><div class="entity-key">Formal Members</div><div class="entity-value">0 (admission blocked -- see Action Items)</div></div>
+    </div>
   </section>
 
   <!-- 6. Merkle Seal -->
