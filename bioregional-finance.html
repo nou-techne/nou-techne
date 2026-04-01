@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bioregional Finance — Techne</title>
+<meta name="description" content="An introduction to bioregional finance: place-based economics, purpose trusts, and the architecture of commons. How communities can secure water, food, fiber, and housing for generations.">
+<meta property="og:title" content="Bioregional Finance">
+<meta property="og:description" content="Place-based economics, purpose trusts, and the architecture of commons.">
+<meta property="og:type" content="article">
+<link rel="canonical" href="https://techne.institute/bioregional-finance.html">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
+
+  :root {
+    --bg: #0a0a0a;
+    --bg-section: #111111;
+    --bg-card: #1a1a1a;
+    --bg-accent: #151515;
+    --bg-diagram: #0e0e0e;
+    --text: #e8e4df;
+    --text-dim: #9a9590;
+    --text-faint: #5a5550;
+    --accent: #c4956a;
+    --accent-dim: #8a6a4a;
+    --accent-bright: #d4a57a;
+    --rule: #2a2520;
+    --green: #6a9a6a;
+    --green-dim: #3a5a3a;
+    --serif: 'EB Garamond', 'Georgia', serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    font-size: 18px;
+    background: var(--bg);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--serif);
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* --- NAVIGATION --- */
+  .slide-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(10, 10, 10, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+    padding: 0.6rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .slide-nav .brand { color: var(--accent); font-weight: 500; }
+
+  .slide-nav .indicator { display: flex; gap: 0.4rem; align-items: center; }
+
+  .slide-nav .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--text-faint); transition: all 0.3s ease; cursor: pointer;
+  }
+
+  .slide-nav .dot.active { background: var(--accent); width: 18px; border-radius: 3px; }
+
+  .slide-nav .nav-controls { display: flex; gap: 1rem; }
+
+  .slide-nav .nav-controls button {
+    background: none; border: 1px solid var(--rule);
+    color: var(--text-dim); font-family: var(--sans);
+    font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 0.3rem 0.8rem; cursor: pointer; transition: all 0.2s ease;
+  }
+
+  .slide-nav .nav-controls button:hover { border-color: var(--accent-dim); color: var(--accent); }
+
+  /* --- SLIDES --- */
+  .slide {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 5rem 2rem 4rem;
+    position: relative;
+  }
+
+  .slide::after {
+    content: ''; position: absolute; bottom: 0; left: 10%; right: 10%; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--rule), transparent);
+  }
+
+  .slide-inner { max-width: 48rem; margin: 0 auto; width: 100%; }
+
+  .slide.cover { text-align: center; align-items: center; }
+  .slide.cover .slide-inner { display: flex; flex-direction: column; align-items: center; }
+
+  .greek-header {
+    font-size: 0.85rem; letter-spacing: 0.5em; color: var(--accent);
+    text-transform: uppercase; font-family: var(--sans); font-weight: 300; margin-bottom: 3rem;
+  }
+
+  .slide.cover h1 {
+    font-family: var(--serif); font-size: 3rem; font-weight: 400;
+    line-height: 1.2; max-width: 16em; margin-bottom: 2rem; letter-spacing: -0.01em;
+  }
+
+  .slide.cover .subtitle {
+    font-size: 1.15rem; font-style: italic; color: var(--text-dim);
+    max-width: 32em; line-height: 1.6; margin-bottom: 3rem;
+  }
+
+  .slide.cover .byline {
+    font-family: var(--sans); font-size: 0.7rem; color: var(--text-faint);
+    letter-spacing: 0.15em; text-transform: uppercase;
+  }
+
+  .slide.cover .byline span { color: var(--text-dim); }
+
+  .section-num {
+    font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.35em;
+    text-transform: uppercase; color: var(--accent-dim); margin-bottom: 0.5rem;
+  }
+
+  h2 { font-family: var(--serif); font-size: 2.2rem; font-weight: 400; margin-bottom: 2rem; line-height: 1.25; }
+  h3 { font-family: var(--serif); font-size: 1.35rem; font-weight: 500; margin-top: 2.5rem; margin-bottom: 1rem; }
+
+  h4 {
+    font-family: var(--sans); font-size: 0.8rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent);
+    margin-top: 2rem; margin-bottom: 0.8rem;
+  }
+
+  p { margin-bottom: 1.4rem; font-size: 1.05rem; }
+  strong { font-weight: 600; }
+
+  blockquote {
+    border-left: 2px solid var(--accent-dim); padding: 1rem 0 1rem 1.5rem;
+    margin: 2rem 0; font-style: italic; color: var(--text-dim); font-size: 1.1rem; line-height: 1.6;
+  }
+
+  blockquote .attribution {
+    display: block; margin-top: 0.8rem; font-family: var(--sans); font-size: 0.7rem;
+    font-style: normal; letter-spacing: 0.1em; color: var(--text-faint);
+  }
+
+  .featured-quote {
+    padding: 4rem 2rem; text-align: center; background: var(--bg-accent);
+    border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); margin: 3rem -2rem;
+  }
+
+  .featured-quote p {
+    font-family: var(--serif); font-size: 1.5rem; font-style: italic;
+    color: var(--text-dim); max-width: 28em; margin: 0 auto 1rem; line-height: 1.5;
+  }
+
+  .featured-quote .attribution {
+    font-family: var(--sans); font-size: 0.7rem; color: var(--text-faint);
+    letter-spacing: 0.15em; text-transform: uppercase;
+  }
+
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-dim); transition: border-color 0.2s ease; }
+  a:hover { border-bottom-color: var(--accent); }
+
+  /* --- COMPONENTS --- */
+  .diagram {
+    margin: 3rem 0; padding: 2rem; background: var(--bg-diagram);
+    border: 1px solid var(--rule);
+  }
+
+  .diagram-title {
+    font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--text-faint); margin-bottom: 1.5rem; text-align: center;
+  }
+
+  /* Principle cards */
+  .principle-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px;
+    background: var(--rule); margin: 2rem 0;
+  }
+
+  .principle-card {
+    background: var(--bg-card); padding: 1.8rem 1.5rem;
+  }
+
+  .principle-symbol {
+    font-family: var(--sans); font-size: 1.3rem; color: var(--accent-dim);
+    margin-bottom: 0.5rem; line-height: 1;
+  }
+
+  .principle-name {
+    font-family: var(--serif); font-size: 1.1rem; font-weight: 500;
+    color: var(--text); margin-bottom: 0.6rem;
+  }
+
+  .principle-desc {
+    font-family: var(--sans); font-size: 0.78rem; color: var(--text-dim); line-height: 1.5;
+  }
+
+  /* System cards */
+  .system-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 2rem 0; }
+
+  .system-card {
+    background: var(--bg-card); border: 1px solid var(--rule); padding: 1.5rem;
+  }
+
+  .system-card h4 { margin-top: 0; font-size: 0.75rem; }
+
+  .system-card .card-title {
+    font-family: var(--serif); font-size: 1.1rem; font-weight: 500; margin-bottom: 0.5rem;
+  }
+
+  .system-card .card-location {
+    font-family: var(--sans); font-size: 0.7rem; color: var(--text-faint);
+    letter-spacing: 0.08em; margin-bottom: 0.8rem;
+  }
+
+  .system-card p { font-size: 0.9rem; color: var(--text-dim); margin-bottom: 0.6rem; line-height: 1.5; }
+
+  .system-card .key-insight {
+    font-family: var(--sans); font-size: 0.75rem; color: var(--accent);
+    border-top: 1px solid var(--rule); padding-top: 0.8rem; margin-top: 0.8rem; line-height: 1.5;
+  }
+
+  /* Pillars */
+  .pillars { display: flex; gap: 1px; margin: 1rem 0; }
+
+  .pillar { flex: 1; background: var(--bg-card); padding: 1.5rem 1.2rem; text-align: center; }
+
+  .pillar-num { font-family: var(--sans); font-size: 0.6rem; letter-spacing: 0.2em; color: var(--accent-dim); margin-bottom: 0.5rem; }
+  .pillar-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 500; margin-bottom: 0.8rem; }
+  .pillar-desc { font-family: var(--sans); font-size: 0.75rem; color: var(--text-dim); line-height: 1.5; }
+
+  .pillar-function {
+    font-family: var(--sans); font-size: 0.65rem; color: var(--accent);
+    letter-spacing: 0.05em; margin-top: 1rem; padding-top: 0.8rem; border-top: 1px solid var(--rule);
+  }
+
+  /* Four sheds */
+  .sheds-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); margin: 1.5rem 0; }
+  .shed { background: var(--bg-card); padding: 1.8rem 1.5rem; }
+  .shed-symbol { font-family: var(--sans); font-size: 1.5rem; color: var(--accent-dim); margin-bottom: 0.5rem; line-height: 1; }
+  .shed-name { font-family: var(--serif); font-size: 1.15rem; font-weight: 500; margin-bottom: 0.3rem; }
+  .shed-latin { font-family: var(--sans); font-size: 0.65rem; font-style: italic; color: var(--text-faint); letter-spacing: 0.05em; margin-bottom: 0.8rem; }
+  .shed-desc { font-family: var(--sans); font-size: 0.78rem; color: var(--text-dim); line-height: 1.5; margin-bottom: 0.6rem; }
+  .shed-example { font-family: var(--sans); font-size: 0.7rem; color: var(--accent-dim); border-top: 1px solid var(--rule); padding-top: 0.6rem; margin-top: 0.6rem; line-height: 1.4; }
+
+  /* Encoding layers */
+  .encoding-layers { margin: 2rem 0; }
+  .encoding-layer { display: flex; align-items: stretch; margin-bottom: 1px; }
+
+  .encoding-layer-label {
+    width: 140px; flex-shrink: 0; background: var(--bg-accent);
+    border-right: 2px solid var(--accent-dim);
+    display: flex; align-items: center; justify-content: flex-end; padding: 1rem;
+    font-family: var(--sans); font-size: 0.7rem; font-weight: 500;
+    color: var(--accent); letter-spacing: 0.05em; text-transform: uppercase; text-align: right;
+  }
+
+  .encoding-layer-content { flex: 1; background: var(--bg-card); padding: 1rem 1.2rem; }
+  .encoding-layer-content .layer-title { font-family: var(--serif); font-size: 1rem; font-weight: 500; margin-bottom: 0.3rem; }
+  .encoding-layer-content .layer-desc { font-family: var(--sans); font-size: 0.75rem; color: var(--text-dim); line-height: 1.5; }
+
+  /* Progression */
+  .progression { display: flex; align-items: stretch; margin: 2rem 0; }
+
+  .progression-step {
+    flex: 1; background: var(--bg-card); padding: 1.2rem; text-align: center;
+    border: 1px solid var(--rule); border-right: none; position: relative;
+  }
+
+  .progression-step:last-child { border-right: 1px solid var(--rule); }
+
+  .progression-step::after {
+    content: ''; position: absolute; right: -8px; top: 50%; transform: translateY(-50%);
+    width: 0; height: 0; border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent; border-left: 8px solid var(--accent-dim); z-index: 1;
+  }
+
+  .progression-step:last-child::after { display: none; }
+  .progression-step .step-label { font-family: var(--sans); font-size: 0.6rem; letter-spacing: 0.2em; color: var(--accent-dim); text-transform: uppercase; margin-bottom: 0.4rem; }
+  .progression-step .step-name { font-family: var(--serif); font-size: 0.95rem; font-weight: 500; margin-bottom: 0.3rem; }
+  .progression-step .step-desc { font-family: var(--sans); font-size: 0.65rem; color: var(--text-dim); line-height: 1.4; }
+
+  /* Stat block */
+  .stat-block { display: flex; gap: 1px; margin: 2rem 0; background: var(--rule); }
+  .stat { flex: 1; background: var(--bg-card); padding: 1.5rem 1rem; text-align: center; }
+  .stat-value { font-family: var(--serif); font-size: 2rem; font-weight: 500; color: var(--accent); line-height: 1; margin-bottom: 0.3rem; }
+  .stat-label { font-family: var(--sans); font-size: 0.65rem; color: var(--text-dim); letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.4; }
+
+  /* Questions */
+  .questions-list { list-style: none; counter-reset: questions; margin: 2rem 0; }
+
+  .questions-list li {
+    counter-increment: questions; padding: 1.2rem 1.2rem 1.2rem 3.5rem;
+    border-bottom: 1px solid var(--rule); position: relative; font-size: 1rem; line-height: 1.5;
+  }
+
+  .questions-list li::before {
+    content: counter(questions); position: absolute; left: 0; top: 1.2rem;
+    font-family: var(--sans); font-size: 0.8rem; font-weight: 500;
+    color: var(--accent-dim); width: 2.5rem; text-align: center;
+  }
+
+  .questions-list li .q-context {
+    display: block; font-family: var(--sans); font-size: 0.75rem;
+    color: var(--text-faint); margin-top: 0.5rem; line-height: 1.4;
+  }
+
+  /* Jurisdiction */
+  .jurisdiction-table {
+    width: 100%; margin: 2rem 0; border-collapse: collapse;
+    font-family: var(--sans); font-size: 0.8rem;
+  }
+
+  .jurisdiction-table thead th {
+    text-align: left; padding: 0.6rem 0.8rem; border-bottom: 2px solid var(--accent-dim);
+    font-weight: 500; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent);
+  }
+
+  .jurisdiction-table tbody td {
+    padding: 0.6rem 0.8rem; border-bottom: 1px solid var(--rule);
+    color: var(--text-dim); line-height: 1.4; vertical-align: top;
+  }
+
+  .jurisdiction-table tbody tr.highlight td { color: var(--text); background: rgba(196, 149, 106, 0.05); }
+
+  .jurisdiction-table .tag {
+    display: inline-block; font-size: 0.6rem; padding: 0.15rem 0.4rem;
+    border: 1px solid var(--accent-dim); color: var(--accent);
+    letter-spacing: 0.05em; margin-left: 0.3rem; vertical-align: middle;
+  }
+
+  /* Colophon */
+  .colophon { padding: 4rem 2rem; text-align: center; border-top: 1px solid var(--rule); }
+  .colophon p { font-family: var(--sans); font-size: 0.7rem; color: var(--text-faint); letter-spacing: 0.08em; line-height: 1.8; }
+  .colophon a { color: var(--accent-dim); }
+
+  /* --- RESPONSIVE --- */
+  @media (max-width: 768px) {
+    html { font-size: 16px; }
+    .slide { padding: 4rem 1.2rem 3rem; }
+    .slide.cover h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.8rem; }
+    .system-grid, .sheds-grid { grid-template-columns: 1fr; }
+    .principle-grid { grid-template-columns: 1fr; }
+    .pillars, .progression { flex-direction: column; }
+    .progression-step { border-right: 1px solid var(--rule); border-bottom: none; }
+    .progression-step:last-child { border-bottom: 1px solid var(--rule); }
+    .progression-step::after { right: 50%; top: auto; bottom: -8px; transform: translateX(50%) rotate(90deg); }
+    .stat-block { flex-direction: column; }
+    .encoding-layer { flex-direction: column; }
+    .encoding-layer-label { width: 100%; justify-content: flex-start; text-align: left; border-right: none; border-bottom: 2px solid var(--accent-dim); padding: 0.6rem 1rem; }
+    .slide-nav .indicator { display: none; }
+  }
+
+  /* --- PRINT --- */
+  @media print {
+    .slide-nav { display: none; }
+    .slide { min-height: auto; page-break-after: always; padding: 2rem 0; }
+    .slide::after { display: none; }
+    body { background: white; color: #111; }
+    .system-card, .pillar, .shed, .stat, .encoding-layer-content, .progression-step, .principle-card { background: #f5f5f5; border-color: #ccc; }
+    a { color: #333; }
+    blockquote { border-left-color: #999; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="slide-nav" id="slideNav">
+  <span class="brand">Techne</span>
+  <div class="indicator" id="slideIndicator"></div>
+  <div class="nav-controls">
+    <button onclick="prevSlide()">Prev</button>
+    <button onclick="nextSlide()">Next</button>
+  </div>
+</nav>
+
+<!-- COVER -->
+<div class="slide cover" id="slide-0">
+  <div class="slide-inner">
+    <div class="greek-header">oikos + regio</div>
+    <h1>Bioregional Finance</h1>
+    <p class="subtitle">How communities can build economic infrastructure grounded in place — securing water, food, fiber, and housing for generations</p>
+    <p class="byline"><span>Techne Institute</span> / Spring 2026</p>
+  </div>
+</div>
+
+<!-- SLIDE 1: WHAT IS BIOREGIONAL FINANCE -->
+<div class="slide" id="slide-1">
+  <div class="slide-inner">
+    <div class="section-num">I</div>
+    <h2>Finance That Knows Where It Lives</h2>
+
+    <p>Most financial systems are placeless. Capital flows toward the highest return regardless of geography, community, or ecology. A dollar invested in a bond fund might end up financing a soybean farm in Brazil, a data center in Virginia, or a strip mall in Phoenix. The investor never knows, and the system is designed so they never need to.</p>
+
+    <p><strong>Bioregional finance starts from the opposite premise.</strong> It asks: what happens when economic relationships are grounded in the places where people actually live? When capital circulates within a community rather than extracting from it? When the financial instruments themselves are shaped by the ecology of a specific landscape?</p>
+
+    <p>A <em class="greek-word">bioregion</em> — from Greek <em>bios</em> (life) and Latin <em>regio</em> (territory, direction) — is a geographic area defined by ecological boundaries rather than political ones. A watershed, a climate zone, a soil type, a vegetation pattern. The Front Range of Colorado is a bioregion. The Northern California coast is a bioregion. The Great Lakes basin is a bioregion.</p>
+
+    <p>Bioregional finance is the practice of building economic infrastructure that follows these natural boundaries. It is not a theory waiting for implementation. It is happening now, in different forms, in different places, at different scales.</p>
+
+    <div class="principle-grid">
+      <div class="principle-card">
+        <div class="principle-symbol">&cir;</div>
+        <div class="principle-name">Place-Committed</div>
+        <div class="principle-desc">Capital stays in the bioregion. Value circulates among the people who create it. Returns are measured in community resilience, not only financial yield.</div>
+      </div>
+      <div class="principle-card">
+        <div class="principle-symbol">&nabla;</div>
+        <div class="principle-name">Ecologically Bounded</div>
+        <div class="principle-desc">Economic boundaries follow ecological ones — watersheds, foodsheds, fibersheds. The landscape shapes the financial infrastructure, not the other way around.</div>
+      </div>
+      <div class="principle-card">
+        <div class="principle-symbol">&Delta;</div>
+        <div class="principle-name">Community Governed</div>
+        <div class="principle-desc">The people who live in a place make the allocation decisions. Governance is local, democratic, and accountable to the community it serves.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 2: THE LANDSCAPE OF PRACTICE -->
+<div class="slide" id="slide-2">
+  <div class="slide-inner">
+    <div class="section-num">II</div>
+    <h2>A Landscape of Practice</h2>
+
+    <p>Bioregional finance is not one model. It is a family of approaches that share a common grammar: value is created and circulated within a place-based community, verified against actual conditions in that place, and governed by the people who live there. Four examples illustrate the range.</p>
+
+    <div class="system-grid">
+      <div class="system-card">
+        <h4>Community Currencies</h4>
+        <div class="card-title">Sarafu Network</div>
+        <div class="card-location">Kenya, expanding globally</div>
+        <p>Communities create mutual credit based on the real goods and services their members provide. A baker commits bread, a tutor commits lessons, a farmer commits produce. The currency represents these commitments and circulates among neighbors.</p>
+        <div class="key-insight">Works on basic feature phones. No cryptocurrency sophistication required. The 2025 survey shows measurable impact for low-income families.</div>
+      </div>
+
+      <div class="system-card">
+        <h4>Ecological Verification</h4>
+        <div class="card-title">Regen Network</div>
+        <div class="card-location">Global registry</div>
+        <p>Credits issued when someone verifies that ecological conditions in a specific place actually improved — soil carbon increased, biodiversity grew, water quality changed. Not projections. Measurements.</p>
+        <div class="key-insight">The Biocultural Stewardship Methodology integrates Indigenous land stewardship into verification. Place and people are inseparable.</div>
+      </div>
+
+      <div class="system-card">
+        <h4>Regional Fiber Systems</h4>
+        <div class="card-title">Fibershed</div>
+        <div class="card-location">Northern California, expanding</div>
+        <p>Everything needed to clothe a community — fiber-growing, processing, weaving, dyeing, sewing — sourced from within 150 miles. The supply chain becomes a local economy. Byproducts feed building material and food systems.</p>
+        <div class="key-insight">Founded by Rebecca Burgess from a personal challenge: one wardrobe, all local. Now a regional system that builds soil while producing textiles.</div>
+      </div>
+
+      <div class="system-card">
+        <h4>Coordinated Ecological Work</h4>
+        <div class="card-title">Swarm Ecosystems</div>
+        <div class="card-location">Distributed, bioregion-linked</div>
+        <p>Bounties fund specific ecological coordination tasks — watershed monitoring, data infrastructure, knowledge commons. Participants claim work, deliver results, build shared resources that compound over time.</p>
+        <div class="key-insight">The mechanism evolves based on what actually works. Coordination patterns are tested in practice, not designed in theory.</div>
+      </div>
+    </div>
+
+    <p>What these systems share: none of them treat a bioregion as something to be <em>represented</em> in financial markets. Each one builds economic relationships that are <em>embedded in</em> a place, accountable to its people, and shaped by its ecology.</p>
+  </div>
+</div>
+
+<!-- SLIDE 3: THE FOUR SHEDS -->
+<div class="slide" id="slide-3">
+  <div class="slide-inner">
+    <div class="section-num">III</div>
+    <h2>The Four Sheds</h2>
+
+    <p>Everyone knows what a watershed is — the geographic area draining to a common point. But the "shed" is a more general concept: any geographic area defined by the flow of a specific resource. The same principle that organizes water governance can organize food, fiber, and housing.</p>
+
+    <p>These four sheds are the natural units of bioregional commons governance. The boundaries are drawn by ecology and use, not by administration.</p>
+
+    <div class="diagram">
+      <div class="diagram-title">Four Resource Sheds</div>
+      <div class="sheds-grid">
+        <div class="shed">
+          <div class="shed-symbol">&nabla;</div>
+          <div class="shed-name">Watershed</div>
+          <div class="shed-latin">aqua — water</div>
+          <div class="shed-desc">The area draining to a common point. Streams, aquifers, snowpack, irrigation. The oldest and most legally developed shed concept. In the American West, water governance has shaped entire civilizations.</div>
+          <div class="shed-example">In Colorado, community ditch companies have governed water allocation cooperatively for over a century — quasi-cooperative structures predating modern cooperative law.</div>
+        </div>
+
+        <div class="shed">
+          <div class="shed-symbol">&equiv;</div>
+          <div class="shed-name">Foodshed</div>
+          <div class="shed-latin">panis — bread</div>
+          <div class="shed-desc">The area providing food to a community. Farms, ranches, processing, distribution, markets. Where the food comes from, how it gets to you, and who grows it.</div>
+          <div class="shed-example">The Farmers Land Trust model: agricultural land held for diversified production of food, forage, fiber, medicine, and ecological stewardship. The land feeds the community in perpetuity.</div>
+        </div>
+
+        <div class="shed">
+          <div class="shed-symbol">&sim;</div>
+          <div class="shed-name">Fibershed</div>
+          <div class="shed-latin">filum — thread</div>
+          <div class="shed-desc">The landscape providing materials for textiles and building. Wool, hemp, flax, timber, straw. The fiber cycle: grow, harvest, process, manufacture, use, return to soil.</div>
+          <div class="shed-example">Fibershed demonstrated that a complete textile supply chain can operate within 150 miles — and that the same fiber-growing practices that produce cloth also build soil carbon.</div>
+        </div>
+
+        <div class="shed">
+          <div class="shed-symbol">&square;</div>
+          <div class="shed-name">Housing Shed</div>
+          <div class="shed-latin">domus — home</div>
+          <div class="shed-desc">The area within which people live, work, and raise families. Shelter is not a commodity — it is a condition for participation in community life. Housing costs determine who can stay.</div>
+          <div class="shed-example">The Kensington Corridor Trust in Philadelphia takes real estate off the market and holds it for collective community control. The neighborhood governs its own development.</div>
+        </div>
+      </div>
+    </div>
+
+    <p>The sheds overlap. The watershed feeds the foodshed. The foodshed produces fiber. Housing clusters where food and water are accessible. Bioregional finance holds the <em>relationships between sheds</em> as much as the individual resources — because a community needs all four to thrive.</p>
+  </div>
+</div>
+
+<!-- SLIDE 4: THE PURPOSE TRUST -->
+<div class="slide" id="slide-4">
+  <div class="slide-inner">
+    <div class="section-num">IV</div>
+    <h2>A Legal Structure for Permanence</h2>
+
+    <p>How do you ensure that a community's essential resources — its water, food, fiber, and housing — remain available across generations, regardless of market pressures, political changes, or individual decisions?</p>
+
+    <p>The answer is a <strong>perpetual purpose trust</strong> — a legal structure that exists to serve a stated purpose, with no expiration date and no individual beneficiaries who can redirect its assets.</p>
+
+    <h3>How It Works</h3>
+
+    <p>An ordinary trust has beneficiaries — specific people who benefit from its assets. A purpose trust has <em>no beneficiaries</em>. It exists to serve a <strong>purpose</strong>, and an appointed <strong>enforcer</strong> holds the trustee accountable to that purpose. The trust cannot be sold, liquidated, or redirected. It serves its purpose in perpetuity.</p>
+
+    <p>This is what makes purpose trusts uniquely suited to holding commons. The trust does not serve shareholders, donors, or even members. It serves the stated purpose — and the stated purpose can be: <em>to secure access to water, food, fiber, and housing within this bioregion for all who live here.</em></p>
+
+    <h3>Precedents</h3>
+
+    <p><strong>Patagonia</strong> — In 2022, Yvon Chouinard transferred the company to a purpose trust. Voting rights stay with the trust (ensuring the mission persists), while economic rights flow to environmental causes. The company generates revenue and conducts commerce — but its purpose cannot be overridden by any future owner, because there are no future owners. Only the purpose endures.</p>
+
+    <p><strong>Kensington Corridor Trust</strong> — In Philadelphia, KCT takes real estate off the market and places it in perpetual trust for collective community control. Board members include neighborhood residents and business owners. Properties are rehabilitated and reactivated to preserve affordability. The land can never be sold to the highest bidder.</p>
+
+    <p><strong>Vesi</strong> — A startup now deploying the KCT model nationally, beginning in Trenton, NJ. The vision: acquire portfolios of 30-40 properties per neighborhood, maintaining long-term affordability and occupant equity while scaling across communities.</p>
+
+    <h3>Why Not a Nonprofit?</h3>
+
+    <p>Purpose trusts can engage in market-rate transactions and use revenue to cross-subsidize mission work. A 501(c)(3) depends on grants and donations. A community land trust has limited commercial flexibility. A purpose trust can own businesses, conduct commerce, and generate self-sustaining revenue — all while bound by fiduciary duty to its purpose rather than to shareholder returns.</p>
+
+    <table class="jurisdiction-table">
+      <thead>
+        <tr>
+          <th>Jurisdiction</th>
+          <th>Duration</th>
+          <th>Key Features</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td>Wyoming <span class="tag">Strongest</span></td>
+          <td>Perpetual</td>
+          <td>Most expansive purpose trust statute. No beneficiary requirement. No state income tax.</td>
+        </tr>
+        <tr>
+          <td>South Dakota</td>
+          <td>Perpetual</td>
+          <td>No state income tax. Established trust industry.</td>
+        </tr>
+        <tr>
+          <td>Nevada</td>
+          <td>365 years</td>
+          <td>Strong asset protection. Some restrictions.</td>
+        </tr>
+        <tr>
+          <td>Florida</td>
+          <td>Perpetual</td>
+          <td>Recent expansion of purpose trust law.</td>
+        </tr>
+        <tr>
+          <td>Delaware</td>
+          <td>21 years</td>
+          <td>Established trust jurisdiction, but short non-charitable duration.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- SLIDE 5: ENCODING NATURAL LAW -->
+<div class="slide" id="slide-5">
+  <div class="slide-inner">
+    <div class="section-num">V</div>
+    <h2>Encoding Natural Law and Earth Law</h2>
+
+    <p>Some things are older than any statute. The recognition that water is not a commodity. That soil feeds everyone who lives above it. That shelter is a precondition for participation in community life. That the thread binding a garment connects the wearer to the land where the fiber grew.</p>
+
+    <p>These recognitions are what legal scholars call <strong>natural law</strong> — principles that exist independent of legislation, rooted in the conditions of life itself. <strong>Earth law</strong> extends the frame: ecosystems have inherent rights, not merely instrumental value to humans.</p>
+
+    <p>A purpose trust is the mechanism for translating these recognitions into durable legal structure. It encodes what a community already knows into a form that persists across generations.</p>
+
+    <div class="diagram">
+      <div class="diagram-title">How the Encoding Works</div>
+      <div class="encoding-layers">
+        <div class="encoding-layer">
+          <div class="encoding-layer-label">Recognition</div>
+          <div class="encoding-layer-content">
+            <div class="layer-title">What a Community Knows</div>
+            <div class="layer-desc">Water, food, fiber, and shelter are preconditions for life. Access to them is a right older than any statute. The land sustains the community; the community stewards the land.</div>
+          </div>
+        </div>
+        <div class="encoding-layer">
+          <div class="encoding-layer-label">Legal Theory</div>
+          <div class="encoding-layer-content">
+            <div class="layer-title">Natural Law and Earth Law</div>
+            <div class="layer-desc">Procedural rights to establish, maintain, participate in, be informed about, and seek redress for ecological commons. The commons is not given by government — it is recognized by it. (Wijdekop, Earth Law Alliance)</div>
+          </div>
+        </div>
+        <div class="encoding-layer">
+          <div class="encoding-layer-label">Structure</div>
+          <div class="encoding-layer-content">
+            <div class="layer-title">The Perpetual Purpose Trust</div>
+            <div class="layer-desc">Removes the resource from market alienability. Binds fiduciary duty to the purpose of securing the four sheds. Appoints enforcers with standing. Operates in perpetuity — outlasting any administration, market cycle, or individual intention.</div>
+          </div>
+        </div>
+        <div class="encoding-layer">
+          <div class="encoding-layer-label">Document</div>
+          <div class="encoding-layer-content">
+            <div class="layer-title">The Right to Commons</div>
+            <div class="layer-desc">The trust instrument declares that access to water, food, fiber, and housing within a bioregion is a right the trust exists to secure. This is the constitutional document of the commons — binding across generations.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p>The U.S. Public Trust Doctrine already recognizes this principle for navigable waters — states must manage them for public benefit. A purpose trust extends the same recognition to the four sheds, in a structure that does not depend on state action. Where governments fail their public trust obligations, the purpose trust provides an alternative path.</p>
+  </div>
+</div>
+
+<!-- SLIDE 6: THE FINANCIAL ARCHITECTURE -->
+<div class="slide" id="slide-6">
+  <div class="slide-inner">
+    <div class="section-num">VI</div>
+    <h2>The Financial Architecture</h2>
+
+    <p>A purpose trust secures assets. But assets need active management — stewardship, maintenance, revenue generation, response to changing conditions. The emerging model for bioregional-scale finance integrates three functions into a single facility.</p>
+
+    <div class="diagram">
+      <div class="diagram-title">Bioregional Financing Facility — Three Pillars</div>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="pillar-num">I</div>
+          <div class="pillar-title">Foundation / Trust</div>
+          <div class="pillar-desc">Holds assets in perpetuity. Governed by the bioregional community. The legal container that ensures resources cannot be extracted.</div>
+          <div class="pillar-function">Stewardship + Governance</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">II</div>
+          <div class="pillar-title">Investment Facility</div>
+          <div class="pillar-desc">Attracts capital — including return-seeking capital — while directing it toward regenerative outcomes. Holistic returns, not only financial yield.</div>
+          <div class="pillar-function">Capital Allocation</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">III</div>
+          <div class="pillar-title">Bioregional Bank</div>
+          <div class="pillar-desc">Provides credit, technical assistance, and potentially community currencies backed by the health of local ecosystems.</div>
+          <div class="pillar-function">Circulation + Credit</div>
+        </div>
+      </div>
+    </div>
+
+    <p>This framework — developed by Dark Matter Labs and the Buckminster Fuller Institute (2024) — is not another layer of financial intermediation. It is a structural change in <em>who makes allocation decisions</em>. Financial resource governance moves from distant capital markets to the bioregional community itself.</p>
+
+    <div class="stat-block">
+      <div class="stat">
+        <div class="stat-value">$7T</div>
+        <div class="stat-label">Annual global subsidies for ecological harm</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">$200B</div>
+        <div class="stat-label">Annual flows to protection and restoration</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">35:1</div>
+        <div class="stat-label">Ratio of destruction to restoration capital</div>
+      </div>
+    </div>
+
+    <p>The problem bioregional finance addresses is not capital scarcity. It is capital <em>direction</em>. Thirty-five times more money flows toward ecological destruction than restoration. The existing financial architecture produces this ratio reliably. Changing the ratio requires changing the architecture — not asking the existing system to behave differently.</p>
+  </div>
+</div>
+
+<!-- SLIDE 7: BUILDING THE PATH -->
+<div class="slide" id="slide-7">
+  <div class="slide-inner">
+    <div class="section-num">VII</div>
+    <h2>Building the Path</h2>
+
+    <p>A bioregional financing facility is a long-term vision. But the path toward it runs through legal structures that already exist, each adding a layer of durability, capacity, and scope. No community needs to build the whole thing at once.</p>
+
+    <div class="diagram">
+      <div class="diagram-title">A Progression, Not a Leap</div>
+      <div class="progression">
+        <div class="progression-step">
+          <div class="step-label">Foundation</div>
+          <div class="step-name">Cooperative</div>
+          <div class="step-desc">Democratic governance, patronage accounting, shared ownership of infrastructure</div>
+        </div>
+        <div class="progression-step">
+          <div class="step-label">Infrastructure</div>
+          <div class="step-name">Composable Tools</div>
+          <div class="step-desc">Treasury, membership, agreements as modular, reusable systems</div>
+        </div>
+        <div class="progression-step">
+          <div class="step-label">Durability</div>
+          <div class="step-name">Purpose Trust</div>
+          <div class="step-desc">Perpetual structure holding bioregional assets for commons use</div>
+        </div>
+        <div class="progression-step">
+          <div class="step-label">Scale</div>
+          <div class="step-name">Financing Facility</div>
+          <div class="step-desc">Trust + cooperative + bank as integrated bioregional infrastructure</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Start Where You Have Social Infrastructure</h3>
+
+    <p>The legal structure grows around the social infrastructure, not the other way around. Where people already cooperate — in a ditch company, a food co-op, a neighborhood association, a fiber collective — the purpose trust formalizes what is already happening and makes it durable across generations.</p>
+
+    <p>A <strong>cooperative</strong> provides the operating layer. Members govern the organization democratically. Patronage accounting tracks each person's contribution and distributes surplus based on participation, not ownership. Venture reciprocity creates commons funding without extraction.</p>
+
+    <p>A <strong>purpose trust</strong> provides the durability layer. The cooperative manages the assets; the trust holds them in perpetuity. No future board, no market downturn, no political shift can redirect the assets away from the stated purpose.</p>
+
+    <p>Together, they compose into something neither can achieve alone: a self-governing economic institution that is both <em>responsive</em> (the cooperative adapts to changing conditions) and <em>permanent</em> (the trust endures across generations).</p>
+
+    <div class="featured-quote">
+      <p>"The question is not whether this will happen. It is: what is the minimum viable shed? One watershed? One neighborhood? One food system?"</p>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 8: THE INVITATION -->
+<div class="slide" id="slide-8">
+  <div class="slide-inner">
+    <div class="section-num">VIII</div>
+    <h2>The Invitation</h2>
+
+    <p>Bioregional finance is not waiting for permission. Community currencies circulate in Kenya. Eco-credits verify ecological work on chain. Fiber systems operate within 150 miles. Cooperatives manage shared infrastructure in Boulder. Purpose trusts hold neighborhoods in Philadelphia.</p>
+
+    <p>What remains to be built is the connective architecture — the legal and financial structure that holds these practices together across time, across resource sheds, across the generations who will inherit what we build or fail to build.</p>
+
+    <h3>Open Questions</h3>
+
+    <ol class="questions-list">
+      <li>
+        What is the minimum viable "shed" for a purpose trust?
+        <span class="q-context">The smallest functional unit might be a single watershed, a single neighborhood, or a single food system. Starting where social infrastructure already exists.</span>
+      </li>
+      <li>
+        How do cooperative governance and purpose trust structure compose legally?
+        <span class="q-context">The cooperative operates; the trust holds. Can an LCA be the managing entity of a perpetual purpose trust? The legal composition is unexplored.</span>
+      </li>
+      <li>
+        How are Indigenous sovereignty and treaty rights engaged?
+        <span class="q-context">Any bioregional trust on the Front Range must engage with Arapaho, Cheyenne, and Ute historical claims. This is not a footnote. It is a foundational question.</span>
+      </li>
+      <li>
+        What is the tax treatment?
+        <span class="q-context">Non-charitable purpose trusts are taxed differently from charities and nonprofits. The answer shapes the financial viability of the entire model.</span>
+      </li>
+      <li>
+        How does the "Right to Commons" agreement interface with existing property law?
+        <span class="q-context">Colorado's prior appropriation doctrine privatizes water. The Public Trust Doctrine pushes back. A purpose trust navigates between them.</span>
+      </li>
+    </ol>
+
+    <h3>What Comes Next</h3>
+
+    <p>This article is the first stage of a progressive publication. The research deepens with each iteration.</p>
+
+    <table class="jurisdiction-table">
+      <thead>
+        <tr>
+          <th>Stage</th>
+          <th>Scope</th>
+          <th>Focus</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td>Introduction <span class="tag">Current</span></td>
+          <td>Conceptual</td>
+          <td>What bioregional finance is, why it matters, how it works</td>
+        </tr>
+        <tr>
+          <td>Extended Essay</td>
+          <td>Analytical</td>
+          <td>Legal analysis, financial architecture, case studies</td>
+        </tr>
+        <tr>
+          <td>Whitepaper</td>
+          <td>Technical</td>
+          <td>Model trust instruments, tax treatment, implementation guide</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p style="margin-top: 2rem; color: var(--text-dim); font-style: italic;">The word <em class="greek-word">regio</em> means the act of drawing a boundary — of saying "this place." Bioregional finance is the act of drawing economic boundaries that correspond to ecological ones. Not to wall off, but to make visible what flows where. To ensure that the water, food, fiber, and shelter a community depends on remain available to those who come after us.</p>
+  </div>
+</div>
+
+<!-- COLOPHON -->
+<div class="colophon">
+  <p>
+    Techne Institute / Boulder, Colorado / Spring 2026<br>
+    <a href="https://github.com/nou-techne/nou-techne/blob/main/research/P338-bioregional-finance-deep-research.md">Research document</a> /
+    <a href="https://techne.institute/introduction/">Introduction series</a>
+  </p>
+  <p style="margin-top: 1rem;">
+    Sources include Bollier &amp; Hulst (2026), Dark Matter Labs / BFI (2024), Wijdekop / Earth Law Alliance,<br>
+    Grassroots Economics, Regen Network, Fibershed, Harrison (2024)
+  </p>
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const indicator = document.getElementById('slideIndicator');
+  let currentSlide = 0;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('span');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.onclick = () => scrollToSlide(i);
+    indicator.appendChild(dot);
+  });
+
+  function scrollToSlide(i) { slides[i].scrollIntoView({ behavior: 'smooth' }); }
+  function prevSlide() { if (currentSlide > 0) scrollToSlide(currentSlide - 1); }
+  function nextSlide() { if (currentSlide < slides.length - 1) scrollToSlide(currentSlide + 1); }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const idx = Array.from(slides).indexOf(entry.target);
+        if (idx >= 0) {
+          currentSlide = idx;
+          document.querySelectorAll('.dot').forEach((d, i) => {
+            d.className = 'dot' + (i === idx ? ' active' : '');
+          });
+        }
+      }
+    });
+  }, { threshold: 0.5 });
+
+  slides.forEach(s => observer.observe(s));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); nextSlide(); }
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); prevSlide(); }
+  });
+</script>
+
+</body>
+</html>
