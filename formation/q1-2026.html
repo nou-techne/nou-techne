@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Q1 2026 Close Report — RegenHub, LCA</title>
-<meta name="description" content="First quarterly close report for RegenHub, LCA (DBA Techne). Formation quarter: January 1 – March 31, 2026.">
+<meta name="description" content="First quarterly close report for RegenHub, LCA (DBA Techne). Formation quarter: January 1 – March 31, 2026. Merkle-sealed open accounting.">
 <meta property="og:title" content="Q1 2026 Close Report — RegenHub, LCA">
-<meta property="og:description" content="Formation quarter. The period in which legal structure, governance, financial infrastructure, and coordination tooling were built from zero.">
+<meta property="og:description" content="Formation quarter. Merkle-sealed open accounting for a Colorado Public Benefit LCA.">
 <meta property="og:type" content="article">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
@@ -15,7 +15,6 @@
     --bg: #0a0a0a;
     --bg-card: #141412;
     --bg-card-hover: #1a1a18;
-    --bg-table-row: #111110;
     --bg-table-alt: #161614;
     --text: #e8e4df;
     --text-dim: #9a9590;
@@ -26,7 +25,6 @@
     --green: #6a9a6a;
     --green-dim: #4a7a4a;
     --red: #c46a6a;
-    --red-dim: #9a4a4a;
     --blue: #6a8ac4;
     --rule: #2a2520;
     --serif: 'EB Garamond', 'Georgia', serif;
@@ -38,294 +36,168 @@
   html { font-size: 17px; scroll-behavior: smooth; background: var(--bg); }
   body { font-family: var(--serif); color: var(--text); background: var(--bg); line-height: 1.7; -webkit-font-smoothing: antialiased; }
 
-  /* Layout */
   .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
 
   /* Hero */
   .hero {
-    min-height: 60vh;
-    display: flex; flex-direction: column; justify-content: center; align-items: center;
-    padding: 4rem 2rem; text-align: center; position: relative;
+    min-height: 55vh; display: flex; flex-direction: column; justify-content: center;
+    align-items: center; padding: 4rem 2rem; text-align: center; position: relative;
   }
   .hero::after { content: ''; position: absolute; bottom: 0; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, var(--accent-dim), transparent); }
-  .hero .quarter-label {
-    font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.2em;
-    color: var(--accent); text-transform: uppercase; margin-bottom: 1.5rem;
-  }
-  .hero h1 {
-    font-family: var(--serif); font-size: 2.4rem; font-weight: 500;
-    color: var(--text); margin-bottom: 0.5rem; letter-spacing: -0.01em;
-  }
-  .hero .subtitle {
-    font-family: var(--serif); font-size: 1.2rem; font-style: italic;
-    color: var(--text-dim); margin-bottom: 2rem;
-  }
-  .hero .meta {
-    font-family: var(--sans); font-size: 0.75rem; color: var(--text-faint);
-    letter-spacing: 0.05em;
-  }
+  .hero .quarter-label { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.2em; color: var(--accent); text-transform: uppercase; margin-bottom: 1.5rem; }
+  .hero h1 { font-family: var(--serif); font-size: 2.4rem; font-weight: 500; color: var(--text); margin-bottom: 0.5rem; }
+  .hero .subtitle { font-family: var(--serif); font-size: 1.2rem; font-style: italic; color: var(--text-dim); margin-bottom: 2rem; }
+  .hero .meta { font-family: var(--sans); font-size: 0.75rem; color: var(--text-faint); letter-spacing: 0.05em; }
   .hero .meta span { margin: 0 0.75rem; }
+  .hero .seal { margin-top: 1.5rem; font-family: var(--mono); font-size: 0.65rem; color: var(--text-faint); padding: 0.5rem 1rem; border: 1px solid var(--rule); border-radius: 4px; display: inline-block; }
+  .hero .seal .hash { color: var(--accent); }
 
-  /* Summary Cards Row */
-  .summary-cards {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1rem; padding: 3rem 0 2rem;
-  }
-  .summary-card {
-    background: var(--bg-card); border: 1px solid var(--rule); border-radius: 8px;
-    padding: 1.25rem; text-align: center;
-  }
-  .summary-card .value {
-    font-family: var(--mono); font-size: 1.6rem; font-weight: 500;
-    color: var(--accent-bright); display: block; margin-bottom: 0.25rem;
-  }
-  .summary-card .label {
-    font-family: var(--sans); font-size: 0.7rem; color: var(--text-dim);
-    text-transform: uppercase; letter-spacing: 0.1em;
-  }
+  /* Summary Cards */
+  .summary-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; padding: 3rem 0 2rem; }
+  .summary-card { background: var(--bg-card); border: 1px solid var(--rule); border-radius: 8px; padding: 1.25rem; text-align: center; }
+  .summary-card .value { font-family: var(--mono); font-size: 1.5rem; font-weight: 500; color: var(--accent-bright); display: block; margin-bottom: 0.25rem; }
+  .summary-card .label { font-family: var(--sans); font-size: 0.7rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.1em; }
 
   /* Sections */
   section { padding: 3rem 0; border-top: 1px solid var(--rule); }
-  section:first-of-type { border-top: none; }
-
-  h2 {
-    font-family: var(--serif); font-size: 1.6rem; font-weight: 500;
-    color: var(--text); margin-bottom: 0.25rem;
-  }
-  h2 .section-num {
-    font-family: var(--mono); font-size: 0.8rem; color: var(--accent);
-    margin-right: 0.5rem; letter-spacing: 0.05em;
-  }
-  .section-subtitle {
-    font-family: var(--sans); font-size: 0.75rem; color: var(--text-faint);
-    text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 2rem;
-  }
-
-  h3 {
-    font-family: var(--serif); font-size: 1.15rem; font-weight: 600;
-    color: var(--text); margin: 2rem 0 0.75rem;
-  }
-
+  h2 { font-family: var(--serif); font-size: 1.6rem; font-weight: 500; color: var(--text); margin-bottom: 0.25rem; }
+  h2 .n { font-family: var(--mono); font-size: 0.8rem; color: var(--accent); margin-right: 0.5rem; }
+  .ss { font-family: var(--sans); font-size: 0.75rem; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 2rem; }
+  h3 { font-family: var(--serif); font-size: 1.15rem; font-weight: 600; color: var(--text); margin: 2rem 0 0.75rem; }
   p { margin-bottom: 1rem; color: var(--text-dim); }
   p.lead { font-size: 1.1rem; color: var(--text); font-style: italic; }
 
   /* Tables */
   table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.9rem; }
-  thead th {
-    font-family: var(--sans); font-size: 0.7rem; text-transform: uppercase;
-    letter-spacing: 0.1em; color: var(--text-faint); text-align: left;
-    padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--rule);
-  }
+  thead th { font-family: var(--sans); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-faint); text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--rule); }
   thead th.num { text-align: right; }
-  tbody td {
-    padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(42, 37, 32, 0.5);
-    color: var(--text-dim);
-  }
+  tbody td { padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(42,37,32,0.5); color: var(--text-dim); }
   tbody td.num { text-align: right; font-family: var(--mono); font-size: 0.85rem; }
   tbody td.name { color: var(--text); }
   tbody tr:nth-child(even) { background: var(--bg-table-alt); }
   tbody tr:hover { background: var(--bg-card-hover); }
-  tfoot td {
-    padding: 0.75rem; border-top: 2px solid var(--accent-dim);
-    font-weight: 600; color: var(--text);
-  }
+  tfoot td { padding: 0.75rem; border-top: 2px solid var(--accent-dim); font-weight: 600; color: var(--text); }
   tfoot td.num { font-family: var(--mono); color: var(--accent-bright); }
 
   /* Bar Charts */
   .bar-chart { margin: 1.5rem 0; }
-  .bar-row {
-    display: flex; align-items: center; margin-bottom: 0.5rem;
-  }
-  .bar-label {
-    font-family: var(--sans); font-size: 0.75rem; color: var(--text-dim);
-    width: 140px; flex-shrink: 0; text-align: right; padding-right: 1rem;
-  }
-  .bar-track {
-    flex: 1; height: 24px; background: var(--bg-card); border-radius: 4px;
-    overflow: hidden; position: relative;
-  }
-  .bar-fill {
-    height: 100%; border-radius: 4px; transition: width 0.6s ease;
-    background: linear-gradient(90deg, var(--accent-dim), var(--accent));
-  }
+  .bar-row { display: flex; align-items: center; margin-bottom: 0.5rem; }
+  .bar-label { font-family: var(--sans); font-size: 0.75rem; color: var(--text-dim); width: 140px; flex-shrink: 0; text-align: right; padding-right: 1rem; }
+  .bar-track { flex: 1; height: 24px; background: var(--bg-card); border-radius: 4px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 4px; transition: width 0.6s ease; background: linear-gradient(90deg, var(--accent-dim), var(--accent)); }
   .bar-fill.green { background: linear-gradient(90deg, var(--green-dim), var(--green)); }
   .bar-fill.blue { background: linear-gradient(90deg, #4a6a9a, var(--blue)); }
-  .bar-fill.red { background: linear-gradient(90deg, var(--red-dim), var(--red)); }
-  .bar-value {
-    font-family: var(--mono); font-size: 0.7rem; color: var(--text-dim);
-    margin-left: 0.75rem; width: 70px; flex-shrink: 0;
-  }
+  .bar-fill.red { background: linear-gradient(90deg, #9a4a4a, var(--red)); }
+  .bar-value { font-family: var(--mono); font-size: 0.7rem; color: var(--text-dim); margin-left: 0.75rem; width: 70px; flex-shrink: 0; }
 
   /* Comparison rows */
-  .comparison { margin: 1.5rem 0; }
-  .comp-row {
-    display: flex; align-items: center; margin-bottom: 0.75rem;
-    padding: 0.75rem 1rem; background: var(--bg-card); border-radius: 6px;
-    border-left: 3px solid var(--rule);
-  }
-  .comp-row.positive { border-left-color: var(--green); }
+  .comp-row { display: flex; align-items: center; margin-bottom: 0.75rem; padding: 0.75rem 1rem; background: var(--bg-card); border-radius: 6px; border-left: 3px solid var(--rule); }
   .comp-row.negative { border-left-color: var(--red); }
   .comp-label { flex: 1; font-family: var(--sans); font-size: 0.8rem; color: var(--text-dim); }
   .comp-projected { font-family: var(--mono); font-size: 0.85rem; color: var(--text-faint); width: 90px; text-align: right; }
   .comp-actual { font-family: var(--mono); font-size: 0.85rem; color: var(--text); width: 90px; text-align: right; }
   .comp-delta { font-family: var(--mono); font-size: 0.75rem; width: 80px; text-align: right; }
   .comp-delta.neg { color: var(--red); }
-  .comp-delta.pos { color: var(--green); }
 
-  /* Entity status card */
-  .entity-card {
-    background: var(--bg-card); border: 1px solid var(--rule); border-radius: 8px;
-    padding: 1.5rem; margin: 1.5rem 0;
-  }
-  .entity-row {
-    display: flex; padding: 0.4rem 0; border-bottom: 1px solid rgba(42, 37, 32, 0.3);
-  }
+  /* Entity card */
+  .entity-card { background: var(--bg-card); border: 1px solid var(--rule); border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
+  .entity-row { display: flex; padding: 0.4rem 0; border-bottom: 1px solid rgba(42,37,32,0.3); }
   .entity-row:last-child { border-bottom: none; }
-  .entity-key {
-    font-family: var(--sans); font-size: 0.7rem; text-transform: uppercase;
-    letter-spacing: 0.1em; color: var(--text-faint); width: 160px; flex-shrink: 0;
-    padding-top: 0.15rem;
-  }
+  .entity-key { font-family: var(--sans); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-faint); width: 160px; flex-shrink: 0; padding-top: 0.15rem; }
   .entity-value { font-size: 0.95rem; color: var(--text); }
-  .entity-value .status {
-    display: inline-block; padding: 0.1rem 0.5rem; border-radius: 3px;
-    font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.05em;
-    background: rgba(106, 154, 106, 0.15); color: var(--green); border: 1px solid rgba(106, 154, 106, 0.3);
-  }
+  .status { display: inline-block; padding: 0.1rem 0.5rem; border-radius: 3px; font-family: var(--sans); font-size: 0.7rem; background: rgba(106,154,106,0.15); color: var(--green); border: 1px solid rgba(106,154,106,0.3); }
 
   /* Transaction list */
-  .tx-list { margin: 1.5rem 0; }
-  .tx-item {
-    display: flex; align-items: center; padding: 0.5rem 0.75rem;
-    border-bottom: 1px solid rgba(42, 37, 32, 0.3); font-size: 0.85rem;
-  }
+  .tx-item { display: flex; align-items: center; padding: 0.5rem 0.75rem; border-bottom: 1px solid rgba(42,37,32,0.3); font-size: 0.85rem; }
   .tx-item:hover { background: var(--bg-card); }
-  .tx-date { font-family: var(--mono); font-size: 0.75rem; color: var(--text-faint); width: 80px; flex-shrink: 0; }
+  .tx-date { font-family: var(--mono); font-size: 0.75rem; color: var(--text-faint); width: 70px; flex-shrink: 0; }
   .tx-name { flex: 1; color: var(--text-dim); }
-  .tx-chain {
-    font-family: var(--mono); font-size: 0.65rem; text-transform: uppercase;
-    letter-spacing: 0.05em; padding: 0.1rem 0.4rem; border-radius: 3px;
-    margin: 0 0.75rem; flex-shrink: 0;
-  }
-  .tx-chain.optimism { background: rgba(255, 4, 32, 0.1); color: #ff6b6b; }
-  .tx-chain.ethereum { background: rgba(98, 126, 234, 0.1); color: #8a9ae4; }
-  .tx-chain.splits { background: rgba(106, 154, 106, 0.1); color: var(--green); }
-  .tx-chain.manual { background: rgba(154, 149, 144, 0.1); color: var(--text-faint); }
+  .tx-chain { font-family: var(--mono); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.1rem 0.4rem; border-radius: 3px; margin: 0 0.5rem; flex-shrink: 0; }
+  .tx-chain.optimism { background: rgba(255,4,32,0.1); color: #ff6b6b; }
+  .tx-chain.ethereum { background: rgba(98,126,234,0.1); color: #8a9ae4; }
+  .tx-chain.splits { background: rgba(106,154,106,0.1); color: var(--green); }
+  .tx-chain.manual { background: rgba(154,149,144,0.1); color: var(--text-faint); }
   .tx-amount { font-family: var(--mono); font-size: 0.85rem; color: var(--green); width: 80px; text-align: right; flex-shrink: 0; }
+  .tx-hash { font-family: var(--mono); font-size: 0.6rem; color: var(--text-faint); width: 90px; text-align: right; flex-shrink: 0; opacity: 0.6; }
+  .month-header { font-family: var(--sans); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); padding: 0.75rem 0.75rem 0.25rem; margin-top: 0.5rem; }
 
-  /* Month group header */
-  .month-header {
-    font-family: var(--sans); font-size: 0.7rem; text-transform: uppercase;
-    letter-spacing: 0.15em; color: var(--accent); padding: 0.75rem 0.75rem 0.25rem;
-    margin-top: 0.5rem;
-  }
+  /* Accounts row */
+  .accounts-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
+  .account-card { background: var(--bg-card); border: 1px solid var(--rule); border-radius: 8px; padding: 1.25rem; }
+  .account-card .acct-name { font-family: var(--sans); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-faint); margin-bottom: 0.5rem; }
+  .account-card .acct-balance { font-family: var(--mono); font-size: 1.4rem; color: var(--accent-bright); }
+  .account-card .acct-detail { font-family: var(--mono); font-size: 0.7rem; color: var(--text-faint); margin-top: 0.25rem; word-break: break-all; }
 
   /* Expandable */
   details { margin: 1rem 0; }
-  summary {
-    font-family: var(--sans); font-size: 0.8rem; color: var(--accent);
-    cursor: pointer; padding: 0.5rem 0; letter-spacing: 0.02em;
-  }
+  summary { font-family: var(--sans); font-size: 0.8rem; color: var(--accent); cursor: pointer; padding: 0.5rem 0; }
   summary:hover { color: var(--accent-bright); }
   details[open] summary { margin-bottom: 0.75rem; }
 
-  /* Tag/badge */
-  .tag {
-    display: inline-block; font-family: var(--sans); font-size: 0.65rem;
-    padding: 0.1rem 0.5rem; border-radius: 3px; letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
-  .tag.open { background: rgba(196, 149, 106, 0.15); color: var(--accent); border: 1px solid rgba(196, 149, 106, 0.3); }
-  .tag.done { background: rgba(106, 154, 106, 0.15); color: var(--green); border: 1px solid rgba(106, 154, 106, 0.3); }
-  .tag.blocker { background: rgba(196, 106, 106, 0.15); color: var(--red); border: 1px solid rgba(196, 106, 106, 0.3); }
+  /* Tags */
+  .tag { display: inline-block; font-family: var(--sans); font-size: 0.65rem; padding: 0.1rem 0.5rem; border-radius: 3px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .tag.open { background: rgba(196,149,106,0.15); color: var(--accent); border: 1px solid rgba(196,149,106,0.3); }
+  .tag.done { background: rgba(106,154,106,0.15); color: var(--green); border: 1px solid rgba(106,154,106,0.3); }
+  .tag.blocker { background: rgba(196,106,106,0.15); color: var(--red); border: 1px solid rgba(196,106,106,0.3); }
 
-  /* Milestone list */
-  .milestone-list { margin: 1rem 0; }
-  .milestone {
-    padding: 1rem 1rem 1rem 1.5rem; margin-bottom: 0.5rem;
-    background: var(--bg-card); border-radius: 6px;
-    border-left: 2px solid var(--rule); position: relative;
-  }
-  .milestone .date {
-    font-family: var(--mono); font-size: 0.7rem; color: var(--accent);
-    display: block; margin-bottom: 0.25rem;
-  }
+  /* Milestones */
+  .milestone { padding: 1rem 1rem 1rem 1.5rem; margin-bottom: 0.5rem; background: var(--bg-card); border-radius: 6px; border-left: 2px solid var(--rule); }
+  .milestone .date { font-family: var(--mono); font-size: 0.7rem; color: var(--accent); display: block; margin-bottom: 0.25rem; }
   .milestone .title { font-weight: 500; color: var(--text); font-size: 0.95rem; }
   .milestone .desc { font-size: 0.85rem; color: var(--text-dim); margin-top: 0.25rem; }
 
   /* Open items */
-  .open-item {
-    padding: 0.75rem 1rem; margin-bottom: 0.5rem;
-    background: var(--bg-card); border-radius: 6px;
-    display: flex; align-items: flex-start; gap: 0.75rem;
-  }
-  .open-item .priority { flex-shrink: 0; margin-top: 0.15rem; }
+  .open-item { padding: 0.75rem 1rem; margin-bottom: 0.5rem; background: var(--bg-card); border-radius: 6px; display: flex; align-items: flex-start; gap: 0.75rem; }
   .open-item .content { flex: 1; }
   .open-item .item-title { font-size: 0.9rem; color: var(--text); }
   .open-item .item-desc { font-size: 0.8rem; color: var(--text-faint); margin-top: 0.15rem; }
 
-  /* Footer */
-  footer {
-    padding: 3rem 0; text-align: center; border-top: 1px solid var(--rule);
-    margin-top: 2rem;
-  }
-  footer p { font-family: var(--sans); font-size: 0.75rem; color: var(--text-faint); }
+  /* Merkle section */
+  .merkle-tree { margin: 2rem 0; }
+  .merkle-node { background: var(--bg-card); border: 1px solid var(--rule); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 0.75rem; }
+  .merkle-node.root { border-color: var(--accent-dim); border-width: 2px; }
+  .merkle-node.chain { border-color: var(--green); border-width: 2px; background: rgba(106,154,106,0.05); }
+  .merkle-label { font-family: var(--sans); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-faint); margin-bottom: 0.25rem; }
+  .merkle-hash { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); word-break: break-all; line-height: 1.5; }
+  .merkle-hash.full { font-size: 0.7rem; color: var(--text-dim); }
+  .merkle-meta { font-family: var(--sans); font-size: 0.75rem; color: var(--text-dim); margin-top: 0.25rem; }
+  .merkle-connector { text-align: center; color: var(--text-faint); font-size: 1.2rem; margin: 0.25rem 0; }
+  .merkle-months { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin: 0.5rem 0; }
+  .verify-box { background: var(--bg-card); border: 1px solid var(--rule); border-radius: 8px; padding: 1.25rem; margin: 1.5rem 0; }
+  .verify-box h4 { font-family: var(--sans); font-size: 0.8rem; color: var(--text); margin-bottom: 0.75rem; }
+  .verify-code { font-family: var(--mono); font-size: 0.7rem; color: var(--text-dim); background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 4px; overflow-x: auto; white-space: pre; line-height: 1.8; }
+  .verify-code .comment { color: var(--text-faint); }
+  .verify-code .string { color: var(--green); }
+  .verify-code .fn { color: var(--accent); }
 
-  /* Navigation */
-  nav.toc {
-    position: fixed; right: 2rem; top: 50%; transform: translateY(-50%);
-    z-index: 100;
-  }
-  nav.toc a {
-    display: block; font-family: var(--sans); font-size: 0.65rem;
-    color: var(--text-faint); text-decoration: none; padding: 0.3rem 0;
-    text-align: right; letter-spacing: 0.05em; transition: color 0.2s;
-  }
+  /* TOC */
+  nav.toc { position: fixed; right: 2rem; top: 50%; transform: translateY(-50%); z-index: 100; }
+  nav.toc a { display: block; font-family: var(--sans); font-size: 0.65rem; color: var(--text-faint); text-decoration: none; padding: 0.3rem 0; text-align: right; letter-spacing: 0.05em; transition: color 0.2s; }
   nav.toc a:hover, nav.toc a.active { color: var(--accent); }
 
-  /* Treasury accounts */
-  .accounts-row {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0;
-  }
-  .account-card {
-    background: var(--bg-card); border: 1px solid var(--rule); border-radius: 8px;
-    padding: 1.25rem;
-  }
-  .account-card .acct-name {
-    font-family: var(--sans); font-size: 0.7rem; text-transform: uppercase;
-    letter-spacing: 0.1em; color: var(--text-faint); margin-bottom: 0.5rem;
-  }
-  .account-card .acct-balance {
-    font-family: var(--mono); font-size: 1.4rem; color: var(--accent-bright);
-  }
-  .account-card .acct-detail {
-    font-family: var(--mono); font-size: 0.7rem; color: var(--text-faint);
-    margin-top: 0.25rem; word-break: break-all;
-  }
+  footer { padding: 3rem 0; text-align: center; border-top: 1px solid var(--rule); margin-top: 2rem; }
+  footer p { font-family: var(--sans); font-size: 0.75rem; color: var(--text-faint); }
+  footer a { color: var(--accent); text-decoration: none; }
 
-  /* Responsive */
   @media (max-width: 768px) {
     html { font-size: 15px; }
     .container { padding: 0 1.25rem; }
     .hero h1 { font-size: 1.8rem; }
     .summary-cards { grid-template-columns: repeat(2, 1fr); }
     .accounts-row { grid-template-columns: 1fr; }
+    .merkle-months { grid-template-columns: 1fr; }
     nav.toc { display: none; }
     .bar-label { width: 100px; font-size: 0.65rem; }
-    .comp-projected, .comp-actual { width: 70px; font-size: 0.75rem; }
-    .comp-delta { width: 60px; font-size: 0.65rem; }
+    .tx-hash { display: none; }
     .entity-key { width: 120px; }
-    table { font-size: 0.8rem; }
   }
 
   @media print {
     body { background: #fff; color: #111; }
     .hero { min-height: auto; padding: 2rem; }
     nav.toc { display: none; }
-    section { break-inside: avoid; }
-    .summary-card, .entity-card, .account-card, .milestone, .open-item { border-color: #ccc; }
+    .summary-card, .entity-card, .account-card, .milestone, .open-item, .merkle-node { border-color: #ccc; }
     .summary-card .value { color: #333; }
-    .bar-fill { background: #666; }
   }
 </style>
 </head>
@@ -334,6 +206,7 @@
 <nav class="toc" id="toc">
   <a href="#entity">Entity</a>
   <a href="#treasury">Treasury</a>
+  <a href="#merkle">Merkle Seal</a>
   <a href="#proforma">Pro Forma</a>
   <a href="#membership">Membership</a>
   <a href="#sprints">Sprints</a>
@@ -349,174 +222,92 @@
   <div class="meta">
     <span>RegenHub, LCA (DBA Techne)</span>
     <span>|</span>
-    <span>January 1 - March 31, 2026</span>
+    <span>January 1 -- March 31, 2026</span>
     <span>|</span>
     <span>Boulder, Colorado</span>
+  </div>
+  <div class="seal">
+    Merkle Root: <span class="hash">335459a2...149b971a</span>
+    &nbsp; Chain: <span class="hash">a224831b...78add80f</span>
   </div>
 </header>
 
 <main class="container">
 
-  <!-- Summary Cards -->
   <div class="summary-cards">
-    <div class="summary-card">
-      <span class="value">$15,943</span>
-      <span class="label">Safe Balance</span>
-    </div>
-    <div class="summary-card">
-      <span class="value">$6,827</span>
-      <span class="label">Q1 Received</span>
-    </div>
-    <div class="summary-card">
-      <span class="value">328</span>
-      <span class="label">Sprints Completed</span>
-    </div>
-    <div class="summary-card">
-      <span class="value">8</span>
-      <span class="label">Contributors</span>
-    </div>
-    <div class="summary-card">
-      <span class="value">54</span>
-      <span class="label">Days Since Filing</span>
-    </div>
+    <div class="summary-card"><span class="value">$15,943</span><span class="label">Safe Balance</span></div>
+    <div class="summary-card"><span class="value">$6,827</span><span class="label">Q1 Received</span></div>
+    <div class="summary-card"><span class="value">328</span><span class="label">Sprints Completed</span></div>
+    <div class="summary-card"><span class="value">8</span><span class="label">Contributors</span></div>
+    <div class="summary-card"><span class="value">54</span><span class="label">Days Since Filing</span></div>
   </div>
 
   <p class="lead" style="padding: 1rem 0 0; text-align: center;">This is not a mature operating quarter. It is a formation quarter: the period in which legal structure, governance architecture, financial infrastructure, and coordination tooling were built from zero.</p>
 
   <!-- 1. Entity Status -->
   <section id="entity">
-    <h2><span class="section-num">01</span>Entity Status</h2>
-    <div class="section-subtitle">Legal foundation</div>
-
+    <h2><span class="n">01</span>Entity Status</h2>
+    <div class="ss">Legal foundation</div>
     <div class="entity-card">
-      <div class="entity-row">
-        <div class="entity-key">Entity</div>
-        <div class="entity-value">RegenHub, LCA (DBA Techne)</div>
-      </div>
-      <div class="entity-row">
-        <div class="entity-key">Status</div>
-        <div class="entity-value"><span class="status">Active - Ratified</span></div>
-      </div>
-      <div class="entity-row">
-        <div class="entity-key">Filed</div>
-        <div class="entity-value">February 6, 2026 at 1:33:02 PM MST</div>
-      </div>
-      <div class="entity-row">
-        <div class="entity-key">SOS ID</div>
-        <div class="entity-value" style="font-family: var(--mono); font-size: 0.9rem;">20261163853</div>
-      </div>
-      <div class="entity-row">
-        <div class="entity-key">Type</div>
-        <div class="entity-value">Colorado Public Benefit Limited Cooperative Association</div>
-      </div>
-      <div class="entity-row">
-        <div class="entity-key">Governing Law</div>
-        <div class="entity-value">ULCAA (C.R.S. Title 7, Art. 58) + PBC Act (Art. 101, Part 5)</div>
-      </div>
-      <div class="entity-row">
-        <div class="entity-key">Tax Election</div>
-        <div class="entity-value">Subchapter K (partnership pass-through, Form 1065 / K-1)</div>
-      </div>
-      <div class="entity-row">
-        <div class="entity-key">Registered Agent</div>
-        <div class="entity-value">Todd Youngblood</div>
-      </div>
-      <div class="entity-row">
-        <div class="entity-key">Principal Office</div>
-        <div class="entity-value">1515 Walnut St, Suite 200, Boulder, CO 80302</div>
-      </div>
-      <div class="entity-row">
-        <div class="entity-key">Public Benefit</div>
-        <div class="entity-value" style="font-style: italic;">Cultivating scenius</div>
-      </div>
+      <div class="entity-row"><div class="entity-key">Entity</div><div class="entity-value">RegenHub, LCA (DBA Techne)</div></div>
+      <div class="entity-row"><div class="entity-key">Status</div><div class="entity-value"><span class="status">Active -- Ratified</span></div></div>
+      <div class="entity-row"><div class="entity-key">Filed</div><div class="entity-value">February 6, 2026 at 1:33:02 PM MST</div></div>
+      <div class="entity-row"><div class="entity-key">SOS ID</div><div class="entity-value" style="font-family:var(--mono);font-size:0.9rem;">20261163853</div></div>
+      <div class="entity-row"><div class="entity-key">Type</div><div class="entity-value">Colorado Public Benefit Limited Cooperative Association</div></div>
+      <div class="entity-row"><div class="entity-key">Governing Law</div><div class="entity-value">ULCAA (C.R.S. Title 7, Art. 58) + PBC Act (Art. 101, Part 5)</div></div>
+      <div class="entity-row"><div class="entity-key">Tax Election</div><div class="entity-value">Subchapter K (partnership pass-through, Form 1065 / K-1)</div></div>
+      <div class="entity-row"><div class="entity-key">Principal Office</div><div class="entity-value">1515 Walnut St, Suite 200, Boulder, CO 80302</div></div>
+      <div class="entity-row"><div class="entity-key">Public Benefit</div><div class="entity-value" style="font-style:italic;">Cultivating scenius</div></div>
     </div>
   </section>
 
   <!-- 2. Treasury -->
   <section id="treasury">
-    <h2><span class="section-num">02</span>Treasury</h2>
-    <div class="section-subtitle">Actuals from Xero accounting + Safe multisig</div>
+    <h2><span class="n">02</span>Treasury</h2>
+    <div class="ss">Actuals from Xero accounting + Safe multisig</div>
 
     <h3>Account Balances (as of March 31, 2026)</h3>
     <div class="accounts-row">
       <div class="account-card">
         <div class="acct-name">Safe Multisig (Optimism)</div>
         <div class="acct-balance">$15,943.02</div>
-        <div class="acct-detail">0xA594263e0449A28eAEf5BA6420E81cC1996b7782</div>
+        <div class="acct-detail">0xA594...b7782</div>
       </div>
       <div class="account-card">
         <div class="acct-name">Mercury Bank</div>
         <div class="acct-balance">$0.00</div>
-        <div class="acct-detail">Account 202326429852 (newly opened)</div>
+        <div class="acct-detail">Newly opened</div>
       </div>
     </div>
 
     <h3>Q1 2026 Contributions Received</h3>
-    <p>17 transactions totaling $6,827.08 across 3 settlement layers. All payments received into Safe multisig via onchain transactions (Optimism, Ethereum L1, Splits).</p>
+    <p>17 transactions totaling $6,827.08 from 8 contributors across 3 settlement layers. All payments received into Safe multisig via onchain transactions.</p>
 
     <div class="bar-chart">
-      <div class="bar-row">
-        <div class="bar-label">Rena / Gitcoin</div>
-        <div class="bar-track"><div class="bar-fill blue" style="width: 49.8%"></div></div>
-        <div class="bar-value">$3,400.00</div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-label">Aaron G Neyer</div>
-        <div class="bar-track"><div class="bar-fill" style="width: 14.9%"></div></div>
-        <div class="bar-value">$1,014.80</div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-label">Ash</div>
-        <div class="bar-track"><div class="bar-fill" style="width: 7.5%"></div></div>
-        <div class="bar-value">$515.10</div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-label">Benjamin Life</div>
-        <div class="bar-track"><div class="bar-fill" style="width: 7.5%"></div></div>
-        <div class="bar-value">$515.10</div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-label">Zach Herring</div>
-        <div class="bar-track"><div class="bar-fill green" style="width: 7.3%"></div></div>
-        <div class="bar-value">$500.00</div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-label">Michael Green</div>
-        <div class="bar-track"><div class="bar-fill green" style="width: 4.7%"></div></div>
-        <div class="bar-value">$320.00</div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-label">Lucian Hymer</div>
-        <div class="bar-track"><div class="bar-fill green" style="width: 4.5%"></div></div>
-        <div class="bar-value">$304.53</div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-label">Dan Brunsdon</div>
-        <div class="bar-track"><div class="bar-fill green" style="width: 3.8%"></div></div>
-        <div class="bar-value">$257.55</div>
-      </div>
+      <div class="bar-row"><div class="bar-label">Infrastructure Partner</div><div class="bar-track"><div class="bar-fill blue" style="width:49.8%"></div></div><div class="bar-value">$3,400.00</div></div>
+      <div class="bar-row"><div class="bar-label">Organizer A</div><div class="bar-track"><div class="bar-fill" style="width:14.9%"></div></div><div class="bar-value">$1,014.80</div></div>
+      <div class="bar-row"><div class="bar-label">Contributor A</div><div class="bar-track"><div class="bar-fill" style="width:7.5%"></div></div><div class="bar-value">$515.10</div></div>
+      <div class="bar-row"><div class="bar-label">Organizer B</div><div class="bar-track"><div class="bar-fill" style="width:7.5%"></div></div><div class="bar-value">$515.10</div></div>
+      <div class="bar-row"><div class="bar-label">Contributor B</div><div class="bar-track"><div class="bar-fill green" style="width:7.3%"></div></div><div class="bar-value">$500.00</div></div>
+      <div class="bar-row"><div class="bar-label">Contributor C</div><div class="bar-track"><div class="bar-fill green" style="width:4.7%"></div></div><div class="bar-value">$320.00</div></div>
+      <div class="bar-row"><div class="bar-label">Organizer C</div><div class="bar-track"><div class="bar-fill green" style="width:4.5%"></div></div><div class="bar-value">$304.53</div></div>
+      <div class="bar-row"><div class="bar-label">Contributor D</div><div class="bar-track"><div class="bar-fill green" style="width:3.8%"></div></div><div class="bar-value">$257.55</div></div>
     </div>
 
     <h3>Monthly Breakdown</h3>
     <table>
-      <thead>
-        <tr><th>Month</th><th class="num">Transactions</th><th class="num">Received</th></tr>
-      </thead>
+      <thead><tr><th>Month</th><th class="num">Transactions</th><th class="num">Received</th><th class="num">Merkle Root</th></tr></thead>
       <tbody>
-        <tr><td>January</td><td class="num">5</td><td class="num">$2,730.00</td></tr>
-        <tr><td>February</td><td class="num">9</td><td class="num">$2,799.53</td></tr>
-        <tr><td>March</td><td class="num">3</td><td class="num">$1,297.55</td></tr>
+        <tr><td>January</td><td class="num">5</td><td class="num">$2,730.00</td><td class="num" style="font-size:0.7rem;color:var(--accent)">23668276...</td></tr>
+        <tr><td>February</td><td class="num">9</td><td class="num">$2,799.53</td><td class="num" style="font-size:0.7rem;color:var(--accent)">6e533354...</td></tr>
+        <tr><td>March</td><td class="num">3</td><td class="num">$1,297.55</td><td class="num" style="font-size:0.7rem;color:var(--accent)">e7253e20...</td></tr>
       </tbody>
-      <tfoot>
-        <tr><td>Q1 Total</td><td class="num">17</td><td class="num">$6,827.08</td></tr>
-      </tfoot>
+      <tfoot><tr><td>Q1 Total</td><td class="num">17</td><td class="num">$6,827.08</td><td class="num" style="font-size:0.7rem;color:var(--accent)">335459a2...</td></tr></tfoot>
     </table>
 
     <h3>Settlement Layers</h3>
     <table>
-      <thead>
-        <tr><th>Chain</th><th class="num">Amount</th><th class="num">% of Q1</th></tr>
-      </thead>
+      <thead><tr><th>Chain</th><th class="num">Amount</th><th class="num">% of Q1</th></tr></thead>
       <tbody>
         <tr><td>Ethereum L1</td><td class="num">$3,400.00</td><td class="num">49.8%</td></tr>
         <tr><td>Optimism L2</td><td class="num">$2,919.53</td><td class="num">42.8%</td></tr>
@@ -525,532 +316,334 @@
       </tbody>
     </table>
 
-    <p style="font-size: 0.85rem; color: var(--text-faint);">Note: the LCA was filed on February 6. Contributions before that date ($2,980.00 in Jan + early Feb) were received by the pre-formation entity. Contributions from Feb 6 onward ($3,847.08) are post-formation.</p>
+    <p style="font-size:0.85rem;color:var(--text-faint);">Note: the LCA was filed on February 6. Contributions before that date ($2,980 in Jan + early Feb) were received by the pre-formation entity. Contributions from Feb 6 onward ($3,847.08) are post-formation.</p>
 
     <details>
-      <summary>View all 17 Q1 transactions</summary>
-      <div class="tx-list">
-        <div class="month-header">January 2026</div>
-        <div class="tx-item">
-          <span class="tx-date">Jan 1</span>
-          <span class="tx-name">Aaron Gabriel Neyer</span>
-          <span class="tx-chain optimism">OP</span>
-          <span class="tx-amount">$500.00</span>
-        </div>
-        <div class="tx-item">
-          <span class="tx-date">Jan 1</span>
-          <span class="tx-name">Zach Herring</span>
-          <span class="tx-chain splits">Splits</span>
-          <span class="tx-amount">$250.00</span>
-        </div>
-        <div class="tx-item">
-          <span class="tx-date">Jan 7</span>
-          <span class="tx-name">Rena O'Brien @ Gitcoin Foundation</span>
-          <span class="tx-chain ethereum">ETH</span>
-          <span class="tx-amount">$1,700.00</span>
-        </div>
-        <div class="tx-item">
-          <span class="tx-date">Jan 23</span>
-          <span class="tx-name">Michael Green</span>
-          <span class="tx-chain optimism">OP</span>
-          <span class="tx-amount">$130.00</span>
-        </div>
-        <div class="tx-item">
-          <span class="tx-date">Jan 23</span>
-          <span class="tx-name">Lucian Hymer</span>
-          <span class="tx-chain optimism">OP</span>
-          <span class="tx-amount">$150.00</span>
-        </div>
+      <summary>View all 17 Q1 transactions (with leaf hashes)</summary>
+      <div>
+        <div class="month-header">January 2026 -- root: 23668276381ad89f...</div>
+        <div class="tx-item"><span class="tx-date">Jan 1</span><span class="tx-name">Organizer A</span><span class="tx-chain optimism">OP</span><span class="tx-amount">$500.00</span><span class="tx-hash">aeac2727...</span></div>
+        <div class="tx-item"><span class="tx-date">Jan 1</span><span class="tx-name">Contributor B</span><span class="tx-chain splits">Splits</span><span class="tx-amount">$250.00</span><span class="tx-hash">a2a087db...</span></div>
+        <div class="tx-item"><span class="tx-date">Jan 7</span><span class="tx-name">Infrastructure Partner</span><span class="tx-chain ethereum">ETH</span><span class="tx-amount">$1,700.00</span><span class="tx-hash">06a31971...</span></div>
+        <div class="tx-item"><span class="tx-date">Jan 23</span><span class="tx-name">Contributor C</span><span class="tx-chain optimism">OP</span><span class="tx-amount">$130.00</span><span class="tx-hash">289aad46...</span></div>
+        <div class="tx-item"><span class="tx-date">Jan 23</span><span class="tx-name">Organizer C</span><span class="tx-chain optimism">OP</span><span class="tx-amount">$150.00</span><span class="tx-hash">5188595e...</span></div>
 
-        <div class="month-header">February 2026</div>
-        <div class="tx-item">
-          <span class="tx-date">Feb 1</span>
-          <span class="tx-name">Zach Herring</span>
-          <span class="tx-chain splits">Splits</span>
-          <span class="tx-amount">$250.00</span>
-        </div>
-        <div class="tx-item">
-          <span class="tx-date">Feb 6</span>
-          <span class="tx-name">Ash</span>
-          <span class="tx-chain optimism">OP</span>
-          <span class="tx-amount">$250.00</span>
-        </div>
-        <div class="tx-item">
-          <span class="tx-date">Feb 6</span>
-          <span class="tx-name">Ash (crypto discount adj.)</span>
-          <span class="tx-chain manual">ADJ</span>
-          <span class="tx-amount">$7.55</span>
-        </div>
-        <div class="tx-item">
-          <span class="tx-date">Feb 6</span>
-          <span class="tx-name">Dan Brunsdon</span>
-          <span class="tx-chain optimism">OP</span>
-          <span class="tx-amount">$257.55</span>
-        </div>
-        <div class="tx-item">
-          <span class="tx-date">Feb 6</span>
-          <span class="tx-name">Lucian Hymer</span>
-          <span class="tx-chain optimism">OP</span>
-          <span class="tx-amount">$154.53</span>
-        </div>
-        <div class="tx-item">
-          <span class="tx-date">Feb 6</span>
-          <span class="tx-name">Benjamin Life</span>
-          <span class="tx-chain optimism">OP</span>
-          <span class="tx-amount">$257.55</span>
-        </div>
-        <div class="tx-item">
-          <span class="tx-date">Feb 6</span>
-          <span class="tx-name">Benjamin Life</span>
-          <span class="tx-chain optimism">OP</span>
-          <span class="tx-amount">$257.55</span>
-        </div>
-        <div class="tx-item">
-          <span class="tx-date">Feb 6</span>
-          <span class="tx-name">Aaron Gabriel Neyer</span>
-          <span class="tx-chain optimism">OP</span>
-          <span class="tx-amount">$514.80</span>
-        </div>
-        <div class="tx-item">
-          <span class="tx-date">Feb 10</span>
-          <span class="tx-name">Rena O'Brien @ Gitcoin Foundation</span>
-          <span class="tx-chain ethereum">ETH</span>
-          <span class="tx-amount">$850.00</span>
-        </div>
+        <div class="month-header">February 2026 -- root: 6e53335445f1d618...</div>
+        <div class="tx-item"><span class="tx-date">Feb 1</span><span class="tx-name">Contributor B</span><span class="tx-chain splits">Splits</span><span class="tx-amount">$250.00</span><span class="tx-hash">1593b810...</span></div>
+        <div class="tx-item"><span class="tx-date">Feb 6</span><span class="tx-name">Contributor A</span><span class="tx-chain optimism">OP</span><span class="tx-amount">$250.00</span><span class="tx-hash">b0048448...</span></div>
+        <div class="tx-item"><span class="tx-date">Feb 6</span><span class="tx-name">Contributor A (adj.)</span><span class="tx-chain manual">ADJ</span><span class="tx-amount">$7.55</span><span class="tx-hash">4934a132...</span></div>
+        <div class="tx-item"><span class="tx-date">Feb 6</span><span class="tx-name">Contributor D</span><span class="tx-chain optimism">OP</span><span class="tx-amount">$257.55</span><span class="tx-hash">3b94c6ed...</span></div>
+        <div class="tx-item"><span class="tx-date">Feb 6</span><span class="tx-name">Organizer C</span><span class="tx-chain optimism">OP</span><span class="tx-amount">$154.53</span><span class="tx-hash">5a54cedb...</span></div>
+        <div class="tx-item"><span class="tx-date">Feb 6</span><span class="tx-name">Organizer B</span><span class="tx-chain optimism">OP</span><span class="tx-amount">$257.55</span><span class="tx-hash">77a0ef15...</span></div>
+        <div class="tx-item"><span class="tx-date">Feb 6</span><span class="tx-name">Organizer B</span><span class="tx-chain optimism">OP</span><span class="tx-amount">$257.55</span><span class="tx-hash">1a9b3088...</span></div>
+        <div class="tx-item"><span class="tx-date">Feb 6</span><span class="tx-name">Organizer A</span><span class="tx-chain optimism">OP</span><span class="tx-amount">$514.80</span><span class="tx-hash">4adccb1d...</span></div>
+        <div class="tx-item"><span class="tx-date">Feb 10</span><span class="tx-name">Infrastructure Partner</span><span class="tx-chain ethereum">ETH</span><span class="tx-amount">$850.00</span><span class="tx-hash">43bf1fe2...</span></div>
 
-        <div class="month-header">March 2026</div>
-        <div class="tx-item">
-          <span class="tx-date">Mar 7</span>
-          <span class="tx-name">Rena O'Brien @ Gitcoin Foundation</span>
-          <span class="tx-chain ethereum">ETH</span>
-          <span class="tx-amount">$850.00</span>
-        </div>
-        <div class="tx-item">
-          <span class="tx-date">Mar 11</span>
-          <span class="tx-name">Ash</span>
-          <span class="tx-chain optimism">OP</span>
-          <span class="tx-amount">$257.55</span>
-        </div>
-        <div class="tx-item">
-          <span class="tx-date">Mar 16</span>
-          <span class="tx-name">Michael Green</span>
-          <span class="tx-chain optimism">OP</span>
-          <span class="tx-amount">$190.00</span>
-        </div>
+        <div class="month-header">March 2026 -- root: e7253e2039d2d190...</div>
+        <div class="tx-item"><span class="tx-date">Mar 7</span><span class="tx-name">Infrastructure Partner</span><span class="tx-chain ethereum">ETH</span><span class="tx-amount">$850.00</span><span class="tx-hash">489226df...</span></div>
+        <div class="tx-item"><span class="tx-date">Mar 11</span><span class="tx-name">Contributor A</span><span class="tx-chain optimism">OP</span><span class="tx-amount">$257.55</span><span class="tx-hash">2a92d909...</span></div>
+        <div class="tx-item"><span class="tx-date">Mar 16</span><span class="tx-name">Contributor C</span><span class="tx-chain optimism">OP</span><span class="tx-amount">$190.00</span><span class="tx-hash">2fc6df8b...</span></div>
       </div>
     </details>
 
     <h3>Capital Committed (Not Yet Received)</h3>
     <table>
-      <thead>
-        <tr><th>Investor</th><th class="num">Amount</th><th>Terms</th><th>Status</th></tr>
-      </thead>
+      <thead><tr><th>Class</th><th class="num">Amount</th><th>Terms</th><th>Status</th></tr></thead>
       <tbody>
-        <tr><td class="name">Kevin Owocki</td><td class="num">$50,000</td><td>Return TBD by FSC</td><td><span class="tag open">Committed</span></td></tr>
-        <tr><td class="name">Jeremy Wood</td><td class="num">$50,000</td><td>Return TBD by FSC</td><td><span class="tag open">Committed</span></td></tr>
+        <tr><td class="name">Class 4 Investor A</td><td class="num">$50,000</td><td>Return TBD by FSC</td><td><span class="tag open">Committed</span></td></tr>
+        <tr><td class="name">Class 4 Investor B</td><td class="num">$50,000</td><td>Return TBD by FSC</td><td><span class="tag open">Committed</span></td></tr>
       </tbody>
-      <tfoot>
-        <tr><td>Total Committed</td><td class="num">$100,000</td><td colspan="2">Immediate use: 1515 Walnut lease</td></tr>
-      </tfoot>
+      <tfoot><tr><td>Total Committed</td><td class="num">$100,000</td><td colspan="2">Immediate use: physical space lease</td></tr></tfoot>
     </table>
   </section>
 
-  <!-- 3. Pro Forma vs Actual -->
-  <section id="proforma">
-    <h2><span class="section-num">03</span>Pro Forma vs Actual</h2>
-    <div class="section-subtitle">Projections from the financial model against Q1 reality</div>
+  <!-- 3. Merkle Chain -->
+  <section id="merkle">
+    <h2><span class="n">03</span>Merkle Seal</h2>
+    <div class="ss">Cryptographic data integrity for open accounting</div>
 
-    <p>The pro forma spreadsheet projects 8 revenue lines across the first 12 months. Q1 actuals came entirely through member contributions to the Safe multisig. The pro forma revenue lines (VIP Desks, Hot Desks, Nodes/Infrastructure, LearnVibe.Build, etc.) have not yet activated as formal revenue streams.</p>
+    <p>Every financial transaction in this report is hashed into a merkle tree. The tree structure provides verifiable data integrity: anyone with the source data can recompute the hashes and confirm that no transaction has been altered, added, or removed after the quarterly seal.</p>
+
+    <p>This is the beginning of a chain. Q1 2026 is the genesis quarter. Each future quarterly close will chain its root to the previous, creating an append-only ledger of cooperative financial history that is independently verifiable without centralized trust.</p>
+
+    <div class="merkle-tree">
+      <div class="merkle-node chain">
+        <div class="merkle-label">Q1 2026 Chain Hash (genesis)</div>
+        <div class="merkle-hash">a224831be627aac63259d3250f33ffc201a47f90513e412eb09faf6478add80f</div>
+        <div class="merkle-meta">SHA-256(genesis_hash + q1_merkle_root) -- chains to Q2</div>
+      </div>
+
+      <div class="merkle-connector">|</div>
+
+      <div class="merkle-node root">
+        <div class="merkle-label">Q1 2026 Merkle Root</div>
+        <div class="merkle-hash">335459a235a313d527eb5f76a5262e2118dcbd503f54f1b8e27d3a68149b971a</div>
+        <div class="merkle-meta">SHA-256(jan_root + feb_root + mar_root) -- 17 transactions, 3 months</div>
+      </div>
+
+      <div class="merkle-connector">|</div>
+
+      <div class="merkle-months">
+        <div class="merkle-node">
+          <div class="merkle-label">January (5 leaves)</div>
+          <div class="merkle-hash">23668276381ad89fa3acb4f5b3902e25ae259335bb8a934f166f001dbab487ec</div>
+          <div class="merkle-meta">$2,730.00</div>
+        </div>
+        <div class="merkle-node">
+          <div class="merkle-label">February (9 leaves)</div>
+          <div class="merkle-hash">6e53335445f1d618bc4851bdc6afaf6ae42334efbd4ca3ee72180ccf076a7775</div>
+          <div class="merkle-meta">$2,799.53</div>
+        </div>
+        <div class="merkle-node">
+          <div class="merkle-label">March (3 leaves)</div>
+          <div class="merkle-hash">e7253e2039d2d190cd780c9c9c748a6cb96ac1f620f0ae7b88052a51b704c13a</div>
+          <div class="merkle-meta">$1,297.55</div>
+        </div>
+      </div>
+
+      <div class="merkle-connector">|</div>
+
+      <div class="merkle-node">
+        <div class="merkle-label">Chain Genesis</div>
+        <div class="merkle-hash full">ef96fd02b2c3ae46f8fa9b910ae834139af401f282361216edcd744ce3b45f2b</div>
+        <div class="merkle-meta">SHA-256("RegenHub,LCA|20261163853|Q0|null") -- the seed</div>
+      </div>
+    </div>
+
+    <h3>How It Works</h3>
+    <p>Each transaction is hashed from its canonical form: <code style="font-family:var(--mono);font-size:0.8rem;color:var(--accent);background:rgba(0,0,0,0.3);padding:0.1rem 0.3rem;border-radius:3px;">SHA-256(date|invoice_id|amount|chain)</code>. Transaction hashes are paired and hashed upward into a binary merkle tree, producing a monthly root. Monthly roots are combined into a quarterly root. The quarterly root is chained to the previous quarter's chain hash (or genesis for Q1), producing the chain hash that links this quarter to the next.</p>
+
+    <p>The chain is append-only: altering any historical transaction changes its leaf hash, which cascades through the tree, changing the monthly root, the quarterly root, and every subsequent chain hash. Integrity is verifiable by anyone who has the transaction data and this page.</p>
+
+    <div class="verify-box">
+      <h4>Verify It Yourself</h4>
+      <div class="verify-code"><span class="comment"># Verify a single transaction leaf (example: Jan 1, Organizer A)</span>
+echo -n <span class="string">"2026-01-01|INV-0157|500.00|optimism"</span> | <span class="fn">sha256sum</span>
+<span class="comment"># Expected: aeac272707e727a9...</span>
+
+<span class="comment"># Verify chain genesis</span>
+echo -n <span class="string">"RegenHub,LCA|20261163853|Q0|000...000"</span> | <span class="fn">sha256sum</span>
+<span class="comment"># Expected: ef96fd02b2c3ae46...</span>
+
+<span class="comment"># Verify Q1 chain hash</span>
+echo -n <span class="string">"$(echo -n 'RegenHub,LCA|20261163853|Q0|000...000' | sha256sum | cut -d' ' -f1)335459a235a313d527eb5f76a5262e2118dcbd503f54f1b8e27d3a68149b971a"</span> | <span class="fn">sha256sum</span>
+<span class="comment"># Expected: a224831be627aac6...</span></div>
+    </div>
+
+    <h3>What This Means for the Cooperative</h3>
+    <p>A Colorado LCA operating under Subchapter K must maintain accurate capital accounts for every member. The merkle chain doesn't replace traditional accounting -- it provides a cryptographic guarantee that the reported figures haven't been altered after the fact. As the cooperative grows, each quarterly seal extends the chain, creating an unbroken record from formation forward.</p>
+    <p>Future quarters will include: patronage allocation trees (contribution weighted), capital account state snapshots, and sprint activity merkle proofs from the Workshop coordination system. The chain grows with the cooperative.</p>
+  </section>
+
+  <!-- 4. Pro Forma vs Actual -->
+  <section id="proforma">
+    <h2><span class="n">04</span>Pro Forma vs Actual</h2>
+    <div class="ss">Projections from the financial model against Q1 reality</div>
+
+    <p>The pro forma model projects 8 revenue lines across the first 12 months. Q1 actuals came entirely through member contributions to the Safe multisig. The pro forma revenue lines (VIP Desks, Hot Desks, Nodes/Infrastructure, etc.) have not yet activated as formal revenue streams.</p>
 
     <h3>Revenue: Projected vs Received</h3>
-    <div class="comparison">
-      <div style="display: flex; padding: 0 1rem 0.5rem; font-family: var(--sans); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-faint);">
-        <div style="flex:1"></div>
-        <div style="width: 90px; text-align: right;">Projected</div>
-        <div style="width: 90px; text-align: right;">Actual</div>
-        <div style="width: 80px; text-align: right;">Variance</div>
+    <div>
+      <div style="display:flex;padding:0 1rem 0.5rem;font-family:var(--sans);font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-faint);">
+        <div style="flex:1"></div><div style="width:90px;text-align:right;">Projected</div><div style="width:90px;text-align:right;">Actual</div><div style="width:80px;text-align:right;">Variance</div>
       </div>
-      <div class="comp-row negative">
-        <div class="comp-label">February 2026</div>
-        <div class="comp-projected">$5,350</div>
-        <div class="comp-actual">$2,800</div>
-        <div class="comp-delta neg">-47.7%</div>
-      </div>
-      <div class="comp-row negative">
-        <div class="comp-label">March 2026</div>
-        <div class="comp-projected">$6,350</div>
-        <div class="comp-actual">$1,298</div>
-        <div class="comp-delta neg">-79.6%</div>
-      </div>
+      <div class="comp-row negative"><div class="comp-label">February 2026</div><div class="comp-projected">$5,350</div><div class="comp-actual">$2,800</div><div class="comp-delta neg">-47.7%</div></div>
+      <div class="comp-row negative"><div class="comp-label">March 2026</div><div class="comp-projected">$6,350</div><div class="comp-actual">$1,298</div><div class="comp-delta neg">-79.6%</div></div>
     </div>
 
     <h3>Operating Expenses: Projected</h3>
-    <div class="comparison">
-      <div class="comp-row">
-        <div class="comp-label">Steward compensation (Todd)</div>
-        <div class="comp-projected">$2,000/mo</div>
-        <div class="comp-actual"></div>
-        <div class="comp-delta"></div>
-      </div>
-      <div class="comp-row">
-        <div class="comp-label">Second floor lease</div>
-        <div class="comp-projected">$4,500/mo</div>
-        <div class="comp-actual"></div>
-        <div class="comp-delta"></div>
-      </div>
-      <div class="comp-row">
-        <div class="comp-label">Third floor lease (from June)</div>
-        <div class="comp-projected">$7,000/mo</div>
-        <div class="comp-actual"></div>
-        <div class="comp-delta"></div>
-      </div>
+    <div>
+      <div class="comp-row"><div class="comp-label">Steward compensation</div><div class="comp-projected">$2,000/mo</div><div class="comp-actual"></div><div class="comp-delta"></div></div>
+      <div class="comp-row"><div class="comp-label">Second floor lease</div><div class="comp-projected">$4,500/mo</div><div class="comp-actual"></div><div class="comp-delta"></div></div>
+      <div class="comp-row"><div class="comp-label">Third floor lease (from June)</div><div class="comp-projected">$7,000/mo</div><div class="comp-actual"></div><div class="comp-delta"></div></div>
     </div>
-    <p style="font-size: 0.85rem;">Pro forma total OpEx for the 12-month period: $110,500 ($9,208/mo average). No disbursements from the Safe recorded in Q1 Xero data. Steward compensation and lease obligations are tracked but not yet flowing through the multisig.</p>
+    <p style="font-size:0.85rem;">Pro forma total OpEx for 12 months: $110,500 ($9,208/mo average). No disbursements from the Safe recorded in Q1 Xero data.</p>
 
     <h3>Pro Forma Revenue Lines (Monthly Projections)</h3>
     <table>
-      <thead>
-        <tr><th>Business Line</th><th>Value Type</th><th class="num">Feb</th><th class="num">Mar</th><th class="num">Apr</th><th class="num">May</th><th class="num">Jun</th><th class="num">Jul</th></tr>
-      </thead>
+      <thead><tr><th>Business Line</th><th style="font-size:0.65rem">Value Type</th><th class="num">Feb</th><th class="num">Mar</th><th class="num">Apr</th><th class="num">May</th><th class="num">Jun</th><th class="num">Jul</th></tr></thead>
       <tbody>
-        <tr><td>VIP Desks</td><td style="font-size:0.75rem; color:var(--text-faint)">Physical</td><td class="num">$2,700</td><td class="num">$3,300</td><td class="num">$3,900</td><td class="num">$4,500</td><td class="num">$4,800</td><td class="num">$5,100</td></tr>
-        <tr><td>Hot Desks</td><td style="font-size:0.75rem; color:var(--text-faint)">Physical</td><td class="num">$1,800</td><td class="num">$2,200</td><td class="num">$2,600</td><td class="num">$3,000</td><td class="num">$3,200</td><td class="num">$3,400</td></tr>
-        <tr><td>Nodes / Infra</td><td style="font-size:0.75rem; color:var(--text-faint)">Digital</td><td class="num">$850</td><td class="num">$850</td><td class="num">$850</td><td class="num">$850</td><td class="num">$850</td><td class="num">$850</td></tr>
-        <tr><td>LearnVibe.Build</td><td style="font-size:0.75rem; color:var(--text-faint)">Intellectual</td><td class="num">--</td><td class="num">--</td><td class="num">$1,500</td><td class="num">$1,500</td><td class="num">--</td><td class="num">$2,000</td></tr>
-        <tr><td>Accelerator</td><td style="font-size:0.75rem; color:var(--text-faint)">Financial</td><td class="num">--</td><td class="num">--</td><td class="num">--</td><td class="num">--</td><td class="num">--</td><td class="num">--</td></tr>
-        <tr><td>Talent / Grants / Events</td><td style="font-size:0.75rem; color:var(--text-faint)">Mixed</td><td class="num">--</td><td class="num">--</td><td class="num">--</td><td class="num">--</td><td class="num">--</td><td class="num">--</td></tr>
+        <tr><td>VIP Desks</td><td style="font-size:0.75rem;color:var(--text-faint)">Physical</td><td class="num">$2,700</td><td class="num">$3,300</td><td class="num">$3,900</td><td class="num">$4,500</td><td class="num">$4,800</td><td class="num">$5,100</td></tr>
+        <tr><td>Hot Desks</td><td style="font-size:0.75rem;color:var(--text-faint)">Physical</td><td class="num">$1,800</td><td class="num">$2,200</td><td class="num">$2,600</td><td class="num">$3,000</td><td class="num">$3,200</td><td class="num">$3,400</td></tr>
+        <tr><td>Nodes / Infra</td><td style="font-size:0.75rem;color:var(--text-faint)">Digital</td><td class="num">$850</td><td class="num">$850</td><td class="num">$850</td><td class="num">$850</td><td class="num">$850</td><td class="num">$850</td></tr>
+        <tr><td>AI School</td><td style="font-size:0.75rem;color:var(--text-faint)">Intellectual</td><td class="num">--</td><td class="num">--</td><td class="num">$1,500</td><td class="num">$1,500</td><td class="num">--</td><td class="num">$2,000</td></tr>
+        <tr><td>Accelerator</td><td style="font-size:0.75rem;color:var(--text-faint)">Financial</td><td class="num">--</td><td class="num">--</td><td class="num">--</td><td class="num">--</td><td class="num">--</td><td class="num">--</td></tr>
       </tbody>
-      <tfoot>
-        <tr><td colspan="2">Total Revenue</td><td class="num">$5,350</td><td class="num">$6,350</td><td class="num">$8,850</td><td class="num">$9,850</td><td class="num">$8,850</td><td class="num">$11,350</td></tr>
-      </tfoot>
+      <tfoot><tr><td colspan="2">Total Revenue</td><td class="num">$5,350</td><td class="num">$6,350</td><td class="num">$8,850</td><td class="num">$9,850</td><td class="num">$8,850</td><td class="num">$11,350</td></tr></tfoot>
     </table>
-    <p style="font-size: 0.85rem;">The multi-capital value classification (Physical, Digital, Intellectual, Financial, Social) reflects the cooperative's thesis that value flows through multiple forms, not just financial.</p>
   </section>
 
-  <!-- 4. Membership -->
+  <!-- 5. Membership -->
   <section id="membership">
-    <h2><span class="section-num">04</span>Membership</h2>
-    <div class="section-subtitle">Organizers and contributors</div>
+    <h2><span class="n">05</span>Membership</h2>
+    <div class="ss">Organizers and contributors</div>
+    <p>No formal members admitted in Q1. Member admission requires Board formation, Schedule A completion, and Member Agreement execution. The cooperative has 8 founding organizers and additional active contributors.</p>
 
-    <p>No formal members admitted in Q1. Member admission requires Board formation, Schedule A completion, and Member Agreement execution. The cooperative has 8 founding organizers and 6 additional active contributors.</p>
-
-    <h3>Founding Organizers</h3>
+    <h3>Founding Organizers (8)</h3>
     <table>
-      <thead>
-        <tr><th>Name</th><th>Project / Role</th><th>Desk Type</th></tr>
-      </thead>
+      <thead><tr><th>Role</th><th>Project Affiliation</th><th>Desk Type</th></tr></thead>
       <tbody>
-        <tr><td class="name">Todd Youngblood</td><td>RegenHub/Techne - Ventures & Operations Steward</td><td>Steward</td></tr>
-        <tr><td class="name">Aaron G Neyer</td><td>Parachute & LVB - Engineer & Founder</td><td>VIP Desk</td></tr>
-        <tr><td class="name">Benjamin Life</td><td>OpenCivics - Founder</td><td>VIP Desk</td></tr>
-        <tr><td class="name">Jonathan Borichevskiy</td><td>Independent - Engineer & Consultant</td><td>VIP Desk</td></tr>
-        <tr><td class="name">Kevin Owocki</td><td>Gitcoin + Allo Capital - Founder & Sponsor</td><td>Sponsor</td></tr>
-        <tr><td class="name">Lucian Hymer</td><td>Postage - Engineer & Founder</td><td>VIP Desk</td></tr>
-        <tr><td class="name">Neil Mackay Yarnal</td><td>*Agency - Design</td><td>Hot Desk</td></tr>
-        <tr><td class="name">Savannah Kruger</td><td>Neighborhood Village Project - Executive Director</td><td>Hot Desk</td></tr>
+        <tr><td class="name">Ventures & Operations Steward</td><td>Cooperative Infrastructure</td><td>Steward</td></tr>
+        <tr><td class="name">Organizer -- Engineer & Founder</td><td>Venture A</td><td>VIP Desk</td></tr>
+        <tr><td class="name">Organizer -- Founder</td><td>Civic Technology</td><td>VIP Desk</td></tr>
+        <tr><td class="name">Organizer -- Engineer & Consultant</td><td>Independent</td><td>VIP Desk</td></tr>
+        <tr><td class="name">Organizer -- Founder & Sponsor</td><td>Investment / Protocol</td><td>Sponsor</td></tr>
+        <tr><td class="name">Organizer -- Engineer & Founder</td><td>Venture B</td><td>VIP Desk</td></tr>
+        <tr><td class="name">Organizer -- Design</td><td>Agency</td><td>Hot Desk</td></tr>
+        <tr><td class="name">Organizer -- Executive Director</td><td>Community Organization</td><td>Hot Desk</td></tr>
       </tbody>
     </table>
 
-    <h3>Additional Active Contributors (Q1)</h3>
+    <h3>Contribution Distribution (Q1)</h3>
     <table>
-      <thead>
-        <tr><th>Name</th><th class="num">Q1 Contribution</th></tr>
-      </thead>
+      <thead><tr><th>Contributor Role</th><th class="num">Q1 Contribution</th><th class="num">% of Total</th></tr></thead>
       <tbody>
-        <tr><td class="name">Rena O'Brien (Gitcoin Foundation)</td><td class="num">$3,400.00</td></tr>
-        <tr><td class="name">Ash</td><td class="num">$515.10</td></tr>
-        <tr><td class="name">Zach Herring</td><td class="num">$500.00</td></tr>
-        <tr><td class="name">Michael Green</td><td class="num">$320.00</td></tr>
-        <tr><td class="name">Dan Brunsdon</td><td class="num">$257.55</td></tr>
-        <tr><td class="name">Cameron Roberts</td><td class="num">--</td></tr>
-        <tr><td class="name">Leo Ballington</td><td class="num">--</td></tr>
+        <tr><td class="name">Infrastructure Partner</td><td class="num">$3,400.00</td><td class="num">49.8%</td></tr>
+        <tr><td class="name">Organizers (combined)</td><td class="num">$1,834.43</td><td class="num">26.9%</td></tr>
+        <tr><td class="name">Contributors (combined)</td><td class="num">$1,592.65</td><td class="num">23.3%</td></tr>
       </tbody>
+      <tfoot><tr><td>Total</td><td class="num">$6,827.08</td><td class="num">100%</td></tr></tfoot>
     </table>
 
     <h3>Venture Ownership (confirmed Feb 26)</h3>
     <table>
-      <thead>
-        <tr><th>Venture</th><th>Owner</th></tr>
-      </thead>
+      <thead><tr><th>Venture</th><th>Status</th></tr></thead>
       <tbody>
-        <tr><td>Parachute</td><td class="name">Aaron Gabriel Neyer</td></tr>
-        <tr><td>Postage</td><td class="name">Lucian Hymer</td></tr>
-        <tr><td>Habitat</td><td class="name">Todd Youngblood</td></tr>
+        <tr><td>Venture A (Parachute)</td><td>Owner assigned</td></tr>
+        <tr><td>Venture B (Postage)</td><td>Owner assigned</td></tr>
+        <tr><td>Venture C (Habitat)</td><td>Owner assigned</td></tr>
       </tbody>
     </table>
+    <p style="font-size:0.85rem;">Revenue architecture: Space revenue + Service revenue + Venture reciprocity (1% commitment).</p>
   </section>
 
-  <!-- 5. Sprint Activity -->
+  <!-- 6. Sprint Activity -->
   <section id="sprints">
-    <h2><span class="section-num">05</span>Sprint Activity</h2>
-    <div class="section-subtitle">Workshop coordination system (launched February 28)</div>
-
-    <p>The Workshop launched on February 28, giving the cooperative 32 active days in Q1. Two agents (Nou and Dianoia) executed sprints through the five-phase protocol: Discovery, Proposal, Negotiation, Execution, Synthesis.</p>
+    <h2><span class="n">06</span>Sprint Activity</h2>
+    <div class="ss">Workshop coordination system (launched February 28)</div>
+    <p>The Workshop launched on February 28, giving the cooperative 32 active days in Q1. Two agents executed sprints through the five-phase protocol: Discovery, Proposal, Negotiation, Execution, Synthesis.</p>
 
     <h3>Agent Output</h3>
     <div class="bar-chart">
-      <div class="bar-row">
-        <div class="bar-label">Nou</div>
-        <div class="bar-track"><div class="bar-fill" style="width: 77.7%"></div></div>
-        <div class="bar-value">256 (77.7%)</div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-label">Dianoia</div>
-        <div class="bar-track"><div class="bar-fill green" style="width: 22.3%"></div></div>
-        <div class="bar-value">72 (22.3%)</div>
-      </div>
+      <div class="bar-row"><div class="bar-label">Agent A (Nou)</div><div class="bar-track"><div class="bar-fill" style="width:77.7%"></div></div><div class="bar-value">256 (77.7%)</div></div>
+      <div class="bar-row"><div class="bar-label">Agent B (Dianoia)</div><div class="bar-track"><div class="bar-fill green" style="width:22.3%"></div></div><div class="bar-value">72 (22.3%)</div></div>
     </div>
 
     <h3>Complexity Distribution</h3>
     <div class="bar-chart">
-      <div class="bar-row">
-        <div class="bar-label">XS (< 30 min)</div>
-        <div class="bar-track"><div class="bar-fill" style="width: 11.5%"></div></div>
-        <div class="bar-value">37</div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-label">S (30-90 min)</div>
-        <div class="bar-track"><div class="bar-fill" style="width: 38.7%"></div></div>
-        <div class="bar-value">125</div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-label">M (2-4 hr)</div>
-        <div class="bar-track"><div class="bar-fill" style="width: 35.0%"></div></div>
-        <div class="bar-value">113</div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-label">L (4-8 hr)</div>
-        <div class="bar-track"><div class="bar-fill" style="width: 12.7%"></div></div>
-        <div class="bar-value">41</div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-label">XL (multi-day)</div>
-        <div class="bar-track"><div class="bar-fill red" style="width: 1.5%"></div></div>
-        <div class="bar-value">5</div>
-      </div>
+      <div class="bar-row"><div class="bar-label">XS (&lt; 30 min)</div><div class="bar-track"><div class="bar-fill" style="width:11.5%"></div></div><div class="bar-value">37</div></div>
+      <div class="bar-row"><div class="bar-label">S (30-90 min)</div><div class="bar-track"><div class="bar-fill" style="width:38.7%"></div></div><div class="bar-value">125</div></div>
+      <div class="bar-row"><div class="bar-label">M (2-4 hr)</div><div class="bar-track"><div class="bar-fill" style="width:35.0%"></div></div><div class="bar-value">113</div></div>
+      <div class="bar-row"><div class="bar-label">L (4-8 hr)</div><div class="bar-track"><div class="bar-fill" style="width:12.7%"></div></div><div class="bar-value">41</div></div>
+      <div class="bar-row"><div class="bar-label">XL (multi-day)</div><div class="bar-track"><div class="bar-fill red" style="width:1.5%"></div></div><div class="bar-value">5</div></div>
     </div>
 
     <h3>Key Milestones</h3>
-    <div class="milestone-list">
-      <div class="milestone">
-        <span class="date">Feb 28</span>
-        <span class="title">Workshop Launch</span>
-        <span class="desc">Coordination system operational. First sprints: contributions system (B1), initial coordination_requests.</span>
-      </div>
-      <div class="milestone">
-        <span class="date">Early Mar</span>
-        <span class="title">Foundation Sprints</span>
-        <span class="desc">Patronage event handlers, venture reconciliation, co-op.us full audit, Formation Document Commons, Bioregional Knowledge Commons.</span>
-      </div>
-      <div class="milestone">
-        <span class="date">Mar 17</span>
-        <span class="title">Patronage Engine Validated</span>
-        <span class="desc">S25: 184 passing tests across 7 engine test files. Full patronage lifecycle: contribution, allocation, distribution, equity tracking.</span>
-      </div>
-      <div class="milestone">
-        <span class="date">Mar 18-19</span>
-        <span class="title">FSC Convenes</span>
-        <span class="desc">Financial Systems Committee first meeting. Patronage parameterization initiated. Participants: Aaron G Neyer + Todd Youngblood.</span>
-      </div>
-      <div class="milestone">
-        <span class="date">Mar 16-20</span>
-        <span class="title">Design Audit Sprint Series</span>
-        <span class="desc">24 sprints in one extended session. 2,881 color token migrations, zero explicit any types, i18n infrastructure (295 keys, 14 namespaces in Chinese), mobile tab bar, command palette, Tailwind v4 theme.</span>
-      </div>
-      <div class="milestone">
-        <span class="date">Late Mar</span>
-        <span class="title">Thesis & Research</span>
-        <span class="desc">Techne thesis essay series (6 essays), flagship introduction series (4 essays recomposed), W1 April financial package, multisig balance sync engine, Six Intelligences philosophical commons.</span>
-      </div>
+    <div>
+      <div class="milestone"><span class="date">Feb 28</span><span class="title">Workshop Launch</span><span class="desc">Coordination system operational. First sprints: contributions system, initial coordination requests.</span></div>
+      <div class="milestone"><span class="date">Early Mar</span><span class="title">Foundation Sprints</span><span class="desc">Patronage event handlers, venture reconciliation, full platform audit, Formation Document Commons, Bioregional Knowledge Commons.</span></div>
+      <div class="milestone"><span class="date">Mar 17</span><span class="title">Patronage Engine Validated</span><span class="desc">184 passing tests across 7 engine test files. Full patronage lifecycle: contribution, allocation, distribution, equity tracking.</span></div>
+      <div class="milestone"><span class="date">Mar 18-19</span><span class="title">FSC Convenes</span><span class="desc">Financial Systems Committee first meeting. Patronage parameterization initiated.</span></div>
+      <div class="milestone"><span class="date">Mar 16-20</span><span class="title">Design Audit Sprint Series</span><span class="desc">24 sprints in one session. 2,881 color token migrations, TypeScript strict mode, i18n infrastructure (295 keys, Chinese), mobile tab bar, command palette, Tailwind v4 theme.</span></div>
+      <div class="milestone"><span class="date">Late Mar</span><span class="title">Thesis & Research</span><span class="desc">6-essay thesis series, flagship introduction series, W1 April financial package, multisig balance sync engine, Six Intelligences philosophical commons.</span></div>
     </div>
   </section>
 
-  <!-- 6. Governance -->
+  <!-- 7. Governance -->
   <section id="governance">
-    <h2><span class="section-num">06</span>Governance Decisions</h2>
-    <div class="section-subtitle">Decisions made during Q1</div>
-
+    <h2><span class="n">07</span>Governance Decisions</h2>
+    <div class="ss">Decisions made during Q1</div>
     <table>
-      <thead>
-        <tr><th>Date</th><th>Decision</th><th>Source</th></tr>
-      </thead>
+      <thead><tr><th>Date</th><th>Decision</th><th>Source</th></tr></thead>
       <tbody>
         <tr><td style="white-space:nowrap">Feb 6</td><td>Entity filed as Colorado Public Benefit LCA</td><td>SOS filing</td></tr>
-        <tr><td style="white-space:nowrap">Feb 26</td><td>Venture ownership confirmed (Parachute / Postage / Habitat)</td><td>Organizer discussion</td></tr>
-        <tr><td style="white-space:nowrap">Feb 27</td><td>Class 1 only voting — sole voting class with full governance participation</td><td>Governance discussion</td></tr>
+        <tr><td style="white-space:nowrap">Feb 26</td><td>Venture ownership confirmed (3 ventures assigned)</td><td>Organizer discussion</td></tr>
+        <tr><td style="white-space:nowrap">Feb 27</td><td>Class 1 only voting -- sole voting class with full governance participation</td><td>Governance discussion</td></tr>
         <tr><td style="white-space:nowrap">Mar 18-19</td><td>FSC convened; patronage parameterization initiated</td><td>FSC meeting</td></tr>
-        <tr><td style="white-space:nowrap">Mar 27</td><td>LCA meeting agenda created (sound rituals proposal from Kevin)</td><td>Meeting notes</td></tr>
       </tbody>
     </table>
-
     <h3>Patronage Framework (proposed, pending FSC finalization)</h3>
     <div class="bar-chart">
-      <div class="bar-row">
-        <div class="bar-label">Labor</div>
-        <div class="bar-track"><div class="bar-fill" style="width: 40%"></div></div>
-        <div class="bar-value">40%</div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-label">Revenue</div>
-        <div class="bar-track"><div class="bar-fill green" style="width: 30%"></div></div>
-        <div class="bar-value">30%</div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-label">Capital</div>
-        <div class="bar-track"><div class="bar-fill blue" style="width: 20%"></div></div>
-        <div class="bar-value">20%</div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-label">Community</div>
-        <div class="bar-track"><div class="bar-fill red" style="width: 10%"></div></div>
-        <div class="bar-value">10%</div>
-      </div>
+      <div class="bar-row"><div class="bar-label">Labor</div><div class="bar-track"><div class="bar-fill" style="width:40%"></div></div><div class="bar-value">40%</div></div>
+      <div class="bar-row"><div class="bar-label">Revenue</div><div class="bar-track"><div class="bar-fill green" style="width:30%"></div></div><div class="bar-value">30%</div></div>
+      <div class="bar-row"><div class="bar-label">Capital</div><div class="bar-track"><div class="bar-fill blue" style="width:20%"></div></div><div class="bar-value">20%</div></div>
+      <div class="bar-row"><div class="bar-label">Community</div><div class="bar-track"><div class="bar-fill red" style="width:10%"></div></div><div class="bar-value">10%</div></div>
     </div>
   </section>
 
-  <!-- 7. Infrastructure -->
+  <!-- 8. Infrastructure -->
   <section id="infra">
-    <h2><span class="section-num">07</span>Infrastructure Built</h2>
-    <div class="section-subtitle">From zero to operational in one quarter</div>
-
+    <h2><span class="n">08</span>Infrastructure Built</h2>
+    <div class="ss">From zero to operational in one quarter</div>
     <table>
-      <thead>
-        <tr><th>System</th><th>Q1 Start</th><th>Q1 End</th></tr>
-      </thead>
+      <thead><tr><th>System</th><th>Q1 Start</th><th>Q1 End</th></tr></thead>
       <tbody>
         <tr><td class="name">Legal entity</td><td>Not filed</td><td><span class="tag done">Active</span> SOS 20261163853</td></tr>
-        <tr><td class="name">Bylaws tool</td><td>Not built</td><td><span class="tag done">Live</span> GitHub Pages + Supabase</td></tr>
-        <tr><td class="name">co-op.us</td><td>Earlier versions</td><td><span class="tag done">127+ pages</span> i18n, Tailwind v4, a11y</td></tr>
-        <tr><td class="name">Workshop</td><td>Not built</td><td><span class="tag done">Active</span> 328+ sprints coordinated</td></tr>
+        <tr><td class="name">Bylaws tool</td><td>Not built</td><td><span class="tag done">Live</span> Interactive digital tool</td></tr>
+        <tr><td class="name">Platform (co-op.us)</td><td>Earlier versions</td><td><span class="tag done">127+ pages</span> i18n, a11y</td></tr>
+        <tr><td class="name">Workshop</td><td>Not built</td><td><span class="tag done">Active</span> 328+ sprints</td></tr>
         <tr><td class="name">Patronage engine</td><td>Concept</td><td><span class="tag done">Validated</span> 184 tests</td></tr>
-        <tr><td class="name">Thesis/essays</td><td>Notes</td><td><span class="tag done">10+ published</span></td></tr>
+        <tr><td class="name">Published essays</td><td>Notes</td><td><span class="tag done">10+ published</span></td></tr>
         <tr><td class="name">Watershed dashboard</td><td>Not built</td><td><span class="tag done">Live</span></td></tr>
-        <tr><td class="name">Chinese localization</td><td>Not planned</td><td><span class="tag done">295 keys</span> 14 namespaces</td></tr>
-        <tr><td class="name">Safe multisig</td><td>Operating</td><td><span class="tag done">$15,943 balance</span></td></tr>
-        <tr><td class="name">Mercury bank</td><td>Not opened</td><td><span class="tag open">Opened</span> $0 balance</td></tr>
+        <tr><td class="name">Safe multisig</td><td>Operating</td><td><span class="tag done">$15,943</span></td></tr>
+        <tr><td class="name">Mercury bank</td><td>Not opened</td><td><span class="tag open">Opened</span> $0</td></tr>
+        <tr><td class="name">Merkle accounting chain</td><td>Not conceived</td><td><span class="tag done">Genesis sealed</span></td></tr>
       </tbody>
     </table>
   </section>
 
-  <!-- 8. Open Items -->
+  <!-- 9. Open Items -->
   <section id="open-items">
-    <h2><span class="section-num">08</span>Open Items Entering Q2</h2>
-    <div class="section-subtitle">What remains unresolved</div>
-
-    <div class="open-item">
-      <div class="priority"><span class="tag blocker">Blocker</span></div>
-      <div class="content">
-        <div class="item-title">Schedule A -- Share Prices and Dues</div>
-        <div class="item-desc">Member admission is blocked. Cannot execute a Member Agreement without knowing what each class pays. Proposed ranges exist in bylaws draft but are not finalized.</div>
-      </div>
-    </div>
-    <div class="open-item">
-      <div class="priority"><span class="tag blocker">Blocker</span></div>
-      <div class="content">
-        <div class="item-title">Board Formation</div>
-        <div class="item-desc">Initial Board must be selected from 8 organizers. Required for member admission, Schedule A adoption, and most governance actions.</div>
-      </div>
-    </div>
-    <div class="open-item">
-      <div class="priority"><span class="tag blocker">Blocker</span></div>
-      <div class="content">
-        <div class="item-title">83(b) Election Window</div>
-        <div class="item-desc">30-day window from property transfer to file 83(b) elections. Timing depends on when membership interests are formally issued.</div>
-      </div>
-    </div>
-    <div class="open-item">
-      <div class="priority"><span class="tag open">High</span></div>
-      <div class="content">
-        <div class="item-title">Voting Rights Reconciliation</div>
-        <div class="item-desc">Feb 27 decision (Class 1 only voting) vs bylaws draft (Classes 2-3 currently grant voting). Draft needs to be updated to match the decision.</div>
-      </div>
-    </div>
-    <div class="open-item">
-      <div class="priority"><span class="tag open">High</span></div>
-      <div class="content">
-        <div class="item-title">FSC: Allocation Formula Weights</div>
-        <div class="item-desc">Parameterization initiated March 18-19 but not finalized. Engine validated and ready. Weights determine how contribution converts to patronage.</div>
-      </div>
-    </div>
-    <div class="open-item">
-      <div class="priority"><span class="tag open">High</span></div>
-      <div class="content">
-        <div class="item-title">FSC: Class 4 Return Structure</div>
-        <div class="item-desc">Kevin Owocki + Jeremy Wood have $100K committed. Return structure TBD by FSC. Needed before capital can be formally accepted.</div>
-      </div>
-    </div>
-    <div class="open-item">
-      <div class="priority"><span class="tag open">High</span></div>
-      <div class="content">
-        <div class="item-title">Jeff Pote Legal Review</div>
-        <div class="item-desc">Bylaws + Member Agreement review pending. Sub T remnant audit needed across adapted Meadow documents.</div>
-      </div>
-    </div>
-    <div class="open-item">
-      <div class="priority"><span class="tag open">High</span></div>
-      <div class="content">
-        <div class="item-title">1515 Walnut Lease</div>
-        <div class="item-desc">Terms in negotiation with landlord Lynn. Paul Bindel CCW engagement not yet started. Third floor lease projected at $7,000/mo starting June.</div>
-      </div>
-    </div>
+    <h2><span class="n">09</span>Open Items Entering Q2</h2>
+    <div class="ss">What remains unresolved</div>
+    <div class="open-item"><div><span class="tag blocker">Blocker</span></div><div class="content"><div class="item-title">Schedule A -- Share Prices and Dues</div><div class="item-desc">Member admission blocked. Cannot execute a Member Agreement without knowing what each class pays.</div></div></div>
+    <div class="open-item"><div><span class="tag blocker">Blocker</span></div><div class="content"><div class="item-title">Board Formation</div><div class="item-desc">Initial Board must be selected from organizers. Required for member admission, Schedule A, and most governance actions.</div></div></div>
+    <div class="open-item"><div><span class="tag blocker">Blocker</span></div><div class="content"><div class="item-title">83(b) Election Window</div><div class="item-desc">30-day window from property transfer. Timing depends on formal issuance of membership interests.</div></div></div>
+    <div class="open-item"><div><span class="tag open">High</span></div><div class="content"><div class="item-title">Voting Rights Reconciliation</div><div class="item-desc">Feb 27 decision (Class 1 only) vs bylaws draft. Draft needs updating to match.</div></div></div>
+    <div class="open-item"><div><span class="tag open">High</span></div><div class="content"><div class="item-title">FSC: Allocation Formula Weights</div><div class="item-desc">Parameterization initiated but not finalized. Engine validated and ready.</div></div></div>
+    <div class="open-item"><div><span class="tag open">High</span></div><div class="content"><div class="item-title">Class 4 Return Structure</div><div class="item-desc">$100K committed. Return structure TBD by FSC. Needed before capital can be formally accepted.</div></div></div>
+    <div class="open-item"><div><span class="tag open">High</span></div><div class="content"><div class="item-title">Legal Review</div><div class="item-desc">Bylaws + Member Agreement review pending with counsel. Sub T remnant audit needed.</div></div></div>
+    <div class="open-item"><div><span class="tag open">High</span></div><div class="content"><div class="item-title">Physical Space Lease</div><div class="item-desc">Terms in negotiation. Third floor projected at $7,000/mo starting June.</div></div></div>
   </section>
 
   <!-- Closing -->
-  <section style="text-align: center; padding: 4rem 0;">
+  <section style="text-align:center;padding:4rem 0;">
     <p class="lead">Q1 was the seed quarter. Q2 is when it has to grow.</p>
-    <p style="font-size: 0.85rem; color: var(--text-faint); margin-top: 1rem;">Where the Great Plains meet the Rocky Mountains, in the South Boulder Creek watershed, at 5,430 feet.</p>
+    <p style="font-size:0.85rem;color:var(--text-faint);margin-top:1rem;">Where the Great Plains meet the Rocky Mountains, in the South Boulder Creek watershed, at 5,430 feet.</p>
+    <div style="margin-top:2rem;font-family:var(--mono);font-size:0.7rem;color:var(--text-faint);">
+      Chain hash: a224831be627aac63259d3250f33ffc201a47f90513e412eb09faf6478add80f
+    </div>
   </section>
 
 </main>
 
 <footer>
   <p>RegenHub, LCA (DBA Techne) -- Q1 2026 Close Report -- Sealed April 1, 2026</p>
-  <p style="margin-top: 0.5rem;">Safe: <a href="https://app.safe.global/balances?safe=oeth:0xA594263e0449A28eAEf5BA6420E81cC1996b7782" style="color: var(--accent); text-decoration: none;">0xA594...b7782</a> (Optimism)</p>
-  <p style="margin-top: 0.5rem; font-size: 0.65rem;">Data sources: Xero accounting, Google Sheets pro forma, co-op.us Workshop API</p>
+  <p style="margin-top:0.5rem;">Safe: <a href="https://app.safe.global/balances?safe=oeth:0xA594263e0449A28eAEf5BA6420E81cC1996b7782">0xA594...b7782</a> (Optimism)</p>
+  <p style="margin-top:0.5rem;font-size:0.65rem;">Data sources: Xero accounting, Google Sheets pro forma (gws CLI), co-op.us Workshop API</p>
+  <p style="margin-top:0.25rem;font-size:0.65rem;">Merkle verification: all hashes are SHA-256. Chain genesis seeds from entity SOS ID. Independently verifiable.</p>
 </footer>
 
 <script>
-// Intersection Observer for TOC highlighting
 const sections = document.querySelectorAll('section[id]');
 const tocLinks = document.querySelectorAll('nav.toc a');
-
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       tocLinks.forEach(link => link.classList.remove('active'));
-      const active = document.querySelector(`nav.toc a[href="#${entry.target.id}"]`);
-      if (active) active.classList.add('active');
+      const a = document.querySelector(`nav.toc a[href="#${entry.target.id}"]`);
+      if (a) a.classList.add('active');
     }
   });
 }, { rootMargin: '-20% 0px -70% 0px' });
+sections.forEach(s => observer.observe(s));
 
-sections.forEach(section => observer.observe(section));
-
-// Animate bars on scroll
-const barFills = document.querySelectorAll('.bar-fill');
-const barObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.width = entry.target.style.width;
-      barObserver.unobserve(entry.target);
-    }
-  });
+const bars = document.querySelectorAll('.bar-fill');
+const bObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.style.width = e.target.dataset.target; bObs.unobserve(e.target); } });
 }, { threshold: 0.1 });
-
-barFills.forEach(bar => {
-  const targetWidth = bar.style.width;
-  bar.style.width = '0%';
-  bar.dataset.target = targetWidth;
-  barObserver.observe(bar);
-});
-
-// Restore widths after observation
-setTimeout(() => {
-  barFills.forEach(bar => {
-    bar.style.width = bar.dataset.target;
-  });
-}, 100);
+bars.forEach(b => { const w = b.style.width; b.style.width = '0%'; b.dataset.target = w; bObs.observe(b); });
+setTimeout(() => bars.forEach(b => { b.style.width = b.dataset.target; }), 100);
 </script>
-
 </body>
 </html>
