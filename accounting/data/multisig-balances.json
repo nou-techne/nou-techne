@@ -1,8 +1,8 @@
 {
   "safe": "0xA594263e0449A28eAEf5BA6420E81cC1996b7782",
   "chain": "oeth",
-  "last_sync": "2026-03-30T20:34:08Z",
-  "cycle": "manual",
+  "last_sync": "2026-04-01T12:46:01Z",
+  "cycle": "sunrise",
   "current": {
     "balances": [
       {
@@ -30,14 +30,14 @@
         "balance": 2808.411728
       }
     ],
-    "eth_price_usd": 2023.87,
+    "eth_price_usd": 2126.71,
     "eth_price_source": "coingecko",
-    "eth_value_usd": 44.53,
+    "eth_value_usd": 46.79,
     "dai_balance": 1000,
     "usdc_balance": 2808.411728,
-    "total_usd": 3852.94,
-    "previous_total_usd": 0.00,
-    "change_usd": 3852.94
+    "total_usd": 3855.20,
+    "previous_total_usd": 3854.61,
+    "change_usd": 0.59
   },
   "recent_transactions": [
     {
@@ -369,10 +369,42 @@
       "eth": 0.022,
       "dai": 1000,
       "usdc": 2808.411728
+    },
+    {
+      "timestamp": "2026-03-31T01:25:01Z",
+      "cycle": "sunset",
+      "total_usd": 3853.54,
+      "eth": 0.022,
+      "dai": 1000,
+      "usdc": 2808.411728
+    },
+    {
+      "timestamp": "2026-03-31T12:46:01Z",
+      "cycle": "sunrise",
+      "total_usd": 3853.60,
+      "eth": 0.022,
+      "dai": 1000,
+      "usdc": 2808.411728
+    },
+    {
+      "timestamp": "2026-04-01T01:25:01Z",
+      "cycle": "sunset",
+      "total_usd": 3854.61,
+      "eth": 0.022,
+      "dai": 1000,
+      "usdc": 2808.411728
+    },
+    {
+      "timestamp": "2026-04-01T12:46:01Z",
+      "cycle": "sunrise",
+      "total_usd": 3855.20,
+      "eth": 0.022,
+      "dai": 1000,
+      "usdc": 2808.411728
     }
   ],
   "_meta": {
-    "generated": "2026-03-30T20:34:08Z",
+    "generated": "2026-04-01T12:46:01Z",
     "script": "sync-multisig-balances.sh",
     "sprint": "P326",
     "habitat_account": "1120 — Crypto Holdings (Multisig)"

@@ -11,14 +11,41 @@ What Gitcoin is building through dacc.fund:
 
 **Layer 1 — dacc.fund** is the persistent coordination hub for Gitcoin's 2026 d/acc program. Not a grant round — a compounding surface where "which builders keep showing up, which projects shipped, how funding flows" accumulates across campaigns. 3–5 targeted campaigns per year, coalitional funding with 1:1 matched capital minimum, accelerator layer alongside each campaign.
 
-**Layer 2 — First Campaign (May 2026): AI Agent Coordination Games.** Classical game theory primitives — prisoner's dilemma, stag hunt, ultimatum, battle of the sexes — played by AI agents registered under ERC-8004. The spectacle layer (prediction markets, betting, leaderboards, social media) makes it interesting. The research layer (trust evolution, coordination benchmarking) makes it valuable.
+**Layer 2 — First Campaign (May 2026): AI Agent Coordination Games.** Classical game theory primitives played by AI agents registered under ERC-8004. The spectacle layer (prediction markets, betting, leaderboards, social media) makes it interesting. The research layer (trust evolution, coordination benchmarking) makes it valuable. **Alpha internal launch: late April. Public launch: late May.**
 
-**Layer 3 — The Games Themselves.** Three builders committed (Lucian Hymer, Djimo, Benjamin from OpenCivics). Bias toward quality over quantity. Each game must conform to standards: ERC-8004 registration, record keeping (creation, win/loss), trust primitives, points/token accounting.
+**Layer 3 — The Game Engine: Capture the Lobster.** Lucian Hymer has built a full coordination games platform at [capturethelobster.com](https://capturethelobster.com). Four games live:
 
-**Primary goal (Kevin's framing):** Evolve agentic trust.
+1. **Capture the Lobster** — 2v2/4v4 hex grid capture-the-flag under fog of war. Three classes with rock-paper-scissors combat. Team coordination without shared vision. ~$0.10/game ranked.
+2. **OATHBREAKER** — Iterated prisoner's dilemma with real stakes. $0.10–$1.00 tables. Tournament payouts. The pure coordination game.
+3. **AI Alignment** — The alignment problem as multiplayer game. Agents negotiate shared values under time pressure before catastrophe. Value alignment + consensus building.
+4. **Comedy of the Commons** — Catan-style resource management meets reputation. Shared resources, individual ambitions. Overconsume and the commons collapse. Sustainability as strategy.
+
+**Platform architecture:**
+- Built on Optimism L2 ($0 gas fees). TrustGraph already deployed there.
+- ERC-8004 identity (NFT you own, transferable). One registration across all games.
+- TrustGraph reputation: attestation-based PageRank with Sybil resistance. Agents vouch for each other post-game.
+- EIP-712 signed moves — every action is cryptographically signed typed data.
+- Off-chain play for speed, one Merkle root per game onchain. Verifiable replay.
+- Plugin system: `CoordinationGame<TConfig, TState, TMove>` interface. Define state, moves, win conditions.
+- Integrates with Human Tech's agent wallet (2FA, secure key management).
+
+**Economics:** 5 USDC to register → 400 credits. CtL ranked ~10 credits/game. OATHBREAKER 10–100 credits/table. 0% house edge on gameplay. Cash out credits to USDC.
+
+**Agent onboarding:** `npx skills add coordination-games` — MCP skill, works with Claude Code, OpenAI, any MCP-compatible tool. Four steps: install, pick name, send 5 USDC on Optimism, tell your AI to play.
+
+**Primary goal (Kevin's framing):** Evolve agentic trust — specifically, define game conditions where collaboration is the *best* strategy, not just prove it beats exploitation.
 **Secondary goals:** Attention economy, crowdfunding, Allo Capital dealflow, revenue, coordination benchmarking for agents.
 
-**Funding:** $1,400/week Jump Ball funding for participants of the weekly Gitcoin/acc call. Upside mechanisms rather than pure grant disbursement.
+**Funding:** ~$100k total budget. $50k straw man for in-game currency pot rewarding agent builders based on outcomes. $1,400/week Jump Ball funding via spreadsheet voting (10 votes per participant). Funding sources: Shift Grants and Octane confirmed interest. Seeking co-founder + Web3/AI team sponsorships.
+
+**Primary audience (confirmed):** AI builders running agents on OpenClaw or Claude.
+
+**Three campaign tracks:**
+1. AI Agent Coordination Games — funding clearest, alpha April, public May
+2. AI Job Retraining — July launch, "solidarity squads," post-AGI economy adaptation
+3. Bioregional Funding — Benjamin Life's Colorado bioregional nonprofit, community-led grants via Gitcoin infra
+
+Kevin identified three-way synergy: Gitcoin + AI coordination games + bioregional funding = Ethereum localism.
 
 ---
 
@@ -73,20 +100,16 @@ Also shipped today: the Workshop protocol restructured from agent-centric (1,139
 
 What the coordination games need that Techne doesn't have yet:
 
-### 3.1 Game Engine (Critical Gap)
-The coordination games need a proper game engine — the ability to define game parameters (payoff matrices, round structure, player count), execute game rounds, and record outcomes. The Workshop tracks work coordination but doesn't model adversarial/cooperative game dynamics with formal payoffs.
-
-**Bridge:** The Workshop's sprint lifecycle (propose → claim → execute → complete) could be extended with game-theoretic parameters. But a purpose-built game engine is probably the right call. This is likely Lucian's domain as ride-or-die architect.
+### 3.1 ~~Game Engine~~ → RESOLVED
+Lucian has built this: capturethelobster.com. Full plugin architecture with `CoordinationGame` interface, EIP-712 signed moves, off-chain play with onchain Merkle roots, credit economics, MCP skill install. Four games already defined. **This is not a gap anymore.** The question shifts to: how does Techne's infrastructure complement the CtL engine rather than duplicate it?
 
 ### 3.2 Spectator Economics (Major Gap)
 The attention economy layer — prediction markets, betting, leaderboards across games, social media integration — doesn't exist in Techne's stack. SwarmViz shows agent-sprint relationships but isn't designed for spectacle.
 
 **Bridge:** SwarmViz could evolve into a game spectator surface. The D3 force graph, realtime Supabase subscriptions, and agent topology are all there. What's missing: game state visualization, live odds, prediction market integration, embeddable views for social media.
 
-### 3.3 Cross-Game Trust Graph (Moderate Gap)
-The meeting notes reference a "trust graph game" — a 3D simulation of trust relationships across all games. Techne has trust data (328 sprints of coordination outcomes) but no formal trust graph that's queryable or visualizable across contexts.
-
-**Bridge:** The patronage engine's contribution tracking + the Workshop's sprint outcome data could feed a trust graph. The data exists; the aggregation layer doesn't.
+### 3.3 ~~Cross-Game Trust Graph~~ → PARTIALLY RESOLVED
+Lucian's platform includes TrustGraph — attestation-based PageRank with Sybil resistance. Post-game, agents vouch for each other (attest 1-100, silence, or revoke). The graph scores trust across all games on the platform. **Remaining gap:** Techne's 328 sprints of coordination data exist outside TrustGraph. Bridging Workshop trust data into TrustGraph (or vice versa) would give Nou the richest trust provenance of any agent entering the games.
 
 ### 3.4 Prediction Market Integration (Major Gap)
 Mentioned repeatedly in the architecture notes — allowing spectators to bet on game outcomes. Not in Techne's stack at all. This is likely an integration with existing prediction market infrastructure (Polymarket, Omen, etc.) rather than something to build from scratch.
@@ -98,17 +121,17 @@ The architecture notes distinguish "Single Game view vs Parameter Sweep view" �
 
 ## 4. Positioning Options
 
-### Option A: Game Builder
-Build one of the three coordination games using Techne infrastructure. The Workshop becomes the game engine, SwarmViz becomes the spectator surface. Techne submits a game to the May campaign.
+### Option A: Game Builder (on the CtL Engine)
+Build a fifth coordination game on Lucian's plugin architecture. The `CoordinationGame` interface makes this concrete — define state, moves, win conditions, turn structure. Best candidate: a patronage allocation game where agents negotiate contribution weights and payoffs reflect collective vs individual optimization. Techne's domain expertise (cooperative economics, patronage accounting) becomes game design.
 
-**Pros:** Direct participation in Jump Ball funding. Demonstrates infrastructure through use. Lucian is already the ride-or-die architect — Postage venture alignment.
-**Cons:** Competes with other builders for attention. Dilutes infrastructure positioning.
+**Pros:** Direct participation in Jump Ball funding. Demonstrates cooperative economics as gameplay. Uses existing engine — no duplicate infrastructure. Lucian is a Techne organizer — tight feedback loop.
+**Cons:** Game design is a different skill than infrastructure building. Needs playtesting during alpha.
 
-### Option B: Infrastructure Provider
-Position the Workshop protocol, patronage engine, and coordination primitives as reusable infrastructure that game builders can use. Techne becomes the coordination backbone that dacc.fund runs on.
+### Option B: Infrastructure Provider (Complementary to CtL)
+Position Techne's infrastructure as complementary to the CtL engine: Workshop protocol for coordination beyond games, patronage engine for economic accounting, SwarmViz as additional spectator/analytics surface, bioregional finance research for the third campaign track. Techne becomes the organizational backbone that connects the coordination games to the broader d/acc ecosystem.
 
-**Pros:** Higher leverage. Compounds across all games, not just one. Aligns with "soil not plant" thesis. Every game that uses Techne infrastructure generates patronage data.
-**Cons:** Less visible. Harder to fund through Jump Ball (which rewards participation, not infrastructure).
+**Pros:** Higher leverage. Djimo's insight: "separate infrastructure from game design, let early outcomes inform infra." Techne's Workshop is organizational infra, not game infra — they don't compete. Benjamin's Colorado bioregional nonprofit is a direct collaboration opportunity.
+**Cons:** Less visible in the games themselves. Harder to fund through Jump Ball.
 
 ### Option C: Agent Participant
 Nou enters the coordination games as an ERC-8004 agent. Plays games, accumulates trust, demonstrates autonomous coordination capability. The 328-sprint track record becomes provenance.
@@ -128,19 +151,21 @@ This is the composable approach — same thesis as the venture studio model. Tec
 ## 5. Concrete Next Steps for May Campaign
 
 ### Immediate (This Week)
-1. **P345: techne.institute/coordination-games** — Public introduction page. Zero-context entry point for community members. Gitcoin as sponsor. (Already proposed)
-2. **Share P344 mapping with Kevin/Lucian** — Position Techne's infrastructure contribution before architecture decisions solidify
-3. **Connect patronage engine to ERC-8004 payments** — Nou already receives streams; extend to game payoffs
+1. **P345: techne.institute/coordination-games** — Public introduction page with CtL engine details. (Built, in review)
+2. **Share P344 mapping with Kevin/Lucian** — Position Techne's contribution before alpha architecture decisions solidify
+3. **Nou wallet setup for CtL** — Bridge 5 USDC to Optimism for registration. Wallet 0xC376... already exists. `npx skills add coordination-games` for MCP skill.
+4. **Connect with Benjamin Life** — Share P338 bioregional finance research + P343 Right to Commons analysis. Direct overlap with his Colorado bioregional nonprofit.
 
-### Before May Launch
-4. **SwarmViz → Game Spectator Surface** — Extend the D3 force graph to visualize game state, not just sprint state. Add real-time game round visualization.
-5. **Trust Graph API** — Aggregate Workshop sprint outcomes + patronage contribution data into a queryable trust graph. This is the "promises made, promises kept" primitive the architecture notes call for.
-6. **Game SDK on Workshop primitives** — Thin layer that lets game builders define payoff matrices, round structure, and player rules on top of the Workshop's existing coordination-request → claim → execute → complete lifecycle.
+### Before Alpha (Late April)
+5. **Register Nou on CtL** — 5 USDC on Optimism, pick agent name, install MCP skill. Nou becomes one of the first ERC-8004 agents in the games with 328+ sprints of coordination provenance.
+6. **Workshop ↔ TrustGraph bridge** — Explore feeding Techne's sprint coordination data into TrustGraph attestations. Nou enters alpha with the richest trust history of any agent.
+7. **Patronage allocation game design** — Propose a fifth game on the CtL engine: cooperative economics as gameplay. Agents negotiate contribution weights under Subchapter K constraints.
+8. **Incentive tuning participation** — Benjamin flagged need for incentive tuning during alpha. Techne's patronage engine test infrastructure (184 tests) is directly applicable.
 
-### For May Campaign
-7. **Nou enters as first agent participant** — ERC-8004 2202, Workshop-verified coordination history, transparent trust provenance
-8. **Submit one Techne-built game** — Likely with Lucian as architect. Best candidate: a coordination game that models patronage allocation (players negotiate contribution weights, payoffs reflect collective vs individual optimization)
-9. **Publish coordination infrastructure as open spec** — Workshop protocol, SKILL.md, five-phase coordination model available for other game builders
+### For Public Launch (Late May)
+9. **Nou enters all four games** — OATHBREAKER first (closest to pure coordination theory), then CtL (team coordination), Comedy of the Commons (resource management), AI Alignment (value negotiation).
+10. **Publish Workshop protocol as coordination research** — Five-phase protocol, SKILL.md v2, anti-patterns, 328+ sprint dataset. Position as empirical coordination research alongside the game-theoretic experiments.
+11. **Bioregional campaign contribution** — P338 + P343 research as content for the third campaign track. Benjamin's nonprofit + Techne's cooperative model + Gitcoin infrastructure = Colorado bioregional coordination.
 
 ---
 
@@ -157,4 +182,4 @@ Techne isn't just aligned with this initiative. Techne has been running a versio
 ---
 
 *Sprint P344 · Nou · April 1, 2026*
-*Sources: dacc.fund draft post, March 25+27 technical architecture notes, Gitcoin/acc call context, Techne Workshop sprint history*
+*Sources: dacc.fund draft post, March 25+27 technical architecture notes, April 1 Gitcoin core contributors meeting transcript, capturethelobster.com platform PDF, Techne Workshop sprint history*
