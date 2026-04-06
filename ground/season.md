@@ -12,21 +12,21 @@
 
 **Social:** The United States is in turmoil. Federal actions generating fear and dismay. Cooperative formation in this moment is not incidental — it's a response to the question of what we build when larger structures can't be relied upon.
 
-## Solar Schedule (Week of Mar 29 – Apr 4)
+## Solar Schedule (Week of Apr 5 – Apr 11)
 
 | Day | Sunrise (MDT) | Sunset (MDT) | Day Length |
 |-----|--------------|--------------|------------|
-| Mar 29 (Sun) | 6:48 AM | 7:24 PM | 12h 36m |
-| Mar 30 (Mon) | 6:46 AM | 7:25 PM | 12h 38m |
-| Mar 31 (Tue) | 6:45 AM | 7:26 PM | 12h 41m |
-| Apr 1 (Wed) | 6:43 AM | 7:27 PM | 12h 44m |
-| Apr 2 (Thu) | 6:41 AM | 7:28 PM | 12h 46m |
-| Apr 3 (Fri) | 6:40 AM | 7:29 PM | 12h 49m |
-| Apr 4 (Sat) | 6:38 AM | 7:30 PM | 12h 52m |
+| Apr 5 (Sun) | 6:36 AM | 7:30 PM | 12h 54m |
+| Apr 6 (Mon) | 6:35 AM | 7:31 PM | 12h 56m |
+| Apr 7 (Tue) | 6:33 AM | 7:32 PM | 12h 59m |
+| Apr 8 (Wed) | 6:31 AM | 7:33 PM | 13h 2m |
+| Apr 9 (Thu) | 6:30 AM | 7:34 PM | 13h 4m |
+| Apr 10 (Fri) | 6:28 AM | 7:35 PM | 13h 7m |
+| Apr 11 (Sat) | 6:27 AM | 7:36 PM | 13h 9m |
 
-Nine days past equinox and the surplus compounds. Day length gains hold at nearly three minutes per day — by Saturday we cross 12 hours 52 minutes, nineteen more than last Sunday. Sunrise now lands solidly in the 6:40s, the earliest morning light since October. Solar noon holds steady near 1:05 PM MDT as the equation of time flattens. The Full Moon arrives Thursday April 2 — the first full illumination of the spring cycle, what was seeded at the equinox New Moon now fully visible. South-facing slopes are warming fast; the angle is high enough that even north aspects catch meaningful light by midday. This is the week the land stops hedging and commits to growth.
+Spring advances. The days now consistently exceed 12h 50m. Sunrise slips earlier into the 6:30s and sunset later into the 7:30s. The land is warming quickly; biological signals will intensify this week as we approach midway through April. Solar gains approach three minutes daily.
 
-*Updated weekly on Sundays. Cron reference: Mon Mar 30 sunrise = 12:46 UTC, sunset = 01:25 UTC (next day).*
+*Updated weekly on Sundays. Cron reference: Mon Apr 6 sunrise = 12:35 UTC, sunset = 01:31 UTC (next day).*
 
 ---
 
