@@ -60,7 +60,7 @@ The operating agreement is the legal DNA of RegenHub. It defines membership, gov
 
 **Identity.** The cooperative. Its members (organized by class). Its board of directors. Its committees (Financial Systems Committee, others as formed). Its ventures. Its registered agent. The agreement names every entity that has legal standing within the cooperative's governance structure.
 
-**State.** The cooperative's current membership roster and each member's class. The board's current composition. Committee assignments. The cooperative's registered address (1515 Walnut, Boulder, CO). The current fiscal year. Whether the cooperative is in good standing with the Colorado Secretary of State. The agreement defines what "current" means for each entity.
+**State.** The cooperative's current membership roster and each member's class. The board's current composition. Committee assignments. The cooperative's registered address (Walnut, Boulder, CO). The current fiscal year. Whether the cooperative is in good standing with the Colorado Secretary of State. The agreement defines what "current" means for each entity.
 
 **Relationship.** Member-to-cooperative: governed by the Member Agreement, which specifies rights, obligations, and economic terms per class. Director-to-cooperative: fiduciary duty, term limits, election procedures. Committee-to-board: advisory or delegated authority. Venture-to-cooperative: the 1% reciprocity commitment, shared infrastructure access, autonomy within studio guidelines. Investor-to-cooperative: capital contribution terms, return mechanism (revenue share, not equity appreciation), non-voting status.
 

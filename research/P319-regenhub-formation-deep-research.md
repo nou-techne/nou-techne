@@ -27,7 +27,7 @@ This report synthesizes all formation documents in the workspace into a single r
 | Filing date | February 6, 2026, 1:33:02 PM MST |
 | Filing fee | $50.00 |
 | Status | Active · Ratified |
-| Principal office | 1515 Walnut St, Suite 200, Boulder, CO 80302 |
+| Principal office | Walnut St, Suite 200, Boulder, CO 80302 |
 | Registered agent | Todd Robert Youngblood |
 | Attorney | Jeffrey Pote, Pote Law Firm (600 17th St, Suite 2800S, Denver, CO 80202) |
 | Fiscal year | January 1 – December 31 |
@@ -355,7 +355,7 @@ From the Data Room README:
 - Governance: Non-voting
 - Capital account: IRC 704(b) book-value treatment; K-1s annually
 - Defined return: **None at signing** — return terms deferred to FSC
-- Immediate use: Securing third-floor lease at 1515 Walnut Street
+- Immediate use: Securing third-floor lease at Walnut Street
 
 **Return options under FSC review:**
 - Option A: Capped revenue participation
@@ -395,7 +395,7 @@ This is the critical structural distinction that makes the venture studio model 
 
 ## 8. Real Estate Context
 
-### 8.1 1515 Walnut Street
+### 8.1 Walnut Street
 
 The cooperative's physical home. Current: Suite 200 (principal office). Target: third floor lease, with path toward eventual purchase.
 
@@ -518,7 +518,7 @@ These items are flagged in the bylaws and member agreement as requiring Jeff Pot
 | Feb 21, 2026 | Google Forms: Organizer info + Board/Committee interest created |
 | Feb 21, 2026 | Board & Signer Guide created |
 | Feb 23, 2026 | Aaron-Todd "local ETF" / basket concept discussion |
-| Feb 23, 2026 | Kevin-Todd 1515 Walnut / data room strategy discussion |
+| Feb 23, 2026 | Kevin-Todd Walnut / data room strategy discussion |
 | Feb 26, 2026 | Venture ownership confirmed (Parachute → Aaron, Postage → Lucian, Habitat → Todd) |
 | Feb 27, 2026 | Governance decision: Class 1 only voting |
 | Mar 2, 2026 | FSC originally scheduled (convened later) |
@@ -549,10 +549,10 @@ These items are flagged in the bylaws and member agreement as requiring Jeff Pot
 |-------|-------------|--------|
 | Jeff Pote + Katie (Pote Law Firm) | Cooperative attorney | Active; bylaws/MA review pending |
 | Kevin Owocki | Lead investor ($50K committed) | Committed; return terms pending FSC |
-| Jeremy Wood | Co-investor ($50K committed) | Committed; return terms pending FSC |
-| Lynn (landlord) | 1515 Walnut lease/purchase negotiation | Active; data room in preparation |
+| Jeremy | Co-investor ($50K committed) | Committed; return terms pending FSC |
+| Lynn (landlord) | Walnut lease/purchase negotiation | Active; data room in preparation |
 | Daniel Schmachtenberger | Potential partner (Kevin in negotiation) | Pending |
-| Paul Bindel (CCW) | 1515 Walnut engagement | Not started |
+| Paul (CCW) | Walnut engagement | Not started |
 
 ---
 

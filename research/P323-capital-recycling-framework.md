@@ -43,7 +43,7 @@ Capital recycling flows into three pools, each serving a different time horizon 
 - Operating reserve (target: 3 months of fixed costs)
 - Emergency fund for unexpected expenses (equipment failure, legal costs)
 - Working capital for seasonal cash flow gaps
-- Lease deposit or facility maintenance reserve (1515 Walnut)
+- Lease deposit or facility maintenance reserve (Walnut)
 
 **Disbursement authority:** Board approval required for any withdrawal. Emergency withdrawals by President with Board ratification within 72 hours. Quarterly balance reporting to membership.
 
@@ -57,7 +57,7 @@ Capital recycling flows into three pools, each serving a different time horizon 
 - Patronage refund reinvestment (retained allocations cycled back into infrastructure)
 - Shared compute, tools, and coordination infrastructure
 - Seed capital for new ventures entering the basket
-- Physical space improvements (1515 Walnut buildout)
+- Physical space improvements (Walnut buildout)
 - Habitat patronage engine development and maintenance
 
 **Disbursement authority:** Board approval with Financial Systems Committee recommendation. Annual investment plan presented to membership at annual meeting.

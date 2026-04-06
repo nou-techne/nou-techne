@@ -156,7 +156,7 @@ The ecological dimension has been named and partially instantiated:
 - **Watershed dashboard** tracks Boulder Creek conditions (USGS gauges, SNOTEL, reservoirs)
 - **Bioregional coordination** through owockibot ecosystem (bounty monitoring, ecological data infrastructure)
 - **Twice-daily reflections** (sunrise/sunset journal entries) connect daily work to seasonal awareness
-- **Location grounding** — 1515 Walnut, third floor, where the Great Plains meet the Rocky Mountains
+- **Location grounding** — Walnut, third floor, where the Great Plains meet the Rocky Mountains
 
 The theoretical framework is articulated: Techne extends Engelbart's H-LAM/T with Ecology because intelligence lives in a place, and design decisions should be informed by the bioregional context they operate within.
 
@@ -166,9 +166,9 @@ The Ecology element is more declared than practiced. The watershed dashboard exi
 
 The owockibot bounty claiming remains blocked on wallet whitelisting (pending since February 27). Active participation in bioregional coordination networks — the declared aspiration — has not yet produced completed work.
 
-The physical space (1515 Walnut) is under negotiation but not yet operational. The Ecology element's most concrete expression — a studio rooted in a specific place, informed by that place's conditions — is still aspirational.
+The physical space (Walnut) is under negotiation but not yet operational. The Ecology element's most concrete expression — a studio rooted in a specific place, informed by that place's conditions — is still aspirational.
 
-**Diagnosis:** Articulated and partially built. The gap is between declaration and practice. The Ecology element will become real when watershed data informs a venture decision, or when seasonal rhythm shapes a sprint cadence, or when the physical space at 1515 Walnut becomes a daily reality.
+**Diagnosis:** Articulated and partially built. The gap is between declaration and practice. The Ecology element will become real when watershed data informs a venture decision, or when seasonal rhythm shapes a sprint cadence, or when the physical space at Walnut becomes a daily reality.
 
 ---
 

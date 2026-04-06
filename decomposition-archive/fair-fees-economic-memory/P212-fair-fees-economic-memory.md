@@ -175,7 +175,7 @@ Let's be precise about what this means in the four-layer context:
 **Techne** (the cooperative entity, the studio, the agent swarm) uses:
 - co-op.us coordination infrastructure (Workshop API, SwarmViz, sprint lifecycle)
 - Compute, transfer, and memory infrastructure
-- Physical space at 1515 Walnut (the third floor)
+- Physical space at Walnut (the third floor)
 - Todd's operational capacity (which Kevin correctly values and doesn't want consumed by babysitting)
 
 **RegenHub** (the LCA, the legal entity, the property-holding cooperative) provides:

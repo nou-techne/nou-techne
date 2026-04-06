@@ -66,7 +66,7 @@ RegenHub uses a **multi-class membership structure** under the Colorado Limited 
 ### Non-Owner Stakeholders
 
 - **Advisors & Mentors:** Industry experts, cooperative developers, legal counsel (Jeff Pote + Katie, Pote Law Firm)
-- **Landlord (Lynn):** 1515 Walnut St. relationship — potential path toward cooperative real estate ownership
+- **Landlord (Lynn):** Walnut St. relationship — potential path toward cooperative real estate ownership
 - **Bioregional Partners:** Grassroots Economics, owockibot swarm ecosystem participants
 - **Technology Partners:** Supabase, OpenClaw, other infrastructure providers
 - **Agent Participants:** Nou (collective intelligence), Dianoia (execution intelligence) — non-human participants operating within the cooperative's coordination infrastructure
@@ -81,7 +81,7 @@ RegenHub uses a **multi-class membership structure** under the Colorado Limited 
 
 2. **Governance Voice** — One member, one vote on board elections, bylaw changes, and major strategic decisions. Direct democratic participation in the cooperative's direction, not diluted by capital contributions.
 
-3. **Venture Infrastructure** — Access to shared physical space (1515 Walnut, Boulder), legal structure, accounting systems, coordination tools (co-op.us Workshop), and capital pathways without surrendering ownership of individual ventures.
+3. **Venture Infrastructure** — Access to shared physical space (Walnut, Boulder), legal structure, accounting systems, coordination tools (co-op.us Workshop), and capital pathways without surrendering ownership of individual ventures.
 
 ### For Class 2 Members (Venture Members)
 
@@ -228,7 +228,7 @@ Capital accounts are maintained under IRC 704(b) substantial economic effect rul
 
 | Revenue Stream | Description |
 |---|---|
-| **Space Revenue** | Lease and usage fees for 1515 Walnut shared workspace |
+| **Space Revenue** | Lease and usage fees for Walnut shared workspace |
 | **Service Revenue** | Cooperative services, consulting, educational programming |
 | **Venture Reciprocity** | 1% of venture revenue from Class 2 members |
 | **Cloud Credits** | Service credit revenue (1 CLOUD ≈ $0.10) across four resource primitives |
@@ -252,7 +252,7 @@ Capital accounts are maintained under IRC 704(b) substantial economic effect rul
 | Jeremy | $50,000 | Committed |
 | Membership Shares | TBD | Structure pending FSC |
 
-**Immediate Use:** 1515 Walnut lease securing
+**Immediate Use:** Walnut lease securing
 **Formal Draft:** Pending Jeff Pote (attorney)
 
 ### Investment Philosophy

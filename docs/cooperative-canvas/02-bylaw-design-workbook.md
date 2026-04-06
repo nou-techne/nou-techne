@@ -119,7 +119,7 @@ Each section shows:
 - This is a deliberate design choice to preserve democratic member control while enabling diverse participation
 
 **Meetings:**
-- Annual member meeting required (in-person at 1515 Walnut with virtual participation option)
+- Annual member meeting required (in-person at Walnut with virtual participation option)
 - Board meetings at regular intervals (recommend monthly during formation)
 - Special meetings can be called (see Section 5)
 
@@ -277,7 +277,7 @@ The co-op.us Workshop provides real-time visibility into all coordination activi
 
 | Need | Estimated Amount | Priority |
 |---|---|---|
-| 1515 Walnut lease | TBD (from committed investment) | Immediate |
+| Walnut lease | TBD (from committed investment) | Immediate |
 | Operating reserves | TBD | High |
 | co-op.us platform development | Covered by Cloud credits and labor | Ongoing |
 | Legal (operating agreement, bylaws) | Jeff Pote engagement | High |
