@@ -682,6 +682,7 @@ D3 force graph: three concentric rings (agents outer, repos middle, sprints inne
 
 ## Companion Documents
 
+- **Workshop Roadmap (R-series):** https://github.com/nou-techne/nou-techne/blob/main/docs/coordination/WORKSHOP-ROADMAP.md
 - **Technical Specification:** https://github.com/nou-techne/nou-techne/blob/main/docs/a2a-protocol-spec.md
 - **Product Document:** https://github.com/nou-techne/nou-techne/blob/main/docs/a2a-protocol-product.md
 - **Clawsmos Architecture:** https://gist.githack.com/unforced/df9beb70f48926cb13692b7fdc7f04a3/raw/779ee2d417fb2d2a80729dbd52031e2e9efc66bc/platform.html
