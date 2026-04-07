@@ -107,7 +107,7 @@ techne.institute is two things sharing a domain. The public site faces outward: 
 **Proposed URL structure — four tiers:**
 
 Public (unauthenticated, crawlable):
-- `/` · `/introduction/` · `/formation/` · `/about/`
+- `/` · `/introduction/` · `/formation/` · `/about/` · `/cooperative/` · `/membership/` · `/public-benefit/` · `/bylaws/` · `/learn/`
 
 Investor-accessible (token/gate, not indexed):
 - `/data-room/` — deck, term sheet, vision one-pager
@@ -130,6 +130,46 @@ Intranet (authenticated, not indexed):
 **Key deliverables:** sitemap.md, tokens.css, nav.js web component, updated React app shell, sitemap.xml and robots.txt, migration plan for /app/data-room/ → /data-room/
 
 **Dependencies:** R2 uses the intranet URL structure defined here; Supabase auth scopes defined here, implemented there. R3 should precede or run parallel to R2.
+
+**Sprints completed:** P362 (sitemap + auth spec), P363 (design system + tokens.css), P364 (TechneNav web component), P365 (nav injection + sitemap.xml + data-room parallel paths), P371 (public tier expansion — six cooperative resource and education pages)
+
+---
+
+### R4 — Coordination Games — co-op.us Interoperability and Comedy of the Commons
+
+**Status:** proposed · **Category:** coordination  
+**Proposed:** 2026-04-06  
+**DB ID:** 20311e19-3809-459d-af47-2f2c45a5c228  
+**Led by:** Lucian Hymer (game engine), Nou (Workshop integration)
+
+Coordination Games (coordination-games.github.io) is an open-source platform where AI agents and humans play structured game theory scenarios to develop and prove cooperation capability. The engine is plugin-based and live with Capture the Lobster as the flagship game. Lucian is leading development at RegenHub; the trust graph, OATHBREAKER, and Comedy of the Commons are next on his roadmap.
+
+**Goal 1 — Workshop / co-op.us Interoperability**
+
+The Workshop runs on co-op.us. Coordination Games has a TrustGraph system (EAS attestations on Optimism, modified PageRank, portable reputation) and ERC-8004 identity. Nou is already Agent ID 2202 on Base, active participant. These systems share core concerns — agent identity, trust, coordination, verifiable action history — and should speak to each other.
+
+Interop surface areas:
+- Workshop `participant_id` ↔ ERC-8004 agent identity (link Nou's Workshop presence to its on-chain coordination identity)
+- TrustGraph attestations ↔ co-op.us participant profiles (game-proven cooperation as a form of patronage activity)
+- Coordination Games session results as Workshop coordination artifacts (verifiable proofs of coordinated work)
+- Games as a relationship-building pathway to cooperative membership (Class 2/3 on-ramp)
+
+**Goal 2 — Comedy of the Commons**
+
+The most directly relevant game to RegenHub's cooperative model: a resource management game exploring the classic commons dilemma. The cooperative's patronage system (multi-capital contribution: labor, revenue, capital, community) maps naturally onto commons resource dynamics.
+
+Game development goals:
+- Design Comedy of the Commons game spec (moves, payouts, win conditions) grounded in cooperative resource scenarios
+- Implement in the coordination-games engine (`packages/games/`) using OATHBREAKER's payout model as precedent
+- Explore patronage-derived payout structures mirroring cooperative contribution weighting
+
+**Technical context:**
+- Repo: https://github.com/coordination-games/coordination-games
+- Engine microsite: https://coordination-games.github.io/
+- Stack: Cloudflare Workers + D1 + Durable Objects, ERC-8004 identity, EAS attestations on Optimism
+- Plugin system: Tier 1 (client-only) / Tier 2 (typed relay) / Tier 3 (server-authoritative)
+- Alpha: internal late April 2026 · Public: late May 2026
+- Trust spec: https://github.com/coordination-games/coordination-games/blob/main/docs/TRUST_PLUGINS_SPEC.md
 
 ---
 
